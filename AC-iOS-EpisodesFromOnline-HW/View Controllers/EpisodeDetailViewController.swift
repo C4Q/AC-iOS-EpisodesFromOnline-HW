@@ -26,10 +26,10 @@ class EpisodeDetailViewController: UIViewController {
         
         episodeImageView.image = nil
         episodeTitleLabel.text = episode.name
-        episodeSeasonLabel.text = "Season: \(episode.season ?? 0)"
-        episodeNumberLabel.text = "Episode: \(episode.number ?? 0)"
-        episodeAirdateLabel.text = "Airdate: " + (episode.airdate ?? "No information available.")
-        episodeSummaryLabel.text = episode.summary ?? "No information available."
+        episodeSeasonLabel.text = "Season: " + (episode.season?.description ?? "")
+        episodeNumberLabel.text = "Episode: " + (episode.number?.description ?? "")
+        episodeAirdateLabel.text = "Airdate: " + (episode.airdate ?? "")
+        episodeSummaryLabel.text = episode.summary?.html2String ?? "No information available."
         
         if let imageURL = episode.image?.original {
             let completion: (UIImage) -> Void = { (onlineImage: UIImage) in

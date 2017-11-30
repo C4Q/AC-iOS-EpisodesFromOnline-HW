@@ -28,6 +28,7 @@ extension TVShowTableViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchText = searchText.components(separatedBy: " ").joined(separator: "%20")
         searchTerm = searchText
     }
     
