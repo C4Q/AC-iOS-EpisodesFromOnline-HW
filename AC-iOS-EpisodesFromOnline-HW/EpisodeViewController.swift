@@ -9,16 +9,9 @@
 import UIKit
 
 class EpisodeViewController: UIViewController {
-
-    @IBOutlet weak var episodeTableView: UITableView! {
-        didSet {
-        episodeTableView.dataSource = self
-        }
-    }
     
     var episodeEndpoint: String! {
         didSet {
-            print(episodeEndpoint)
             EpisodeAPIClient.manager.getEpisodes(from: episodeEndpoint,
                                                  completionHandler: {self.episodes = $0},
                                                  errorHandler: {print($0)})
@@ -28,6 +21,12 @@ class EpisodeViewController: UIViewController {
     var episodes: [Episode]? {
         didSet {
             episodeTableView.reloadData()
+        }
+    }
+    
+    @IBOutlet weak var episodeTableView: UITableView! {
+        didSet {
+            episodeTableView.dataSource = self
         }
     }
     
@@ -76,6 +75,7 @@ extension EpisodeViewController: UITableViewDataSource {
                 }
             }
         }
+        
         return cell
     }
     

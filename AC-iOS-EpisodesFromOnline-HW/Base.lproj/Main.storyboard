@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AZT-Ea-gjB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Bs-1D-yRd">
-                                <rect key="frame" x="0.0" y="120" width="600" height="480"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchResultCell" textLabel="hMr-WS-DhR" detailTextLabel="58f-do-N8R" style="IBUITableViewCellStyleSubtitle" id="qi9-zf-TF3">
@@ -47,25 +50,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8vO-wp-GPd">
+                                <rect key="frame" x="178" y="383" width="20" height="20"/>
+                            </activityIndicatorView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6VQ-Xd-yzX">
-                                <rect key="frame" x="0.0" y="64" width="600" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6VQ-Xd-yzX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="B7T-rg-egJ"/>
+                            <constraint firstItem="8vO-wp-GPd" firstAttribute="centerX" secondItem="9Bs-1D-yRd" secondAttribute="centerX" id="DeE-4x-sEE"/>
                             <constraint firstItem="9Bs-1D-yRd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Oea-Jn-vUa"/>
                             <constraint firstItem="9Bs-1D-yRd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YoF-dw-eOo"/>
                             <constraint firstItem="6VQ-Xd-yzX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cZZ-Bc-1qc"/>
                             <constraint firstItem="9Bs-1D-yRd" firstAttribute="top" secondItem="6VQ-Xd-yzX" secondAttribute="bottom" id="i7b-y3-vhi"/>
                             <constraint firstItem="9Bs-1D-yRd" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="wCl-56-QgJ"/>
                             <constraint firstItem="6VQ-Xd-yzX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yHS-K4-O66"/>
+                            <constraint firstItem="8vO-wp-GPd" firstAttribute="centerY" secondItem="9Bs-1D-yRd" secondAttribute="centerY" id="zbs-NG-0Ch"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="n5A-Mf-naT"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="8vO-wp-GPd" id="CHa-Ds-hyN"/>
                         <outlet property="searchBar" destination="6VQ-Xd-yzX" id="dYj-RQ-DT9"/>
                         <outlet property="searchTableView" destination="9Bs-1D-yRd" id="h08-lD-0C3"/>
                     </connections>
@@ -79,11 +88,11 @@
             <objects>
                 <viewController id="eZ7-gC-1wS" customClass="EpisodeViewController" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="itm-GV-w3k">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W1p-tL-vag">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodeCell" textLabel="luJ-UF-OFg" detailTextLabel="Oqm-ME-K5M" style="IBUITableViewCellStyleSubtitle" id="h92-V8-Zx3">

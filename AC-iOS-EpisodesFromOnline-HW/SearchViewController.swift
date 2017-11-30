@@ -8,8 +8,10 @@
 
 import UIKit
 
+
 class SearchViewController: UIViewController {
 
+    
     var searchTerm: String? {
         didSet {
             showSearchEndpoint = "http://api.tvmaze.com/search/shows?q=\(searchTerm!)"
@@ -18,8 +20,10 @@ class SearchViewController: UIViewController {
     
     var showSearchEndpoint: String? {
         didSet {
+            tableViewState = .loading
             SearchAPIClient.manager.getSearchResults(from: showSearchEndpoint!,
-                                                     completionHandler: {self.searchResults = $0},
+                                                     completionHandler: {self.searchResults = $0
+                                                                        self.tableViewState = .complete},
                                                      errorHandler: {print($0)})
         }
     }
@@ -30,6 +34,21 @@ class SearchViewController: UIViewController {
         }
     }
     
+    
+    var tableViewState: NetworkHelper.State? {
+        didSet {
+            guard let state = tableViewState else { return }
+            switch state {
+            case .loading:
+                activityIndicator.startAnimating()
+            case .complete:
+                activityIndicator.stopAnimating()
+            }
+        }
+    }
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.delegate = self
@@ -54,14 +73,15 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        SearchAPIClient.manager.getSearchResults(from: "http://api.tvmaze.com/search/shows?q=batman",
-                                                 completionHandler: {self.searchResults = $0},
-                                                 errorHandler: {print($0)})
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("Single")
     }
 
 }
@@ -78,6 +98,8 @@ extension SearchViewController: UITableViewDataSource {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath)
         let index = indexPath.row
         guard let show = searchResults?[index].show else { return cell }
+        
+        
         
         cell.textLabel?.text = show.name
         cell.detailTextLabel?.text = show.rating.average?.description ?? "No Rating"
@@ -106,10 +128,10 @@ extension SearchViewController: UITableViewDataSource {
 }
 
 extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard !(searchBar.text?.isEmpty)! else { return }
-        searchTerm = searchBar.text
-    }
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        guard !(searchBar.text?.isEmpty)! else { return }
+//        searchTerm = searchBar.text
+//    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else { return }

@@ -11,10 +11,17 @@ import Foundation
 class NetworkHelper {
     private init() {}
     static let manager = NetworkHelper()
+    enum State {
+        case loading
+        case complete
+    }
+    static var state: State = .loading
+    
     let urlSession = URLSession(configuration: URLSessionConfiguration.default)
     func performDataTask(with url: URL, completionHandler: @escaping ((Data) -> Void), errorHandler: @escaping ((Error) -> Void)) {
         self.urlSession.dataTask(with: url){(data: Data?, response: URLResponse?, error: Error?) in
             DispatchQueue.main.async {
+//                SearchViewController.tableViewState = .loading
                 guard let data = data else {
                     return
                 }
@@ -22,6 +29,7 @@ class NetworkHelper {
                     errorHandler(error)
                 }
                 completionHandler(data)
+//                SearchViewController.tableViewState = .complete
             }
             }.resume()
     }
