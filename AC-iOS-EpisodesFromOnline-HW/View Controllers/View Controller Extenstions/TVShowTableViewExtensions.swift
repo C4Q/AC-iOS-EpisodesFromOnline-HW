@@ -53,23 +53,35 @@ extension TVShowTableViewController: UITableViewDelegate, UITableViewDataSource 
         let selectedShow = shows[indexPath.row]
         
         if let cell = cell as? TVShowTableViewCell {
+            cell.spinner.activityIndicatorViewStyle = .whiteLarge
             cell.showTitleLabel.text = selectedShow.show.name
-            cell.showRatingLabel.text = "Rating: " + (selectedShow.show.rating?.average?.description ?? "N/A")
+            cell.showRatingLabel.text = "Rating: " + (selectedShow.show.rating?.average?.description ?? "Not Available")
             cell.showImageView.image = nil
             
+            cell.spinner.isHidden = false
+            cell.spinner.startAnimating()
+            
             if let imageURL = selectedShow.show.image?.medium {
-                let completion: (UIImage) -> Void = { (onlineImage: UIImage) in
+                let completion: (UIImage?) -> Void = { (onlineImage: UIImage?) in
                     cell.showImageView.image = onlineImage
                     cell.setNeedsLayout()
+                    DispatchQueue.main.async {
+                        cell.spinner.isHidden = true
+                        cell.spinner.stopAnimating()
+                    }
                 }
-                
                 ImageAPIClient.manager.getImage(from: imageURL, completionHandler: completion, errorHandler: { print($0) })
-            }
-            if cell.showImageView.image == nil {
+            } else {
+                    cell.spinner.isHidden = true
+                    cell.spinner.stopAnimating()
                 cell.showImageView.image = #imageLiteral(resourceName: "no-image-icon")
+
             }
+
         }
+        
         return cell
     }
+    
     
 }

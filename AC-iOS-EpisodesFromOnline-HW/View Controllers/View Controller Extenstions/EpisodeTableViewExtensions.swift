@@ -44,16 +44,28 @@ extension EpisodeTableViewController: UITableViewDelegate, UITableViewDataSource
             let number = selectedEpisode.number?.description ?? "N/A"
             cell.episodeSeasonLabel.text = "Season: \(season) Episode: \(number)"
             cell.episodeImageView.image = nil
+            
+            cell.spinner.isHidden = false
+            cell.spinner.startAnimating()
+            
             if let imageURL = selectedEpisode.image?.medium {
-                let completion: (UIImage) -> Void = { (onlineImage: UIImage) in
+                let completion: (UIImage?) -> Void = { (onlineImage: UIImage?) in
                     cell.episodeImageView.image = onlineImage
                     cell.setNeedsLayout()
+                    DispatchQueue.main.async {
+                        cell.spinner.isHidden = true
+                        cell.spinner.stopAnimating()
+                    }
                 }
                 ImageAPIClient.manager.getImage(from: imageURL, completionHandler: completion, errorHandler: { print($0) })
-            }
-            if cell.episodeImageView.image == nil {
+                
+            } else {
+                cell.spinner.isHidden = true
+                cell.spinner.stopAnimating()
                 cell.episodeImageView.image = #imageLiteral(resourceName: "no-image-icon")
+                
             }
+            
         }
         return cell
     }

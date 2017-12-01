@@ -25,6 +25,7 @@
 		8114E48B1FCF11D000EAB78B /* TVShowTableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114E48A1FCF11D000EAB78B /* TVShowTableViewExtensions.swift */; };
 		8114E48E1FCF121E00EAB78B /* EpisodeTableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114E48D1FCF121E00EAB78B /* EpisodeTableViewExtensions.swift */; };
 		813B9DDD1FCFB83D009E7D3B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B9DDC1FCFB83D009E7D3B /* String.swift */; };
+		818020471FD1CACB005E0448 /* EpisodesBySeasonBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818020461FD1CACB005E0448 /* EpisodesBySeasonBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		8114E48A1FCF11D000EAB78B /* TVShowTableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowTableViewExtensions.swift; sourceTree = "<group>"; };
 		8114E48D1FCF121E00EAB78B /* EpisodeTableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewExtensions.swift; sourceTree = "<group>"; };
 		813B9DDC1FCFB83D009E7D3B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		818020461FD1CACB005E0448 /* EpisodesBySeasonBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesBySeasonBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				8114E4701FCF0AE400EAB78B /* Network Models */,
 				8114E4811FCF0CA800EAB78B /* JSON Models */,
 				813B9DDE1FCFB844009E7D3B /* Swift Extensions */,
+				818020481FD1CAD3005E0448 /* Logic Models */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,6 +160,14 @@
 				813B9DDC1FCFB83D009E7D3B /* String.swift */,
 			);
 			path = "Swift Extensions";
+			sourceTree = "<group>";
+		};
+		818020481FD1CAD3005E0448 /* Logic Models */ = {
+			isa = PBXGroup;
+			children = (
+				818020461FD1CACB005E0448 /* EpisodesBySeasonBrain.swift */,
+			);
+			path = "Logic Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +244,7 @@
 			files = (
 				8114E46E1FCF0AD800EAB78B /* NetworkHelper.swift in Sources */,
 				8114E4751FCF0B7400EAB78B /* TVShowTableViewCell.swift in Sources */,
+				818020471FD1CACB005E0448 /* EpisodesBySeasonBrain.swift in Sources */,
 				8114E4801FCF0CA200EAB78B /* TVShow.swift in Sources */,
 				8114E4851FCF0D5000EAB78B /* ImageAPIClient.swift in Sources */,
 				8114E48B1FCF11D000EAB78B /* TVShowTableViewExtensions.swift in Sources */,

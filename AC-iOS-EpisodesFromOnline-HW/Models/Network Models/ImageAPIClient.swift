@@ -11,10 +11,15 @@ import UIKit
 class ImageAPIClient {
     private init() {}
     static let manager = ImageAPIClient()
-    func getImage(from urlStr: String, completionHandler: @escaping (UIImage) -> Void, errorHandler: @escaping (Error) -> Void) {
-        guard let url = URL(string: urlStr) else {return}
+    func getImage(from urlStr: String,
+                  completionHandler: @escaping (UIImage?) -> Void,
+                  errorHandler: @escaping (Error) -> Void) {
+        guard let url = URL(string: urlStr) else {
+            completionHandler(nil)
+            return
+        }
         let completion = {(data: Data) in
-            guard let onlineImage = UIImage(data: data) else {return}
+            let onlineImage = UIImage(data: data) ?? nil
             completionHandler(onlineImage)
         }
         NetworkHelper.manager.performDataTask(with: url,
