@@ -82,10 +82,8 @@
 		54056A671FCF030800CD81BE /* AC-iOS-EpisodesFromOnline-HW */ = {
 			isa = PBXGroup;
 			children = (
-				54056A681FCF030800CD81BE /* AppDelegate.swift */,
+				818A83DD1FD250A100199AD7 /* Supporting Files */,
 				54056A6C1FCF030800CD81BE /* Main.storyboard */,
-				54056A6F1FCF030800CD81BE /* Assets.xcassets */,
-				54056A711FCF030800CD81BE /* LaunchScreen.storyboard */,
 				8114E4761FCF0B7900EAB78B /* Custom TableView Cells */,
 				8114E4731FCF0B2400EAB78B /* View Controllers */,
 				8114E46F1FCF0ADD00EAB78B /* Models */,
@@ -168,6 +166,16 @@
 				818020461FD1CACB005E0448 /* EpisodesBySeasonBrain.swift */,
 			);
 			path = "Logic Models";
+			sourceTree = "<group>";
+		};
+		818A83DD1FD250A100199AD7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54056A681FCF030800CD81BE /* AppDelegate.swift */,
+				54056A6F1FCF030800CD81BE /* Assets.xcassets */,
+				54056A711FCF030800CD81BE /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

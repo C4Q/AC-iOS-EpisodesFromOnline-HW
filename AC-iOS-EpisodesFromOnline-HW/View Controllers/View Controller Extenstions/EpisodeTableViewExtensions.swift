@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - Helper Functions
+
 extension EpisodeTableViewController {
     
     func loadData() {
@@ -20,23 +22,25 @@ extension EpisodeTableViewController {
     
 }
 
+// MARK: - Table View
+
 extension EpisodeTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return episodesDict.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Episodes"
+        return "Season \(section + 1)"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodes.count
+        return episodesDict[section + 1]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath)
-        let selectedEpisode = episodes[indexPath.row]
+        let selectedEpisode = episodesDict[indexPath.section + 1]![indexPath.row + 1]!
         
         if let cell = cell as? EpisodeTableViewCell {
             cell.episodeTitleLabel.text = selectedEpisode.name
@@ -63,7 +67,6 @@ extension EpisodeTableViewController: UITableViewDelegate, UITableViewDataSource
                 cell.spinner.isHidden = true
                 cell.spinner.stopAnimating()
                 cell.episodeImageView.image = #imageLiteral(resourceName: "no-image-icon")
-                
             }
             
         }

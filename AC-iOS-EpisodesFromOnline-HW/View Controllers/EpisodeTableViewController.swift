@@ -14,9 +14,16 @@ class EpisodeTableViewController: UIViewController {
     
     var tvShowURL: String?
     
+    var episodesDict = [Int : [Int : Episode]]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     var episodes = [Episode]() {
         didSet {
             tableView.reloadData()
+            episodesDict = EpisodesBySeasonBrain().makeSeasonsDict(episodes: episodes)
         }
     }
     

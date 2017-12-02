@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - Helper Functions
+
 extension TVShowTableViewController {
     
     func loadData() {
@@ -20,10 +22,12 @@ extension TVShowTableViewController {
     
 }
 
+// MARK: - Search Bar
+
 extension TVShowTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchTerm = searchBar.text ?? ""
+        searchTerm = searchBar.text?.components(separatedBy: " ").joined(separator: "%20") ?? ""
         searchBar.resignFirstResponder()
     }
     
@@ -33,6 +37,8 @@ extension TVShowTableViewController: UISearchBarDelegate {
     }
     
 }
+
+// MARK: - Table View
 
 extension TVShowTableViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -72,12 +78,12 @@ extension TVShowTableViewController: UITableViewDelegate, UITableViewDataSource 
                 }
                 ImageAPIClient.manager.getImage(from: imageURL, completionHandler: completion, errorHandler: { print($0) })
             } else {
-                    cell.spinner.isHidden = true
-                    cell.spinner.stopAnimating()
+                cell.spinner.isHidden = true
+                cell.spinner.stopAnimating()
                 cell.showImageView.image = #imageLiteral(resourceName: "no-image-icon")
-
+                
             }
-
+            
         }
         
         return cell
