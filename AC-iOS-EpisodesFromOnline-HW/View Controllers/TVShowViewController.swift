@@ -22,7 +22,7 @@ class TVShowViewController: UIViewController {
     //what is powering the app
     var shows = [TVShow]() {
         didSet{
-           tvShowTableView.reloadData()
+            tvShowTableView.reloadData()
         }
     }
     
@@ -42,7 +42,7 @@ class TVShowViewController: UIViewController {
         searchBar.delegate = self
         getTVShowData()
     }
-
+    
     func getTVShowData(){
         //set apistring if needed
         //get url string
@@ -65,16 +65,16 @@ class TVShowViewController: UIViewController {
     
     
     /// MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? EpisodesViewController {
-            // set selected row
-            //set selected show
-            destination.episode = shows[self.tableView.indexPathForselectedRow!.row]
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let destination = segue.destination as? EpisodesViewController {
+//            // set selected row
+//            //set selected show
+//            destination.episode = shows[self.tableView.indexPathForselectedRow!.row]
+//        }
+//    }
 }
 
-  /// MARK: - TableView for TV Shows
+/// MARK: - TableView for TV Shows
 extension TVShowViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shows.count
@@ -88,11 +88,10 @@ extension TVShowViewController: UITableViewDelegate, UITableViewDataSource {
         //title
         tvShowCell.textLabel?.text = tvShow.show.name
         //rating
-        tvShowCell.textLabel?.text = String(tvShow.show.rating)
+        tvShowCell.textLabel?.text = String(tvShow.show.rating.average)
         //image
         tvShowCell.imageView?.image = #imageLiteral(resourceName: "defaultImage") //set to default image
-        guard let imageUrlStr = tvShow.show.image.medium else {return tvShowCell}
-        
+        let imageUrlStr = tvShow.show.image.medium
         let completion : (UIImage) -> Void = {(onlineImage: UIImage) in
             tvShowCell.imageView?.image = onlineImage
             //image loads as soon as it's ready
@@ -104,9 +103,11 @@ extension TVShowViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-  /// MARK: - SearchBar
+/// MARK: - SearchBar
 extension TVShowViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+    
+    
 }

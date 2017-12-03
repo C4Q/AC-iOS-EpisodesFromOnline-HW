@@ -18,12 +18,15 @@ struct ShowWrapper: Codable {
     let name: String
     let genres: [String]
     let runtime: Double
-    let rating: Double
+    let rating: RatingWrapper
     let network: NetworkWrapper
     let image: ImageWrapper
     let summary: String
 }
 
+struct RatingWrapper: Codable {
+    let average: Double
+}
 struct NetworkWrapper: Codable {
     let name: String //hbo
 }
