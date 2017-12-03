@@ -23,7 +23,12 @@ class TVAPIClient {
             do{
                 let decoder = JSONDecoder()
                 let tvShowsFromTheInternet = try decoder.decode([TVShows].self, from: data)
-                completionHandler(tvShowsFromTheInternet)
+                var tvShows: [TVShows] = []
+                for showInfo in tvShowsFromTheInternet {
+                    tvShows.append(showInfo)
+                }
+                completionHandler(tvShows)
+
             } catch {
                 errorHandler(error)
             }

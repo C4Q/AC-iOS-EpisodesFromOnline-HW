@@ -39,7 +39,10 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let completion: ([TVShows]) -> Void = {(onlineTVShow: [TVShows]) in
             self.tvShows = onlineTVShow
         }
-        TVAPIClient.manager.getTVShows(from: url, completionHandler: completion , errorHandler: {print($0)})
+        TVAPIClient.manager.getTVShows(from: url,
+                                       completionHandler: completion,
+                                       errorHandler: {
+                                        print($0)})
         
     }
     //SearchBar Delegate
@@ -58,12 +61,18 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let tvSeries = tvShows[indexPath.row]
         
                 cell.tvNameLabel.text = "Name: \(tvSeries.show.name)"
-                cell.tvRatingLabel.text = "Rating: \(tvSeries.show.rating)"
-                cell.tvImageView.image = nil
+        
+        if tvSeries.show.rating.average != nil {
+            cell.tvRatingLabel.text = "Rating: \(tvSeries.show.rating.average!)"
+        } else {
+            cell.tvRatingLabel.text = "Rating: Unavailable"
+        }
+        
+                cell.tvImageView.image = #imageLiteral(resourceName: "defaultTVImage")
         
         //PUT IMAGE API HERE
+        guard let urlStr = tvSeries.show.image?.medium else {return UITableViewCell()}
         
-        let urlStr = tvSeries.show.image.medium
         let setImageToOnlineImage: (UIImage) -> Void = {(onlineImage: UIImage) in
             cell.tvImageView.image = onlineImage
             cell.setNeedsLayout()
@@ -74,6 +83,15 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
         return cell
     }
+    
+    // MARK: - Navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let destination = segue.destination as? SeriesViewController {
+//            let selectedRow = self.TVTableView.indexPathForSelectedRow!.row
+//            let selectedSeries = self.tvShows[selectedRow]
+//            destination.aSeriesHref = selectedSeries.show._links.selfKeyword.href
+//        }
+//    }
     
 
 }

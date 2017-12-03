@@ -8,20 +8,16 @@
 
 import Foundation
 
-//struct TopLayer: Codable {
-//    var tvshows: TVShows
-//}
-
 struct TVShows: Codable {
-    var score: Double? //Might not need this at all.
-    var show: ShowInfoWrapper
+    //var score: Double? //Might not need this at all.
+    var show: ShowInfo
 }
 
-struct ShowInfoWrapper: Codable {
+struct ShowInfo: Codable {
     var name: String //Show Name
     var rating: RatingWrapper
-    var image: ImageWrapper
-    var summary: String // Might not need this
+    var image: ImageWrapper?
+    //var summary: String // Might not need this
     var _links: SelfWrapper
     
 //    enum CodingKeys: String, CodingKey { //Not sure why this isn't working. Had to add underscore to links.
@@ -45,8 +41,8 @@ struct RatingWrapper: Codable {
 }
 
 struct ImageWrapper: Codable {
-    var medium: String
-    var original: String
+    var medium: String?
+    var original: String?
 }
 
 
