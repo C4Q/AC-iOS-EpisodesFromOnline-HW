@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+///CONFORM TO IMPORT UIKIT
 class ImageAPI{
     
     private init() {}

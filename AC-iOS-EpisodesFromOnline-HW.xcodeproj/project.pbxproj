@@ -22,6 +22,7 @@
 		81FC46011FD1AB5800D5B3E9 /* EpisodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC46001FD1AB5800D5B3E9 /* EpisodesModel.swift */; };
 		81FC46431FD36FB800D5B3E9 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC46421FD36FB800D5B3E9 /* TVShowTableViewCell.swift */; };
 		81FC46451FD3707400D5B3E9 /* EpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC46441FD3707400D5B3E9 /* EpisodesTableViewCell.swift */; };
+		81FC46481FD4B1FC00D5B3E9 /* EpisodeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC46471FD4B1FC00D5B3E9 /* EpisodeAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		81FC46001FD1AB5800D5B3E9 /* EpisodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesModel.swift; sourceTree = "<group>"; };
 		81FC46421FD36FB800D5B3E9 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
 		81FC46441FD3707400D5B3E9 /* EpisodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewCell.swift; sourceTree = "<group>"; };
+		81FC46471FD4B1FC00D5B3E9 /* EpisodeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EpisodeAPIClient.swift; path = "AC-iOS-EpisodesFromOnline-HW/API Clients/EpisodeAPIClient.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				81FC45F81FD10F4000D5B3E9 /* TVShowAPIClient.swift */,
+				81FC46471FD4B1FC00D5B3E9 /* EpisodeAPIClient.swift */,
 				81FC45FA1FD10F4B00D5B3E9 /* ImageAPI.swift */,
 			);
 			path = "API Clients";
@@ -210,6 +213,7 @@
 				81FC45F11FD10EF000D5B3E9 /* NetworkHelper.swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
 				81FC45EB1FD10EC400D5B3E9 /* TVShowViewController.swift in Sources */,
+				81FC46481FD4B1FC00D5B3E9 /* EpisodeAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,7 @@ struct ShowWrapper: Codable {
     let network: NetworkWrapper?
     let image: ImageWrapper?
     let summary: String?
+    let links : LinkWrapper
 }
 
 struct RatingWrapper: Codable {
@@ -35,4 +36,19 @@ struct ImageWrapper: Codable {
     let medium: String
     let original: String
 }
+
+struct LinkWrapper: Codable {
+    let selfKeyword: HrefWrapper
+}
+
+struct HrefWrapper: Codable {
+    let href: String
+}
+
+enum CodingKeys: String, CodingKey{
+    case links = "_links"
+    case selfKeyword = "self"
+}
+    
+
 

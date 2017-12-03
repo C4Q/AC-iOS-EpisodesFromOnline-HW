@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Episodes: Codable {
+struct Episode: Codable {
     let name: String
     let season: Int
     let number: Int
