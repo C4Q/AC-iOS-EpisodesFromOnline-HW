@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -65,6 +66,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GIf-um-Lz1">
+                                                    <rect key="frame" x="45" y="45" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="zto-v6-HYt" secondAttribute="trailing" constant="5" id="3Yg-m0-oe1"/>
@@ -72,14 +76,17 @@
                                                 <constraint firstItem="Zvc-qp-by9" firstAttribute="centerY" secondItem="FFg-lQ-MZc" secondAttribute="centerY" id="IYs-7i-fKV"/>
                                                 <constraint firstItem="zto-v6-HYt" firstAttribute="top" secondItem="y9e-yC-Ycx" secondAttribute="bottom" constant="5" id="JDT-kA-Wac"/>
                                                 <constraint firstItem="Zvc-qp-by9" firstAttribute="leading" secondItem="FFg-lQ-MZc" secondAttribute="leading" constant="5" id="LOy-xQ-z9A"/>
+                                                <constraint firstItem="GIf-um-Lz1" firstAttribute="centerX" secondItem="Zvc-qp-by9" secondAttribute="centerX" id="PLU-33-T70"/>
                                                 <constraint firstItem="y9e-yC-Ycx" firstAttribute="top" secondItem="Zvc-qp-by9" secondAttribute="top" id="REk-pQ-TDp"/>
                                                 <constraint firstItem="y9e-yC-Ycx" firstAttribute="leading" secondItem="Zvc-qp-by9" secondAttribute="trailing" constant="20" id="UYv-61-KKL"/>
                                                 <constraint firstAttribute="bottom" secondItem="Zvc-qp-by9" secondAttribute="bottom" constant="5" id="X7D-46-lIe"/>
                                                 <constraint firstItem="zto-v6-HYt" firstAttribute="leading" secondItem="Zvc-qp-by9" secondAttribute="trailing" constant="20" id="fnA-3v-nLX"/>
                                                 <constraint firstItem="Zvc-qp-by9" firstAttribute="top" secondItem="FFg-lQ-MZc" secondAttribute="top" constant="5" id="fqS-wF-KWS"/>
+                                                <constraint firstItem="GIf-um-Lz1" firstAttribute="centerY" secondItem="Zvc-qp-by9" secondAttribute="centerY" id="sPj-Ia-b68"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="spinner" destination="GIf-um-Lz1" id="Fwe-k0-Fam"/>
                                             <outlet property="tvImageView" destination="Zvc-qp-by9" id="Oib-pJ-gvr"/>
                                             <outlet property="tvNameLabel" destination="y9e-yC-Ycx" id="CqT-zY-o6R"/>
                                             <outlet property="tvRatingLabel" destination="zto-v6-HYt" id="0z8-6Y-W4f"/>
@@ -159,15 +166,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="olv-TC-Xn8">
+                                                    <rect key="frame" x="55" y="45" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="WTe-k8-kZF" firstAttribute="top" secondItem="htU-rR-Zn5" secondAttribute="bottom" constant="10" id="3Ef-wA-GrF"/>
+                                                <constraint firstItem="olv-TC-Xn8" firstAttribute="centerX" secondItem="9Kk-KY-pOK" secondAttribute="centerX" id="4Ip-pi-Fen"/>
                                                 <constraint firstAttribute="bottom" secondItem="9Kk-KY-pOK" secondAttribute="bottom" constant="5" id="DhH-rR-uJb"/>
                                                 <constraint firstItem="htU-rR-Zn5" firstAttribute="leading" secondItem="9Kk-KY-pOK" secondAttribute="trailing" constant="10" id="Fev-Ra-ArJ"/>
                                                 <constraint firstItem="9Kk-KY-pOK" firstAttribute="centerY" secondItem="Vd8-qY-Nwu" secondAttribute="centerY" id="KUX-iL-5cx"/>
                                                 <constraint firstItem="oLN-tX-RrC" firstAttribute="leading" secondItem="9Kk-KY-pOK" secondAttribute="trailing" constant="10" id="O9U-aU-lEV"/>
                                                 <constraint firstItem="9Kk-KY-pOK" firstAttribute="leading" secondItem="Vd8-qY-Nwu" secondAttribute="leading" constant="5" id="d5E-vI-vtw"/>
                                                 <constraint firstItem="htU-rR-Zn5" firstAttribute="top" secondItem="oLN-tX-RrC" secondAttribute="bottom" constant="10" id="fDd-Im-DQZ"/>
+                                                <constraint firstItem="olv-TC-Xn8" firstAttribute="centerY" secondItem="9Kk-KY-pOK" secondAttribute="centerY" id="hPO-y4-rvz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="htU-rR-Zn5" secondAttribute="trailing" constant="10" id="hyx-Q8-6fP"/>
                                                 <constraint firstAttribute="trailing" secondItem="oLN-tX-RrC" secondAttribute="trailing" constant="10" id="o2Z-ZR-ru4"/>
                                                 <constraint firstItem="9Kk-KY-pOK" firstAttribute="top" secondItem="Vd8-qY-Nwu" secondAttribute="top" constant="5" id="uOe-DU-55e"/>
@@ -181,6 +193,7 @@
                                             <outlet property="seriesImageView" destination="9Kk-KY-pOK" id="h7m-Oz-bs6"/>
                                             <outlet property="seriesNameLabel" destination="oLN-tX-RrC" id="7Y0-vV-RDa"/>
                                             <outlet property="seriesSeasonLabel" destination="htU-rR-Zn5" id="Oq0-pX-pxF"/>
+                                            <outlet property="spinner" destination="olv-TC-Xn8" id="DV9-07-iEE"/>
                                             <segue destination="BYZ-38-t0r" kind="show" id="bWK-y5-xpe"/>
                                         </connections>
                                     </tableViewCell>
@@ -212,9 +225,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OKc-uC-eZS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OKc-uC-eZS">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6W-pe-AbL">
                                 <rect key="frame" x="105" y="274.5" width="110.5" height="21"/>
@@ -237,17 +249,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GSw-xw-N56">
+                                <rect key="frame" x="0.0" y="112" width="320" height="320"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GSw-xw-N56" secondAttribute="height" multiplier="1:1" id="6az-XG-kch"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="GSw-xw-N56" firstAttribute="centerY" secondItem="OKc-uC-eZS" secondAttribute="centerY" id="1i9-hV-1Dv"/>
                             <constraint firstItem="rb0-Pa-p6Q" firstAttribute="top" secondItem="s6W-pe-AbL" secondAttribute="bottom" constant="5" id="50R-Os-yvK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bA0-bF-OdX" secondAttribute="bottom" constant="10" id="72k-wx-bFt"/>
                             <constraint firstItem="OKc-uC-eZS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="As5-wO-KUp"/>
                             <constraint firstItem="OKc-uC-eZS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Awc-bw-97O"/>
+                            <constraint firstItem="GSw-xw-N56" firstAttribute="centerX" secondItem="OKc-uC-eZS" secondAttribute="centerX" id="EKl-t5-7yC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OKc-uC-eZS" secondAttribute="trailing" id="JYR-rX-ALw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bA0-bF-OdX" secondAttribute="trailing" constant="10" id="NAA-rt-Ume"/>
                             <constraint firstItem="bA0-bF-OdX" firstAttribute="top" secondItem="rb0-Pa-p6Q" secondAttribute="bottom" constant="5" id="R7e-GX-7DP"/>
                             <constraint firstItem="bA0-bF-OdX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="RFR-0W-fi9"/>
+                            <constraint firstItem="GSw-xw-N56" firstAttribute="width" secondItem="OKc-uC-eZS" secondAttribute="width" id="cVB-0P-guV"/>
                             <constraint firstItem="s6W-pe-AbL" firstAttribute="centerY" secondItem="OKc-uC-eZS" secondAttribute="centerY" multiplier="1.05" id="e0Q-gs-luI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OKc-uC-eZS" secondAttribute="bottom" id="mdB-5g-vjP"/>
                             <constraint firstItem="s6W-pe-AbL" firstAttribute="centerX" secondItem="OKc-uC-eZS" secondAttribute="centerX" id="mhU-Wx-puQ"/>
@@ -260,6 +281,7 @@
                         <outlet property="episodeNameLabel" destination="s6W-pe-AbL" id="vdn-mC-IiG"/>
                         <outlet property="largeImageView" destination="OKc-uC-eZS" id="krt-Yi-vTG"/>
                         <outlet property="seasonAndEpisodeNumberLabel" destination="rb0-Pa-p6Q" id="uND-7G-qor"/>
+                        <outlet property="spinner" destination="GSw-xw-N56" id="gqy-NX-dNq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

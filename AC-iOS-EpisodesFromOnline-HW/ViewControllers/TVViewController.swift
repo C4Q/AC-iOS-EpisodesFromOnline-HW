@@ -72,7 +72,8 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         //PUT IMAGE API HERE
         guard let urlStr = tvSeries.show.image?.medium else {return UITableViewCell()}
-        
+        cell.spinner.isHidden = false
+        cell.spinner.startAnimating()
         let setImageToOnlineImage: (UIImage) -> Void = {(onlineImage: UIImage) in
             cell.tvImageView.image = onlineImage
             cell.setNeedsLayout()
@@ -80,7 +81,8 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         ImageAPIClient.manager.getImage(from: urlStr,
                                          completionHandler: setImageToOnlineImage,
                                          errorHandler: {print($0)})
-
+        cell.spinner.stopAnimating()
+        cell.spinner.isHidden = true
         return cell
     }
     

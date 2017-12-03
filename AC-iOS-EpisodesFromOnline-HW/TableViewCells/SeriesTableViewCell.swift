@@ -18,6 +18,7 @@ class SeriesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var seriesEpisodeLabel: UILabel!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
 
 }

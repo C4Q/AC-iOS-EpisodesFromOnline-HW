@@ -16,6 +16,7 @@ class TVTableViewCell: UITableViewCell {
     
     @IBOutlet weak var tvRatingLabel: UILabel!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
 
 }

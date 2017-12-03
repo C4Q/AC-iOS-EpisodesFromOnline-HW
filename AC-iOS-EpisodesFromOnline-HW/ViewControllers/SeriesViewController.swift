@@ -16,6 +16,7 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         didSet {
             print(aSeriesHref! + "/episodes")
             loadSeriesData()
+            seriesTableView.reloadData()
         }
     }
     
@@ -23,6 +24,10 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         didSet {
             self.seriesTableView.reloadData()
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //loadSeriesData()
     }
     
     override func viewDidLoad() {
@@ -56,7 +61,8 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //PUT IMAGE API HERE
         guard let urlStr = anEpisode.image?.medium else {return UITableViewCell()}
-        
+        cell.spinner.isHidden = false
+        cell.spinner.startAnimating()
         let setImageToOnlineImage: (UIImage) -> Void = {(onlineImage: UIImage) in
             cell.seriesImageView.image = onlineImage
             cell.setNeedsLayout()
@@ -64,6 +70,8 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         ImageAPIClient.manager.getImage(from: urlStr,
                                         completionHandler: setImageToOnlineImage,
                                         errorHandler: {print($0)})
+        cell.spinner.stopAnimating()
+        cell.spinner.isHidden = true
         return cell
     }
     
