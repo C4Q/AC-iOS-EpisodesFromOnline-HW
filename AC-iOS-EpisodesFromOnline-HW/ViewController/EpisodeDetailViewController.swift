@@ -24,7 +24,7 @@ class EpisodeDetailViewController: UIViewController {
     func loadData() {
         nameLabel.text = selectedEpisode?.name
         episodeLabel.text = "Season:\(selectedEpisode?.season?.description ?? "N/A")  Episode:\(selectedEpisode?.number?.description ?? "N/A")"
-        summaryTextView.text = selectedEpisode?.summary
+        summaryTextView.text = selectedEpisode?.summary?.replacingOccurrences(of: "<p>", with: "").replacingOccurrences(of: "</p>", with: "")
         guard let imageURL = selectedEpisode?.image?.original else {return}
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
             self.episodeImageView.image = onlineImage

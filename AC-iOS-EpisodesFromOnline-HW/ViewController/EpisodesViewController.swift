@@ -14,7 +14,6 @@ class EpisodesViewController: UIViewController {
         
     var episodes = [Episode]() {
         didSet {
-            loadEpisodes()
             episodeTableView.reloadData()
         }
     }
