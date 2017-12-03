@@ -8,9 +8,10 @@
 
 import Foundation
 import UIKit
-class ImageAPICLient {
+
+class ImageAPIClient {
     private init() {}
-    static let manager = ImageAPICLient()
+    static let manager = ImageAPIClient()
     func getImage(from urlStr: String, completionHandler: @escaping (UIImage) -> Void, errorHandler: @escaping (AppError) -> Void) {
         guard let url = URL(string: urlStr) else {
             errorHandler(.badURL)

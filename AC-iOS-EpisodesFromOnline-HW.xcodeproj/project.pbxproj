@@ -20,8 +20,8 @@
 		DBCF1F891FD2332600339308 /* TVMazeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF1F881FD2332600339308 /* TVMazeModel.swift */; };
 		DBCF1F8B1FD2333900339308 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF1F8A1FD2333900339308 /* NetworkHelper.swift */; };
 		DBCF1F8D1FD2335100339308 /* ImageAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF1F8C1FD2335100339308 /* ImageAPIManager.swift */; };
-		DBCF1F8F1FD2336F00339308 /* TVAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF1F8E1FD2336F00339308 /* TVAPIManager.swift */; };
 		DBCF1F911FD2337D00339308 /* SeriesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF1F901FD2337D00339308 /* SeriesAPIManager.swift */; };
+		DBCF1F931FD3928700339308 /* TVAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF1F921FD3928700339308 /* TVAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,8 +40,8 @@
 		DBCF1F881FD2332600339308 /* TVMazeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeModel.swift; sourceTree = "<group>"; };
 		DBCF1F8A1FD2333900339308 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		DBCF1F8C1FD2335100339308 /* ImageAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIManager.swift; sourceTree = "<group>"; };
-		DBCF1F8E1FD2336F00339308 /* TVAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVAPIManager.swift; sourceTree = "<group>"; };
 		DBCF1F901FD2337D00339308 /* SeriesAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesAPIManager.swift; sourceTree = "<group>"; };
+		DBCF1F921FD3928700339308 /* TVAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 				DBCF1F881FD2332600339308 /* TVMazeModel.swift */,
 				DBCF1F8A1FD2333900339308 /* NetworkHelper.swift */,
 				DBCF1F8C1FD2335100339308 /* ImageAPIManager.swift */,
-				DBCF1F8E1FD2336F00339308 /* TVAPIManager.swift */,
+				DBCF1F921FD3928700339308 /* TVAPIClient.swift */,
 				DBCF1F901FD2337D00339308 /* SeriesAPIManager.swift */,
 				54056A6F1FCF030800CD81BE /* Assets.xcassets */,
 				54056A711FCF030800CD81BE /* LaunchScreen.storyboard */,
@@ -172,7 +172,7 @@
 				DBCF1F831FD232CF00339308 /* TVTableViewCell.swift in Sources */,
 				DBCF1F811FD2326200339308 /* DetailedViewController.swift in Sources */,
 				DBCF1F911FD2337D00339308 /* SeriesAPIManager.swift in Sources */,
-				DBCF1F8F1FD2336F00339308 /* TVAPIManager.swift in Sources */,
+				DBCF1F931FD3928700339308 /* TVAPIClient.swift in Sources */,
 				DBCF1F891FD2332600339308 /* TVMazeModel.swift in Sources */,
 				DBCF1F8D1FD2335100339308 /* ImageAPIManager.swift in Sources */,
 				DBCF1F851FD232DC00339308 /* SeriesTableViewCell.swift in Sources */,

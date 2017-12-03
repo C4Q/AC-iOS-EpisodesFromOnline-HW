@@ -10,15 +10,14 @@ import UIKit
 
 class SeriesTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet weak var seriesImageView: UIImageView!
+    
+    @IBOutlet weak var seriesNameLabel: UILabel!
+    
+    @IBOutlet weak var seriesSeasonLabel: UILabel!
+    
+    @IBOutlet weak var seriesEpisodeLabel: UILabel!
+    
+    
 
 }
