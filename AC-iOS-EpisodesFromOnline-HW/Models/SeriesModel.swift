@@ -8,9 +8,18 @@
 
 import Foundation
 
+struct Show: Codable {
+    var name: String
+    var season: Int
+    var number: Int
+    var summary: String
+    var image: SeriesImageWrapper?
+}
 
-
-
+struct SeriesImageWrapper: Codable {
+    var medium: String?
+    var original: String?
+}
 
 
 

@@ -8,35 +8,35 @@
 
 import Foundation
 
-//class SeriesAPIClient {
-//    private init() {}
-//    
-//    static let manager = SeriesAPIClient()
-//    
-//    func getTVShows(from urlStr: String,
-//                    completionHandler: @escaping ([Series]) -> Void,
-//                    errorHandler: @escaping (Error) -> Void){
-//        //make sure you can convert the string into URL
-//        guard let url = URL(string: urlStr) else {return}
-//        
-//        let completion: (Data) -> Void = {(data: Data) in
-//            do{
-//                let decoder = JSONDecoder()
-//                let allShowsFromASeries = try decoder.decode([Series].self, from: data)
-//                var allEpisodes: [Series] = []
-//                for episodeInfo in allShowsFromASeries {
-//                    allEpisodes.append(episodeInfo)
-//                }
-//                completionHandler(allEpisodes)
-//                
-//            } catch {
-//                errorHandler(error)
-//            }
-//        }
-//        
-//        NetworkHelper.manager.performDataTask(with: url,
-//                                              completionHandler: completion,
-//                                              errorHandler: errorHandler)
-//    }
-//}
+class SeriesAPIClient {
+    private init() {}
+    
+    static let manager = SeriesAPIClient()
+    
+    func getAllEpisodes(from urlStr: String,
+                    completionHandler: @escaping ([Show]) -> Void,
+                    errorHandler: @escaping (Error) -> Void){
+        //make sure you can convert the string into URL
+        guard let url = URL(string: urlStr) else {return}
+        
+        let completion: (Data) -> Void = {(data: Data) in
+            do{
+                let decoder = JSONDecoder()
+                let allShowsFromASeries = try decoder.decode([Show].self, from: data)
+                var allEpisodes: [Show] = []
+                for episodeInfo in allShowsFromASeries {
+                    allEpisodes.append(episodeInfo)
+                }
+                completionHandler(allEpisodes)
+                
+            } catch {
+                errorHandler(error)
+            }
+        }
+        
+        NetworkHelper.manager.performDataTask(with: url,
+                                              completionHandler: completion,
+                                              errorHandler: errorHandler)
+    }
+}
 

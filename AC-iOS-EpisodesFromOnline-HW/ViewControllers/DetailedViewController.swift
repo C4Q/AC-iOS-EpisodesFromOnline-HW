@@ -19,14 +19,28 @@ class DetailedViewController: UIViewController {
     
     @IBOutlet weak var largeImageView: UIImageView!
     
-    //var anEpisode: TVShow!
+    var anEpisode: Show!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        loadData()
     }
-
-    
+    func loadData() {
+        episodeNameLabel.text = "Name: \(anEpisode.name)"
+        seasonAndEpisodeNumberLabel.text = "Season: \(anEpisode.season)- Episode: \(anEpisode.number)"
+        descriptionTextView.text = anEpisode.summary
+        largeImageView.image = nil
+        
+        //PUT IMAGE API HERE
+        guard let urlStr = anEpisode.image?.original else {return}
+        let setImageToOnlineImage: (UIImage) -> Void = {(onlineImage: UIImage) in
+            self.largeImageView.image = onlineImage
+            
+        }
+        ImageAPIClient.manager.getImage(from: urlStr,
+                                        completionHandler: setImageToOnlineImage,
+                                        errorHandler: {print($0)})
+        
+    }
 
 }

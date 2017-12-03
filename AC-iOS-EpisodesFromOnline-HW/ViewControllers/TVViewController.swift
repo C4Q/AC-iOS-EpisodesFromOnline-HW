@@ -60,7 +60,7 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         guard let cell = TVTableView.dequeueReusableCell(withIdentifier: "tvCell", for: indexPath) as? TVTableViewCell else {return UITableViewCell()}
         let tvSeries = tvShows[indexPath.row]
         
-                cell.tvNameLabel.text = "Name: \(tvSeries.show.name)"
+                cell.tvNameLabel.text = "\(tvSeries.show.name)"
         
         if tvSeries.show.rating.average != nil {
             cell.tvRatingLabel.text = "Rating: \(tvSeries.show.rating.average!)"
@@ -85,13 +85,12 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     // MARK: - Navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let destination = segue.destination as? SeriesViewController {
-//            let selectedRow = self.TVTableView.indexPathForSelectedRow!.row
-//            let selectedSeries = self.tvShows[selectedRow]
-//            destination.aSeriesHref = selectedSeries.show._links.selfKeyword.href
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? SeriesViewController {
+            let selectedRow = self.TVTableView.indexPathForSelectedRow!.row
+            let selectedSeries = self.tvShows[selectedRow]
+            destination.aSeriesHref = selectedSeries.show._links.selfKeyword.href
+        }
+    }
     
-
 }

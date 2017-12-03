@@ -9,7 +9,6 @@
 import Foundation
 
 struct TVShows: Codable {
-    //var score: Double? //Might not need this at all.
     var show: ShowInfo
 }
 
@@ -17,12 +16,9 @@ struct ShowInfo: Codable {
     var name: String //Show Name
     var rating: RatingWrapper
     var image: ImageWrapper?
-    //var summary: String // Might not need this
     var _links: SelfWrapper
     
-//    enum CodingKeys: String, CodingKey { //Not sure why this isn't working. Had to add underscore to links.
-//        case links = "_links"
-//    }
+
 }
 
 struct SelfWrapper: Codable {
