@@ -16,16 +16,16 @@ struct TVShow: Codable {
 struct ShowWrapper: Codable {
     let id : Double
     let name: String
-    let genres: [String]
-    let runtime: Double
-    let rating: RatingWrapper
-    let network: NetworkWrapper
-    let image: ImageWrapper
-    let summary: String
+    let genres: [String]?
+    let runtime: Double?
+    let rating: RatingWrapper?
+    let network: NetworkWrapper?
+    let image: ImageWrapper?
+    let summary: String?
 }
 
 struct RatingWrapper: Codable {
-    let average: Double
+    var average: Double?
 }
 struct NetworkWrapper: Codable {
     let name: String //hbo

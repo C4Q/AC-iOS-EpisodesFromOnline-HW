@@ -25,6 +25,7 @@ class NetworkHelper {
                                         error: Error?) in
             //make sure you have data
             guard let data = data else {return}
+             /// have to make sure to put back on main thread because data will change UI Elements
             //Dispatch Queue
             DispatchQueue.main.async {
                 if let error = error {

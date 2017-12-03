@@ -21,6 +21,12 @@ class TVShowAPICLient {
         let completion: (Data) -> Void = {(data: Data) in
             do{
                 let decoder = try JSONDecoder().decode([TVShow].self, from: data)
+                //turn the data into an array of [TVSHOW]
+                var tvShowFromOnline: [TVShow] = []
+                
+                for show in tvShowFromOnline {
+                   tvShowFromOnline.append(show)
+                }
                 completionHandler(decoder)
                 
             }catch{
@@ -29,6 +35,7 @@ class TVShowAPICLient {
         }
         
         NetworkHelper.manager.performDataTask(with: url,
-                                              completionHandler: completion, errorHandler: errorHandler)
+                                              completionHandler: completion,
+                                              errorHandler: errorHandler)
     }
 }
