@@ -26,7 +26,10 @@ class EpisodeDetailViewController: UIViewController {
         episodeLabel.text = "Season:\(selectedEpisode?.season?.description ?? "N/A")  Episode:\(selectedEpisode?.number?.description ?? "N/A")"
         summaryTextView.text = selectedEpisode?.summary
         guard let imageURL = selectedEpisode?.image?.original else {return}
-        ImageAPIClient.manager.getImage(from: imageURL, completionHandler: {self.episodeImageView.image = $0}, errorHandler: {print($0)})
+        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+            self.episodeImageView.image = onlineImage
+        }
+        ImageAPIClient.manager.getImage(from: imageURL, completionHandler: completion, errorHandler: {print($0)})
     }
 
 }

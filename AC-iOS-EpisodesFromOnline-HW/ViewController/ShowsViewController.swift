@@ -66,10 +66,15 @@ extension ShowsViewController: UITableViewDataSource, UITableViewDelegate, UISea
             showCell.showImageView.image = #imageLiteral(resourceName: "noImage")
             return showCell
         }
-        showCell.showSpinner.isHidden = true
-        showCell.showSpinner.stopAnimating()
-        ImageAPIClient.manager.getImage(from: imageURL, completionHandler: {showCell.showImageView.image = $0}, errorHandler: {print($0)})
-        showCell.setNeedsLayout()
+        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+            showCell.showImageView.image = onlineImage
+            showCell.setNeedsLayout()
+            DispatchQueue.main.async {
+                showCell.showSpinner.isHidden = true
+                showCell.showSpinner.stopAnimating()
+            }
+        }
+        ImageAPIClient.manager.getImage(from: imageURL, completionHandler: completion, errorHandler: {print($0)})
         return showCell
     }
     

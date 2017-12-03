@@ -26,7 +26,6 @@ class EpisodesViewController: UIViewController {
         episodeTableView.delegate = self; episodeTableView.dataSource = self
         loadEpisodes()
     }
-    
     func loadEpisodes() {
         guard let episodeURL = episodeURL else { return }
         EpisodeAPIClient.manager.getEpisodes(from: episodeURL, completionHandler: {self.episodes = $0}, errorHandler: { print($0) })
@@ -51,9 +50,24 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         let name = episode.number?.description ?? "N/A"
         episodeCell.episodeLabel.text = "Season:\(season) Episode:\(name)"
         episodeCell.episodeImageView.image = nil
-        guard let imageURL = episode.image?.original else {return episodeCell}
-        episodeCell.setNeedsLayout()
-        ImageAPIClient.manager.getImage(from: imageURL, completionHandler: {episodeCell.episodeImageView.image = $0}, errorHandler: {print($0)})
+        episodeCell.episodeSpinner.isHidden = false
+        episodeCell.episodeSpinner.startAnimating()
+        
+        guard let imageURL = episode.image?.original else {
+            episodeCell.episodeSpinner.isHidden = true
+            episodeCell.episodeSpinner.stopAnimating()
+            episodeCell.episodeImageView.image = #imageLiteral(resourceName: "noImage")
+            return episodeCell
+        }
+        let completion: (UIImage?) -> Void = {(onlineImage: UIImage?) in
+            episodeCell.episodeImageView.image = onlineImage
+            episodeCell.setNeedsLayout()
+            DispatchQueue.main.async {
+                episodeCell.episodeSpinner.isHidden = true
+                episodeCell.episodeSpinner.stopAnimating()
+            }
+        }
+        ImageAPIClient.manager.getImage(from: imageURL, completionHandler: completion, errorHandler: {print($0)})
         return episodeCell
     }
 }
