@@ -43,7 +43,6 @@ extension EpisodeTableViewController: UITableViewDelegate, UITableViewDataSource
         
         let selectedSeasonKey = sectionKeys[indexPath.section]
         let selectedEpisodeKey = episodeKeys[selectedSeasonKey]![indexPath.row]
-        print(selectedSeasonKey, selectedEpisodeKey)
         let selectedSeason = episodesDict[selectedSeasonKey]!
         let selectedEpisode = selectedSeason[selectedEpisodeKey]!
         

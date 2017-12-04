@@ -60,7 +60,11 @@ class EpisodeTableViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EpisodeDetailViewController {
-            let selectedEpisode = episodes[(tableView.indexPathForSelectedRow?.row)!]
+            let indexPath = tableView.indexPathForSelectedRow!
+            let selectedSeasonKey = sectionKeys[indexPath.section]
+            let selectedEpisodeKey = episodeKeys[selectedSeasonKey]![indexPath.row]
+            let selectedSeason = episodesDict[selectedSeasonKey]!
+            let selectedEpisode = selectedSeason[selectedEpisodeKey]!
             destination.episode = selectedEpisode
         }
     }
