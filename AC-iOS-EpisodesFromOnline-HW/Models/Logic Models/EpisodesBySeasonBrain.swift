@@ -39,4 +39,12 @@ class EpisodesBySeasonBrain {
         return allSeasonsDict
     }
     
+    func getSeasonKeys() {
+        
+    }
+    
+    func getEpisodeKeys() {
+        
+    }
+    
 }

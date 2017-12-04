@@ -31,16 +31,24 @@ extension EpisodeTableViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Season \(section + 1)"
+        return "Season \(sectionKeys[section].description)"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return episodesDict[section + 1]?.count ?? 0
+        return episodesDict[sectionKeys[section]]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath)
-        let selectedEpisode = episodesDict[indexPath.section + 1]![indexPath.row + 1]!
+        
+        let selectedSeasonKey = sectionKeys[indexPath.section]
+        let selectedEpisodeKey = episodeKeys[selectedSeasonKey]![indexPath.row]
+        print(selectedSeasonKey, selectedEpisodeKey)
+        let selectedSeason = episodesDict[selectedSeasonKey]!
+        let selectedEpisode = selectedSeason[selectedEpisodeKey]!
+        
+        
+        //let selectedEpisode = episodesDict[indexPath.section + 1]![indexPath.row + 1]!
         
         if let cell = cell as? EpisodeTableViewCell {
             cell.episodeTitleLabel.text = selectedEpisode.name

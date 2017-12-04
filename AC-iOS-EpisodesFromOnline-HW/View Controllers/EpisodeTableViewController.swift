@@ -16,14 +16,31 @@ class EpisodeTableViewController: UIViewController {
     
     var episodesDict = [Int : [Int : Episode]]() {
         didSet {
-            tableView.reloadData()
+            sectionKeys = episodesDict.keys.sorted()
         }
     }
     
     var episodes = [Episode]() {
         didSet {
-            tableView.reloadData()
             episodesDict = EpisodesBySeasonBrain().makeSeasonsDict(episodes: episodes)
+        }
+    }
+    
+    var sectionKeys = [Int]() {
+        didSet {
+            print(sectionKeys)
+            var nestedKeyDict = [Int : [Int]]()
+            for i in 0..<sectionKeys.count {
+                let array = episodesDict[sectionKeys[i]]?.keys.sorted()
+                nestedKeyDict[sectionKeys[i]] = array
+            }
+            episodeKeys = nestedKeyDict
+        }
+    }
+    
+    var episodeKeys = [Int : [Int]]() {
+        didSet {
+            tableView.reloadData()
         }
     }
     
