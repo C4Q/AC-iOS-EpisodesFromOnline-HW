@@ -11,6 +11,7 @@ import UIKit
 class ShowListViewController: UIViewController {
     @IBOutlet weak var tableView:UITableView!
     
+    
     @IBOutlet weak var searchBar: UISearchBar!
     var shows = [Show](){
         didSet {
@@ -29,16 +30,20 @@ class ShowListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        self.tableView.rowHeight = 260
         loadData()
         // Do any additional setup after loading the view.
     }
-
+    
     func loadData() {
         let urlStr = "http://api.tvmaze.com/search/shows?q=\(searchTerm)"
+        print(searchTerm)
+        
         let completion: ([Show]) -> Void = {(onlineShow: [Show]) in
-        self.shows = onlineShow
-    }
-    ShowAPIClient.manager.getShows(from: urlStr, completionHandler: completion, errorHandler: {print($0)})
+            self.shows = onlineShow
+        }
+        
+        ShowAPIClient.manager.getShows(from: urlStr, completionHandler: completion, errorHandler: {print($0)})
         
     }
 }
@@ -51,13 +56,24 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let show = shows[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Show cell", for: indexPath)
-        cell.textLabel?.text = show.show.name
-        return cell
+        if let cell = cell as? ShowCellViewController {
+                cell.titleLabel.text = show.show.name
+                let str = "Rating: \(show.show.rating.average != nil ? "\(show.show.rating.average!)": "N/A")"
+                cell.ratingLabel.text = str
+                print(str)
+            }
+            return cell
+    
     }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchTerm = self.searchBar.text ?? ""
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            self.searchTerm = self.searchBar.text ?? ""
+            //  self.searchTerm = searchText
+            //for live search
+            searchBar.resignFirstResponder()
+            //print(self.searchBar.text)
+        }
     }
-}
+
 
 
 
