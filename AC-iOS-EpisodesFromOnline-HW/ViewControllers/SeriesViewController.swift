@@ -16,7 +16,7 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         didSet {
             print(aSeriesHref! + "/episodes")
             loadSeriesData()
-            seriesTableView.reloadData()
+            //seriesTableView.reloadData()
         }
     }
     
@@ -55,9 +55,9 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let anEpisode = allEpisodesInASeries[indexPath.row]
         
         cell.seriesImageView.image = #imageLiteral(resourceName: "defaultTVImage")
-        cell.seriesNameLabel.text = "Name: \(anEpisode.name)"
-        cell.seriesSeasonLabel.text = "Season: \(anEpisode.season)"
-        cell.seriesEpisodeLabel.text = "Episode: \(anEpisode.number)"
+        cell.seriesNameLabel.text = "Name: \(anEpisode.name ?? "TBA")"
+        cell.seriesSeasonLabel.text = "Season: \(anEpisode.season ?? 0)"
+        cell.seriesEpisodeLabel.text = "Episode: \(anEpisode.number ?? 0)"
         
         //PUT IMAGE API HERE
         guard let urlStr = anEpisode.image?.medium else {return UITableViewCell()}

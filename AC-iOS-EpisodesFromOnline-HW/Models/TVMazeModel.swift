@@ -13,8 +13,8 @@ struct TVShows: Codable {
 }
 
 struct ShowInfo: Codable {
-    var name: String //Show Name
-    var rating: RatingWrapper
+    var name: String? //Show Name
+    var rating: RatingWrapper?
     var image: ImageWrapper?
     var _links: SelfWrapper
     

@@ -60,10 +60,10 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         guard let cell = TVTableView.dequeueReusableCell(withIdentifier: "tvCell", for: indexPath) as? TVTableViewCell else {return UITableViewCell()}
         let tvSeries = tvShows[indexPath.row]
         
-                cell.tvNameLabel.text = "\(tvSeries.show.name)"
+        cell.tvNameLabel.text = "\(tvSeries.show.name ?? "No Name")"
         
-        if tvSeries.show.rating.average != nil {
-            cell.tvRatingLabel.text = "Rating: \(tvSeries.show.rating.average!)"
+        if tvSeries.show.rating!.average != nil {
+            cell.tvRatingLabel.text = "Rating: \(tvSeries.show.rating!.average!)"
         } else {
             cell.tvRatingLabel.text = "Rating: Unavailable"
         }

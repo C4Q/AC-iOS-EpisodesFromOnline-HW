@@ -33,8 +33,8 @@ class DetailedViewController: UIViewController {
         
         guard let anEpisode = anEpisode else {return}
         
-        episodeNameLabel.text = "Name: \(anEpisode.name)"
-        seasonAndEpisodeNumberLabel.text = "Season: \(anEpisode.season) / Episode: \(anEpisode.number)"
+        episodeNameLabel.text = "Name: \(anEpisode.name ?? "TBA")"
+        seasonAndEpisodeNumberLabel.text = "Season: \(anEpisode.season ?? 0) / Episode: \(anEpisode.number ?? 0)"
         descriptionTextView.text = anEpisode.summary
         largeImageView.image = nil
         
