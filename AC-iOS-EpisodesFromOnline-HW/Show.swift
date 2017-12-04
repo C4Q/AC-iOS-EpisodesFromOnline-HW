@@ -14,16 +14,16 @@ struct ShowWrapper: Codable {
 struct Show: Codable {
     let name: String
     let rating: RatingWrapper
-    let image: ImageWrapper
+    let image: ImageWrapper?
    
 }
 
 struct RatingWrapper: Codable {
-    let average: Double
+    let average: Double?
 }
 
 struct ImageWrapper: Codable {
-    let medium: String
-    let original: String
+    let medium: String?
+    let original: String?
 }
 

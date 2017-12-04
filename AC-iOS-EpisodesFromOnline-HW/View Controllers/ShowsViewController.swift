@@ -17,7 +17,7 @@ class ShowsViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     
-    var tvShows = [Show]() {
+    var tvShows = [ShowWrapper]() {
         didSet {
             self.showTableView.reloadData()
         }
@@ -59,11 +59,18 @@ extension ShowsViewController: UITableViewDelegate, UITableViewDataSource, UISea
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.showTableView.dequeueReusableCell(withIdentifier: "Show Cell", for: indexPath) as? ShowTableViewCell else {return UITableViewCell()}
         let thisShow = self.tvShows[indexPath.row]
-        cell.showNameLabel.text = thisShow.name
-        cell.ratingLabel.text = thisShow.rating.average.description
+        cell.showNameLabel.text = thisShow.show.name
+        
+        cell.ratingLabel.text = (thisShow.show.rating.average?.description) ?? "no rating"
         cell.showImageView.image = nil
         
-        ImageAPIClient.manager.getImage(from: thisShow.image.medium, completionHandler: {cell.showImageView.image = $0}, errorHandler: {print($0)})
+        guard let imageUrl = thisShow.show.image?.medium else {return UITableViewCell()}
+        let getImage: (UIImage) -> Void = {(onlineImage: UIImage) in
+            cell.showImageView.image = onlineImage
+            cell.setNeedsLayout()
+        }
+        
+        ImageAPIClient.manager.getImage(from: imageUrl, completionHandler: getImage, errorHandler: {print($0)})
         return cell
         
     }
