@@ -11,7 +11,11 @@ import UIKit
 class EpisodesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var show: Show! {
+        didSet {
+            loadData()
+        }
+    }
     var episodes = [Episode]() {
         didSet {
             self.tableView.reloadData()
@@ -26,7 +30,7 @@ class EpisodesViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func loadData() {
-        let urlStr = "http://api.tvmaze.com/\(showInst.show.id)/1/episodes"
+        let urlStr = "http://api.tvmaze.com/\(show.show.id)/episodes"
         let setShowToEpisodes: (Episode) -> Void = {(setShowToEpisodes) in
             self.episodes = [setShowToEpisodes]
             

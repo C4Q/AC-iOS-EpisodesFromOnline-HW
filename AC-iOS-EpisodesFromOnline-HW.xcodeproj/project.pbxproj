@@ -12,7 +12,6 @@
 		54056A701FCF030800CD81BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54056A6F1FCF030800CD81BE /* Assets.xcassets */; };
 		54056A731FCF030800CD81BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54056A711FCF030800CD81BE /* LaunchScreen.storyboard */; };
 		D222E8E01FD4CA6000F12822 /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D222E8DF1FD4CA6000F12822 /* EpisodesViewController.swift */; };
-		D222E8E21FD4CA7700F12822 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D222E8E11FD4CA7700F12822 /* Episode.swift */; };
 		D222E8E41FD4CB9400F12822 /* EpisodeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D222E8E31FD4CB9400F12822 /* EpisodeAPIClient.swift */; };
 		D247D3981FCFB50600AAFC79 /* ShowListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D3971FCFB50600AAFC79 /* ShowListViewController.swift */; };
 		D29B12B21FD1EB1600F36A85 /* ShowCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29B12B11FD1EB1600F36A85 /* ShowCellViewController.swift */; };
@@ -30,7 +29,6 @@
 		54056A721FCF030800CD81BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54056A741FCF030800CD81BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D222E8DF1FD4CA6000F12822 /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
-		D222E8E11FD4CA7700F12822 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		D222E8E31FD4CB9400F12822 /* EpisodeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeAPIClient.swift; sourceTree = "<group>"; };
 		D247D3971FCFB50600AAFC79 /* ShowListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListViewController.swift; sourceTree = "<group>"; };
 		D29B12B11FD1EB1600F36A85 /* ShowCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCellViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 				D2E4D7FB1FD109C0008FF47D /* ShowAPIClient.swift */,
 				D2E4D7F71FD10619008FF47D /* Show.swift */,
 				D2E4D7F91FD109A7008FF47D /* NetworkHelper.swift */,
-				D222E8E11FD4CA7700F12822 /* Episode.swift */,
 				D222E8E31FD4CB9400F12822 /* EpisodeAPIClient.swift */,
 			);
 			path = Models;
@@ -177,7 +174,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2E4D7FA1FD109A7008FF47D /* NetworkHelper.swift in Sources */,
-				D222E8E21FD4CA7700F12822 /* Episode.swift in Sources */,
 				D222E8E41FD4CB9400F12822 /* EpisodeAPIClient.swift in Sources */,
 				D2F1496E1FD5075F009A2136 /* ImageAPIClient.swift in Sources */,
 				D2E4D7F81FD10619008FF47D /* Show.swift in Sources */,

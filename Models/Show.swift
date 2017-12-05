@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 struct Show: Codable {
     let show: ShowWrapper
 }
@@ -23,4 +23,14 @@ struct RatingWrapper: Codable {
 struct ImageWrapper:Codable {
     let medium: String?
     let original: String?
+}
+struct Episode: Codable {
+//    let id: Int?
+    let url: String
+    let name: String
+    let season: Int
+    let number: Int
+    let image: ImageWrapper?
+    let summary: String?
+    
 }

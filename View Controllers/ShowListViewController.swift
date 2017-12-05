@@ -57,22 +57,38 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource, UI
         let show = shows[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Show cell", for: indexPath)
         if let cell = cell as? ShowCellViewController {
-                cell.titleLabel.text = show.show.name
-                let str = "Rating: \(show.show.rating.average != nil ? "\(show.show.rating.average!)": "N/A")"
-                cell.ratingLabel.text = str
-                print(str)
+            cell.titleLabel.text = show.show.name
+            cell.showView.image = nil
+            let str = "Rating: \(show.show.rating.average != nil ? "\(show.show.rating.average!)": "N/A")"
+            cell.ratingLabel.text = str
+            print(str)
+            if let image = show.show.image, let urlImage = image.medium {
+                let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+                    cell.imageView?.image = onlineImage
+                    cell.setNeedsLayout()
+                }
+                ImageAPIClient.manager.getImage(from: urlImage, completionHandler: completion, errorHandler: {print($0)})
             }
-            return cell
-    
+        }
+        return cell
+        
     }
-        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-            self.searchTerm = self.searchBar.text ?? ""
-            //  self.searchTerm = searchText
-            //for live search
-            searchBar.resignFirstResponder()
-            //print(self.searchBar.text)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchTerm = self.searchBar.text ?? ""
+        //  self.searchTerm = searchText
+        //for live search
+        searchBar.resignFirstResponder()
+        //print(self.searchBar.text)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let show = shows[tableView.indexPathForSelectedRow!.row]
+        if let EVC = segue.destination as? EpisodesViewController {
+            EVC.show = show
+            print(EVC.show)
+            //why isn't this working
         }
     }
+}
 
 
 
