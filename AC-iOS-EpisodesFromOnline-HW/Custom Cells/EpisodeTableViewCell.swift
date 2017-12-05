@@ -16,6 +16,9 @@ class EpisodeTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var seasonEpisodeLabel: UILabel!
+
+    @IBOutlet weak var episodeLabel: UILabel!
+    
     
     
 }

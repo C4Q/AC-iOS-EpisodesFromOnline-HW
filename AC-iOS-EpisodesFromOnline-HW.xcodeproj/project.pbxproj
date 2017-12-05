@@ -22,6 +22,7 @@
 		817701071FD505FF009A1A43 /* App Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817701061FD505FF009A1A43 /* App Error.swift */; };
 		817701091FD5063B009A1A43 /* Image API Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817701081FD5063B009A1A43 /* Image API Client.swift */; };
 		8177010B1FD5088F009A1A43 /* Show API Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8177010A1FD5088F009A1A43 /* Show API Client.swift */; };
+		81F6257A1FD5AF2400584C14 /* Episode API Client .swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F625791FD5AF2400584C14 /* Episode API Client .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		817701061FD505FF009A1A43 /* App Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App Error.swift"; sourceTree = "<group>"; };
 		817701081FD5063B009A1A43 /* Image API Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image API Client.swift"; sourceTree = "<group>"; };
 		8177010A1FD5088F009A1A43 /* Show API Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Show API Client.swift"; sourceTree = "<group>"; };
+		81F625791FD5AF2400584C14 /* Episode API Client .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode API Client .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				54056A6C1FCF030800CD81BE /* Main.storyboard */,
 				817701001FD4C9DB009A1A43 /* Show.swift */,
+				81F625791FD5AF2400584C14 /* Episode API Client .swift */,
 				817701021FD4D0C9009A1A43 /* Specific Show.swift */,
 				8177010A1FD5088F009A1A43 /* Show API Client.swift */,
 				817701041FD505D4009A1A43 /* Network Helper.swift */,
@@ -201,6 +204,7 @@
 				817701091FD5063B009A1A43 /* Image API Client.swift in Sources */,
 				817700FA1FD47EA9009A1A43 /* ShowTableViewCell.swift in Sources */,
 				817701051FD505D4009A1A43 /* Network Helper.swift in Sources */,
+				81F6257A1FD5AF2400584C14 /* Episode API Client .swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

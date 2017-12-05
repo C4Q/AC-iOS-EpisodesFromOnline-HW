@@ -18,13 +18,39 @@ class EpisodeDetailViewController: UIViewController {
    
     @IBOutlet weak var episodeSummaryTextView: UITextView!
     
+    @IBOutlet weak var episodeLabel: UILabel!
+    
+    
+    
+    var anEpisode: Episode?
+    
+    func setlabelsAndImage() {
+        nameLabel.text = anEpisode?.name
+        seasonEpisodeLabel.text? = "Season \(anEpisode?.season ?? 0)"
+        episodeLabel.text = "Episode \(anEpisode?.number ?? 0)"
+        episodeSummaryTextView.text? = "\(anEpisode?.summary ?? "")"
+        
+        if let episodeImageUrl = anEpisode?.image?.original {
+            let getImage: (UIImage) -> Void = {(onlineImage: UIImage) in
+                self.episodeImageView.image = onlineImage
+                
+            }
+            
+            
+            
+            ImageAPIClient.manager.getImage(from: episodeImageUrl, completionHandler: getImage, errorHandler: {print($0)})
+        }
+        else {
+            episodeImageView.image = #imageLiteral(resourceName: "noImage")
+        }
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-     
+        setlabelsAndImage()
     }
-
-  
 
 }

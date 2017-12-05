@@ -7,31 +7,22 @@
 //
 
 import Foundation
-struct SpecificShow: Codable {
-    let name: String
-    let rating: SpecificRatingWrapper
-    let _embedded: EpisodeWrapper
-}
-struct SpecificRatingWrapper: Codable {
-    let average: Double
-}
 
-
-
-struct EpisodeWrapper: Codable {
-    let episodes: [Episode]
-}
 
 struct Episode: Codable {
-    let name: String
-    let season: Int
-    let number: Int
-    let image: EpisodeImageWrapper
+    let name: String?
+    let season: Int?
+    let number: Int?
+    let summary: String?
+    let image: EpisodeImageWrapper?
+  
+ 
 }
 
+
 struct EpisodeImageWrapper: Codable {
-    let medium: String
-    let original: String 
+    let medium: String?
+    let original: String?
 }
 
 

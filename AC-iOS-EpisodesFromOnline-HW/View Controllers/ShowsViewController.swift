@@ -74,6 +74,14 @@ extension ShowsViewController: UITableViewDelegate, UITableViewDataSource, UISea
         return cell
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? EpisodesViewController {
+            let selectedRow = showTableView.indexPathForSelectedRow?.row
+            let selectedShow = tvShows[selectedRow!]
+            destinationVC.myShow = selectedShow
+        }
+        
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchTerm = searchBar.text ?? ""
