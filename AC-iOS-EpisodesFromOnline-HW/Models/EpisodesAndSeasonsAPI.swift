@@ -18,14 +18,12 @@ struct EpisodeAndSeasonAPI {
         
         let completion: (Data) -> Void = {(data: Data) in
             do {
-                let episodeInfoArray = try JSONDecoder().decode([EpisodeInfo].self, from: data)
-                var episodes: [Episode] = []
-                for episode in episodeInfoArray {
-                    episodes.append(episode.episode)
-                }
-               completionHandler(episodes)
+                let episodeInfoArray = try JSONDecoder().decode([Episode].self, from: data)
+                
+               completionHandler(episodeInfoArray)
             }
             catch {
+                print(error)
                  errorHandler(.couldNotParseJSON(rawError: error))
             }
         }

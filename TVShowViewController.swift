@@ -47,6 +47,12 @@ class TVShowViewController: UIViewController {
         
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if let destination = segue.destination as? EpisodeViewController {
+        let selectedShow = shows[(tableView.indexPathForSelectedRow?.row)!]
+         destination.show = selectedShow
+        }
+    }
 }
 
 extension TVShowViewController: UITableViewDataSource {
