@@ -96,7 +96,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Enter a Show Here!" translatesAutoresizingMaskIntoConstraints="NO" id="7b1-eq-D4x">
+                            <searchBar contentMode="redraw" barStyle="black" placeholder="Enter a Show Here!" translatesAutoresizingMaskIntoConstraints="NO" id="7b1-eq-D4x">
                                 <rect key="frame" x="0.0" y="64" width="320" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
