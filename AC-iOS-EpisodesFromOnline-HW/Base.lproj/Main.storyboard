@@ -130,6 +130,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoDataAvailable" translatesAutoresizingMaskIntoConstraints="NO" id="9xl-DU-NPj">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bfW-ds-cQB">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -204,7 +207,11 @@
                         <constraints>
                             <constraint firstItem="bfW-ds-cQB" firstAttribute="leading" secondItem="JSQ-Ql-HOJ" secondAttribute="leading" id="2bg-Vh-w1e"/>
                             <constraint firstItem="bfW-ds-cQB" firstAttribute="top" secondItem="JSQ-Ql-HOJ" secondAttribute="top" id="3RG-yA-1MK"/>
+                            <constraint firstItem="9xl-DU-NPj" firstAttribute="top" secondItem="JSQ-Ql-HOJ" secondAttribute="top" id="J08-KD-OVM"/>
                             <constraint firstItem="JSQ-Ql-HOJ" firstAttribute="bottom" secondItem="bfW-ds-cQB" secondAttribute="bottom" id="PvD-YB-1Ao"/>
+                            <constraint firstItem="9xl-DU-NPj" firstAttribute="leading" secondItem="JSQ-Ql-HOJ" secondAttribute="leading" id="bUL-mo-WyN"/>
+                            <constraint firstItem="JSQ-Ql-HOJ" firstAttribute="trailing" secondItem="9xl-DU-NPj" secondAttribute="trailing" id="jUU-kf-dUb"/>
+                            <constraint firstItem="JSQ-Ql-HOJ" firstAttribute="bottom" secondItem="9xl-DU-NPj" secondAttribute="bottom" id="tyl-Cj-Lhl"/>
                             <constraint firstItem="JSQ-Ql-HOJ" firstAttribute="trailing" secondItem="bfW-ds-cQB" secondAttribute="trailing" id="znc-xA-I6b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JSQ-Ql-HOJ"/>
@@ -289,4 +296,7 @@
             <point key="canvasLocation" x="-77" y="893"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NoDataAvailable" width="390" height="390"/>
+    </resources>
 </document>

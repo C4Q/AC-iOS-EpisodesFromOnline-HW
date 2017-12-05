@@ -23,6 +23,9 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var allEpisodesInASeries = [EpisodeStruct]() {
         didSet {
             self.seriesTableView.reloadData()
+            if allEpisodesInASeries.isEmpty {
+                seriesTableView.backgroundColor = nil
+            }
         }
     }
     
@@ -70,9 +73,10 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.spinner.isHidden = true
             
         } else {
-            spinner.isHidden = true
+            cell.spinner.isHidden = true
             cell.seriesImageView.image = #imageLiteral(resourceName: "defaultTVImage")
         }
+        
         return cell
     }
     

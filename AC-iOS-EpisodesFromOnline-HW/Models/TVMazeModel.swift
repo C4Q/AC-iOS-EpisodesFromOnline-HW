@@ -18,11 +18,20 @@ struct ShowInfo: Codable {
     var image: ImageWrapper?
     var _links: SelfWrapper
     
-
+//    Cant get this coding key to work
+//    enum CodingKeys: String, CodingKey {
+//        case name = "name"
+//        case rating = "rating"
+//        case image = "image"
+//        case links = "_links"
+//
+//    }
 }
 
 struct SelfWrapper: Codable {
     var selfKeyword: HrefWrapper
+    
+    //This enum lets you name the data whatever you want, but link it based on the actual spelling on the JSON
     enum CodingKeys: String, CodingKey {
         case selfKeyword = "self"
     }
