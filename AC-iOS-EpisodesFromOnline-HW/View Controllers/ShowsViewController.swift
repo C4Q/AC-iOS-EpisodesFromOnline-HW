@@ -84,8 +84,11 @@ extension ShowsViewController: UITableViewDelegate, UITableViewDataSource, UISea
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchTerm = searchBar.text ?? ""
+        self.searchTerm = (searchBar.text?.components(separatedBy: " ").joined(separator: "%20"))!
         searchBar.resignFirstResponder()
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchTerm = searchText
     }
     
     

@@ -19,7 +19,6 @@ struct Episode: Codable {
  
 }
 
-
 struct EpisodeImageWrapper: Codable {
     let medium: String?
     let original: String?

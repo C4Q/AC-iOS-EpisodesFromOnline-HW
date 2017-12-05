@@ -47,7 +47,7 @@ extension EpisodesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.episodeTableView.dequeueReusableCell(withIdentifier: "Episode Cell", for: indexPath) as? EpisodeTableViewCell else {return UITableViewCell()}
         let thisEpisode = self.episodes[indexPath.row]
-        cell.nameLabel.text = thisEpisode.name
+        cell.nameLabel.text? = (thisEpisode.name ?? "")
         cell.seasonEpisodeLabel.text? = "Season \(thisEpisode.season ?? 0)"
         cell.episodeLabel.text? = "Episode \(thisEpisode.number ?? 0)"
         

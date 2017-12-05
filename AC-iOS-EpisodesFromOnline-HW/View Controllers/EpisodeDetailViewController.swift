@@ -28,24 +28,19 @@ class EpisodeDetailViewController: UIViewController {
         nameLabel.text = anEpisode?.name
         seasonEpisodeLabel.text? = "Season \(anEpisode?.season ?? 0)"
         episodeLabel.text = "Episode \(anEpisode?.number ?? 0)"
-        episodeSummaryTextView.text? = "\(anEpisode?.summary ?? "")"
+        episodeSummaryTextView.text? = "\(anEpisode?.summary?.replacingOccurrences(of: "<p>", with: "").replacingOccurrences(of: "</p>", with: "").replacingOccurrences(of: "</i>", with: "").replacingOccurrences(of: "<i>", with: "") ?? "")"
         
         if let episodeImageUrl = anEpisode?.image?.original {
             let getImage: (UIImage) -> Void = {(onlineImage: UIImage) in
                 self.episodeImageView.image = onlineImage
                 
             }
-            
-            
-            
             ImageAPIClient.manager.getImage(from: episodeImageUrl, completionHandler: getImage, errorHandler: {print($0)})
         }
         else {
             episodeImageView.image = #imageLiteral(resourceName: "noImage")
         }
     }
-    
-    
     
     
     override func viewDidLoad() {
