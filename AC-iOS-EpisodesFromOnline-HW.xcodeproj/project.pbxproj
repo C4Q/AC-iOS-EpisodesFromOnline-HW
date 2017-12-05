@@ -26,7 +26,6 @@
 		8114E48E1FCF121E00EAB78B /* EpisodeTableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114E48D1FCF121E00EAB78B /* EpisodeTableViewExtensions.swift */; };
 		813B9DDD1FCFB83D009E7D3B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813B9DDC1FCFB83D009E7D3B /* String.swift */; };
 		818020471FD1CACB005E0448 /* EpisodesBySeasonBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818020461FD1CACB005E0448 /* EpisodesBySeasonBrain.swift */; };
-		818A84231FD5D6D200199AD7 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818A84221FD5D6D200199AD7 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +50,6 @@
 		8114E48D1FCF121E00EAB78B /* EpisodeTableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewExtensions.swift; sourceTree = "<group>"; };
 		813B9DDC1FCFB83D009E7D3B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		818020461FD1CACB005E0448 /* EpisodesBySeasonBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesBySeasonBrain.swift; sourceTree = "<group>"; };
-		818A84221FD5D6D200199AD7 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				818020461FD1CACB005E0448 /* EpisodesBySeasonBrain.swift */,
-				818A84221FD5D6D200199AD7 /* File.swift */,
 			);
 			path = "Logic Models";
 			sourceTree = "<group>";
@@ -264,7 +261,6 @@
 				8114E47C1FCF0BFD00EAB78B /* EpisodeTableViewController.swift in Sources */,
 				8114E4781FCF0B9B00EAB78B /* EpisodeTableViewCell.swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
-				818A84231FD5D6D200199AD7 /* File.swift in Sources */,
 				8114E4871FCF0D5C00EAB78B /* TVShowAPIClient.swift in Sources */,
 				8114E4831FCF0D4400EAB78B /* Episode.swift in Sources */,
 				8114E47A1FCF0BEF00EAB78B /* TVShowTableViewController.swift in Sources */,

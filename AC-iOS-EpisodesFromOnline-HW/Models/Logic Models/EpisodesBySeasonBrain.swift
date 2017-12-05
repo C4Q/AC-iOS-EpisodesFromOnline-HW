@@ -9,20 +9,6 @@
 import Foundation
 
 class EpisodesBySeasonBrain {
-
-    // make dict to hold other dicts
-    
-    // loop through all episode
-    
-    // check if new season
-    
-    // if it is create a new dictionary as the value
-    
-    // add episode.number = episode to new dictionary
-    
-    // if not new season
-    
-    // update that seasons value dict with new episode
     
     func makeSeasonsDict(episodes: [Episode]) -> [Int : [Int : Episode]] {
         var allSeasonsDict = [Int : [Int : Episode]]()
@@ -39,12 +25,17 @@ class EpisodesBySeasonBrain {
         return allSeasonsDict
     }
     
-    func getSeasonKeys() {
-        
+    func getSeasonKeys(seasonsDict: [Int : [Int : Episode]]) -> [Int] {
+        return seasonsDict.keys.sorted()
     }
     
-    func getEpisodeKeys() {
-        
+    func getEpisodeKeys(seasonsDict: [Int : [Int : Episode]], seasonKeys: [Int]) -> [Int: [Int]] {
+        var nestedKeyDict = [Int : [Int]]()
+        for i in 0..<seasonKeys.count {
+            let array = seasonsDict[seasonKeys[i]]?.keys.sorted()
+            nestedKeyDict[seasonKeys[i]] = array
+        }
+        return nestedKeyDict
     }
-    
+
 }

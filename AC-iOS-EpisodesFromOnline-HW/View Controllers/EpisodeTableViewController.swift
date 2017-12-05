@@ -14,27 +14,23 @@ class EpisodeTableViewController: UIViewController {
     
     var tvShowURL: String?
     
+    var episodesBySeasonBrain = EpisodesBySeasonBrain()
+    
     var episodesDict = [Int : [Int : Episode]]() {
         didSet {
-            sectionKeys = episodesDict.keys.sorted()
+            sectionKeys = episodesBySeasonBrain.getSeasonKeys(seasonsDict: episodesDict)
         }
     }
     
     var episodes = [Episode]() {
         didSet {
-            episodesDict = EpisodesBySeasonBrain().makeSeasonsDict(episodes: episodes)
+            episodesDict = episodesBySeasonBrain.makeSeasonsDict(episodes: episodes)
         }
     }
     
     var sectionKeys = [Int]() {
         didSet {
-            print(sectionKeys)
-            var nestedKeyDict = [Int : [Int]]()
-            for i in 0..<sectionKeys.count {
-                let array = episodesDict[sectionKeys[i]]?.keys.sorted()
-                nestedKeyDict[sectionKeys[i]] = array
-            }
-            episodeKeys = nestedKeyDict
+            episodeKeys = episodesBySeasonBrain.getEpisodeKeys(seasonsDict: episodesDict, seasonKeys: sectionKeys)
         }
     }
     
@@ -55,7 +51,6 @@ class EpisodeTableViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
