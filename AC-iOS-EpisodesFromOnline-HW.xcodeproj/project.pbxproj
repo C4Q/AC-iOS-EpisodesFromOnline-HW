@@ -118,9 +118,9 @@
 				81F558801FD628F2007F8F5A /* NetworkHelper.swift */,
 				81F558821FD6292A007F8F5A /* ImageAPIClient.swift */,
 				81F5587E1FD628C6007F8F5A /* Show.swift */,
+				81F5587A1FD62898007F8F5A /* Episode.swift */,
 				81F558721FD6258A007F8F5A /* ShowAPIClient.swift */,
 				81F558781FD625E3007F8F5A /* ShowCell.swift */,
-				81F5587A1FD62898007F8F5A /* Episode.swift */,
 				81F558761FD625BB007F8F5A /* EpisodeAPIClient.swift */,
 			);
 			path = Model;

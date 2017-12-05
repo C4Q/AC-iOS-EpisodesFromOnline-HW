@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="140" width="375" height="527"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showCell" rowHeight="87" id="1MA-1I-cqa">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showCell" rowHeight="87" id="1MA-1I-cqa" customClass="ShowCell" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1MA-1I-cqa" id="0rH-HZ-Bxs">
@@ -59,6 +59,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="ratingLabel" destination="CaL-J6-WjS" id="lHa-vX-3KE"/>
+                                            <outlet property="showImageView" destination="DRU-qT-CGJ" id="upJ-sg-vBq"/>
+                                            <outlet property="showNameLabel" destination="swR-T5-5Nm" id="Tdq-X0-not"/>
                                             <segue destination="Sxb-P3-Cu4" kind="show" id="sXV-Vq-yoC"/>
                                         </connections>
                                     </tableViewCell>
@@ -115,21 +118,21 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="episodeCell" textLabel="4vH-wP-rGc" detailTextLabel="HcR-l6-KZm" style="IBUITableViewCellStyleSubtitle" id="es8-1p-qPc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="episodeCell" textLabel="FPo-UR-tKh" detailTextLabel="iQv-jd-LU8" style="IBUITableViewCellStyleSubtitle" id="es8-1p-qPc">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="es8-1p-qPc" id="Ohd-nO-sqU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4vH-wP-rGc">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FPo-UR-tKh">
                                                     <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HcR-l6-KZm">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iQv-jd-LU8">
                                                     <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -154,6 +157,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gAA-N6-vSL"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Episodes" id="hgY-z1-QJP"/>
                     <connections>
                         <outlet property="episodesTableView" destination="fR3-Ph-BC7" id="Z1T-8P-P3f"/>
                     </connections>
@@ -219,6 +223,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FQ5-1U-ZVK"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Episode Details" id="3G3-ph-ZHt"/>
                     <connections>
                         <outlet property="episodeImageView" destination="FFf-qC-ZV6" id="NbX-sB-YvQ"/>
                         <outlet property="episodeLabel" destination="XEb-Sn-0c0" id="iH6-SA-8qk"/>

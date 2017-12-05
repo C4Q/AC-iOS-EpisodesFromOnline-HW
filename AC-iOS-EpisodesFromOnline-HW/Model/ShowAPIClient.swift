@@ -10,23 +10,30 @@ class ShowAPIClient {
 	private init() {}
 	static let manager = ShowAPIClient()
 
-	func getShows(from urlStr: String,
-								completionHandler: @escaping ([Show])-> Void,
-								errorHandler: @escaping (AppError) -> Void) {
+	//Method to get Shows
+	func getShows(named searchStr: String,
+								completionHandler: @escaping ([Show])->Void,
+								errorHandler: @escaping (Error)->Void) {
+		//update url for search
+		let urlStr = "http://api.tvmaze.com/search/shows?q=\(searchStr)"
 		//guard for bad url
-		guard let url = URL(string: urlStr) else {errorHandler(.badURL); return}
+		guard let url = URL(string: urlStr) else {return}
 		//completionHandler
-		let completion: (Data) -> Void = {(data: Data) in
+		let completion: (Data)->Void = {(data: Data) in
 			do {
-				let shows = try JSONDecoder().decode([Show].self, from: data)
+				let showInfo = try JSONDecoder().decode([ShowInfo].self, from: data)
+				let shows = showInfo.map({$0.show})
 				completionHandler(shows)
 			}
 			catch {
-				errorHandler(.couldNotParseJSON(rawError: error))
+				print(error)
 			}
 		}
 		NetworkHelper.manager.performDataTask(with: url,
 																					completionHandler: completion,
 																					errorHandler: errorHandler)
+																					//errorHandler: {(print($0))})
 	}
 }
+
+

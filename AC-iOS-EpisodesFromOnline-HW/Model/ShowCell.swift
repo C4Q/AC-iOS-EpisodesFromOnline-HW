@@ -6,7 +6,7 @@
 import UIKit
 
 class ShowCell: UITableViewCell {
-	@IBOutlet weak var showImageView: UIImageView!
-	@IBOutlet weak var showNameLabel: UILabel!
-	@IBOutlet weak var ratingLabel: UILabel!
+		@IBOutlet weak var showImageView: UIImageView!
+		@IBOutlet weak var showNameLabel: UILabel!
+		@IBOutlet weak var ratingLabel: UILabel!
 }

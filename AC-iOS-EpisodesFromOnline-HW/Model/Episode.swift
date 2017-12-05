@@ -10,9 +10,9 @@ struct Episode: Codable {
 	let name: String
 	let season: Int
 	let number: Int //episode
-	let airdate: String
-	let airtime: String
-	let airstamp: String
+//	let airdate: String
+//	let airtime: String
+//	let airstamp: String
 	let runtime: Int
 	let image: Image
 	struct Image: Codable {

@@ -10,17 +10,19 @@ class EpisodeAPIClient {
 	static let manager = EpisodeAPIClient()
 	func getEpisodes(from urlStr: String,
 									 completionHandler: @escaping ([Episode])->Void,
-									 errorHandler: @escaping (AppError) -> Void) {
-		guard let url = URL(string: urlStr) else {errorHandler(.badURL); return}
+									 errorHandler: @escaping (Error) -> Void) {
+		guard let url = URL(string: urlStr) else {return}
 		let completion: (Data)->Void = {(data: Data) in
 			do{
 				let episodes = try JSONDecoder().decode([Episode].self, from: data)
 				completionHandler(episodes)
 			}
-			catch {errorHandler(.couldNotParseJSON(rawError: error))}
+			catch {
+				print(error)
+			}
 		}
 		NetworkHelper.manager.performDataTask(with: url,
 																					completionHandler: completion,
-																					errorHandler: errorHandler)
+																					errorHandler: {(print($0))})
 	}
 }

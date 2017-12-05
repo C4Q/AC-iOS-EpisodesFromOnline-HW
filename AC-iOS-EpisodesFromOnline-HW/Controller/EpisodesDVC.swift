@@ -36,15 +36,6 @@ class EpisodesDVC: UIViewController {
 		ImageAPIClient.manager.getImage(from: imageURLStr,
 																		completionHandler: completion,
 																		errorHandler: {print($0)})
-		//		if let url = URL(string: episode.image.original) {
-		//			DispatchQueue.global().sync {
-		//				if let data = try? Data.init(contentsOf: url) {
-		//					DispatchQueue.main.async {
-		//						self.episodeImageView.image = UIImage(data: data)
-		//					}
-		//				}
-		//			}
-		//		}
 	}
 }
 

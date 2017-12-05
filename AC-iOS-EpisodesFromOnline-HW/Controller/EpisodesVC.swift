@@ -25,10 +25,10 @@ class EpisodesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 	func loadEpisodes() {
 		let urlStr = "https://api.tvmaze.com/shows/\(show.id)/episodes"
-		let completion: ([Episode]) -> Void = {(onlineEpisodes: [Episode]) in
+		let setEpisodes: ([Episode]) -> Void = {(onlineEpisodes: [Episode]) in
 			self.episodes = onlineEpisodes
 		}
-		EpisodeAPIClient.manager.getEpisodes(from: urlStr, completionHandler: completion, errorHandler: {print($0)})
+		EpisodeAPIClient.manager.getEpisodes(from: urlStr, completionHandler: setEpisodes, errorHandler: {print($0)})
 	}
 
 	//MARK: - TableView Datasource
@@ -38,17 +38,17 @@ class EpisodesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = self.episodesTableView.dequeueReusableCell(withIdentifier: "episodesCell", for: indexPath)
-		let episode = episodes[indexPath.row]
+		let episode = self.episodes[indexPath.row]
 		cell.textLabel?.text = episode.name
 		cell.detailTextLabel?.text = "Season: \(episode.season), Episode: \(episode.number)"
 		//MARK: - Load Image
 		cell.imageView?.image = nil //gets rid of the flickering.
 		let imageUrlStr = episode.image.medium
-		let completion: (UIImage) -> Void = {(onlineEpisodeImage: UIImage) in
+		let setImage: (UIImage) -> Void = {(onlineEpisodeImage: UIImage) in
 			cell.imageView?.image = onlineEpisodeImage
 			cell.setNeedsLayout() //invalidates current layout and reload the image data to update images
 		}
-		ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
+		ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: setImage, errorHandler: {print($0)})
 		return cell
 	}
 
