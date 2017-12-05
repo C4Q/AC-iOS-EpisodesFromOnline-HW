@@ -52,7 +52,7 @@ class ShowsViewController: UIViewController, UISearchBarDelegate {
 //        searchBar.resignFirstResponder()
 //    }
     
-    // MARK: - Navigation
+    // MARK: - Navigation //NOT WORKING WHY?>>>> working now
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? EpisodesViewController {
             let selectedShow = showsArr[self.tableView.indexPathForSelectedRow!.row]
@@ -60,8 +60,6 @@ class ShowsViewController: UIViewController, UISearchBarDelegate {
         }
     }
 }
-
-
 
 //MARK: Table View
 extension ShowsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -79,10 +77,6 @@ extension ShowsViewController: UITableViewDataSource, UITableViewDelegate {
         
         //set image API Client
         //Call the completion handler to load the theumbnail image from the url
-        guard let imageUrlStr = showChosen.show.image?.medium else {
-            //cell.showImageView.image = pic I choose
-            return cell //only executes if you cant make the url
-        }
         //Below the closure is being defined but its not running yet
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
             cell.imageView?.image = onlineImage
@@ -90,9 +84,14 @@ extension ShowsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         //Now we are passing the closure down. The closure above can only run if it passes all of the errors. in the api client and the network helper.
         //Api client first the network helper
-        ImageAPIClient.manager.getImage(from: imageUrlStr,
-                                        completionHandler: completion,
-                                        errorHandler: {print($0)})
+
+        if let image = showChosen.show.image?.medium {
+            ImageAPIClient.manager.getImage(from: image,
+                                            completionHandler: completion,
+                                            errorHandler: {print($0)})
+        } else {
+            cell.showImageView.image = #imageLiteral(resourceName: "NoImage")
+        }
         return cell
     }
     

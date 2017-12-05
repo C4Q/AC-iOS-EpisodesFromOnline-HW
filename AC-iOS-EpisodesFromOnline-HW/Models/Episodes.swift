@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Episodes {
+struct Episodes: Codable {
     let name: String
     let season: Int
     let number: Int
@@ -19,3 +19,10 @@ struct Episodes {
 struct ImageWrapper2: Codable {
     let original: String
 }
+
+
+
+//TO DO:
+//Create new cell file
+//create outlets for the labels and image
+//then connect

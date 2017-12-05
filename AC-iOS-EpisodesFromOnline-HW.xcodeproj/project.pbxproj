@@ -20,6 +20,8 @@
 		8186069A1FD6728900689C1E /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818606991FD6728900689C1E /* NetworkHelper.swift */; };
 		8186069C1FD672BC00689C1E /* ShowsAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186069B1FD672BC00689C1E /* ShowsAPIClient.swift */; };
 		8186069E1FD672E600689C1E /* EpisodesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186069D1FD672E600689C1E /* EpisodesAPIClient.swift */; };
+		818606A01FD677A800689C1E /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8186069F1FD677A800689C1E /* EpisodeDetailViewController.swift */; };
+		818606CA1FD7101C00689C1E /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818606C91FD7101C00689C1E /* EpisodeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		818606991FD6728900689C1E /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		8186069B1FD672BC00689C1E /* ShowsAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsAPIClient.swift; sourceTree = "<group>"; };
 		8186069D1FD672E600689C1E /* EpisodesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesAPIClient.swift; sourceTree = "<group>"; };
+		8186069F1FD677A800689C1E /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		818606C91FD7101C00689C1E /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 				818606551FD5D4D100689C1E /* ShowsViewController.swift */,
 				818606831FD635BB00689C1E /* EpisodesViewController.swift */,
 				54056A6C1FCF030800CD81BE /* Main.storyboard */,
+				8186069F1FD677A800689C1E /* EpisodeDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				818606851FD6382900689C1E /* ShowTableViewCell.swift */,
+				818606C91FD7101C00689C1E /* EpisodeTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -204,10 +210,12 @@
 				818606841FD635BB00689C1E /* EpisodesViewController.swift in Sources */,
 				818606861FD6382900689C1E /* ShowTableViewCell.swift in Sources */,
 				8186069C1FD672BC00689C1E /* ShowsAPIClient.swift in Sources */,
+				818606A01FD677A800689C1E /* EpisodeDetailViewController.swift in Sources */,
 				8186068A1FD64F1000689C1E /* Episodes.swift in Sources */,
 				8186069E1FD672E600689C1E /* EpisodesAPIClient.swift in Sources */,
 				818606981FD6725A00689C1E /* ImageAPIClient.swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
+				818606CA1FD7101C00689C1E /* EpisodeTableViewCell.swift in Sources */,
 				8186067D1FD6226000689C1E /* Shows.swift in Sources */,
 				818606561FD5D4D100689C1E /* ShowsViewController.swift in Sources */,
 			);
