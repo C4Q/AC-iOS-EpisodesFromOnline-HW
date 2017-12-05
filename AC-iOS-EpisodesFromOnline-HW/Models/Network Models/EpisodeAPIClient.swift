@@ -28,9 +28,7 @@ struct EpisodeAPIClient {
                 errorHandler(error)
             }
         }
-        
         NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
-        
     }
     
 }

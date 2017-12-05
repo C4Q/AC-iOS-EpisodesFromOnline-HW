@@ -45,10 +45,7 @@ extension EpisodeTableViewController: UITableViewDelegate, UITableViewDataSource
         let selectedEpisodeKey = episodeKeys[selectedSeasonKey]![indexPath.row]
         let selectedSeason = episodesDict[selectedSeasonKey]!
         let selectedEpisode = selectedSeason[selectedEpisodeKey]!
-        
-        
-        //let selectedEpisode = episodesDict[indexPath.section + 1]![indexPath.row + 1]!
-        
+    
         if let cell = cell as? EpisodeTableViewCell {
             cell.episodeTitleLabel.text = selectedEpisode.name
             let season = selectedEpisode.season?.description ?? "N/A"
@@ -69,13 +66,11 @@ extension EpisodeTableViewController: UITableViewDelegate, UITableViewDataSource
                     }
                 }
                 ImageAPIClient.manager.getImage(from: imageURL, completionHandler: completion, errorHandler: { print($0) })
-                
             } else {
                 cell.spinner.isHidden = true
                 cell.spinner.stopAnimating()
                 cell.episodeImageView.image = #imageLiteral(resourceName: "no-image-icon")
             }
-            
         }
         return cell
     }

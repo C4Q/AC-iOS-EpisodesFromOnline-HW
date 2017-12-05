@@ -81,13 +81,9 @@ extension TVShowTableViewController: UITableViewDelegate, UITableViewDataSource 
                 cell.spinner.isHidden = true
                 cell.spinner.stopAnimating()
                 cell.showImageView.image = #imageLiteral(resourceName: "no-image-icon")
-                
             }
-            
         }
-        
         return cell
     }
-    
     
 }

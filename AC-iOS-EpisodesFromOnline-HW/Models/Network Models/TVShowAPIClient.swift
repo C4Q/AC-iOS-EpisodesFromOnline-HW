@@ -28,9 +28,7 @@ struct TVShowAPIClient {
                 errorHandler(error)
             }
         }
-        
         NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
-        
     }
     
 }
