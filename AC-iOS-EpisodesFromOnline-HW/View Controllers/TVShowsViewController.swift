@@ -11,8 +11,6 @@ import UIKit
 
 
 /*TO-DO
- - Use App Error for errors
- - Fix cell spacing for long running episode titles OR Remove Titles
  - Setting image not available for shows/episodes without images
 */
 
@@ -62,10 +60,9 @@ class TVShowsViewController: UIViewController {
             self.TVShows = onlineObject
         }
         let errorHandler: (Error) -> Void = {(error: Error) in
-            //Refactor to use App Error
             print(error)
         }
-        TVShowsAPIClient.manager.getNASAObject(from: urlStr, completionHandler: completion, errorHandler: errorHandler)
+        TVShowsAPIClient.manager.getTvShows(from: urlStr, completionHandler: completion, errorHandler: errorHandler)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -13,7 +13,7 @@ import Foundation
 class TVShowsAPIClient {
     private init() {}
     static let manager = TVShowsAPIClient()
-    func getNASAObject(from urlStr: String, completionHandler: @escaping ([TVSeries]) -> Void, errorHandler: @escaping (Error) -> Void) {
+    func getTvShows(from urlStr: String, completionHandler: @escaping ([TVSeries]) -> Void, errorHandler: @escaping (Error) -> Void) {
         guard let url = URL(string: urlStr) else { return }
         let completion: (Data) -> Void = { (data: Data) in
             do {

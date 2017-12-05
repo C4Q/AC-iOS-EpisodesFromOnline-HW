@@ -15,7 +15,6 @@
 		81A81E581FD1FFE000AE694E /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A81E571FD1FFE000AE694E /* NetworkHelper.swift */; };
 		81A81E5A1FD2002800AE694E /* TVShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A81E591FD2002800AE694E /* TVShows.swift */; };
 		81A81E5C1FD204C200AE694E /* TVShowsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A81E5B1FD204C200AE694E /* TVShowsCell.swift */; };
-		81A81E5E1FD2064100AE694E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A81E5D1FD2064100AE694E /* AppError.swift */; };
 		81A81E601FD214C800AE694E /* Episodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A81E5F1FD214C800AE694E /* Episodes.swift */; };
 		81A81E621FD21B1400AE694E /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A81E611FD21B1400AE694E /* EpisodesViewController.swift */; };
 		81A81E641FD21C2F00AE694E /* EpisodesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A81E631FD21C2F00AE694E /* EpisodesCell.swift */; };
@@ -33,7 +32,6 @@
 		81A81E571FD1FFE000AE694E /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		81A81E591FD2002800AE694E /* TVShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShows.swift; sourceTree = "<group>"; };
 		81A81E5B1FD204C200AE694E /* TVShowsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsCell.swift; sourceTree = "<group>"; };
-		81A81E5D1FD2064100AE694E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		81A81E5F1FD214C800AE694E /* Episodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
 		81A81E611FD21B1400AE694E /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		81A81E631FD21C2F00AE694E /* EpisodesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesCell.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				81A81E571FD1FFE000AE694E /* NetworkHelper.swift */,
-				81A81E5D1FD2064100AE694E /* AppError.swift */,
 				81A81E591FD2002800AE694E /* TVShows.swift */,
 				81A81E5F1FD214C800AE694E /* Episodes.swift */,
 			);
@@ -197,7 +194,6 @@
 				81A81E621FD21B1400AE694E /* EpisodesViewController.swift in Sources */,
 				54056A6B1FCF030800CD81BE /* TVShowsViewController.swift in Sources */,
 				81A81E661FD2367200AE694E /* EpisodeDetailedViewController.swift in Sources */,
-				81A81E5E1FD2064100AE694E /* AppError.swift in Sources */,
 				81A81E581FD1FFE000AE694E /* NetworkHelper.swift in Sources */,
 				81A81E5A1FD2002800AE694E /* TVShows.swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
