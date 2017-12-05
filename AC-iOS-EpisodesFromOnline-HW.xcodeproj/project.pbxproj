@@ -14,13 +14,13 @@
 		741D972C1FD62BBB00EA8114 /* ShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D972B1FD62BBB00EA8114 /* ShowsViewController.swift */; };
 		741D97301FD6312D00EA8114 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D972F1FD6312D00EA8114 /* EpisodeTableViewCell.swift */; };
 		741D97331FD633D100EA8114 /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D97321FD633D100EA8114 /* ShowTableViewCell.swift */; };
-		741D97351FD637AB00EA8114 /* ShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D97341FD637AB00EA8114 /* ShowsModel.swift */; };
 		741D97371FD637B700EA8114 /* EpisodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D97361FD637B700EA8114 /* EpisodesModel.swift */; };
 		741D97391FD637D300EA8114 /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D97381FD637D300EA8114 /* ImageAPIClient.swift */; };
 		741D973B1FD637E400EA8114 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D973A1FD637E400EA8114 /* NetworkHelper.swift */; };
 		741D973D1FD637F000EA8114 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D973C1FD637F000EA8114 /* AppError.swift */; };
 		741D973F1FD6380000EA8114 /* ShowAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D973E1FD6380000EA8114 /* ShowAPIClient.swift */; };
 		741D97411FD6380B00EA8114 /* EpisodeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D97401FD6380B00EA8114 /* EpisodeAPIClient.swift */; };
+		741D97451FD63C6A00EA8114 /* ShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D97441FD63C6A00EA8114 /* ShowsModel.swift */; };
 		749465631FD62A740058C846 /* EpisodesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749465621FD62A740058C846 /* EpisodesDetailViewController.swift */; };
 		74E313721FD62182000666BB /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E313711FD62182000666BB /* EpisodesViewController.swift */; };
 /* End PBXBuildFile section */
@@ -35,13 +35,13 @@
 		741D972B1FD62BBB00EA8114 /* ShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsViewController.swift; sourceTree = "<group>"; };
 		741D972F1FD6312D00EA8114 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		741D97321FD633D100EA8114 /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
-		741D97341FD637AB00EA8114 /* ShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowsModel.swift; path = "AC-iOS-EpisodesFromOnline-HW/New Group/ShowsModel.swift"; sourceTree = SOURCE_ROOT; };
 		741D97361FD637B700EA8114 /* EpisodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesModel.swift; sourceTree = "<group>"; };
 		741D97381FD637D300EA8114 /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
 		741D973A1FD637E400EA8114 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		741D973C1FD637F000EA8114 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		741D973E1FD6380000EA8114 /* ShowAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAPIClient.swift; sourceTree = "<group>"; };
 		741D97401FD6380B00EA8114 /* EpisodeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeAPIClient.swift; sourceTree = "<group>"; };
+		741D97441FD63C6A00EA8114 /* ShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsModel.swift; sourceTree = "<group>"; };
 		749465621FD62A740058C846 /* EpisodesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesDetailViewController.swift; sourceTree = "<group>"; };
 		74E313711FD62182000666BB /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,7 +113,7 @@
 		741D97431FD6381B00EA8114 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				741D97341FD637AB00EA8114 /* ShowsModel.swift */,
+				741D97441FD63C6A00EA8114 /* ShowsModel.swift */,
 				741D97361FD637B700EA8114 /* EpisodesModel.swift */,
 			);
 			path = Models;
@@ -208,7 +208,7 @@
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
 				741D97371FD637B700EA8114 /* EpisodesModel.swift in Sources */,
 				749465631FD62A740058C846 /* EpisodesDetailViewController.swift in Sources */,
-				741D97351FD637AB00EA8114 /* ShowsModel.swift in Sources */,
+				741D97451FD63C6A00EA8114 /* ShowsModel.swift in Sources */,
 				741D97391FD637D300EA8114 /* ImageAPIClient.swift in Sources */,
 				741D973D1FD637F000EA8114 /* AppError.swift in Sources */,
 				741D97301FD6312D00EA8114 /* EpisodeTableViewCell.swift in Sources */,

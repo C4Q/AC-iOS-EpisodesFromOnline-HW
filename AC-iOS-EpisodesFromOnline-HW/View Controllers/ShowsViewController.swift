@@ -16,17 +16,38 @@ class ShowsViewController: UIViewController, UITableViewDelegate, UITableViewDel
         showsTableView.dataSource = self
         showsSearchBar.delegate = self
     }
-
+    
     @IBOutlet weak var showsSearchBar: UISearchBar!
     
     @IBOutlet weak var showsTableView: UITableView!
     
+    var televisionShows: [TVShows] = [] {
+        didSet {
+            self.showsTableView.reloadData()
+        }
+    }
+    
+    func loadData() {
+        let url = ""
+        let completion: ([TVShows]) -> Void = {(onlineTVShow: [TVShows] in
+                self.televisionShows = onlineTVShow
+            )}
+    }
+    
+    var searchTerm = "" {
+        didSet {
+            loadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        televisionShows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let televisionContent = self.televisionShows[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ShowSearch", for: indexPath)
+        return cell
     }
     
 }
