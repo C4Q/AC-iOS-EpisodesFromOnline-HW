@@ -30,7 +30,7 @@ class EpisodesViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func loadData() {
-        let urlStr = "http://api.tvmaze.com/\(show.show.id)/episodes"
+        let urlStr = "http://api.tvmaze.com/shows/\(show.show.id)/episodes"
         let setShowToEpisodes: (Episode) -> Void = {(setShowToEpisodes) in
             self.episodes = [setShowToEpisodes]
             

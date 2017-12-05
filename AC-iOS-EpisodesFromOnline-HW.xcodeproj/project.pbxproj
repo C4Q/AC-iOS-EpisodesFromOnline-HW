@@ -18,6 +18,7 @@
 		D2E4D7F81FD10619008FF47D /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E4D7F71FD10619008FF47D /* Show.swift */; };
 		D2E4D7FA1FD109A7008FF47D /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E4D7F91FD109A7008FF47D /* NetworkHelper.swift */; };
 		D2E4D7FC1FD109C0008FF47D /* ShowAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E4D7FB1FD109C0008FF47D /* ShowAPIClient.swift */; };
+		D2F12B5A1FD641BE0034395B /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F12B591FD641BE0034395B /* Episode.swift */; };
 		D2F1496E1FD5075F009A2136 /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F1496D1FD5075F009A2136 /* ImageAPIClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		D2E4D7F71FD10619008FF47D /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		D2E4D7F91FD109A7008FF47D /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		D2E4D7FB1FD109C0008FF47D /* ShowAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAPIClient.swift; sourceTree = "<group>"; };
+		D2F12B591FD641BE0034395B /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		D2F1496D1FD5075F009A2136 /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 				D2E4D7FB1FD109C0008FF47D /* ShowAPIClient.swift */,
 				D2E4D7F71FD10619008FF47D /* Show.swift */,
 				D2E4D7F91FD109A7008FF47D /* NetworkHelper.swift */,
+				D2F12B591FD641BE0034395B /* Episode.swift */,
 				D222E8E31FD4CB9400F12822 /* EpisodeAPIClient.swift */,
 			);
 			path = Models;
@@ -176,6 +179,7 @@
 				D2E4D7FA1FD109A7008FF47D /* NetworkHelper.swift in Sources */,
 				D222E8E41FD4CB9400F12822 /* EpisodeAPIClient.swift in Sources */,
 				D2F1496E1FD5075F009A2136 /* ImageAPIClient.swift in Sources */,
+				D2F12B5A1FD641BE0034395B /* Episode.swift in Sources */,
 				D2E4D7F81FD10619008FF47D /* Show.swift in Sources */,
 				D222E8E01FD4CA6000F12822 /* EpisodesViewController.swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
