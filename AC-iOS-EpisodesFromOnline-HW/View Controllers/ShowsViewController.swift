@@ -19,8 +19,15 @@ class ShowsViewController: UIViewController {
     
     var shows = [Show]()
     
-    /// http://api.tvmaze.com/search/shows?q=\(searchTerm)
+    var searchTerm: String? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
+    /// http://api.tvmaze.com/search/shows?q=\(searchTerm)
+    /// load the SHOWS into the tableView that fall into the searchTerm
+    /// searchTerm criteria will change the loading of the results.
     
     
     override func viewDidLoad() {
@@ -33,6 +40,24 @@ class ShowsViewController: UIViewController {
 
 extension ShowsViewController: UISearchBarDelegate {
     
+    var filteredSearch: [Show] {
+        guard let searchTerm = searchTerm, searchTerm != "" else {
+            return shows
+        }
+        return shows.filter{(show) in
+            show.show.name.lowercased().contains(searchTerm.lowercased())
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchTerm = searchBar.text?.lowercased()
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchTerm = searchText
+    }
+    
     
 }
 
@@ -40,10 +65,36 @@ extension ShowsViewController: UISearchBarDelegate {
 extension ShowsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return filteredSearch.count
     }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = x
+        let show = filteredSearch[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Show Cell", for: indexPath)
+        cell.textLabel?.text = show.show.name
+        cell.detailTextLabel?.text = "Rating: \(show.show.rating.average)"
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? EpisodesViewController {
+            let selectedRow = self.tableView.indexPathForSelectedRow!.row
+            let selectedShow = self.filteredSearch[selectedRow] /// filtered search or original shows array?
+            destination. // to do
+        }
+    }
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+

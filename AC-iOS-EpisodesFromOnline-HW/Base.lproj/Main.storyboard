@@ -165,6 +165,7 @@
                         <outlet property="episodeImageView" destination="Gjn-F1-tvj" id="b9I-Yi-zL4"/>
                         <outlet property="episodeNameLabel" destination="p9P-Uv-JP2" id="jQE-Eg-BIg"/>
                         <outlet property="episodeNumberLabel" destination="tEI-1s-pOM" id="heD-vE-qq4"/>
+                        <outlet property="episodesTableView" destination="B6P-rt-Lxi" id="cOu-pr-dlK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IND-0a-pqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
