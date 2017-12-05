@@ -7,10 +7,8 @@
 //
 
 import Foundation
-struct EpisodeInfo: Codable {
-    let show: EpWrapper
-}
-struct EpWrapper: Codable {
+
+struct Episode: Codable {
     let id: Int?
     let url: String
     let name: String
