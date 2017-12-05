@@ -97,6 +97,7 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
                 cell.spinner.isHidden = true
         } else {
             cell.spinner.isHidden = true
+            cell.spinner.stopAnimating()
             cell.tvImageView.image = #imageLiteral(resourceName: "defaultTVImage")
         }
     }
