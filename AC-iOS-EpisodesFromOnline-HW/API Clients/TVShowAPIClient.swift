@@ -20,20 +20,20 @@ class TVShowAPICLient {
         
         let completion: (Data) -> Void = {(data: Data) in
             do{
-                let decoder = try JSONDecoder().decode([TVShow].self, from: data)
-                //turn the data into an array of [TVSHOW]
-                var tvShowFromOnline: [TVShow] = []
+                let tvShowsFromOnline = try JSONDecoder().decode([TVShow].self, from: data)//turning json into tvshow data
+                var tvShowArray: [TVShow] = []
                 
-                for show in tvShowFromOnline {
-                   tvShowFromOnline.append(show)
+                for tvShow in tvShowsFromOnline { //turn the data into an array of [TVShow]
+                    tvShowArray.append(tvShow)
+                    print("Building array of tvshows!")
                 }
-                completionHandler(decoder)
+                completionHandler(tvShowsFromOnline)
                 
-            }catch{
+            } catch {
                 errorHandler(error)
+                print("Unable to retrieve data")
             }
         }
-        
         NetworkHelper.manager.performDataTask(with: url,
                                               completionHandler: completion,
                                               errorHandler: errorHandler)

@@ -8,13 +8,10 @@
 
 import UIKit
 
-//for tvshows -> use searchterm in place of girls
+//for tvshows -> use \(searchterm) in place of girls
 //http://api.tvmaze.com/search/shows?q=girls
 
-//for episodes, replace the 1 with the showID from codable
-//http://api.tvmaze.com/svarvars/1/episodes
-
-//link to tvshows episode
+//link to tvshow episodes
 //"http://api.tvmaze.com/shows/32087"
 
 class TVShowViewController: UIViewController {
@@ -29,12 +26,9 @@ class TVShowViewController: UIViewController {
         }
     }
     
-    //made so you don't have to make nil
-    //var tvShow: TVShow = set no image available instead of nil
-    
     var searchTerm: String = "" {
         didSet{
-            getTVShowData()//reload show data
+            getTVShowData()
         }
     }
     
@@ -47,7 +41,8 @@ class TVShowViewController: UIViewController {
     }
     
     func getTVShowData(){
-        //set apistring if needed
+        ///TVShowAPI
+        
         //get url string
         let urlStr = "http://api.tvmaze.com/search/shows?q=\(searchTerm)"
         //set completion
@@ -57,53 +52,29 @@ class TVShowViewController: UIViewController {
         //set errorHandler
         let errorHandler: (Error) -> Void = {(error: Error) in
             //alert pop up box
-            //                        let alertController = UIAlertController(title: "Error", message: "An error occurred: \(error)", preferredStyle: UIAlertControllerStyle.alert)
-            //                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-            //                        alertController.addAction(okAction)
-            //                        alertController.view.layoutIfNeeded() //avoid Snapshotting error
-            //                        self.present(alertController, animated: true, completion: nil)
         }
-        TVShowAPICLient.manager.getTVShow(from: urlStr, completionHandler: completion, errorHandler: errorHandler)
+        
+        TVShowAPICLient.manager.getTVShow(from: urlStr,
+                                          completionHandler: completion,
+                                          errorHandler: errorHandler)
     }
     
     
     /// MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? EpisodesViewController {
+        if let destination = segue.destination as? EpisodesViewController{
             // set selected row
             let selectedRow = self.tvShowTableView.indexPathForSelectedRow!.row
-            
             //set selected show: go to specific index in the array
             let selectedEpisode = self.shows[selectedRow]
-            var array: [Episode] = []
-            //let urlStr = selectedEpisode.show.links.selfKeyword.href
+            destination.episodes = selectedEpisode.show.links.selfKeyword.href //sending url of episodes over
+            print(selectedEpisode.show.name)
             
-            
-            let urlStr = selectedEpisode.show.links.selfKeyword.href
-            //"http://api.tvmaze.com/episodes/10820" + "/episodes"" //"http://api.tvmaze.com/shows/32087/\(episodes)"
-            //set completion
-            let completion: ([Episode]) -> Void = {(onlineEpisode: [Episode]) in
-                array = onlineEpisode
-            }
-            //set errorHandler
-            let errorHandler: (Error) -> Void = {(error: Error) in
-                //alert pop up box
-                //                        let alertController = UIAlertController(title: "Error", message: "An error occurred: \(error)", preferredStyle: UIAlertControllerStyle.alert)
-                //                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                //                        alertController.addAction(okAction)
-                //                        alertController.view.layoutIfNeeded() //avoid Snapshotting error
-                //
-            }
-            //call EpisodesAPIClient
-            EpisodeAPIClient.manager.getEpisode(from: urlStr,
-                                                completetionHandler: completion,
-                                                errorHandler: errorHandler)
-            
-            destination.episodes = array//selectedEpisode.show.links.selfKeyword.href
-            //destination.episode = shows[self.tableView.indexPathForSelectedRow!.row]
         }
     }
 }
+
+
 
 ///// MARK: - TableView for TV Shows
 extension TVShowViewController: UITableViewDelegate, UITableViewDataSource {
@@ -112,22 +83,30 @@ extension TVShowViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let tvShowCell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as? TVShowTableViewCell else {return UITableViewCell()}
-        
         let tvShow = shows[indexPath.row]
+        
+        guard let tvShowCell = tvShowTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as? TVShowTableViewCell else {
+            let defaultCell = UITableViewCell()
+            defaultCell.textLabel?.text = tvShow.show.name
+            return defaultCell}
+        
+        tvShowCell.layer.borderWidth = 5
+        tvShowCell.layer.borderColor = UIColor.black.cgColor
+        
         
         ///MARK: - for custom cells, textLabel should be whatever you set that specific label to be
         tvShowCell.TVShowTitle.text = tvShow.show.name
         
         
-        //FIND MORE ELEGANT WAY TO WRITE
+        //FIND MORE ELEGANT WAY TO CHECK FOR RATING NILS
         if tvShow.show.rating?.average != nil {
             tvShowCell.TVShowRating.text = "Rating: \(tvShow.show.rating!.average!) / 10.0"
         } else {
-            tvShowCell.TVShowRating.text = "No rating available"
+            tvShowCell.TVShowRating.text = "Rating Unavailable"
         }
-        tvShowCell.TVShowImage.image = #imageLiteral(resourceName: "defaultImage") //set to default image
         
+        //setting default image
+        tvShowCell.TVShowImage.image = #imageLiteral(resourceName: "defaultImage") //set to default image
         
         /// MARK: - Getting Image
         //make sure you can conver the url into an image
@@ -138,8 +117,9 @@ extension TVShowViewController: UITableViewDelegate, UITableViewDataSource {
             //image loads as soon as it's ready
             tvShowCell.setNeedsLayout()
         }
-        
-        ImageAPI.manager.loadImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
+        ImageAPI.manager.loadImage(from: imageUrlStr,
+                                   completionHandler: completion,
+                                   errorHandler: {print($0)})
         return tvShowCell
     }
 }
@@ -148,8 +128,42 @@ extension TVShowViewController: UITableViewDelegate, UITableViewDataSource {
 extension TVShowViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchTerm = searchBar.text ?? ""
+        self.searchTerm = searchBar.text ?? "" //Prevents nils
         print("The user has pressed search")
         searchBar.resignFirstResponder()
     }
 }
+
+///alert box code
+//                        let alertController = UIAlertController(title: "Error", message: "An error occurred: \(error)", preferredStyle: UIAlertControllerStyle.alert)
+//                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+//                        alertController.addAction(okAction)
+//                        alertController.view.layoutIfNeeded() //avoid Snapshotting error
+//                        self.present(alertController, animated: true, completion: nil)
+
+///another possible way to do a segue
+/*if let destination = segue.destination as? EpisodesViewController {
+ // set selected row
+ let selectedRow = self.tvShowTableView.indexPathForSelectedRow!.row
+ //set selected show: go to specific index in the array
+ let selectedEpisode = self.shows[selectedRow]
+ //destination.episodes = selectedEpisode.show.links.selfKeyword.href
+ 
+ 
+ var array: [Episode] = []
+ let urlStr = selectedEpisode.show.links.selfKeyword.href
+ ///"http://api.tvmaze.com/episodes/10820" + "/episodes"" //"http://api.tvmaze.com/shows/32087/\(episodes)"
+ //set completion
+ let completion: ([Episode]) -> Void = {(onlineEpisode: [Episode]) in
+ array = onlineEpisode
+ }
+ //set errorHandler
+ let errorHandler: (Error) -> Void = {(error: Error) in
+ }
+ //call EpisodesAPIClient
+ EpisodeAPIClient.manager.getEpisode(from: urlStr,
+ completetionHandler: completion,
+ errorHandler: errorHandler)
+ destination.episodes = array//selectedEpisode.show.links.selfKeyword.href
+ //destination.episode = shows[self.tableView.indexPathForSelectedRow!.row]
+ }*/

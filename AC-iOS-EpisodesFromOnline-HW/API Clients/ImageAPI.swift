@@ -9,11 +9,10 @@
 import Foundation
 import UIKit
 
-
 ///CONFORM TO IMPORT UIKIT
 class ImageAPI{
     
-    private init() {}
+    private init(){}
     static let manager = ImageAPI()
     
     //parameters: urlStr, completionHandler and errorHandler
@@ -29,7 +28,6 @@ class ImageAPI{
             completionHandler(onlineImage)
         }
         //Network call to perform task of getting necesary data from online or catch any errors
-        
         NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
     }
 }

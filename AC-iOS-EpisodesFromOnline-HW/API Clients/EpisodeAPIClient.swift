@@ -9,37 +9,67 @@
 import Foundation
 
 class EpisodeAPIClient {
-    
     private init(){}
-
     static let manager = EpisodeAPIClient()
     
     func getEpisode(from urlStr: String,
-        completetionHandler: @escaping ([Episode]) -> Void,
-        errorHandler: @escaping (Error) -> Void){
-        
-        //make sure you have a url from a string
+                    completionHandler: @escaping ([Episode]) -> Void,
+                    errorHandler: @escaping (Error) -> Void){
+        //make sure you can get a url from a string
         guard let url = URL(string: urlStr) else {return}
-        //set completion
+        //set completion with do/catch & decoder
         let completion: (Data) -> Void = {(data: Data) in
-            //decode
             do{
                 let myDecoder = try JSONDecoder().decode([Episode].self, from: data)
-                //turn data into an array
+                //turn data into array
                 var episodesFromOnline: [Episode] = []
-                for episode in episodesFromOnline {
+                for episode in myDecoder{
                     episodesFromOnline.append(episode)
+                    print("Building array of episodes!")
                 }
-                completetionHandler(myDecoder)
+                //call completionHandler
+                completionHandler(episodesFromOnline)
                 
-            }catch {
+            }catch{
                 errorHandler(error)
+                print("Unable to retrieve data")
             }
+            
         }
-        
-        //set NetWorkHelper
+        //call NetworkHelper
         NetworkHelper.manager.performDataTask(with: url,
                                               completionHandler: completion,
                                               errorHandler: errorHandler)
     }
 }
+
+
+//func getEpisode(from urlStr: String,
+//                completetionHandler: @escaping ([Episode]) -> Void,
+//                errorHandler: @escaping (Error) -> Void){
+//
+//    //make sure you have a url from a string
+//    guard let url = URL(string: urlStr) else {return}
+//    //set completion
+//    let completion: (Data) -> Void = {(data: Data) in
+//        //decode
+//        do{
+//            let myDecoder = try JSONDecoder().decode([Episode].self, from: data)
+//            //turn data into an array
+//            var episodesFromOnline: [Episode] = []
+//            for episode in episodesFromOnline {
+//                episodesFromOnline.append(episode)
+//            }
+//            completetionHandler(myDecoder)
+//
+//        }catch {
+//            errorHandler(error)
+//        }
+//    }
+//
+//    //set NetWorkHelper
+//    NetworkHelper.manager.performDataTask(with: url,
+//                                          completionHandler: completion,
+//                                          errorHandler: errorHandler)
+//}
+

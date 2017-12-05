@@ -10,7 +10,7 @@ import Foundation
 
 struct TVShow: Codable {
     let show: ShowWrapper
-  
+    
 }
 
 struct ShowWrapper: Codable {
@@ -23,6 +23,17 @@ struct ShowWrapper: Codable {
     let image: ImageWrapper?
     let summary: String?
     let links : LinkWrapper
+    enum CodingKeys: String, CodingKey {
+        case links = "_links"
+        case id
+        case name
+        case genres
+        case runtime
+        case rating
+        case network
+        case image
+        case summary
+    }
 }
 
 struct RatingWrapper: Codable {
@@ -38,17 +49,19 @@ struct ImageWrapper: Codable {
 }
 
 struct LinkWrapper: Codable {
+    //let selfKeyword: HrefWrapper
     let selfKeyword: HrefWrapper
+    
+    enum CodingKeys: String, CodingKey {
+        case selfKeyword = "self"
+    }
 }
 
 struct HrefWrapper: Codable {
     let href: String
 }
 
-enum CodingKeys: String, CodingKey{
-    case links = "_links"
-    case selfKeyword = "self"
-}
-    
+
+
 
 
