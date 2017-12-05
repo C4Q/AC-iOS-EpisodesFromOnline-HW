@@ -14,6 +14,7 @@ class TVShowsCell: UITableViewCell {
     @IBOutlet weak var seriesImageView: UIImageView!
     @IBOutlet weak var  seriesTitleLabel: UILabel!
     @IBOutlet weak var  seriesRatingLabel: UILabel!
+    @IBOutlet weak var tvShowActivityIndicator: UIActivityIndicatorView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -29,9 +29,10 @@ class EpisodeDetailedViewController: UIViewController {
                 return episode.summary!
             }
         }
+        
+        
        let htmlChars = "<[^>]+>"
         episodeSummaryTextView.text = nilSummary.replacingOccurrences(of: htmlChars, with: "", options: .regularExpression, range: nil)
-//        episodeSummaryTextView.text = episode.summary ?? "No description available."
         episodeImageView.image = nil
         guard let imageStr = episode.image?.original else { return }
         guard let urlStr = URL(string: imageStr) else { return }
@@ -42,20 +43,8 @@ class EpisodeDetailedViewController: UIViewController {
                 self.episodeImageView.image = onlineImage
                 self.episodeImageView.setNeedsLayout()
             }
-            // Do any additional setup after loading the view.
+         
         }
     }
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

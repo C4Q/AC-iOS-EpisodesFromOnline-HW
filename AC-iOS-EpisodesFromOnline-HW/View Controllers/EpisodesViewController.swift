@@ -11,23 +11,17 @@ import UIKit
 class EpisodesViewController: UIViewController {
     
     @IBOutlet weak var episodeTableView: UITableView!
-
     
     var episodes = [Episodes?]() {
         didSet {
             episodeTableView.reloadData()
         }
     }
+    
     var tvSerial: TVSeries!
     
-
-    // Get help on how to use search bar to look up season number, episode title
-     var searchTerm = " " {
-     didSet {
-     loadData()
-     }
-     }
-
+    
+    
     func loadData() {
         let urlStr = "http://api.tvmaze.com/shows/\(tvSerial.show.id)/episodes"
         let completion: ([Episodes]) -> Void = { (onlineObject:[ Episodes]) in
@@ -50,10 +44,6 @@ class EpisodesViewController: UIViewController {
         self.navigationItem.title = "\(tvSerial.show.name)"
         episodeTableView.delegate = self
         episodeTableView.dataSource = self
-
-       
-        
-        
         
     }
     
@@ -67,10 +57,13 @@ class EpisodesViewController: UIViewController {
     
 }
 
+
+
 extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let episode = episodes[indexPath.row]
@@ -81,6 +74,7 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.episodesImageView.image = nil
             //For image
             guard let imageStr = episode?.image?.medium else { return cell }
+            cell.episodeActivityIndicator.startAnimating()
             guard let urlStr = URL(string: imageStr) else { return cell }
             DispatchQueue.main.async {
                 guard let rawImageData = try? Data(contentsOf: urlStr) else {return}
@@ -88,9 +82,11 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
                     guard let onlineImage = UIImage(data: rawImageData) else {return}
                     cell.episodesImageView.image = onlineImage
                     cell.setNeedsLayout()
+                    cell.episodeActivityIndicator.stopAnimating()
                 }
             }
         }
+        
         return cell
     }
     

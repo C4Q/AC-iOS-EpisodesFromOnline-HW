@@ -7,27 +7,21 @@
 //
 
 import UIKit
-import QuartzCore
+
 
 
 /*TO-DO
-- tv series with null as some values - Changed things to optionals.
-  - Make cell height equal to image height in episode VC - Adjusted height
- - </p> in summary text view - use replacingOccurencesOf
-  - how to adjust font in labels for space issues - use adjustFontSizeToWidth
- - add spinner
- - make sure empty cells don't display/showing cells stretch
- - figure out constraint errors
- - maybe add shadow to text view
- - find image for missing image urls
- - Add AppError for errorhandler
- - work on text font - label issues with long sentences
- - increase font size in episode detail view
+ - Use App Error for errors
+ - Fix cell spacing for long running episode titles OR Remove Titles
+ - Setting image not available for shows/episodes without images
 */
+
+
 class TVShowsViewController: UIViewController {
     
     @IBOutlet weak var tvShowsTableView: UITableView!
     @IBOutlet weak var tvShowsSearchBar: UISearchBar!
+
     
     var TVShows = [TVSeries?]() {
         didSet {
@@ -41,7 +35,7 @@ class TVShowsViewController: UIViewController {
         }
     }
     
-    var filteredTV = [TVSeries?]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +50,7 @@ class TVShowsViewController: UIViewController {
         tvShowsSearchBar.delegate = self
         self.navigationItem.titleView?.sizeToFit()
         tvShowsSearchBar.autocapitalizationType = .none
+
 
     }
     
@@ -93,13 +88,15 @@ extension TVShowsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.seriesImageView.image = nil
             //to call image
             guard let imageStr = tvShow?.show.image?.original else { return cell }
+            cell.tvShowActivityIndicator.startAnimating()
             guard let urlStr = URL(string: imageStr) else { return cell }
             DispatchQueue.main.async {
                 guard let rawImageData = try? Data(contentsOf: urlStr) else {return}
                 DispatchQueue.main.async {
-                    guard let onlineImage = UIImage(data: rawImageData) else {return}
+                    guard let onlineImage = UIImage(data: rawImageData) else { return }
                     cell.seriesImageView.image = onlineImage
                     cell.setNeedsLayout()
+                    cell.tvShowActivityIndicator.stopAnimating()
                 }
             }
         }
@@ -119,10 +116,7 @@ extension TVShowsViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
-//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//        searchBar.text = ""
-//    }
-//
+
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
        searchWord = searchText

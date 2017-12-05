@@ -75,6 +75,10 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="WPB-PV-yVq">
+                                                    <rect key="frame" x="31.5" y="81" width="37" height="37"/>
+                                                    <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="H6Z-VD-jB0" firstAttribute="bottom" secondItem="HUA-Jn-wtK" secondAttribute="bottom" id="4Dz-yw-fHa"/>
@@ -87,6 +91,8 @@
                                                 <constraint firstItem="RbR-vm-IqU" firstAttribute="leading" secondItem="H6Z-VD-jB0" secondAttribute="trailing" constant="25" id="Juv-QJ-vWK"/>
                                                 <constraint firstItem="3jP-Hn-vMf" firstAttribute="centerY" secondItem="HUA-Jn-wtK" secondAttribute="centerY" multiplier="0.8" id="Uuw-KW-0L0"/>
                                                 <constraint firstItem="H6Z-VD-jB0" firstAttribute="leading" secondItem="HUA-Jn-wtK" secondAttribute="leading" id="a61-OS-JTo"/>
+                                                <constraint firstItem="WPB-PV-yVq" firstAttribute="centerY" secondItem="HUA-Jn-wtK" secondAttribute="centerY" id="cFZ-7u-dAK"/>
+                                                <constraint firstItem="WPB-PV-yVq" firstAttribute="centerX" secondItem="HUA-Jn-wtK" secondAttribute="centerX" constant="-75" id="fyX-Tj-ZcV"/>
                                                 <constraint firstItem="H6Z-VD-jB0" firstAttribute="width" secondItem="HUA-Jn-wtK" secondAttribute="width" multiplier="0.4" id="nAr-g7-9VV"/>
                                                 <constraint firstItem="3jP-Hn-vMf" firstAttribute="leading" secondItem="H6Z-VD-jB0" secondAttribute="trailing" constant="25" id="p2f-XA-VB4"/>
                                                 <constraint firstItem="RbR-vm-IqU" firstAttribute="width" secondItem="3jP-Hn-vMf" secondAttribute="width" id="ubk-pD-F0A"/>
@@ -97,6 +103,7 @@
                                             <outlet property="seriesImageView" destination="H6Z-VD-jB0" id="rVH-BK-ThJ"/>
                                             <outlet property="seriesRatingLabel" destination="RbR-vm-IqU" id="pa4-um-Do1"/>
                                             <outlet property="seriesTitleLabel" destination="3jP-Hn-vMf" id="Dag-SK-euW"/>
+                                            <outlet property="tvShowActivityIndicator" destination="WPB-PV-yVq" id="UMu-yT-mfG"/>
                                             <segue destination="os8-MS-BCn" kind="show" id="l28-RT-gQG"/>
                                         </connections>
                                     </tableViewCell>
@@ -133,7 +140,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WTY-e2-klh">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WTY-e2-klh">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -141,45 +148,52 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EpisodesCell" id="Fzl-60-0GQ" customClass="EpisodesCell" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fzl-60-0GQ" id="tgI-vF-zz1">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mediumimageTest" translatesAutoresizingMaskIntoConstraints="NO" id="KsI-t6-JMq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="137" height="79.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="137" height="149.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season 1 Episode 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5eU-FS-B3t">
-                                                    <rect key="frame" x="152" y="44.5" width="190" height="20.5"/>
+                                                    <rect key="frame" x="152" y="89" width="190" height="19.5"/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Adventurous Women Do" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYy-Wv-V9E">
-                                                    <rect key="frame" x="152" y="14" width="190" height="20.5"/>
+                                                    <rect key="frame" x="152" y="40.5" width="190" height="38.5"/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="9n8-yF-KY5">
+                                                    <rect key="frame" x="71" y="65" width="20" height="20"/>
+                                                    <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="KsI-t6-JMq" firstAttribute="bottom" secondItem="tgI-vF-zz1" secondAttribute="bottom" id="8jy-x2-oTS"/>
                                                 <constraint firstItem="KsI-t6-JMq" firstAttribute="top" secondItem="tgI-vF-zz1" secondAttribute="top" id="FFX-Uw-5MN"/>
+                                                <constraint firstItem="9n8-yF-KY5" firstAttribute="centerY" secondItem="tgI-vF-zz1" secondAttribute="centerY" id="IJL-NZ-5af"/>
                                                 <constraint firstItem="5eU-FS-B3t" firstAttribute="trailing" secondItem="tgI-vF-zz1" secondAttribute="trailing" id="fg5-Eg-5g8"/>
                                                 <constraint firstItem="KsI-t6-JMq" firstAttribute="leading" secondItem="tgI-vF-zz1" secondAttribute="leading" id="frc-13-syd"/>
                                                 <constraint firstItem="WYy-Wv-V9E" firstAttribute="leading" secondItem="KsI-t6-JMq" secondAttribute="trailing" constant="15" id="fsW-1v-JEs"/>
-                                                <constraint firstItem="WYy-Wv-V9E" firstAttribute="centerY" secondItem="tgI-vF-zz1" secondAttribute="centerY" multiplier="0.6" id="k45-zi-2xz"/>
+                                                <constraint firstItem="WYy-Wv-V9E" firstAttribute="centerY" secondItem="tgI-vF-zz1" secondAttribute="centerY" multiplier="0.8" id="k45-zi-2xz"/>
                                                 <constraint firstItem="5eU-FS-B3t" firstAttribute="top" secondItem="WYy-Wv-V9E" secondAttribute="bottom" constant="10" id="p2P-8X-DWg"/>
                                                 <constraint firstItem="KsI-t6-JMq" firstAttribute="width" secondItem="tgI-vF-zz1" secondAttribute="width" multiplier="0.4" id="q4i-iJ-Jxk"/>
+                                                <constraint firstItem="9n8-yF-KY5" firstAttribute="centerX" secondItem="tgI-vF-zz1" secondAttribute="centerX" constant="-90" id="qyo-fI-t04"/>
                                                 <constraint firstItem="WYy-Wv-V9E" firstAttribute="trailing" secondItem="tgI-vF-zz1" secondAttribute="trailing" id="uh3-As-iec"/>
                                                 <constraint firstItem="5eU-FS-B3t" firstAttribute="leading" secondItem="KsI-t6-JMq" secondAttribute="trailing" constant="15" id="zVC-SF-7uC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="episodeActivityIndicator" destination="9n8-yF-KY5" id="z6a-Uy-IMK"/>
                                             <outlet property="episodesImageView" destination="KsI-t6-JMq" id="PST-Xb-ho7"/>
                                             <outlet property="episodesSeasonAndEpisodeNumbersLabel" destination="5eU-FS-B3t" id="CCv-c0-oUQ"/>
                                             <outlet property="episodesTitleLabel" destination="WYy-Wv-V9E" id="KdP-eK-Ry6"/>
