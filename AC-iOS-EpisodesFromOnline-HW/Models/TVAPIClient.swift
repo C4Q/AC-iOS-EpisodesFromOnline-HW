@@ -25,7 +25,11 @@ class TVAPIClient {
                 let tvShowsFromTheInternet = try decoder.decode([TVShows].self, from: data)
                 var tvShows: [TVShows] = []
                 for showInfo in tvShowsFromTheInternet {
-                    tvShows.append(showInfo)
+                    if let name = showInfo.show.name {
+                        if !name.isEmpty {
+                            tvShows.append(showInfo)
+                        }
+                    }
                 }
                 completionHandler(tvShows)
 

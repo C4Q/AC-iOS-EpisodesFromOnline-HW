@@ -14,7 +14,7 @@ class SeriesAPIClient {
     static let manager = SeriesAPIClient()
     
     func getAllEpisodes(from urlStr: String,
-                    completionHandler: @escaping ([Show]) -> Void,
+                    completionHandler: @escaping ([EpisodeStruct]) -> Void,
                     errorHandler: @escaping (Error) -> Void){
         //make sure you can convert the string into URL
         guard let url = URL(string: urlStr) else {return}
@@ -22,11 +22,13 @@ class SeriesAPIClient {
         let completion: (Data) -> Void = {(data: Data) in
             do{
                 let decoder = JSONDecoder()
-                let allShowsFromASeries = try decoder.decode([Show].self, from: data)
-                var allEpisodes: [Show] = []
+                let allShowsFromASeries = try decoder.decode([EpisodeStruct].self, from: data)
+                var allEpisodes: [EpisodeStruct] = []
                 for episodeInfo in allShowsFromASeries {
+                    
                     allEpisodes.append(episodeInfo)
                 }
+                //Call Completion Handler once You have data to handle
                 completionHandler(allEpisodes)
                 
             } catch {

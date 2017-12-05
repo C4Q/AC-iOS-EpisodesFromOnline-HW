@@ -60,29 +60,8 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         guard let cell = TVTableView.dequeueReusableCell(withIdentifier: "tvCell", for: indexPath) as? TVTableViewCell else {return UITableViewCell()}
         let tvSeries = tvShows[indexPath.row]
         
-        cell.tvNameLabel.text = "\(tvSeries.show.name ?? "No Name")"
+        configureCell(cell: cell, series: tvSeries)
         
-        if tvSeries.show.rating!.average != nil {
-            cell.tvRatingLabel.text = "Rating: \(tvSeries.show.rating!.average!)"
-        } else {
-            cell.tvRatingLabel.text = "Rating: Unavailable"
-        }
-        
-                cell.tvImageView.image = #imageLiteral(resourceName: "defaultTVImage")
-        
-        //PUT IMAGE API HERE
-        guard let urlStr = tvSeries.show.image?.medium else {return UITableViewCell()}
-        cell.spinner.isHidden = false
-        cell.spinner.startAnimating()
-        let setImageToOnlineImage: (UIImage) -> Void = {(onlineImage: UIImage) in
-            cell.tvImageView.image = onlineImage
-            cell.setNeedsLayout()
-        }
-        ImageAPIClient.manager.getImage(from: urlStr,
-                                         completionHandler: setImageToOnlineImage,
-                                         errorHandler: {print($0)})
-        cell.spinner.stopAnimating()
-        cell.spinner.isHidden = true
         return cell
     }
     
@@ -95,4 +74,30 @@ class TVViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
+    func configureCell(cell: TVTableViewCell, series: TVShows) {
+      
+        cell.tvNameLabel.text = series.show.name
+        if series.show.rating!.average != nil {
+                        cell.tvRatingLabel.text = "Rating: \(series.show.rating!.average!)"
+                    } else {
+                        cell.tvRatingLabel.text = "Rating: Unavailable"
+        }
+                //PUT IMAGE API HERE
+        if let urlStr = series.show.image?.medium {
+                cell.spinner.isHidden = false
+                cell.spinner.startAnimating()
+                let setImageToOnlineImage: (UIImage) -> Void = {(onlineImage: UIImage) in
+                    cell.tvImageView.image = onlineImage
+                    cell.setNeedsLayout()
+                }
+                ImageAPIClient.manager.getImage(from: urlStr,
+                                                 completionHandler: setImageToOnlineImage,
+                                                 errorHandler: {print($0)})
+                cell.spinner.stopAnimating()
+                cell.spinner.isHidden = true
+        } else {
+            cell.spinner.isHidden = true
+            cell.tvImageView.image = #imageLiteral(resourceName: "defaultTVImage")
+        }
+    }
 }

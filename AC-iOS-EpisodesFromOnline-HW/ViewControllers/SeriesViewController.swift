@@ -20,14 +20,10 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    var allEpisodesInASeries = [Show]() {
+    var allEpisodesInASeries = [EpisodeStruct]() {
         didSet {
             self.seriesTableView.reloadData()
         }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //loadSeriesData()
     }
     
     override func viewDidLoad() {
@@ -35,12 +31,12 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.seriesTableView.dataSource = self
         self.seriesTableView.delegate = self
         guard aSeriesHref != nil else {return}
-        loadSeriesData()
+        //loadSeriesData()
     }
     
     func loadSeriesData(){
         let url = aSeriesHref! + "/episodes"
-        let completion: ([Show]) -> Void = {(onlineSeries: [Show]) in
+        let completion: ([EpisodeStruct]) -> Void = {(onlineSeries: [EpisodeStruct]) in
             self.allEpisodesInASeries = onlineSeries
         }
         SeriesAPIClient.manager.getAllEpisodes(from: url, completionHandler: completion , errorHandler: {print($0)})
@@ -54,24 +50,29 @@ class SeriesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         guard let cell = seriesTableView.dequeueReusableCell(withIdentifier: "seriesCell", for: indexPath) as? SeriesTableViewCell else {return UITableViewCell()}
         let anEpisode = allEpisodesInASeries[indexPath.row]
         
-        cell.seriesImageView.image = #imageLiteral(resourceName: "defaultTVImage")
+        cell.seriesImageView.image = #imageLiteral(resourceName: "defaultTVImage") //Default Image
         cell.seriesNameLabel.text = "Name: \(anEpisode.name ?? "TBA")"
         cell.seriesSeasonLabel.text = "Season: \(anEpisode.season ?? 0)"
         cell.seriesEpisodeLabel.text = "Episode: \(anEpisode.number ?? 0)"
         
         //PUT IMAGE API HERE
-        guard let urlStr = anEpisode.image?.medium else {return UITableViewCell()}
-        cell.spinner.isHidden = false
-        cell.spinner.startAnimating()
-        let setImageToOnlineImage: (UIImage) -> Void = {(onlineImage: UIImage) in
-            cell.seriesImageView.image = onlineImage
-            cell.setNeedsLayout()
+        if let urlStr = anEpisode.image?.medium {
+            cell.spinner.isHidden = false
+            cell.spinner.startAnimating()
+            let setImageToOnlineImage: (UIImage) -> Void = {(onlineImage: UIImage) in
+                cell.seriesImageView.image = onlineImage
+                cell.setNeedsLayout()
+            }
+            ImageAPIClient.manager.getImage(from: urlStr,
+                                            completionHandler: setImageToOnlineImage,
+                                            errorHandler: {print($0)})
+            cell.spinner.stopAnimating()
+            cell.spinner.isHidden = true
+            
+        } else {
+            spinner.isHidden = true
+            cell.seriesImageView.image = #imageLiteral(resourceName: "defaultTVImage")
         }
-        ImageAPIClient.manager.getImage(from: urlStr,
-                                        completionHandler: setImageToOnlineImage,
-                                        errorHandler: {print($0)})
-        cell.spinner.stopAnimating()
-        cell.spinner.isHidden = true
         return cell
     }
     

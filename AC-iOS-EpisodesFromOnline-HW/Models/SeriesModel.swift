@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Show: Codable {
+struct EpisodeStruct: Codable {
     var name: String?
     var season: Int?
     var number: Int?
