@@ -1,5 +1,5 @@
 //
-//  AppError.swift
+//  AppErrorAPI.swift
 //  AC-iOS-EpisodesFromOnline-HW
 //
 //  Created by C4Q on 11/29/17.

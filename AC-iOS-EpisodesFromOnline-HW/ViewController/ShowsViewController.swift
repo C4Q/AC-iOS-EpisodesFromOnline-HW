@@ -81,12 +81,15 @@ extension ShowsViewController: UITableViewDataSource, UITableViewDelegate, UISea
     ///Mark - Search Bar
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+       
         self.searchTerm = (searchBar.text?.components(separatedBy: " ").joined(separator: "%20"))!
         searchBar.resignFirstResponder()
     }
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        self.searchTerm = searchText.components(separatedBy: " ").joined(separator: "%20")
-//    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            searchTerm = ""
+        }
+    }
     
 }
 
