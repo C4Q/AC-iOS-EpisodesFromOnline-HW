@@ -35,12 +35,6 @@ class EpisodeDetailViewController: UIViewController {
             name = "No Name"
         }
         
-        //        if episodes.summary != nil {
-        //            info = episodes.summary!.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-        //        } else {
-        //            info = "No Summary"
-        //        }
-        //
         
         
         
