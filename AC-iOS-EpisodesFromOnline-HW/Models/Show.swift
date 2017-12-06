@@ -17,10 +17,8 @@ struct Show: Codable {
     let name: String
     let language: String
     let genres: [String]
-    let runtime: Int?
     let rating: RatingWrapper?
     let image: ImageWrapper?
-    let summary: String?
 }
 
 struct RatingWrapper: Codable {

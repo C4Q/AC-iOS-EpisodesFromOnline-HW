@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationItem.title = episode.name
         self.episodeName.text = episode.name
         self.seasonLabel.text = "Season: \(episode.season)"
         self.episodeNumLabel.text = "Episode: \(episode.number)"

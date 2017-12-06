@@ -27,6 +27,7 @@ class EpisodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        navigationItem.title = "Episodes"
         
     }
     
@@ -50,10 +51,11 @@ extension EpisodeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath)
         cell.textLabel?.text = episode.name
         cell.detailTextLabel?.text = "S:\(episode.season) E:\(episode.number)"
+        cell.imageView?.image = nil //stop flickering
         if let imageStr = episode.image {
             let setImage: (UIImage) -> Void = {(onlineImage: UIImage) in
                 cell.imageView?.image = onlineImage
-                cell.setNeedsLayout()
+                cell.setNeedsLayout() // indicates that view needs to be redrawn
             }
             ImageAPIClient.manager.getImage(from: imageStr.medium, completionHandler: setImage, errorHandler: {print($0)})
         } else {

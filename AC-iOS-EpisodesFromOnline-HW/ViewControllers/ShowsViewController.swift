@@ -26,6 +26,7 @@ class ShowsViewController: UIViewController {
         tableView.delegate = self
         searchBar.delegate = self
         searchBar.resignFirstResponder()
+//        tableView.backgroundColor = .black
         
     }
     
@@ -44,14 +45,16 @@ class ShowsViewController: UIViewController {
         ShowAPI.manager.getShow(from: urlStr, completionHandler: completion, errorHandler: {print($0)})
     }
     
+    
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationDVC = segue.destination as? EpisodeViewController {
-            destinationDVC.show = shows[self.tableView.indexPathForSelectedRow!.row].show
+        if let destinationEVC = segue.destination as? EpisodeViewController {
+            destinationEVC.show = shows[self.tableView.indexPathForSelectedRow!.row].show
         }
     }
 
 }
-
+    // MARK: - TableView
 extension ShowsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
@@ -67,6 +70,7 @@ extension ShowsViewController: UITableViewDelegate, UITableViewDataSource {
             guard let show = show.show else {return cell}
             cell.nameLabel.text = show.name
             cell.ratingLabel.text = "Rating: \(show.rating?.average?.description ?? "None")"
+            cell.showImageView?.image = nil //stop flickering
             cell.spinner.isHidden = false
             cell.spinner.startAnimating()
             
@@ -90,17 +94,15 @@ extension ShowsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+    // MARK: - SearchBar
 extension ShowsViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchTerm = (searchBar.text?.components(separatedBy: " ").joined(separator: "%20"))!
-        
     }
 
-  
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         searchBar.endEditing(true)
-       
     }
-    
 }
