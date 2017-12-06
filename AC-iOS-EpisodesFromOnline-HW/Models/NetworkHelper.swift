@@ -15,9 +15,7 @@ class NetworkHelper {
     func performDataTask(with url: URL, completionHandler: @escaping ((Data) -> Void), errorHandler: @escaping ((Error) -> Void)) {
         self.urlSession.dataTask(with: url){(data: Data?, response: URLResponse?, error: Error?) in
             DispatchQueue.main.async {
-                guard let data = data else {
-                    return
-                }
+                guard let data = data else { return }
                 if let error = error {
                     errorHandler(error)
                 }

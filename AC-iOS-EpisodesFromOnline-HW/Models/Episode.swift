@@ -29,6 +29,22 @@ struct Episode: Codable {
     let image: EpisodeImageWrapper?
     let summary: String?
     let _links: EpisodeLinksWrapper
+    
+    static func makeTupleBySeasons(allEpisodes: [Episode]) -> [(key: Int, value: [Episode])]{
+        var allEpisodesBySeasonDict = [Int: [Episode]]()
+        //let allShowEpisodes = allEpisodes
+        for episode in allEpisodes {
+            if let episodesSoFar = allEpisodesBySeasonDict[episode.season] {
+                var toAddNewEpisode: [Episode] = episodesSoFar
+                toAddNewEpisode.append(episode)
+                allEpisodesBySeasonDict.updateValue(toAddNewEpisode, forKey: episode.season)
+            } else {
+                allEpisodesBySeasonDict.updateValue([episode], forKey: episode.season)
+            }
+        }
+        return allEpisodesBySeasonDict.sorted{$0.key < $1.key}
+    }
+    
 }
 
 struct EpisodeImageWrapper: Codable {
