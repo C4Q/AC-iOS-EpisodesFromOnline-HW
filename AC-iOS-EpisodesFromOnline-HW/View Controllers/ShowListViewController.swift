@@ -76,12 +76,14 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource {
         let currentShow = shows[indexPath.row]
         
         if let showCell = cell as? ShowsTableViewCell {
+            showCell.showImageView.image = nil
+            showCell.setNeedsLayout()
+            
             showCell.activityIndicator.startAnimating()
             showCell.activityIndicator.isHidden = false
             
             showCell.titleLabel.text = currentShow.name
             showCell.ratingLabel.text = "Rating: \(currentShow.rating.average?.description ?? "No rating available")"
-            showCell.showImageView.image = nil
             
             guard let image = currentShow.image else {
                 showCell.showImageView.image = #imageLiteral(resourceName: "noImage")
@@ -118,12 +120,10 @@ extension ShowListViewController: UISearchBarDelegate {
     
     //Delegate Methods - NOTE: using this delegate method instead of when search text changes to prevent rate limiting from API
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchText = searchBar.text else {
+        guard let searchText = searchBar.text, let filteredSearchText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed) else {
             return
         }
         
-        let noSpaceSearchText = searchText.replacingOccurrences(of: " ", with: "%20")
-        
-        searchTerm = noSpaceSearchText
+        searchTerm = filteredSearchText
     }
 }

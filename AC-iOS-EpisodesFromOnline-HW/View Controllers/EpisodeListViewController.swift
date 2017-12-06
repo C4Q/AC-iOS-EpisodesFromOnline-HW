@@ -78,12 +78,13 @@ extension EpisodeListViewController: UITableViewDelegate, UITableViewDataSource 
         let currentEpisode = episodes[indexPath.row]
         
         if let episodeCell = cell as? EpisodeTableViewCell {
+            episodeCell.episodeImageView.image = nil
+            episodeCell.setNeedsLayout()
             episodeCell.activityIndicator.startAnimating()
             episodeCell.activityIndicator.isHidden = false
             
             episodeCell.titleLabel.text = currentEpisode.name
             episodeCell.seasonEpisodeLabel.text = "Season \(currentEpisode.season) | Episode \(currentEpisode.number)"
-            episodeCell.episodeImageView.image = nil
             
             guard let image = currentEpisode.image else {
                 episodeCell.episodeImageView.image = #imageLiteral(resourceName: "noImage")
