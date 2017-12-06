@@ -14,6 +14,7 @@ class EpisodeDetailViewController: UIViewController {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var epNameLabel: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var seasonNameLabel: UILabel!
     @IBOutlet weak var epNumLabel: UILabel!
     
@@ -22,6 +23,7 @@ class EpisodeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //spinner.isHidden = true
         setupUI()
         loadImg()
         // Do any additional setup after loading the view.
@@ -38,13 +40,18 @@ class EpisodeDetailViewController: UIViewController {
     }
     
     func loadImg(){
+        spinner.isHidden = false
+        spinner.startAnimating()
         if let imageUrl = episode.image?.original {//safely unwrap
             let completion: (UIImage) -> Void = {(onlineImage:UIImage) in
                 self.imgView?.image = onlineImage
+                self.spinner.isHidden = true
+                self.spinner.stopAnimating()
                 //guard let url = episode.image?.original else
                 
             }
                 ImageAPIClient.manager.getImage(from: imageUrl, completionHandler: completion, errorHandler: {print($0)})
+            
         } else {//else if imageUrl = null
             self.imgView.image = #imageLiteral(resourceName: "unnamed")
         }

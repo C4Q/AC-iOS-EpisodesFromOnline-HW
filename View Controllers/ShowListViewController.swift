@@ -63,11 +63,16 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource, UI
             cell.ratingLabel.text = str
             //print(str)
             if let image = show.show.image, let urlImage = image.medium {
+                
+                cell.spinner.isHidden = false
+                cell.spinner.startAnimating()
                 let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
                     cell.imageView?.image = onlineImage
                     cell.setNeedsLayout()
                 }
                 ImageAPIClient.manager.getImage(from: urlImage, completionHandler: completion, errorHandler: {print($0)})
+            cell.spinner.stopAnimating()
+                cell.spinner.isHidden = true
             }
         }
         return cell

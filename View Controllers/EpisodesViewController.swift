@@ -26,7 +26,7 @@ class EpisodesViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.rowHeight = 140
+        self.tableView.rowHeight = 100
         loadData()
         // Do any additional setup after loading the view.
     }
@@ -49,6 +49,7 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         let episode = episodes[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Episode cell", for: indexPath)
         cell.textLabel?.numberOfLines = 0
+        cell.detailTextLabel?.numberOfLines = 0
         cell.textLabel?.text = episode.name
         cell.detailTextLabel?.text = "Season:\(episode.season) Episode:\(episode.number)"
         if let image = episode.image, let urlImage = image.medium {

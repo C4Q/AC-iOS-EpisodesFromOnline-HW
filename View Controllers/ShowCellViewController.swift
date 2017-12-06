@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 class ShowCellViewController: UITableViewCell {
-
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     @IBOutlet weak var showView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
