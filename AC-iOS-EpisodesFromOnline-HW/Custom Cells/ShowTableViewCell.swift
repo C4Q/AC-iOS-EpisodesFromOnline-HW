@@ -27,4 +27,6 @@ class ShowTableViewCell: UITableViewCell {
     
     @IBOutlet weak var showRatingLabel: UILabel!
     
+    @IBOutlet weak var showSpinner: UIActivityIndicatorView!
+    
 }

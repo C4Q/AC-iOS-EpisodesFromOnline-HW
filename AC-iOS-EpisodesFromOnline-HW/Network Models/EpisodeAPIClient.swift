@@ -14,7 +14,7 @@ class EpisodeAPIClient {
     static let manager = EpisodeAPIClient()
     
     func getTVEpisodes (from urlStr: String,
-                    completionHandler: @escaping ([EpisodeInfo]) -> Void,
+                    completionHandler: @escaping ([EpisodeWrapper]) -> Void,
                     errorHandler: @escaping (Error) -> Void){
         //make sure you can convert the string into URL
         guard let url = URL(string: urlStr) else {return}
@@ -22,7 +22,7 @@ class EpisodeAPIClient {
         let completion: (Data) -> Void = {(data: Data) in
             do{
                 let decoder = JSONDecoder()
-                let tvShowEpisodesFromInternet = try decoder.decode([EpisodeInfo].self, from: data)
+                let tvShowEpisodesFromInternet = try decoder.decode([EpisodeWrapper].self, from: data)
                 completionHandler(tvShowEpisodesFromInternet)
             } catch {
                 errorHandler(error)

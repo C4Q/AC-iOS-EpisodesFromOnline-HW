@@ -9,16 +9,14 @@
 import Foundation
 
 struct EpisodeInfo: Codable {
-    let name: String
     let episodeCollection: EmbeddedWrapper
     enum CodingKeys: String, CodingKey {
         case episodeCollection = "_embedded"
-        case name
     }
 }
 
 struct EmbeddedWrapper: Codable {
-    let episodes: [EpisodeWrapper]
+    let episodes: EpisodeWrapper
 }
 
 struct EpisodeWrapper: Codable {

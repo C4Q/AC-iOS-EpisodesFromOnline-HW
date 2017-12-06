@@ -65,12 +65,14 @@ class ShowsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //Image API Here
         
         if let urlStr = series.show.image?.medium {
-//            cell.spinner.isHidden = false
-//            cell.spinner.startAnimating()
+            cell.showSpinner.isHidden = false
+            cell.showSpinner.startAnimating()
             let setImageToOnlineImage: (UIImage) -> Void =
                 {(onlineImage: UIImage) in
                 cell.showImageView.image = onlineImage
                 cell.setNeedsLayout()
+                cell.showSpinner.isHidden = true
+                cell.showSpinner.stopAnimating()
                 }
             ImageAPIClient.manager.getImage (from: urlStr,
                                              completionHandler: setImageToOnlineImage,

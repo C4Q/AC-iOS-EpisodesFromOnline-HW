@@ -27,4 +27,6 @@ class EpisodeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var seasonAndEpisodeNumbersLabel: UILabel!
     
+    @IBOutlet weak var episodeShowSpinner: UIActivityIndicatorView!
+    
 }

@@ -60,13 +60,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="77w-qe-grH">
+                                                    <rect key="frame" x="102" y="89" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="tN8-8c-ePK" secondAttribute="bottom" id="0af-kG-jJP"/>
                                                 <constraint firstItem="NHz-g8-fiR" firstAttribute="leading" secondItem="tN8-8c-ePK" secondAttribute="trailing" id="3ks-rV-syH"/>
+                                                <constraint firstItem="77w-qe-grH" firstAttribute="centerX" secondItem="tN8-8c-ePK" secondAttribute="centerX" id="BLl-bB-wPl"/>
                                                 <constraint firstItem="NHz-g8-fiR" firstAttribute="top" secondItem="W6H-al-7vv" secondAttribute="bottom" constant="64" id="Iji-2d-EgN"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="W6H-al-7vv" secondAttribute="trailing" id="KK7-c2-e73"/>
                                                 <constraint firstItem="NHz-g8-fiR" firstAttribute="top" secondItem="W6H-al-7vv" secondAttribute="bottom" constant="64" id="Lig-0N-Qsd"/>
+                                                <constraint firstItem="77w-qe-grH" firstAttribute="centerY" secondItem="tN8-8c-ePK" secondAttribute="centerY" id="P4A-hu-hYT"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="NHz-g8-fiR" secondAttribute="bottom" constant="37" id="Sun-P6-MT6"/>
                                                 <constraint firstItem="tN8-8c-ePK" firstAttribute="leading" secondItem="uf3-fd-8lM" secondAttribute="leading" id="TWy-a9-e7Y"/>
                                                 <constraint firstAttribute="trailing" secondItem="tN8-8c-ePK" secondAttribute="trailing" constant="150" id="amE-Yc-LOI"/>
@@ -77,6 +82,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="episodeShowSpinner" destination="77w-qe-grH" id="Lzm-hV-GwO"/>
                                             <outlet property="seasonAndEpisodeNumbersLabel" destination="NHz-g8-fiR" id="As4-K3-JKX"/>
                                             <outlet property="showNameLabel" destination="W6H-al-7vv" id="v5v-TL-qYO"/>
                                             <outlet property="showPictureImageView" destination="tN8-8c-ePK" id="iyd-aY-SRK"/>
@@ -132,6 +138,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SUR-lJ-xbR">
+                                <rect key="frame" x="177" y="192" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -140,6 +149,8 @@
                             <constraint firstItem="Uld-XN-QQi" firstAttribute="top" secondItem="1ID-Gh-MYJ" secondAttribute="bottom" constant="25" id="D1e-QB-Xxg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vgC-cl-t2D" secondAttribute="trailing" constant="15" id="Jup-35-zTd"/>
                             <constraint firstItem="vgC-cl-t2D" firstAttribute="leading" secondItem="RDA-Va-4oq" secondAttribute="leadingMargin" constant="15" id="NGx-a5-xGP"/>
+                            <constraint firstItem="SUR-lJ-xbR" firstAttribute="centerX" secondItem="1ID-Gh-MYJ" secondAttribute="centerX" id="NXi-Se-71A"/>
+                            <constraint firstItem="SUR-lJ-xbR" firstAttribute="centerY" secondItem="1ID-Gh-MYJ" secondAttribute="centerY" id="O3l-cP-6th"/>
                             <constraint firstItem="vgC-cl-t2D" firstAttribute="top" secondItem="fb5-7z-RyR" secondAttribute="bottom" constant="25" id="QjW-Q0-eSa"/>
                             <constraint firstItem="1ID-Gh-MYJ" firstAttribute="top" secondItem="5eh-fH-LgY" secondAttribute="top" constant="48" id="UZ1-82-URc"/>
                             <constraint firstAttribute="bottomMargin" secondItem="vgC-cl-t2D" secondAttribute="bottom" constant="8" id="VwE-oh-0B8"/>
@@ -157,6 +168,7 @@
                         <viewLayoutGuide key="safeArea" id="5eh-fH-LgY"/>
                     </view>
                     <connections>
+                        <outlet property="episodeDetailSpinner" destination="SUR-lJ-xbR" id="zvd-R7-N8t"/>
                         <outlet property="episodeStillImageView" destination="1ID-Gh-MYJ" id="4Yw-bU-PUg"/>
                         <outlet property="episodeSummaryTextView" destination="vgC-cl-t2D" id="9Ik-3y-Epa"/>
                         <outlet property="episodeTitleLabel" destination="Uld-XN-QQi" id="4zl-qj-4ij"/>
@@ -206,11 +218,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="v3t-pN-ZUD">
+                                                    <rect key="frame" x="127" y="90" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="jT1-aK-zId" firstAttribute="top" secondItem="UZf-Vo-mZH" secondAttribute="topMargin" constant="35" id="2NA-E6-xeh"/>
                                                 <constraint firstItem="ggg-0z-a27" firstAttribute="leading" secondItem="eLh-dI-YVM" secondAttribute="trailing" id="5jC-hB-kzC"/>
                                                 <constraint firstItem="eLh-dI-YVM" firstAttribute="leading" secondItem="UZf-Vo-mZH" secondAttribute="leadingMargin" id="B3v-Pd-sgq"/>
+                                                <constraint firstItem="v3t-pN-ZUD" firstAttribute="centerX" secondItem="eLh-dI-YVM" secondAttribute="centerX" id="Izq-HS-4UC"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="eLh-dI-YVM" secondAttribute="trailing" constant="100" id="JGs-Ob-lF6"/>
                                                 <constraint firstItem="ggg-0z-a27" firstAttribute="top" secondItem="jT1-aK-zId" secondAttribute="bottom" constant="60" id="JxV-19-v5d"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ggg-0z-a27" secondAttribute="trailing" id="TPc-DX-4j0"/>
@@ -220,13 +236,15 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="jT1-aK-zId" secondAttribute="trailing" id="uQ8-VD-jnY"/>
                                                 <constraint firstItem="ggg-0z-a27" firstAttribute="top" secondItem="jT1-aK-zId" secondAttribute="bottom" constant="60" id="vsg-HX-OSr"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ggg-0z-a27" secondAttribute="bottom" constant="41" id="vtb-B9-t76"/>
+                                                <constraint firstItem="v3t-pN-ZUD" firstAttribute="centerY" secondItem="eLh-dI-YVM" secondAttribute="centerY" id="zRe-lA-xvR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="showImageView" destination="eLh-dI-YVM" id="R9h-cN-YqB"/>
                                             <outlet property="showRatingLabel" destination="ggg-0z-a27" id="HLY-OQ-kWZ"/>
+                                            <outlet property="showSpinner" destination="v3t-pN-ZUD" id="RB2-zx-UQi"/>
                                             <outlet property="showTitleLabel" destination="jT1-aK-zId" id="bVD-Pt-Lkx"/>
-                                            <segue destination="X8Z-da-ffO" kind="show" id="zSP-hs-HGt"/>
+                                            <segue destination="X8Z-da-ffO" kind="show" id="VWO-qm-txw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
