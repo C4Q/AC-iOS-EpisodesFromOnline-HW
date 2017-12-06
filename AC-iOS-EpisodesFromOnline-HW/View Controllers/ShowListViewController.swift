@@ -13,7 +13,7 @@ class ShowListViewController: UIViewController {
     @IBOutlet weak var showsTableView: UITableView!
     @IBOutlet weak var showsSearchBar: UISearchBar!
     //figure out activity indicator
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+ 
     
     var shows: [Show] = []
     var searchTerm: String = "" {
@@ -74,10 +74,10 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath)
         let currentShow = shows[indexPath.row]
-        activityIndicator.startAnimating()
-        activityIndicator.isHidden = false
         
         if let showCell = cell as? ShowsTableViewCell {
+            showCell.activityIndicator.startAnimating()
+            showCell.activityIndicator.isHidden = false
             
             showCell.titleLabel.text = currentShow.name
             showCell.ratingLabel.text = "Rating: \(currentShow.rating.average?.description ?? "No rating available")"
@@ -85,6 +85,10 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource {
             
             guard let image = currentShow.image else {
                 showCell.showImageView.image = #imageLiteral(resourceName: "noImage")
+                showCell.activityIndicator.isHidden = true
+                showCell.activityIndicator.stopAnimating()
+                showCell.setNeedsLayout()
+                
                 return showCell
             }
             
@@ -94,14 +98,12 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource {
                 completionHandler: { (onlineImage) in
                     showCell.showImageView.image = onlineImage
                    
-                   self.activityIndicator.isHidden = true
-                    self.activityIndicator.stopAnimating()
+                   showCell.activityIndicator.isHidden = true
+                    showCell.activityIndicator.stopAnimating()
                     showCell.setNeedsLayout()
             },
                 errorHandler: { (appError) in
                     print(appError)
-                    self.activityIndicator.isHidden = true
-                    self.activityIndicator.stopAnimating()
             })
             
             return showCell
@@ -120,6 +122,8 @@ extension ShowListViewController: UISearchBarDelegate {
             return
         }
         
-        searchTerm = searchText
+        let noSpaceSearchText = searchText.replacingOccurrences(of: " ", with: "%20")
+        
+        searchTerm = noSpaceSearchText
     }
 }

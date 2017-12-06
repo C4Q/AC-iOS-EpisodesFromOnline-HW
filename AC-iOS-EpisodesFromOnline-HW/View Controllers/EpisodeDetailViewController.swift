@@ -30,7 +30,10 @@ class EpisodeDetailViewController: UIViewController {
         titleLabel.text = episode.name
         seasonLabel.text = "Season \(episode.season)"
         episodeLabel.text = "Episode \(episode.number)"
-        summaryTextView.text = episode.summary ?? "No summary available."
+        let summaryText = episode.summary ?? "No summary available."
+        
+        //if summary exists but is just an empty string
+        summaryTextView.text = (summaryText != "") ? summaryText : "No summary available."
         
         setUpImages()
     }
@@ -39,6 +42,10 @@ class EpisodeDetailViewController: UIViewController {
        
         guard let image = episode.image else {
             episodeImageView.image = #imageLiteral(resourceName: "noImage")
+            
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.stopAnimating()
+            
             return
         }
         ImagesAPIClient.manager.getImage(
@@ -49,9 +56,7 @@ class EpisodeDetailViewController: UIViewController {
                 self.activityIndicator.stopAnimating()
         },
             errorHandler: {(appError) in
-                print(appError)
-                self.activityIndicator.isHidden = true
-                self.activityIndicator.stopAnimating()})
+                print(appError)})
     }
 
 }

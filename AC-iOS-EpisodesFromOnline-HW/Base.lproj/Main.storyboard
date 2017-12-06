@@ -37,10 +37,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ME0-NY-OAn">
-                                                    <rect key="frame" x="158" y="69.5" width="207" height="61"/>
+                                                    <rect key="frame" x="158" y="69.5" width="375" height="61"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="titleLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdN-go-4q2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="207" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdN-go-4q2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.5" id="MoN-YM-wlZ"/>
                                                             </constraints>
@@ -48,8 +48,8 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="ratingLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFV-S8-C5y">
-                                                            <rect key="frame" x="0.0" y="40.5" width="207" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ratingLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFV-S8-C5y">
+                                                            <rect key="frame" x="0.0" y="40.5" width="375" height="20.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20.5" id="vUi-zO-stK"/>
                                                             </constraints>
@@ -60,21 +60,27 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="rFV-S8-C5y" firstAttribute="width" secondItem="gdN-go-4q2" secondAttribute="width" id="9kN-TV-5xL"/>
-                                                        <constraint firstAttribute="width" constant="207" id="Tpy-OP-7Wh"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" priority="999" constant="207" id="Tpy-OP-7Wh"/>
                                                         <constraint firstItem="gdN-go-4q2" firstAttribute="width" secondItem="ME0-NY-OAn" secondAttribute="width" id="rpf-3I-h8G"/>
                                                     </constraints>
                                                 </stackView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="QO6-kv-SHq">
+                                                    <rect key="frame" x="68" y="90" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bel-88-lDB" firstAttribute="top" secondItem="7fc-Jb-nIL" secondAttribute="top" constant="8" id="E2c-6b-d9O"/>
                                                 <constraint firstItem="bel-88-lDB" firstAttribute="leading" secondItem="7fc-Jb-nIL" secondAttribute="leading" constant="8" id="M8E-G5-QXM"/>
                                                 <constraint firstItem="ME0-NY-OAn" firstAttribute="leading" secondItem="bel-88-lDB" secondAttribute="trailing" constant="10" id="MLE-XM-Qvq"/>
+                                                <constraint firstItem="QO6-kv-SHq" firstAttribute="centerY" secondItem="bel-88-lDB" secondAttribute="centerY" id="d3D-yK-0ux"/>
+                                                <constraint firstItem="QO6-kv-SHq" firstAttribute="centerX" secondItem="bel-88-lDB" secondAttribute="centerX" id="lSb-Ei-s2n"/>
                                                 <constraint firstAttribute="bottom" secondItem="bel-88-lDB" secondAttribute="bottom" constant="8" id="nod-ne-3gI"/>
                                                 <constraint firstItem="ME0-NY-OAn" firstAttribute="centerY" secondItem="bel-88-lDB" secondAttribute="centerY" id="peV-jB-kFi"/>
                                                 <constraint firstAttribute="trailing" secondItem="ME0-NY-OAn" secondAttribute="trailing" constant="10" id="uj0-0G-4mk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="QO6-kv-SHq" id="dLr-1d-x53"/>
                                             <outlet property="ratingLabel" destination="rFV-S8-C5y" id="hXL-Q4-Bhw"/>
                                             <outlet property="showImageView" destination="bel-88-lDB" id="zk7-ub-Qo8"/>
                                             <outlet property="titleLabel" destination="gdN-go-4q2" id="G1V-ia-geh"/>
@@ -148,9 +154,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="RRo-4y-2mR">
+                                                    <rect key="frame" x="99" y="58" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="qlq-3N-8hl" secondAttribute="trailing" constant="5" id="Mpz-FW-76L"/>
+                                                <constraint firstItem="RRo-4y-2mR" firstAttribute="centerX" secondItem="fUb-dg-Nff" secondAttribute="centerX" id="Mzi-OR-WKb"/>
                                                 <constraint firstItem="qlq-3N-8hl" firstAttribute="leading" secondItem="fUb-dg-Nff" secondAttribute="trailing" constant="5" id="SSN-lo-PS9"/>
                                                 <constraint firstItem="fUb-dg-Nff" firstAttribute="top" secondItem="FBB-g4-ogg" secondAttribute="top" id="VoZ-YU-Wx3"/>
                                                 <constraint firstItem="vL6-rB-0OT" firstAttribute="leading" secondItem="fUb-dg-Nff" secondAttribute="trailing" constant="5" id="bts-uT-cOI"/>
@@ -159,9 +169,11 @@
                                                 <constraint firstItem="fUb-dg-Nff" firstAttribute="leading" secondItem="FBB-g4-ogg" secondAttribute="leading" id="el9-SO-gSw"/>
                                                 <constraint firstAttribute="bottom" secondItem="fUb-dg-Nff" secondAttribute="bottom" id="f88-KB-aJb"/>
                                                 <constraint firstItem="qlq-3N-8hl" firstAttribute="centerY" secondItem="fUb-dg-Nff" secondAttribute="centerY" multiplier="0.6" id="mfu-0f-0Qm"/>
+                                                <constraint firstItem="RRo-4y-2mR" firstAttribute="centerY" secondItem="fUb-dg-Nff" secondAttribute="centerY" id="wmi-sF-YOM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="RRo-4y-2mR" id="0md-qe-wbt"/>
                                             <outlet property="episodeImageView" destination="fUb-dg-Nff" id="3Qm-Az-4bX"/>
                                             <outlet property="seasonEpisodeLabel" destination="vL6-rB-0OT" id="KgZ-Fd-yGV"/>
                                             <outlet property="titleLabel" destination="qlq-3N-8hl" id="K4H-AF-FLa"/>
@@ -240,21 +252,27 @@
                                     <constraint firstItem="EEQ-tk-gxK" firstAttribute="leading" secondItem="bb6-X3-rLK" secondAttribute="leading" id="p7z-EY-gko"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4FY-b8-ezh">
+                                <rect key="frame" x="177.5" y="144" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="O2n-rk-i4y" firstAttribute="height" secondItem="6CH-2i-m1Y" secondAttribute="height" multiplier="0.3" id="1hc-XU-TVA"/>
                             <constraint firstItem="bb6-X3-rLK" firstAttribute="leading" secondItem="6CH-2i-m1Y" secondAttribute="leading" constant="20" id="Fc9-ur-2eA"/>
                             <constraint firstItem="O2n-rk-i4y" firstAttribute="leading" secondItem="6CH-2i-m1Y" secondAttribute="leading" id="IKS-1g-an6"/>
+                            <constraint firstItem="4FY-b8-ezh" firstAttribute="centerX" secondItem="O2n-rk-i4y" secondAttribute="centerX" id="Nbi-6J-55u"/>
                             <constraint firstItem="O2n-rk-i4y" firstAttribute="top" secondItem="6CH-2i-m1Y" secondAttribute="top" id="Yke-h2-Gxm"/>
                             <constraint firstItem="6CH-2i-m1Y" firstAttribute="trailing" secondItem="bb6-X3-rLK" secondAttribute="trailing" constant="20" id="cvD-oF-KI5"/>
                             <constraint firstItem="bb6-X3-rLK" firstAttribute="top" secondItem="O2n-rk-i4y" secondAttribute="bottom" constant="20" id="d7R-Zq-BsJ"/>
+                            <constraint firstItem="4FY-b8-ezh" firstAttribute="centerY" secondItem="O2n-rk-i4y" secondAttribute="centerY" id="lXk-TP-Vt3"/>
                             <constraint firstItem="6CH-2i-m1Y" firstAttribute="trailing" secondItem="O2n-rk-i4y" secondAttribute="trailing" id="lp1-dE-TN5"/>
                             <constraint firstItem="6CH-2i-m1Y" firstAttribute="bottom" secondItem="bb6-X3-rLK" secondAttribute="bottom" constant="20" id="mOB-ZX-hro"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6CH-2i-m1Y"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="4FY-b8-ezh" id="tiJ-7Y-4dO"/>
                         <outlet property="episodeImageView" destination="O2n-rk-i4y" id="r5u-WM-5ep"/>
                         <outlet property="episodeLabel" destination="RER-Ba-aB8" id="VgQ-eh-5BG"/>
                         <outlet property="seasonLabel" destination="Gsz-f5-YQH" id="Qq2-Tx-ZCh"/>

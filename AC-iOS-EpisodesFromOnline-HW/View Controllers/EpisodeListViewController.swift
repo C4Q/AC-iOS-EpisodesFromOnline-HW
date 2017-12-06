@@ -11,7 +11,6 @@ import UIKit
 class EpisodeListViewController: UIViewController {
 
     @IBOutlet weak var episodesTableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var show: Show!
     
@@ -77,10 +76,10 @@ extension EpisodeListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
         let currentEpisode = episodes[indexPath.row]
-        activityIndicator.startAnimating()
-        activityIndicator.isHidden = false
         
         if let episodeCell = cell as? EpisodeTableViewCell {
+            episodeCell.activityIndicator.startAnimating()
+            episodeCell.activityIndicator.isHidden = false
             
             episodeCell.titleLabel.text = currentEpisode.name
             episodeCell.seasonEpisodeLabel.text = "Season \(currentEpisode.season) | Episode \(currentEpisode.number)"
@@ -88,6 +87,12 @@ extension EpisodeListViewController: UITableViewDelegate, UITableViewDataSource 
             
             guard let image = currentEpisode.image else {
                 episodeCell.episodeImageView.image = #imageLiteral(resourceName: "noImage")
+                
+                episodeCell.activityIndicator.isHidden = true
+                episodeCell.activityIndicator.stopAnimating()
+                
+                episodeCell.setNeedsLayout()
+                
                 return episodeCell
             }
             
@@ -96,15 +101,13 @@ extension EpisodeListViewController: UITableViewDelegate, UITableViewDataSource 
                 from: image.mediumURL,
                 completionHandler: { (onlineImage) in
                     episodeCell.episodeImageView.image = onlineImage
-                    self.activityIndicator.isHidden = true
-                    self.activityIndicator.stopAnimating()
+                    episodeCell.activityIndicator.isHidden = true
+                    episodeCell.activityIndicator.stopAnimating()
                     
                     episodeCell.setNeedsLayout()
             },
                 errorHandler: { (appError) in
                     print(appError)
-                    self.activityIndicator.isHidden = true
-                    self.activityIndicator.stopAnimating()
             })
             
             return episodeCell
