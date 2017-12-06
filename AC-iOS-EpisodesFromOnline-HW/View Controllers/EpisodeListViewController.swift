@@ -24,7 +24,19 @@ class EpisodeListViewController: UIViewController {
     }
     
     func loadData() {
-        //to do
+        EpisodeAPIClient.manager.getEpisodes(
+            from: show.id,
+            completionHandler: { (onlineEpisodes) in
+                self.episodes = onlineEpisodes
+                self.episodesTableView.reloadData()
+        },
+            errorHandler: { (appError) in
+                let alertController = UIAlertController(title: "ERROR", message: "Could not load episodes:\n\(appError)", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+        })
     }
 
 }
@@ -43,10 +55,27 @@ extension EpisodeListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
+        let currentEpisode = episodes[indexPath.row]
         
         if let episodeCell = cell as? EpisodeTableViewCell {
             
-            //to do
+            episodeCell.titleLabel.text = currentEpisode.name
+            episodeCell.seasonEpisodeLabel.text = "Season \(currentEpisode.season) | Episode \(currentEpisode.number)"
+            episodeCell.episodeImageView.image = nil
+            
+            guard let image = currentEpisode.image else {
+                episodeCell.episodeImageView.image = #imageLiteral(resourceName: "noImage")
+                return episodeCell
+            }
+            
+            //set up image
+            ImagesAPIClient.manager.getImage(
+                from: image.mediumURL,
+                completionHandler: { (onlineImage) in
+                    episodeCell.episodeImageView.image = onlineImage
+                    episodeCell.setNeedsLayout()
+            },
+                errorHandler: {print($0)})
             
             return episodeCell
         }
