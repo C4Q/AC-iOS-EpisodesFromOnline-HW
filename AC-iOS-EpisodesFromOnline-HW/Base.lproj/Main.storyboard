@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Show List View Controller-->
+        <!--Shows-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ShowListViewController" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target" sceneMemberID="viewController">
@@ -93,7 +93,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YTx-EP-kpS"/>
+                    <navigationItem key="navigationItem" title="Shows" id="YTx-EP-kpS"/>
                     <connections>
                         <outlet property="searchBar" destination="WAZ-xZ-itT" id="Skq-r7-B8Z"/>
                         <outlet property="tableView" destination="Vbn-gc-qcw" id="84J-GW-VuT"/>
