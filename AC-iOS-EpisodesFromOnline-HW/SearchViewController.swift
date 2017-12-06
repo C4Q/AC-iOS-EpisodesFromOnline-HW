@@ -13,7 +13,11 @@ class SearchViewController: UIViewController {
     
     var searchTerm: String? {
         didSet {
-            showSearchEndpoint = "http://api.tvmaze.com/search/shows?q=\(searchTerm!)"
+            var endpoint = URLComponents(string: "http://api.tvmaze.com/search/shows")
+            endpoint?.queryItems = [
+                URLQueryItem(name: "q", value: searchTerm)
+            ]
+            showSearchEndpoint = endpoint?.url?.absoluteString
         }
     }
     
@@ -57,9 +61,6 @@ class SearchViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableViewState = .complete
-    }
     
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
@@ -91,6 +92,10 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor.black
         self.searchTableView.backgroundColor = ProjectColor.backroundGray
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableViewState = .complete
     }
 
     override func didReceiveMemoryWarning() {
