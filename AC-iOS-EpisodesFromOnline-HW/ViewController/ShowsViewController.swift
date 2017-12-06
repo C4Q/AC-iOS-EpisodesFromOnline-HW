@@ -58,8 +58,8 @@ extension ShowsViewController: UITableViewDataSource, UITableViewDelegate, UISea
         showCell.nameLabel.text = show.show.name
         showCell.rateLabel.text = "Rating: \(show.show.rating.average?.description ?? "N/A")"
         showCell.showImageView.image = nil
-                showCell.showSpinner.isHidden = false
-                showCell.showSpinner.startAnimating()
+        showCell.showSpinner.isHidden = false
+        showCell.showSpinner.startAnimating()
         guard let imageURL = show.show.image?.original else {
             showCell.showSpinner.isHidden = true
             showCell.showSpinner.stopAnimating()
@@ -81,7 +81,6 @@ extension ShowsViewController: UITableViewDataSource, UITableViewDelegate, UISea
     ///Mark - Search Bar
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-       
         self.searchTerm = (searchBar.text?.components(separatedBy: " ").joined(separator: "%20"))!
         searchBar.resignFirstResponder()
     }

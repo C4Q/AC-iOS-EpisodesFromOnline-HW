@@ -206,20 +206,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="37E-vz-jbo">
-                                <rect key="frame" x="67" y="86" width="241" height="175"/>
+                                <rect key="frame" x="0.0" y="74" width="375" height="272.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="37E-vz-jbo" secondAttribute="height" multiplier="11:8" id="n0c-2Y-aWw"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bpB-Xy-CJM">
-                                <rect key="frame" x="11" y="476" width="353" height="180"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpB-Xy-CJM">
+                                <rect key="frame" x="11" y="531.5" width="353" height="124.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Rfi-mf-7yq">
-                                <rect key="frame" x="11" y="341" width="353" height="55"/>
+                                <rect key="frame" x="11" y="426.5" width="353" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWp-fF-4Fb">
                                         <rect key="frame" x="154" y="0.0" width="45" height="20.5"/>
@@ -235,23 +235,29 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jr9-sz-UI2">
+                                <rect key="frame" x="177" y="200" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bpB-Xy-CJM" firstAttribute="top" secondItem="Rfi-mf-7yq" secondAttribute="bottom" constant="80" id="6ZC-jC-b8z"/>
+                            <constraint firstItem="37E-vz-jbo" firstAttribute="width" secondItem="J4h-RK-3xf" secondAttribute="width" id="5lx-28-VnZ"/>
+                            <constraint firstItem="bpB-Xy-CJM" firstAttribute="top" secondItem="Rfi-mf-7yq" secondAttribute="bottom" constant="50" id="6ZC-jC-b8z"/>
                             <constraint firstItem="bpB-Xy-CJM" firstAttribute="leading" secondItem="oth-ID-Klu" secondAttribute="leading" constant="11" id="7Lm-7U-0aD"/>
                             <constraint firstItem="oth-ID-Klu" firstAttribute="trailing" secondItem="bpB-Xy-CJM" secondAttribute="trailing" constant="11" id="CXD-hM-cce"/>
                             <constraint firstItem="Rfi-mf-7yq" firstAttribute="top" secondItem="37E-vz-jbo" secondAttribute="bottom" constant="80" id="QOy-So-Js6"/>
                             <constraint firstItem="oth-ID-Klu" firstAttribute="trailing" secondItem="Rfi-mf-7yq" secondAttribute="trailing" constant="11" id="QX0-W3-1YF"/>
                             <constraint firstItem="Rfi-mf-7yq" firstAttribute="leading" secondItem="oth-ID-Klu" secondAttribute="leading" constant="11" id="Qly-t6-j4D"/>
+                            <constraint firstItem="jr9-sz-UI2" firstAttribute="centerX" secondItem="37E-vz-jbo" secondAttribute="centerX" id="Zei-03-n5S"/>
                             <constraint firstItem="oth-ID-Klu" firstAttribute="bottom" secondItem="bpB-Xy-CJM" secondAttribute="bottom" constant="11" id="agP-Sg-PVl"/>
-                            <constraint firstItem="37E-vz-jbo" firstAttribute="leading" secondItem="oth-ID-Klu" secondAttribute="leading" constant="67" id="dro-lq-Z01"/>
+                            <constraint firstItem="jr9-sz-UI2" firstAttribute="centerY" secondItem="37E-vz-jbo" secondAttribute="centerY" id="jnI-dg-z9p"/>
                             <constraint firstItem="37E-vz-jbo" firstAttribute="centerX" secondItem="J4h-RK-3xf" secondAttribute="centerX" id="nP9-fL-iSI"/>
-                            <constraint firstItem="37E-vz-jbo" firstAttribute="top" secondItem="oth-ID-Klu" secondAttribute="top" constant="22" id="xrc-JJ-WWK"/>
+                            <constraint firstItem="37E-vz-jbo" firstAttribute="top" secondItem="oth-ID-Klu" secondAttribute="top" constant="10" id="xrc-JJ-WWK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oth-ID-Klu"/>
                     </view>
                     <connections>
+                        <outlet property="activitySpinner" destination="jr9-sz-UI2" id="BaZ-bB-nkT"/>
                         <outlet property="episodeImageView" destination="37E-vz-jbo" id="Jbj-iM-hyj"/>
                         <outlet property="episodeLabel" destination="oxE-gu-Iwz" id="8TZ-em-tKi"/>
                         <outlet property="nameLabel" destination="aWp-fF-4Fb" id="AdE-oe-nO2"/>

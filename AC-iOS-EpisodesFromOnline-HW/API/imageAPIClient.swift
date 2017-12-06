@@ -26,5 +26,4 @@ class ImageAPIClient {
         }
         NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
     }
-    
 }
