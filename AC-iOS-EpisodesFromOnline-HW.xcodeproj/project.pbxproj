@@ -8,20 +8,44 @@
 
 /* Begin PBXBuildFile section */
 		54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54056A681FCF030800CD81BE /* AppDelegate.swift */; };
-		54056A6B1FCF030800CD81BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54056A6A1FCF030800CD81BE /* ViewController.swift */; };
 		54056A6E1FCF030800CD81BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54056A6C1FCF030800CD81BE /* Main.storyboard */; };
 		54056A701FCF030800CD81BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54056A6F1FCF030800CD81BE /* Assets.xcassets */; };
 		54056A731FCF030800CD81BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54056A711FCF030800CD81BE /* LaunchScreen.storyboard */; };
+		81AFE61C1FD71A17003687F5 /* TODO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AFE61B1FD71A17003687F5 /* TODO.swift */; };
+		81FC45EB1FD10EC400D5B3E9 /* TVShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC45EA1FD10EC400D5B3E9 /* TVShowViewController.swift */; };
+		81FC45ED1FD10ED200D5B3E9 /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC45EC1FD10ED200D5B3E9 /* EpisodesViewController.swift */; };
+		81FC45EF1FD10EE300D5B3E9 /* DetailEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC45EE1FD10EE300D5B3E9 /* DetailEpisodeViewController.swift */; };
+		81FC45F11FD10EF000D5B3E9 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC45F01FD10EF000D5B3E9 /* NetworkHelper.swift */; };
+		81FC45F31FD10EFD00D5B3E9 /* HandlingAppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC45F21FD10EFD00D5B3E9 /* HandlingAppErrors.swift */; };
+		81FC45F51FD10F0B00D5B3E9 /* TVShowsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC45F41FD10F0B00D5B3E9 /* TVShowsModel.swift */; };
+		81FC45F91FD10F4000D5B3E9 /* TVShowAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC45F81FD10F4000D5B3E9 /* TVShowAPIClient.swift */; };
+		81FC45FB1FD10F4B00D5B3E9 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC45FA1FD10F4B00D5B3E9 /* ImageAPI.swift */; };
+		81FC46011FD1AB5800D5B3E9 /* EpisodesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC46001FD1AB5800D5B3E9 /* EpisodesModel.swift */; };
+		81FC46431FD36FB800D5B3E9 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC46421FD36FB800D5B3E9 /* TVShowTableViewCell.swift */; };
+		81FC46451FD3707400D5B3E9 /* EpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC46441FD3707400D5B3E9 /* EpisodesTableViewCell.swift */; };
+		81FC46481FD4B1FC00D5B3E9 /* EpisodeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FC46471FD4B1FC00D5B3E9 /* EpisodeAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		54056A651FCF030800CD81BE /* AC-iOS-EpisodesFromOnline-HW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-EpisodesFromOnline-HW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54056A681FCF030800CD81BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		54056A6A1FCF030800CD81BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		54056A6D1FCF030800CD81BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54056A6F1FCF030800CD81BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54056A721FCF030800CD81BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54056A741FCF030800CD81BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81AFE61B1FD71A17003687F5 /* TODO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODO.swift; sourceTree = "<group>"; };
+		81FC45EA1FD10EC400D5B3E9 /* TVShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewController.swift; sourceTree = "<group>"; };
+		81FC45EC1FD10ED200D5B3E9 /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
+		81FC45EE1FD10EE300D5B3E9 /* DetailEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEpisodeViewController.swift; sourceTree = "<group>"; };
+		81FC45F01FD10EF000D5B3E9 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		81FC45F21FD10EFD00D5B3E9 /* HandlingAppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandlingAppErrors.swift; sourceTree = "<group>"; };
+		81FC45F41FD10F0B00D5B3E9 /* TVShowsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsModel.swift; sourceTree = "<group>"; };
+		81FC45F81FD10F4000D5B3E9 /* TVShowAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowAPIClient.swift; sourceTree = "<group>"; };
+		81FC45FA1FD10F4B00D5B3E9 /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
+		81FC46001FD1AB5800D5B3E9 /* EpisodesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesModel.swift; sourceTree = "<group>"; };
+		81FC46421FD36FB800D5B3E9 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
+		81FC46441FD3707400D5B3E9 /* EpisodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewCell.swift; sourceTree = "<group>"; };
+		81FC46471FD4B1FC00D5B3E9 /* EpisodeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EpisodeAPIClient.swift; path = "AC-iOS-EpisodesFromOnline-HW/API Clients/EpisodeAPIClient.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +78,58 @@
 		54056A671FCF030800CD81BE /* AC-iOS-EpisodesFromOnline-HW */ = {
 			isa = PBXGroup;
 			children = (
-				54056A681FCF030800CD81BE /* AppDelegate.swift */,
-				54056A6A1FCF030800CD81BE /* ViewController.swift */,
-				54056A6C1FCF030800CD81BE /* Main.storyboard */,
-				54056A6F1FCF030800CD81BE /* Assets.xcassets */,
-				54056A711FCF030800CD81BE /* LaunchScreen.storyboard */,
+				81FC45FD1FD10F8400D5B3E9 /* View Controllers */,
+				81FC45FE1FD10F9200D5B3E9 /* Models */,
+				81FC45FC1FD10F7000D5B3E9 /* API Clients */,
+				81FC45FF1FD10F9F00D5B3E9 /* Supporting Files */,
 				54056A741FCF030800CD81BE /* Info.plist */,
 			);
 			path = "AC-iOS-EpisodesFromOnline-HW";
+			sourceTree = "<group>";
+		};
+		81FC45FC1FD10F7000D5B3E9 /* API Clients */ = {
+			isa = PBXGroup;
+			children = (
+				81FC45F81FD10F4000D5B3E9 /* TVShowAPIClient.swift */,
+				81FC46471FD4B1FC00D5B3E9 /* EpisodeAPIClient.swift */,
+				81FC45FA1FD10F4B00D5B3E9 /* ImageAPI.swift */,
+			);
+			path = "API Clients";
+			sourceTree = "<group>";
+		};
+		81FC45FD1FD10F8400D5B3E9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				81AFE61B1FD71A17003687F5 /* TODO.swift */,
+				81FC45EA1FD10EC400D5B3E9 /* TVShowViewController.swift */,
+				81FC45EC1FD10ED200D5B3E9 /* EpisodesViewController.swift */,
+				81FC45EE1FD10EE300D5B3E9 /* DetailEpisodeViewController.swift */,
+				81FC46421FD36FB800D5B3E9 /* TVShowTableViewCell.swift */,
+				81FC46441FD3707400D5B3E9 /* EpisodesTableViewCell.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		81FC45FE1FD10F9200D5B3E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81FC45F01FD10EF000D5B3E9 /* NetworkHelper.swift */,
+				81FC45F21FD10EFD00D5B3E9 /* HandlingAppErrors.swift */,
+				81FC45F41FD10F0B00D5B3E9 /* TVShowsModel.swift */,
+				81FC46001FD1AB5800D5B3E9 /* EpisodesModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		81FC45FF1FD10F9F00D5B3E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54056A681FCF030800CD81BE /* AppDelegate.swift */,
+				54056A6C1FCF030800CD81BE /* Main.storyboard */,
+				54056A6F1FCF030800CD81BE /* Assets.xcassets */,
+				54056A711FCF030800CD81BE /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +204,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54056A6B1FCF030800CD81BE /* ViewController.swift in Sources */,
+				81FC45ED1FD10ED200D5B3E9 /* EpisodesViewController.swift in Sources */,
+				81FC46451FD3707400D5B3E9 /* EpisodesTableViewCell.swift in Sources */,
+				81FC45F51FD10F0B00D5B3E9 /* TVShowsModel.swift in Sources */,
+				81AFE61C1FD71A17003687F5 /* TODO.swift in Sources */,
+				81FC45F31FD10EFD00D5B3E9 /* HandlingAppErrors.swift in Sources */,
+				81FC46011FD1AB5800D5B3E9 /* EpisodesModel.swift in Sources */,
+				81FC46431FD36FB800D5B3E9 /* TVShowTableViewCell.swift in Sources */,
+				81FC45EF1FD10EE300D5B3E9 /* DetailEpisodeViewController.swift in Sources */,
+				81FC45FB1FD10F4B00D5B3E9 /* ImageAPI.swift in Sources */,
+				81FC45F91FD10F4000D5B3E9 /* TVShowAPIClient.swift in Sources */,
+				81FC45F11FD10EF000D5B3E9 /* NetworkHelper.swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
+				81FC45EB1FD10EC400D5B3E9 /* TVShowViewController.swift in Sources */,
+				81FC46481FD4B1FC00D5B3E9 /* EpisodeAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
