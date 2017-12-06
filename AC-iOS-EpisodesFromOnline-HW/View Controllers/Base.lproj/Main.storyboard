@@ -153,6 +153,7 @@
                                             <outlet property="episodeImageView" destination="hW4-3T-6zS" id="meQ-jb-WoA"/>
                                             <outlet property="episodeNamelabel" destination="o6w-Tb-CRF" id="foG-8u-qhZ"/>
                                             <outlet property="seasonAndEpisodeLabel" destination="d1o-nL-pdU" id="keL-Vw-Syv"/>
+                                            <segue destination="uXu-bR-mCd" kind="show" id="g6f-dN-uQ5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -169,7 +170,6 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="WMj-91-fnk" id="Z8r-87-X5w"/>
-                        <segue destination="uXu-bR-mCd" kind="show" id="mO9-Vd-bR7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kpo-wA-Tb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,51 +184,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aWa-u7-B7O">
-                                <rect key="frame" x="47" y="79" width="280" height="261"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aWa-u7-B7O">
+                                <rect key="frame" x="47.5" y="79" width="280" height="261"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="261" id="Lf9-uR-K3y"/>
                                     <constraint firstAttribute="width" constant="280" id="gVt-oS-Dr8"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VPO-5q-kvx">
-                                <rect key="frame" x="20" y="488.5" width="335" height="148.5"/>
+                                <rect key="frame" x="20" y="490.5" width="335" height="146.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="eq0-b0-Csx">
-                                <rect key="frame" x="147" y="388" width="80" height="69.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eq0-b0-Csx">
+                                <rect key="frame" x="0.0" y="388" width="375" height="71.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWR-qi-8wd">
-                                        <rect key="frame" x="17.5" y="0.0" width="45" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWR-qi-8wd">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode: 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGW-Qm-6dn">
-                                        <rect key="frame" x="0.0" y="24.5" width="80" height="20.5"/>
+                                        <rect key="frame" x="147.5" y="25.5" width="80" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season: 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hP3-fJ-NwT">
-                                        <rect key="frame" x="2" y="49" width="76" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season: 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hP3-fJ-NwT">
+                                        <rect key="frame" x="149.5" y="51" width="76" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="KWR-qi-8wd" secondAttribute="trailing" id="awa-dv-sY5"/>
+                                    <constraint firstItem="KWR-qi-8wd" firstAttribute="leading" secondItem="eq0-b0-Csx" secondAttribute="leading" id="kuJ-b9-VuW"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cze-5u-xvC" firstAttribute="trailing" secondItem="eq0-b0-Csx" secondAttribute="trailing" id="1Dw-gA-BvW"/>
                             <constraint firstItem="eq0-b0-Csx" firstAttribute="top" secondItem="aWa-u7-B7O" secondAttribute="bottom" constant="48" id="2ob-r3-r5I"/>
                             <constraint firstItem="cze-5u-xvC" firstAttribute="trailing" secondItem="VPO-5q-kvx" secondAttribute="trailing" constant="20" id="2vh-LY-3x2"/>
                             <constraint firstItem="VPO-5q-kvx" firstAttribute="leading" secondItem="cze-5u-xvC" secondAttribute="leading" constant="20" id="6lA-eI-YSi"/>
                             <constraint firstItem="VPO-5q-kvx" firstAttribute="centerX" secondItem="0ng-gO-s1o" secondAttribute="centerX" id="CXU-n5-GQ8"/>
                             <constraint firstItem="cze-5u-xvC" firstAttribute="bottom" secondItem="VPO-5q-kvx" secondAttribute="bottom" constant="30" id="Nx1-GC-d2j"/>
+                            <constraint firstItem="eq0-b0-Csx" firstAttribute="leading" secondItem="cze-5u-xvC" secondAttribute="leading" id="cdD-EU-Bq1"/>
                             <constraint firstItem="aWa-u7-B7O" firstAttribute="top" secondItem="cze-5u-xvC" secondAttribute="top" constant="15" id="d8N-U2-avK"/>
                             <constraint firstItem="eq0-b0-Csx" firstAttribute="centerX" secondItem="0ng-gO-s1o" secondAttribute="centerX" id="fZy-Wv-wUB"/>
                             <constraint firstItem="VPO-5q-kvx" firstAttribute="top" secondItem="eq0-b0-Csx" secondAttribute="bottom" constant="31" id="kdw-Fi-oQO"/>
@@ -236,6 +242,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cze-5u-xvC"/>
                     </view>
+                    <connections>
+                        <outlet property="episodeLabel" destination="oGW-Qm-6dn" id="674-Pu-5cq"/>
+                        <outlet property="episodeNameLabel" destination="KWR-qi-8wd" id="MEc-Qq-oHU"/>
+                        <outlet property="largeEpisodeImage" destination="aWa-u7-B7O" id="my9-5T-WhP"/>
+                        <outlet property="seasonLabel" destination="hP3-fJ-NwT" id="9fN-8Q-PBy"/>
+                        <outlet property="summaryTextView" destination="VPO-5q-kvx" id="lwY-Kg-sjJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJx-Ut-JzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

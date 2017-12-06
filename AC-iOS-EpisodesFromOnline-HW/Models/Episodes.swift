@@ -9,7 +9,7 @@
 import Foundation
 
 struct Episodes: Codable {
-    let name: String
+    let name: String?
     let season: Int
     let number: Int
     let image: ImageWrapper2?

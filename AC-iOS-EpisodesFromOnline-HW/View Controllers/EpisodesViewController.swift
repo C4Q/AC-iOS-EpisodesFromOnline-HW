@@ -75,4 +75,11 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? EpisodeDetailViewController {
+            let selectedEpisode = episodes[self.tableView.indexPathForSelectedRow!.row]
+            destination.episodeSelected = selectedEpisode
+        }
+    }
 }
