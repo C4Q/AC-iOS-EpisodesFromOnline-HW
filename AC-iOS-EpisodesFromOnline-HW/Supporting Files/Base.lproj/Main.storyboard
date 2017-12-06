@@ -49,34 +49,35 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1hu-py-JTu">
-                                                    <rect key="frame" x="26" y="22" width="104" height="156"/>
+                                                    <rect key="frame" x="26" y="22" width="112" height="156"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="1hu-py-JTu" secondAttribute="height" multiplier="2:3" id="Myl-Y6-alK"/>
+                                                        <constraint firstAttribute="width" constant="112" id="91Q-RC-Wy2"/>
+                                                        <constraint firstAttribute="height" constant="156" id="L9o-oi-vJh"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbr-ju-nRy">
-                                                    <rect key="frame" x="141" y="33" width="208" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUf-Ta-hc2">
+                                                    <rect key="frame" x="146" y="76" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUf-Ta-hc2">
-                                                    <rect key="frame" x="141" y="76" width="208" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbr-ju-nRy">
+                                                    <rect key="frame" x="146" y="22" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="1hu-py-JTu" firstAttribute="top" secondItem="syn-Na-5Im" secondAttribute="topMargin" constant="11" id="A1y-cd-jbp"/>
-                                                <constraint firstItem="ZUf-Ta-hc2" firstAttribute="top" secondItem="vbr-ju-nRy" secondAttribute="bottom" constant="22" id="O0Z-Ud-Ihv"/>
-                                                <constraint firstItem="1hu-py-JTu" firstAttribute="leading" secondItem="syn-Na-5Im" secondAttribute="leadingMargin" constant="11" id="aYP-lu-ezm"/>
-                                                <constraint firstItem="vbr-ju-nRy" firstAttribute="leading" secondItem="1hu-py-JTu" secondAttribute="trailing" constant="11" id="bLU-KR-ahe"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="1hu-py-JTu" secondAttribute="bottom" constant="11" id="cyo-iB-P1x"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ZUf-Ta-hc2" secondAttribute="trailing" constant="11" id="kTM-Ep-ySg"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vbr-ju-nRy" secondAttribute="trailing" constant="11" id="lny-v9-A1f"/>
-                                                <constraint firstItem="vbr-ju-nRy" firstAttribute="top" secondItem="syn-Na-5Im" secondAttribute="topMargin" constant="22" id="qEH-Hd-R6g"/>
-                                                <constraint firstItem="ZUf-Ta-hc2" firstAttribute="leading" secondItem="1hu-py-JTu" secondAttribute="trailing" constant="11" id="shl-om-2sj"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1hu-py-JTu" secondAttribute="bottom" constant="11" id="2Gx-Yt-LEc"/>
+                                                <constraint firstItem="1hu-py-JTu" firstAttribute="top" secondItem="syn-Na-5Im" secondAttribute="topMargin" constant="11" id="GGs-k2-mwi"/>
+                                                <constraint firstItem="vbr-ju-nRy" firstAttribute="leading" secondItem="ZUf-Ta-hc2" secondAttribute="leading" id="PFf-Mr-HbE"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZUf-Ta-hc2" secondAttribute="trailing" constant="20" symbolic="YES" id="R07-Qc-wXn"/>
+                                                <constraint firstItem="vbr-ju-nRy" firstAttribute="leading" secondItem="1hu-py-JTu" secondAttribute="trailing" constant="8" id="Wrm-h1-qd2"/>
+                                                <constraint firstItem="1hu-py-JTu" firstAttribute="leading" secondItem="syn-Na-5Im" secondAttribute="leadingMargin" constant="11" id="XhN-uA-nmK"/>
+                                                <constraint firstItem="ZUf-Ta-hc2" firstAttribute="top" secondItem="vbr-ju-nRy" secondAttribute="bottom" constant="33" id="aJp-mz-BsB"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vbr-ju-nRy" secondAttribute="trailing" constant="20" symbolic="YES" id="hBU-N9-pQS"/>
+                                                <constraint firstItem="vbr-ju-nRy" firstAttribute="top" secondItem="1hu-py-JTu" secondAttribute="top" id="slF-pW-AxX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
