@@ -12,8 +12,11 @@ class EpisodesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
 	//MARK: - Variables/Constants
 	var show: Show!
-	var episodes: [Episode] = []
-
+	var episodes = [Episode]() {
+		didSet {
+			episodesTableView.reloadData()
+		}
+	}
 
 	//MARKL - Overrides
 	override func viewDidLoad() {
