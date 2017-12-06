@@ -24,11 +24,22 @@ class ShowListViewController: UIViewController {
         super.viewDidLoad()
         showsTableView.delegate = self
         showsTableView.dataSource = self
-        loadData()
+        showsSearchBar.delegate = self
     }
     
     func loadData() {
-        //to do
+        ShowAPIClient.manager.getShows(
+            from: searchTerm,
+            completionHandler: { (onlineShows) in
+                self.shows = onlineShows
+                self.showsTableView.reloadData()
+        },
+            errorHandler: { (appError) in
+                let alertController = UIAlertController(title: "ERROR:", message: "Search could not find any results: \(appError)", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(alertAction)
+                self.present(alertController, animated: true, completion: nil)
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,9 +62,44 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath)
+        let currentShow = shows[indexPath.row]
         
-        //to do
+        if let showCell = cell as? ShowsTableViewCell {
+            
+            showCell.titleLabel.text = currentShow.name
+            showCell.showImageView.image = nil
+            
+            guard let image = currentShow.image else {
+                showCell.showImageView.image = #imageLiteral(resourceName: "noImage")
+                return showCell
+            }
+            
+            //show image
+            ImagesAPIClient.manager.getImage(
+                from: image.mediumURL,
+                completionHandler: { (onlineImage) in
+                    showCell.showImageView.image = onlineImage
+                    showCell.setNeedsLayout()
+            },
+                errorHandler: {print($0)})
+            
+            return showCell
+        }
         
         return cell
     }
+}
+
+//Search Bar Methods
+extension ShowListViewController: UISearchBarDelegate {
+    
+    //Delegate Methods - NOTE: using this delegate method instead of when search text changes to prevent rate limiting from API
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else {
+            return
+        }
+        
+        searchTerm = searchText
+    }
+    
 }

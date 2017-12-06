@@ -15,14 +15,14 @@ struct ResultsWrapper: Codable {
 struct Show: Codable {
     let id: Int
     let name: String
-    let image: Image
+    let image: Image?
 }
 
 struct Image: Codable {
     let mediumURL: String
     let originalURL: String
     
-    enum CodindKeys: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case mediumURL = "medium"
         case originalURL = "original"
     }
