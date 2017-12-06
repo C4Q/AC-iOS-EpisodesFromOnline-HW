@@ -8,20 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54056A681FCF030800CD81BE /* AppDelegate.swift */; };
-		54056A6B1FCF030800CD81BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54056A6A1FCF030800CD81BE /* ViewController.swift */; };
+		54056A6B1FCF030800CD81BE /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54056A6A1FCF030800CD81BE /* ShowViewController.swift */; };
 		54056A6E1FCF030800CD81BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54056A6C1FCF030800CD81BE /* Main.storyboard */; };
 		54056A701FCF030800CD81BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54056A6F1FCF030800CD81BE /* Assets.xcassets */; };
 		54056A731FCF030800CD81BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54056A711FCF030800CD81BE /* LaunchScreen.storyboard */; };
+		814B430B1FD64181000C529E /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B430A1FD64181000C529E /* ImageAPIClient.swift */; };
+		814B430D1FD65EE7000C529E /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B430C1FD65EE7000C529E /* EpisodeViewController.swift */; };
+		814B430F1FD662C8000C529E /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B430E1FD662C8000C529E /* Episode.swift */; };
+		814B43951FD78E69000C529E /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B43941FD78E69000C529E /* EpisodeDetailViewController.swift */; };
+		81D213C41FD2FCE1000ECFE1 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D213C31FD2FCE1000ECFE1 /* NetworkHelper.swift */; };
+		81D213C61FD2FCEE000ECFE1 /* AmazeTVAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D213C51FD2FCEE000ECFE1 /* AmazeTVAPIClient.swift */; };
+		81D213C81FD2FD24000ECFE1 /* AmazeTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D213C71FD2FD24000ECFE1 /* AmazeTV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		54056A651FCF030800CD81BE /* AC-iOS-EpisodesFromOnline-HW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC-iOS-EpisodesFromOnline-HW.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54056A681FCF030800CD81BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		54056A6A1FCF030800CD81BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		54056A6A1FCF030800CD81BE /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 		54056A6D1FCF030800CD81BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54056A6F1FCF030800CD81BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54056A721FCF030800CD81BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54056A741FCF030800CD81BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		814B430A1FD64181000C529E /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
+		814B430C1FD65EE7000C529E /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		814B430E1FD662C8000C529E /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		814B43941FD78E69000C529E /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		81D213C31FD2FCE1000ECFE1 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		81D213C51FD2FCEE000ECFE1 /* AmazeTVAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazeTVAPIClient.swift; sourceTree = "<group>"; };
+		81D213C71FD2FD24000ECFE1 /* AmazeTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazeTV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +52,11 @@
 		54056A5C1FCF030800CD81BE = {
 			isa = PBXGroup;
 			children = (
+				81D213C31FD2FCE1000ECFE1 /* NetworkHelper.swift */,
+				81D213C71FD2FD24000ECFE1 /* AmazeTV.swift */,
+				814B430E1FD662C8000C529E /* Episode.swift */,
+				81D213C51FD2FCEE000ECFE1 /* AmazeTVAPIClient.swift */,
+				814B430A1FD64181000C529E /* ImageAPIClient.swift */,
 				54056A671FCF030800CD81BE /* AC-iOS-EpisodesFromOnline-HW */,
 				54056A661FCF030800CD81BE /* Products */,
 			);
@@ -55,7 +74,9 @@
 			isa = PBXGroup;
 			children = (
 				54056A681FCF030800CD81BE /* AppDelegate.swift */,
-				54056A6A1FCF030800CD81BE /* ViewController.swift */,
+				54056A6A1FCF030800CD81BE /* ShowViewController.swift */,
+				814B430C1FD65EE7000C529E /* EpisodeViewController.swift */,
+				814B43941FD78E69000C529E /* EpisodeDetailViewController.swift */,
 				54056A6C1FCF030800CD81BE /* Main.storyboard */,
 				54056A6F1FCF030800CD81BE /* Assets.xcassets */,
 				54056A711FCF030800CD81BE /* LaunchScreen.storyboard */,
@@ -136,8 +157,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54056A6B1FCF030800CD81BE /* ViewController.swift in Sources */,
+				54056A6B1FCF030800CD81BE /* ShowViewController.swift in Sources */,
+				814B430D1FD65EE7000C529E /* EpisodeViewController.swift in Sources */,
+				81D213C41FD2FCE1000ECFE1 /* NetworkHelper.swift in Sources */,
+				81D213C61FD2FCEE000ECFE1 /* AmazeTVAPIClient.swift in Sources */,
+				814B43951FD78E69000C529E /* EpisodeDetailViewController.swift in Sources */,
+				814B430B1FD64181000C529E /* ImageAPIClient.swift in Sources */,
+				814B430F1FD662C8000C529E /* Episode.swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
+				81D213C81FD2FD24000ECFE1 /* AmazeTV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
