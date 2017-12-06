@@ -27,15 +27,18 @@
                                 <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Show Cell" rowHeight="200" id="y0y-cX-qNa" userLabel="Show Table View Cell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Show Cell" rowHeight="200" id="y0y-cX-qNa" userLabel="Show Table View Cell" customClass="CustomShowCell" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y0y-cX-qNa" id="VyD-i3-Plt">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y0y-cX-qNa" id="VyD-i3-Plt" customClass="CustomShowCell" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WT6-IO-0hy">
                                                     <rect key="frame" x="-11" y="-1" width="188" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="05r-09-QK2"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkd-y2-snf">
                                                     <rect key="frame" x="182" y="44" width="188" height="21"/>
@@ -52,8 +55,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Kkd-y2-snf" firstAttribute="width" secondItem="VyD-i3-Plt" secondAttribute="width" multiplier="0.5" id="CNS-Oc-JNu"/>
-                                                <constraint firstItem="WT6-IO-0hy" firstAttribute="height" secondItem="VyD-i3-Plt" secondAttribute="height" id="OuM-Bw-SeO"/>
                                                 <constraint firstItem="WT6-IO-0hy" firstAttribute="centerY" secondItem="VyD-i3-Plt" secondAttribute="centerY" id="SiF-5f-vUJ"/>
+                                                <constraint firstItem="WT6-IO-0hy" firstAttribute="height" secondItem="VyD-i3-Plt" secondAttribute="height" id="UI7-wk-g3L"/>
                                                 <constraint firstItem="NJ9-MK-Rjh" firstAttribute="top" secondItem="Kkd-y2-snf" secondAttribute="bottom" constant="58" id="Vq9-7Z-WaR"/>
                                                 <constraint firstItem="WT6-IO-0hy" firstAttribute="width" secondItem="VyD-i3-Plt" secondAttribute="width" multiplier="0.5" id="cTA-3A-DM6"/>
                                                 <constraint firstItem="Kkd-y2-snf" firstAttribute="leading" secondItem="WT6-IO-0hy" secondAttribute="trailing" constant="5" id="dS7-yl-k4O"/>
@@ -63,9 +66,14 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="NJ9-MK-Rjh" secondAttribute="bottom" constant="45" id="ndK-uE-mFp"/>
                                                 <constraint firstAttribute="trailing" secondItem="NJ9-MK-Rjh" secondAttribute="trailing" constant="5" id="ys2-KA-D0i"/>
                                             </constraints>
+                                            <connections>
+                                                <outlet property="showImageView" destination="WT6-IO-0hy" id="zcH-gZ-cQ9"/>
+                                                <outlet property="showNameLabel" destination="Kkd-y2-snf" id="QCN-WY-WCf"/>
+                                                <outlet property="showRatingLabel" destination="NJ9-MK-Rjh" id="KPm-uV-l44"/>
+                                            </connections>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="am1-9M-Glq" kind="show" id="uq0-rV-Shj"/>
+                                            <segue destination="am1-9M-Glq" kind="show" id="m5q-rS-UBD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -86,9 +94,6 @@
                     <navigationItem key="navigationItem" title="Shows" id="lFW-il-Kll"/>
                     <connections>
                         <outlet property="searchBar" destination="JYl-NC-B4h" id="OwQ-aB-TLH"/>
-                        <outlet property="showImageView" destination="WT6-IO-0hy" id="OX4-xu-cvy"/>
-                        <outlet property="showNameLabel" destination="Kkd-y2-snf" id="8Xb-uR-9o7"/>
-                        <outlet property="showRatingLabel" destination="NJ9-MK-Rjh" id="ZaI-xr-Gdx"/>
                         <outlet property="tableView" destination="LV2-yI-o3c" id="Dsl-c8-7RM"/>
                     </connections>
                 </viewController>
@@ -111,7 +116,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Episode Cell" rowHeight="200" id="PXq-4c-47N" userLabel="Episode Table View Cell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PXq-4c-47N" id="6xU-s8-C0X">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PXq-4c-47N" id="6xU-s8-C0X" customClass="CustomEpisodeCell" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -144,9 +149,14 @@
                                                 <constraint firstItem="p9P-Uv-JP2" firstAttribute="leading" secondItem="Gjn-F1-tvj" secondAttribute="trailing" constant="5" id="xEy-IX-xct"/>
                                                 <constraint firstItem="p9P-Uv-JP2" firstAttribute="width" secondItem="6xU-s8-C0X" secondAttribute="width" multiplier="0.5" id="zQF-nL-CNJ"/>
                                             </constraints>
+                                            <connections>
+                                                <outlet property="episodeImageView" destination="Gjn-F1-tvj" id="LhJ-n7-D7U"/>
+                                                <outlet property="episodeNameLabel" destination="p9P-Uv-JP2" id="Gv8-UF-6d7"/>
+                                                <outlet property="episodeNumberLabel" destination="tEI-1s-pOM" id="XOg-I6-IHr"/>
+                                            </connections>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="0rF-kK-SY6" kind="show" id="PlL-7X-T90"/>
+                                            <segue destination="0rF-kK-SY6" kind="show" id="Cum-3j-1DR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -162,9 +172,6 @@
                         <viewLayoutGuide key="safeArea" id="5PR-hL-wVJ"/>
                     </view>
                     <connections>
-                        <outlet property="episodeImageView" destination="Gjn-F1-tvj" id="b9I-Yi-zL4"/>
-                        <outlet property="episodeNameLabel" destination="p9P-Uv-JP2" id="jQE-Eg-BIg"/>
-                        <outlet property="episodeNumberLabel" destination="tEI-1s-pOM" id="heD-vE-qq4"/>
                         <outlet property="episodesTableView" destination="B6P-rt-Lxi" id="cOu-pr-dlK"/>
                     </connections>
                 </viewController>
@@ -232,11 +239,11 @@
                         <viewLayoutGuide key="safeArea" id="lMU-5f-FEd"/>
                     </view>
                     <connections>
-                        <outlet property="episodeDescriptionTextView" destination="HqN-SO-1wf" id="DX9-aW-poz"/>
-                        <outlet property="episodeImageView" destination="1uP-Vb-ZbW" id="oG9-N3-RT0"/>
-                        <outlet property="episodeNameLabel" destination="mOd-8e-rBD" id="bop-bl-m7x"/>
-                        <outlet property="episodeNumberLabel" destination="wx7-XP-3r8" id="Wys-zG-UIb"/>
-                        <outlet property="episodeSeasonLabel" destination="kK1-JY-LE9" id="RP7-Wl-9Jh"/>
+                        <outlet property="detailDescriptionTextView" destination="HqN-SO-1wf" id="dAm-zd-KJr"/>
+                        <outlet property="detailImageView" destination="1uP-Vb-ZbW" id="TFE-zr-yHg"/>
+                        <outlet property="detailNameLabel" destination="mOd-8e-rBD" id="0fN-xa-2tD"/>
+                        <outlet property="detailNumberLabel" destination="wx7-XP-3r8" id="6L7-0l-1FC"/>
+                        <outlet property="detailSeasonLabel" destination="kK1-JY-LE9" id="Ufk-FJ-LfD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fUV-e8-hoA" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,25 +9,37 @@
 import UIKit
 
 class EpisodeDetailViewController: UIViewController {
-
-    
-    @IBOutlet weak var episodeImageView: UIImageView!
-    
-    @IBOutlet weak var episodeNameLabel: UILabel!
-    
-    @IBOutlet weak var episodeSeasonLabel: UILabel!
     
     
-    @IBOutlet weak var episodeNumberLabel: UILabel!
+    @IBOutlet weak var detailImageView: UIImageView!
     
-    @IBOutlet weak var episodeDescriptionTextView: UITextView!
+    @IBOutlet weak var detailNameLabel: UILabel!
+    
+    @IBOutlet weak var detailSeasonLabel: UILabel!
     
     
+    @IBOutlet weak var detailNumberLabel: UILabel!
+    
+    @IBOutlet weak var detailDescriptionTextView: UITextView!
+    
+    var episode: Episode?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-  
+        loadData()
+    }
+    func loadData() {
+        guard let episode = episode else {return}
+        self.detailNameLabel.text = episode.name
+        self.detailSeasonLabel.text = "\(episode.season)"
+        self.detailNumberLabel.text = "\(episode.number)"
+        self.detailDescriptionTextView.text = episode.summary
+        let imageUrlStr = episode.image.original
+        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+            self.detailImageView.image = onlineImage
+            self.detailImageView.setNeedsLayout()
+        }
+        ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
     }
 }
