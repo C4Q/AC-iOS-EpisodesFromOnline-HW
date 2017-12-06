@@ -11,6 +11,7 @@ import UIKit
 class EpisodeListViewController: UIViewController {
 
     @IBOutlet weak var episodesTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var show: Show!
     
@@ -28,6 +29,16 @@ class EpisodeListViewController: UIViewController {
             from: show.id,
             completionHandler: { (onlineEpisodes) in
                 self.episodes = onlineEpisodes
+                if onlineEpisodes.count == 0 {
+                    let alertController = UIAlertController(title: "ERROR", message: "No episodes available", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(alertAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    return
+                }
+                
                 self.episodesTableView.reloadData()
         },
             errorHandler: { (appError) in
@@ -39,13 +50,23 @@ class EpisodeListViewController: UIViewController {
         })
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if
+            let destinationVC = segue.destination as? EpisodeDetailViewController,
+            let selectedCell = sender as? EpisodeTableViewCell,
+            let indexPath = episodesTableView.indexPath(for: selectedCell) {
+            destinationVC.episode = episodes[indexPath.row]
+        }
+    }
 }
 
 extension EpisodeListViewController: UITableViewDelegate, UITableViewDataSource {
     
     //Delegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //to do - more info about show
+        if let selectedCell = tableView.cellForRow(at: indexPath) as? EpisodeTableViewCell {
+            performSegue(withIdentifier: "detailedSegue", sender: selectedCell)
+        }
     }
     
     //Data Source Methods
@@ -56,6 +77,8 @@ extension EpisodeListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
         let currentEpisode = episodes[indexPath.row]
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
         
         if let episodeCell = cell as? EpisodeTableViewCell {
             
@@ -73,9 +96,16 @@ extension EpisodeListViewController: UITableViewDelegate, UITableViewDataSource 
                 from: image.mediumURL,
                 completionHandler: { (onlineImage) in
                     episodeCell.episodeImageView.image = onlineImage
+                    self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
+                    
                     episodeCell.setNeedsLayout()
             },
-                errorHandler: {print($0)})
+                errorHandler: { (appError) in
+                    print(appError)
+                    self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
+            })
             
             return episodeCell
         }

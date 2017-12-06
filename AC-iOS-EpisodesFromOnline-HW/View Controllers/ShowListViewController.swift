@@ -12,6 +12,8 @@ class ShowListViewController: UIViewController {
     
     @IBOutlet weak var showsTableView: UITableView!
     @IBOutlet weak var showsSearchBar: UISearchBar!
+    //figure out activity indicator
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var shows: [Show] = []
     var searchTerm: String = "" {
@@ -72,10 +74,13 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath)
         let currentShow = shows[indexPath.row]
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
         
         if let showCell = cell as? ShowsTableViewCell {
             
             showCell.titleLabel.text = currentShow.name
+            showCell.ratingLabel.text = "Rating: \(currentShow.rating.average?.description ?? "No rating available")"
             showCell.showImageView.image = nil
             
             guard let image = currentShow.image else {
@@ -88,9 +93,16 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource {
                 from: image.mediumURL,
                 completionHandler: { (onlineImage) in
                     showCell.showImageView.image = onlineImage
+                   
+                   self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
                     showCell.setNeedsLayout()
             },
-                errorHandler: {print($0)})
+                errorHandler: { (appError) in
+                    print(appError)
+                    self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
+            })
             
             return showCell
         }

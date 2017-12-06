@@ -16,6 +16,7 @@ struct Show: Codable {
     let id: Int
     let name: String
     let image: Image?
+    let rating: Rating
 }
 
 struct Image: Codable {
@@ -26,4 +27,8 @@ struct Image: Codable {
         case mediumURL = "medium"
         case originalURL = "original"
     }
+}
+
+struct Rating: Codable {
+    let average: Double?
 }
