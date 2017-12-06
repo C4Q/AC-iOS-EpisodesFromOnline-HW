@@ -163,6 +163,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="YoN-3g-OaY" firstAttribute="bottom" secondItem="GYF-Bs-YYm" secondAttribute="bottom" constant="395" id="5dO-aa-KaW"/>
                             <constraint firstItem="GYF-Bs-YYm" firstAttribute="top" secondItem="6u0-pc-sCd" secondAttribute="bottom" constant="75" id="8s9-EV-378"/>
                             <constraint firstItem="YoN-3g-OaY" firstAttribute="trailing" secondItem="6u0-pc-sCd" secondAttribute="trailing" constant="74" id="Hrd-Ka-1Kf"/>
                             <constraint firstItem="GYF-Bs-YYm" firstAttribute="leading" secondItem="YoN-3g-OaY" secondAttribute="leading" constant="86" id="Ywz-TK-wSV"/>
@@ -203,7 +204,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bTX-zy-nyB">
-                                                    <rect key="frame" x="11" y="21.999999999999993" width="165.66666666666666" height="103.33333333333331"/>
+                                                    <rect key="frame" x="11" y="22.000000000000007" width="165.66666666666666" height="103.66666666666669"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="bTX-zy-nyB" secondAttribute="height" multiplier="16:10" id="oiy-zg-HmQ"/>
                                                     </constraints>
