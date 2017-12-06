@@ -23,6 +23,7 @@ class EpisodesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 		super.viewDidLoad()
 		episodesTableView.dataSource = self
 		episodesTableView.delegate = self
+		self.navigationItem.title = show.name
 		loadEpisodes()
 	}
 

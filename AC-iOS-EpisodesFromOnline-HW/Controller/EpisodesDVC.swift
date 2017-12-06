@@ -20,26 +20,27 @@ class EpisodesDVC: UIViewController {
 	//MARK: - Overrides
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.navigationItem.title = episode.name
+
 		loadEpisodeData()
 	}
 
 	//MARK: - Functions
 	func loadEpisodeData(){
-		titleLabel.text = "Title: \(episode.name)"
+		titleLabel.text = "\(episode.name)"
 		seasonLabel.text = "Season: \(episode.season)"
 		episodeLabel.text = "Episode: \(episode.number)"
-		guard let imageURL = episode.image?.original else {return}
-		ImageAPIClient.manager.getImage(from: imageURL,
-																		completionHandler: {self.episodeImageView.image = $0},
-																		errorHandler: {print($0)})
+		let newSummary = episode.summary?.replacingOccurrences(of: "<p>", with: "").replacingOccurrences(of: "</p>", with: "") ?? ""
 
-//		let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
-//			self.episodeImageView.image = onlineImage
-//			self.episodeImageView.setNeedsLayout()
-//		}
-//		ImageAPIClient.manager.getImage(from: imageURLStr,
-//																		completionHandler: completion,
-//																		errorHandler: {print($0)})
+		summaryLabel.text = "Summary: \(newSummary)"
+		guard let imageURL = episode.image?.original else {return}
+		let setImage: (UIImage) -> Void = {(onlineImage: UIImage) in
+			self.episodeImageView.image = onlineImage
+			self.episodeImageView.setNeedsLayout()
+		}
+		ImageAPIClient.manager.getImage(from: imageURL,
+																		completionHandler: setImage,
+																		errorHandler: {print($0)})
 	}
 }
 

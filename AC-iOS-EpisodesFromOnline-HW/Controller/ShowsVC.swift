@@ -49,10 +49,10 @@ class ShowsVC: UIViewController, UITableViewDataSource, UISearchBarDelegate {
 
 	//MARK: - SearchBar
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-		self.searchTerm = searchBar.text!
+		self.searchTerm = (searchBar.text?.components(separatedBy: " ").joined(separator: "%20"))!
 	}
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		self.searchTerm = searchBar.text ?? ""
+		self.searchTerm = (searchBar.text?.components(separatedBy: " ").joined(separator: "%20"))!
 	}
 
 	//MARK: - TableView Datasource
