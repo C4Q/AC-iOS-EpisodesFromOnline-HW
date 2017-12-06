@@ -67,9 +67,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="NJ9-MK-Rjh" secondAttribute="trailing" constant="5" id="ys2-KA-D0i"/>
                                             </constraints>
                                             <connections>
-                                                <outlet property="showImageView" destination="WT6-IO-0hy" id="zcH-gZ-cQ9"/>
-                                                <outlet property="showNameLabel" destination="Kkd-y2-snf" id="QCN-WY-WCf"/>
-                                                <outlet property="showRatingLabel" destination="NJ9-MK-Rjh" id="KPm-uV-l44"/>
+                                                <outlet property="showImageView" destination="WT6-IO-0hy" id="nVw-Nf-Gmk"/>
+                                                <outlet property="showNameLabel" destination="Kkd-y2-snf" id="fef-Xt-9gW"/>
+                                                <outlet property="showRatingLabel" destination="NJ9-MK-Rjh" id="r6g-iK-YBQ"/>
                                             </connections>
                                         </tableViewCellContentView>
                                         <connections>
@@ -93,8 +93,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Shows" id="lFW-il-Kll"/>
                     <connections>
-                        <outlet property="searchBar" destination="JYl-NC-B4h" id="OwQ-aB-TLH"/>
-                        <outlet property="tableView" destination="LV2-yI-o3c" id="Dsl-c8-7RM"/>
+                        <outlet property="searchBar" destination="JYl-NC-B4h" id="o7e-L7-GF0"/>
+                        <outlet property="tableView" destination="LV2-yI-o3c" id="39b-Dx-Ij8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
