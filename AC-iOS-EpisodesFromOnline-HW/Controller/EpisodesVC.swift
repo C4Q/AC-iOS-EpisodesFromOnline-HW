@@ -28,7 +28,10 @@ class EpisodesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 		let setEpisodes: ([Episode]) -> Void = {(onlineEpisodes: [Episode]) in
 			self.episodes = onlineEpisodes
 		}
-		EpisodeAPIClient.manager.getEpisodes(from: urlStr, completionHandler: setEpisodes, errorHandler: {print($0)})
+		let printErrors = {(error: Error) in
+			print(error)
+		}
+		EpisodeAPIClient.manager.getEpisodes(from: urlStr, completionHandler: setEpisodes, errorHandler: printErrors)
 	}
 
 	//MARK: - TableView Datasource
@@ -37,27 +40,35 @@ class EpisodesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = self.episodesTableView.dequeueReusableCell(withIdentifier: "episodesCell", for: indexPath)
-		let episode = self.episodes[indexPath.row]
-		cell.textLabel?.text = episode.name
-		cell.detailTextLabel?.text = "Season: \(episode.season), Episode: \(episode.number)"
-		//MARK: - Load Image
-		cell.imageView?.image = nil //gets rid of the flickering.
-		let imageUrlStr = episode.image.medium
-		let setImage: (UIImage) -> Void = {(onlineEpisodeImage: UIImage) in
-			cell.imageView?.image = onlineEpisodeImage
-			cell.setNeedsLayout() //invalidates current layout and reload the image data to update images
+		guard let cell = episodesTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as? EpisodeCell else {return UITableViewCell()}
+		let episode = episodes[indexPath.row]
+		cell.titleLabel?.text = "Title: \(episode.name)"
+		cell.seasonEpisodeLabel?.text = "S: \(episode.season), E: \(episode.number)"
+		cell.episodeViewImage?.image = nil
+		cell.imageSpinner.isHidden = false
+		cell.imageSpinner.startAnimating()
+		guard let imageURL = episode.image?.medium else {return cell}
+		let setImage: (UIImage)->Void = {(onlineImage: UIImage) in
+			cell.episodeViewImage?.image = onlineImage
+			cell.setNeedsLayout()
+			DispatchQueue.main.async {
+				cell.imageSpinner.isHidden = true
+				cell.imageSpinner.stopAnimating()
+			}
 		}
-		ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: setImage, errorHandler: {print($0)})
+		ImageAPIClient.manager.getImage(from: imageURL,
+																completionHandler: setImage,
+																errorHandler: {print($0)})
 		return cell
 	}
-
+	
 	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard let EpisodesDVC = segue.destination as? EpisodesDVC else { return }
-		let row = episodesTableView.indexPathForSelectedRow!.row
-		let selectedEpisode = self.episodes[row]
-		EpisodesDVC.episode = selectedEpisode
+		if let destination = segue.destination as? EpisodesDVC {
+			let row = episodesTableView.indexPathForSelectedRow!.row
+			let selectedEpisode = self.episodes[row]
+			destination.episode = selectedEpisode
+		}
 	}
 
 }

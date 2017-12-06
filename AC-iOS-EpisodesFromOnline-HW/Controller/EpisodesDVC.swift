@@ -25,17 +25,21 @@ class EpisodesDVC: UIViewController {
 
 	//MARK: - Functions
 	func loadEpisodeData(){
-		titleLabel.text = episode.name
+		titleLabel.text = "Title: \(episode.name)"
 		seasonLabel.text = "Season: \(episode.season)"
 		episodeLabel.text = "Episode: \(episode.number)"
-		let imageURLStr = episode.image.original
-		let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
-			self.episodeImageView.image = onlineImage
-			self.episodeImageView.setNeedsLayout()
-		}
-		ImageAPIClient.manager.getImage(from: imageURLStr,
-																		completionHandler: completion,
+		guard let imageURL = episode.image?.original else {return}
+		ImageAPIClient.manager.getImage(from: imageURL,
+																		completionHandler: {self.episodeImageView.image = $0},
 																		errorHandler: {print($0)})
+
+//		let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+//			self.episodeImageView.image = onlineImage
+//			self.episodeImageView.setNeedsLayout()
+//		}
+//		ImageAPIClient.manager.getImage(from: imageURLStr,
+//																		completionHandler: completion,
+//																		errorHandler: {print($0)})
 	}
 }
 

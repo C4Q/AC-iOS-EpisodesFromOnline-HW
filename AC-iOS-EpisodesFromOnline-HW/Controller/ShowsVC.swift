@@ -6,7 +6,7 @@
 import UIKit
 
 //displays a list of shows [Show] to the user, based on search criteria
-class ShowsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ShowsVC: UIViewController, UITableViewDataSource, UISearchBarDelegate {
 
 	//MARK: - Outlets
 	@IBOutlet weak var tableView: UITableView!
@@ -16,7 +16,6 @@ class ShowsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIS
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.dataSource = self
-		tableView.delegate = self
 		searchBar.delegate = self
 	}
 
@@ -28,29 +27,32 @@ class ShowsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIS
 	}
 	var searchTerm = "" {
 		didSet{
-			loadShows(named: searchTerm)
+//			loadShows(named: searchTerm)
+			loadShows()
 		}
 	}
 
 
 	//MARK: - functions
-	func loadShows(named str: String){
-		let setShows: ([Show])->Void = {(onlineShows: [Show]) in
+	func loadShows(){
+		let urlStr = "http://api.tvmaze.com/search/shows?q=\(searchTerm)"
+		let setShows = {(onlineShows: [Show]) in
 			self.shows = onlineShows
 		}
 		let printErrors = {(error: Error) in
 			print(error)
 		}
-		ShowAPIClient.manager.getShows(named: str, completionHandler: setShows, errorHandler: printErrors)
+		ShowAPIClient.manager.getShows(from: urlStr, completionHandler: setShows, errorHandler: printErrors)
+		//		ShowAPIClient.manager.getShows(from: urlStr, completionHandler: {self.images = $0}, errorHandler: {print($0)})
 	}
 
 
-	//MARK: - Search Bar Delegate Methods
+	//MARK: - SearchBar
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-		self.searchTerm = searchBar.text ?? ""
+		self.searchTerm = searchBar.text!
 	}
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		self.searchTerm = searchText
+		self.searchTerm = searchBar.text ?? ""
 	}
 
 	//MARK: - TableView Datasource
@@ -59,50 +61,35 @@ class ShowsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIS
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if let cell = self.tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as? ShowCell {
-			let show = self.shows[indexPath.row]
-			cell.showNameLabel?.text = "Show: \(show.name)"
-			cell.ratingLabel?.text = "Rating: \(show.rating)"
-			//MARK: - Load Image
-			cell.imageView?.image = nil //Gets rid of flickering
-			let imageUrlStr = show.image.original
-			let setImage: (UIImage)->Void = {(onlineImage: UIImage) in
-				cell.imageView?.image = onlineImage
-				cell.setNeedsLayout() //Makes the image load as soon as it's ready
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as? showCell else {return UITableViewCell()}
+		let show = shows[indexPath.row]
+		cell.titleLabel?.text = "\(show.name)"
+		cell.ratingLabel?.text = "Rating: \(show.rating?.average ?? 0.0)"
+
+		cell.showImageView?.image = nil //stop flickering
+		cell.imageSpinner.isHidden = false //show spinner while getting image
+		cell.imageSpinner.startAnimating() //start animation while waiting on image
+		guard let imageURL = show.image?.original else {return cell}
+		let setImage: (UIImage)-> Void = {(onlineImage: UIImage) in
+			cell.showImageView?.image = onlineImage
+			cell.setNeedsLayout()
+			DispatchQueue.main.async {
+				cell.imageSpinner.isHidden = true
+				cell.imageSpinner.stopAnimating()
 			}
-			ImageAPIClient.manager.getImage(from: imageUrlStr,
-																			completionHandler: setImage,
-																			errorHandler: {print($0)})
-			return cell
 		}
+		ImageAPIClient.manager.getImage(from: imageURL,
+																		completionHandler: setImage,
+																		errorHandler: {print($0)})
+		return cell
 	}
-
-	//	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-	//		let cell = self.tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath)
-	//		if let cell = cell as? ShowCell {
-	//			let show = shows[indexPath.row]
-	//			cell.showNameLabel?.text = "Show: \(show.name)"
-	//			cell.ratingLabel?.text = "Rating: \(show.rating)"
-	//			//MARK: - Load Image
-	//			cell.imageView?.image = nil //Gets rid of flickering
-	//			let imageUrlStr = show.image.original
-	//			let completion: (UIImage)->Void = {(onlineImage: UIImage) in
-	//				cell.imageView?.image = onlineImage
-	//				cell.setNeedsLayout() //Makes the image load as soon as it's ready
-	//			}
-	//			ImageAPIClient.manager.getImage(from: imageUrlStr,
-	//																			completionHandler: completion,
-	//																			errorHandler: {print($0)})
-	//		}
-	//		return cell
-	//	}
-
 
 	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		guard let EpisodesVC = segue.destination as? EpisodesVC else { return }
-		let row = tableView.indexPathForSelectedRow!.row
-		let selectedShow = self.shows[row]
-		EpisodesVC.show = selectedShow
+		if let destination = segue.destination as? EpisodesVC {
+			let row = tableView.indexPathForSelectedRow!.row
+			let selectedShow = shows[row]
+			destination.show = selectedShow
+		}
 	}
 }

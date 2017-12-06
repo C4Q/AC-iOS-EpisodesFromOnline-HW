@@ -10,44 +10,17 @@ struct NetworkHelper {
 	private init(){}
 	static let manager = NetworkHelper()
 	private let session = URLSession(configuration: .default)
-	func performDataTask(with url: URL, completionHandler: @escaping (Data)->Void, errorHandler: @escaping (Error)->Void){
-		let task = session.dataTask(with: url) {(data: Data?, response: URLResponse?, error: Error?) in
+	func performDataTask(with url: URL,
+											 completionHandler: @escaping (Data)->Void,
+											 errorHandler: @escaping (AppError)->Void){
+		session.dataTask(with: url) {(data, response, error) in
 			DispatchQueue.main.async {
-				guard let data = data else {return}
+				guard let data = data else {errorHandler(AppError.badData); return}
 				if let error = error {
-					print(error)
+					errorHandler(AppError.other(rawError: error))
 				}
 				completionHandler(data)
 			}
-		}//task
-		task.resume()
+			}.resume()
 	}
 }
-
-
-//enum AppError: Error {
-//	case badData
-//	case badURL
-//	case codingError(rawError: Error)
-//}
-//
-////NetworkHelper - turns URL into Data
-//struct NetworkHelper {
-//	private init(){}
-//	static let manager = NetworkHelper()
-//
-//	private let session = URLSession(configuration: .default)
-//	func performDataTask(with url: URL, completionHandler: @escaping (Data)->Void, errorHandler: @escaping (Error)->Void){
-//		let task = session.dataTask(with: url) {(data: Data?, response: URLResponse?, error: Error?) in
-//			DispatchQueue.main.async {
-//				guard let data = data else {errorHandler(AppError.badData); return}
-//				if let error = error {
-//					errorHandler(error)
-//				}
-//				completionHandler(data)
-//			}
-//		}//task
-//		task.resume()
-//	}
-//}
-

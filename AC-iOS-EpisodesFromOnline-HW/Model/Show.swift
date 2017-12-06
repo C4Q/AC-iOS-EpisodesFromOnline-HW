@@ -12,13 +12,13 @@ struct ShowInfo: Codable {
 struct Show: Codable {
 	let id: Int //139,
 	let name: String // "Girls",
-	let rating: Rating
-	let image: Image
-	let summary: String
+	let rating: Rating?
+	let image: Image?
+//	let summary: String
 }
 
 struct Rating: Codable {
-	let average: Float
+	let average: Float?
 }
 
 struct Image: Codable {

@@ -14,10 +14,10 @@ struct Episode: Codable {
 //	let airtime: String
 //	let airstamp: String
 	let runtime: Int
-	let image: Image
+	let image: Image?
 	struct Image: Codable {
-		let medium: String
-		let original: String
+		let medium: String?
+		let original: String?
 	}
-	let summary: String
+	let summary: String?
 }

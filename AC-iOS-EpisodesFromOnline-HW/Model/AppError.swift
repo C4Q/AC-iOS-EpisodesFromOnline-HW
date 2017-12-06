@@ -9,6 +9,7 @@ enum AppError: Error {
 	case badData
 	case badURL
 	case unauthenticated
+	case codingError(rawError: Error)
 	case invalidJSONResponse
 	case couldNotParseJSON(rawError: Error)
 	case noInternetConnection
