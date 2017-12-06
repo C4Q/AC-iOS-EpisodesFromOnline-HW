@@ -16,5 +16,4 @@ class TVShowsTableViewCell: UITableViewCell {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tvShowRatingLabel: UILabel!
     
-    
 }
