@@ -45,22 +45,33 @@ extension EpisodesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.episodeTableView.dequeueReusableCell(withIdentifier: "Episode Cell", for: indexPath) as? EpisodeTableViewCell else {return UITableViewCell()}
+         let cell = self.episodeTableView.dequeueReusableCell(withIdentifier: "Episode Cell", for: indexPath) as! EpisodeTableViewCell 
         let thisEpisode = self.episodes[indexPath.row]
+        
+        //all values are optional, so give default values in case of nil
         cell.nameLabel.text? = (thisEpisode.name ?? "")
         cell.seasonEpisodeLabel.text? = "Season \(thisEpisode.season ?? 0)"
         cell.episodeLabel.text? = "Episode \(thisEpisode.number ?? 0)"
-        
+        //image should be nil initially and spinner should be visible
+        cell.episodeImageView.image = nil
+        cell.episodeSpinner.isHidden = false
+        cell.episodeSpinner.startAnimating()
         
         
         if let imageUrl = thisEpisode.image?.medium {
         let getImage: (UIImage) -> Void = {(onlineImage: UIImage) in
             cell.episodeImageView.image = onlineImage
+            //once image is set from global, spinner should go away
             cell.setNeedsLayout()
+            cell.episodeSpinner.isHidden = true
+            cell.episodeSpinner.stopAnimating()
             }
               ImageAPIClient.manager.getImage(from: imageUrl, completionHandler: getImage, errorHandler: {print($0)})
         } else {
+            //default in case image url is nil 
             cell.episodeImageView.image = #imageLiteral(resourceName: "noImage")
+            cell.episodeSpinner.isHidden = true
+            cell.episodeSpinner.stopAnimating()
         }
       
         return cell

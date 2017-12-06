@@ -17,5 +17,7 @@ class ShowTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ratingLabel: UILabel!
     
-
+    @IBOutlet weak var showSpinner: UIActivityIndicatorView!
+    
+    
 }

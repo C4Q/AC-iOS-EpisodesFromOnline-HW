@@ -19,6 +19,7 @@ class EpisodeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var episodeLabel: UILabel!
     
+    @IBOutlet weak var episodeSpinner: UIActivityIndicatorView!
     
     
 }

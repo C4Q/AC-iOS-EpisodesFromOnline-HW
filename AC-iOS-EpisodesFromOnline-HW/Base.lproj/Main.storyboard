@@ -58,20 +58,26 @@
                                                         <constraint firstAttribute="width" constant="100" id="Fgj-XN-I8Z"/>
                                                     </constraints>
                                                 </imageView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8bL-Gg-Fxs">
+                                                    <rect key="frame" x="44" y="54" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="8bL-Gg-Fxs" firstAttribute="centerY" secondItem="MnG-gO-PWJ" secondAttribute="centerY" id="1Ll-NQ-esJ"/>
                                                 <constraint firstItem="QNQ-hF-30r" firstAttribute="width" secondItem="RVL-HP-YFI" secondAttribute="width" multiplier="0.4" id="JjB-Sd-WXi"/>
                                                 <constraint firstItem="MnG-gO-PWJ" firstAttribute="leading" secondItem="RVL-HP-YFI" secondAttribute="leading" constant="4" id="Viy-Hx-bJz"/>
                                                 <constraint firstItem="MnG-gO-PWJ" firstAttribute="top" secondItem="RVL-HP-YFI" secondAttribute="top" id="Yjn-Wi-9TB"/>
                                                 <constraint firstItem="QNQ-hF-30r" firstAttribute="centerX" secondItem="RVL-HP-YFI" secondAttribute="centerX" multiplier="1.3" id="ZjT-dD-0b2"/>
                                                 <constraint firstAttribute="bottom" secondItem="MnG-gO-PWJ" secondAttribute="bottom" constant="1.5" id="aCq-9g-8HB"/>
                                                 <constraint firstItem="QNQ-hF-30r" firstAttribute="top" secondItem="RVL-HP-YFI" secondAttribute="top" constant="11" id="iJx-gO-D1a"/>
+                                                <constraint firstItem="8bL-Gg-Fxs" firstAttribute="centerX" secondItem="MnG-gO-PWJ" secondAttribute="centerX" id="pSB-hn-h5T"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ratingLabel" destination="TZb-Kc-hFJ" id="bCL-M5-IWt"/>
                                             <outlet property="showImageView" destination="MnG-gO-PWJ" id="5ow-eA-Bt6"/>
                                             <outlet property="showNameLabel" destination="GSe-vv-yTe" id="Cml-4E-Mua"/>
+                                            <outlet property="showSpinner" destination="8bL-Gg-Fxs" id="oc9-BK-ZGT"/>
                                             <segue destination="AmI-xr-c4P" kind="show" id="HzN-qm-uoF"/>
                                         </connections>
                                     </tableViewCell>
@@ -149,9 +155,14 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ujk-bW-hem">
+                                                    <rect key="frame" x="70" y="73" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="jqu-7k-R5r" secondAttribute="bottom" id="Dki-Z0-CDA"/>
+                                                <constraint firstItem="Ujk-bW-hem" firstAttribute="centerY" secondItem="jqu-7k-R5r" secondAttribute="centerY" id="Hjx-sQ-m23"/>
+                                                <constraint firstItem="Ujk-bW-hem" firstAttribute="centerX" secondItem="jqu-7k-R5r" secondAttribute="centerX" id="S5r-J7-3x9"/>
                                                 <constraint firstItem="iKJ-lX-6i7" firstAttribute="top" secondItem="eAQ-RR-MxM" secondAttribute="top" constant="10" id="Y64-xU-XNA"/>
                                                 <constraint firstItem="jqu-7k-R5r" firstAttribute="leading" secondItem="eAQ-RR-MxM" secondAttribute="leading" id="ZT1-LO-wx9"/>
                                                 <constraint firstItem="jqu-7k-R5r" firstAttribute="top" secondItem="eAQ-RR-MxM" secondAttribute="top" constant="18.5" id="bQm-eJ-Yec"/>
@@ -162,6 +173,7 @@
                                         <connections>
                                             <outlet property="episodeImageView" destination="jqu-7k-R5r" id="wfd-f3-6Su"/>
                                             <outlet property="episodeLabel" destination="sL2-l3-aDg" id="H0g-NW-0fL"/>
+                                            <outlet property="episodeSpinner" destination="Ujk-bW-hem" id="JKH-jg-NLI"/>
                                             <outlet property="nameLabel" destination="DR1-QB-6Zc" id="YNB-FC-ZxI"/>
                                             <outlet property="seasonEpisodeLabel" destination="zGo-Sc-uTN" id="rwe-Ra-IzS"/>
                                             <segue destination="2Pb-qm-xns" kind="show" id="UIC-mh-hdp"/>
@@ -233,7 +245,7 @@
                                     <constraint firstAttribute="width" secondItem="hzo-4P-cfy" secondAttribute="height" multiplier="5:3" id="VXe-sR-vBt"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8kf-Of-CLk">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8kf-Of-CLk">
                                 <rect key="frame" x="150" y="148" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
