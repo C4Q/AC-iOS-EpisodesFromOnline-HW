@@ -17,8 +17,8 @@
 		814B430F1FD662C8000C529E /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B430E1FD662C8000C529E /* Episode.swift */; };
 		814B43951FD78E69000C529E /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814B43941FD78E69000C529E /* EpisodeDetailViewController.swift */; };
 		81D213C41FD2FCE1000ECFE1 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D213C31FD2FCE1000ECFE1 /* NetworkHelper.swift */; };
-		81D213C61FD2FCEE000ECFE1 /* AmazeTVAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D213C51FD2FCEE000ECFE1 /* AmazeTVAPIClient.swift */; };
-		81D213C81FD2FD24000ECFE1 /* AmazeTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D213C71FD2FD24000ECFE1 /* AmazeTV.swift */; };
+		81D213C61FD2FCEE000ECFE1 /* TVMazeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D213C51FD2FCEE000ECFE1 /* TVMazeAPIClient.swift */; };
+		81D213C81FD2FD24000ECFE1 /* TVMaze.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D213C71FD2FD24000ECFE1 /* TVMaze.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +34,8 @@
 		814B430E1FD662C8000C529E /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		814B43941FD78E69000C529E /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 		81D213C31FD2FCE1000ECFE1 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
-		81D213C51FD2FCEE000ECFE1 /* AmazeTVAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazeTVAPIClient.swift; sourceTree = "<group>"; };
-		81D213C71FD2FD24000ECFE1 /* AmazeTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmazeTV.swift; sourceTree = "<group>"; };
+		81D213C51FD2FCEE000ECFE1 /* TVMazeAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeAPIClient.swift; sourceTree = "<group>"; };
+		81D213C71FD2FD24000ECFE1 /* TVMaze.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMaze.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +53,9 @@
 			isa = PBXGroup;
 			children = (
 				81D213C31FD2FCE1000ECFE1 /* NetworkHelper.swift */,
-				81D213C71FD2FD24000ECFE1 /* AmazeTV.swift */,
+				81D213C71FD2FD24000ECFE1 /* TVMaze.swift */,
 				814B430E1FD662C8000C529E /* Episode.swift */,
-				81D213C51FD2FCEE000ECFE1 /* AmazeTVAPIClient.swift */,
+				81D213C51FD2FCEE000ECFE1 /* TVMazeAPIClient.swift */,
 				814B430A1FD64181000C529E /* ImageAPIClient.swift */,
 				54056A671FCF030800CD81BE /* AC-iOS-EpisodesFromOnline-HW */,
 				54056A661FCF030800CD81BE /* Products */,
@@ -160,12 +160,12 @@
 				54056A6B1FCF030800CD81BE /* ShowViewController.swift in Sources */,
 				814B430D1FD65EE7000C529E /* EpisodeViewController.swift in Sources */,
 				81D213C41FD2FCE1000ECFE1 /* NetworkHelper.swift in Sources */,
-				81D213C61FD2FCEE000ECFE1 /* AmazeTVAPIClient.swift in Sources */,
+				81D213C61FD2FCEE000ECFE1 /* TVMazeAPIClient.swift in Sources */,
 				814B43951FD78E69000C529E /* EpisodeDetailViewController.swift in Sources */,
 				814B430B1FD64181000C529E /* ImageAPIClient.swift in Sources */,
 				814B430F1FD662C8000C529E /* Episode.swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
-				81D213C81FD2FD24000ECFE1 /* AmazeTV.swift in Sources */,
+				81D213C81FD2FD24000ECFE1 /* TVMaze.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

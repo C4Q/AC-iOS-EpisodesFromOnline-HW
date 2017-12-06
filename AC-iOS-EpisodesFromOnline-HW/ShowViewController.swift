@@ -13,7 +13,7 @@ class ShowViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var shows = [AmazeTV]() {
+    var shows = [TVMaze]() {
         didSet {
             tableView.reloadData()
         }
@@ -27,13 +27,13 @@ class ShowViewController: UIViewController {
     }
     
     func loadShows(named str: String) {
-        let setShows = {(onlineShows: [AmazeTV]) in
+        let setShows = {(onlineShows: [TVMaze]) in
             self.shows = onlineShows
         }
         let printErrors = {(error: Error) in
             print(error)
         }
-        AmazeTVAPIClient.manager.getShow(from: str,
+        TVMazeAPIClient.manager.getShow(from: str,
                                          completionHandler: setShows,
                                          errorHandler: printErrors)
     }

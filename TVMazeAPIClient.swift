@@ -8,18 +8,18 @@
 
 import Foundation
 
-class AmazeTVAPIClient {
+class TVMazeAPIClient {
     private init() {}
-    static let manager = AmazeTVAPIClient()
+    static let manager = TVMazeAPIClient()
     func getShow(from searchStr: String,
-                 completionHandler: @escaping ([AmazeTV]) -> (Void),
+                 completionHandler: @escaping ([TVMaze]) -> (Void),
                  errorHandler: @escaping (Error) -> Void) {
         
         let urlStr = "http://api.tvmaze.com/search/shows?q=\(searchStr)"
         guard let url = URL(string: urlStr) else {errorHandler(AppError.badURL); return }
         let completion: (Data) -> Void = {(data: Data) in
             do {
-                let showInfo = try JSONDecoder().decode([AmazeTV].self, from: data)
+                let showInfo = try JSONDecoder().decode([TVMaze].self, from: data)
                 completionHandler(showInfo)
             }
             catch let error {

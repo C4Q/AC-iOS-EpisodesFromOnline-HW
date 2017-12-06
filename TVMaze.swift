@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AmazeTV: Codable {
+struct TVMaze: Codable {
     let show: Show
 }
 
