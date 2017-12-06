@@ -15,6 +15,10 @@
         <array key="Didot.ttc">
             <string>Didot-Bold</string>
         </array>
+        <array key="HoeflerText.ttc">
+            <string>HoeflerText-Italic</string>
+            <string>HoeflerText-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Navigation Controller-->
@@ -26,12 +30,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="EOf-dX-fMI" kind="relationship" relationship="rootViewController" id="jQa-PO-jYc"/>
+                        <segue destination="ncQ-mp-Ubo" kind="relationship" relationship="rootViewController" id="2rJ-Gb-Xob"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmZ-mi-MaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-591" y="-152"/>
+            <point key="canvasLocation" x="-1333" y="-148"/>
         </scene>
         <!--Shows-->
         <scene sceneID="Cyu-Qm-JGS">
@@ -127,6 +131,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KlU-Q0-9Yc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101.44927536231884" y="-153.2608695652174"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3lT-7Y-L79">
+            <objects>
+                <viewController id="ncQ-mp-Ubo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TXL-NR-lWi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="NotFlix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u0-pc-sCd">
+                                <rect key="frame" x="74" y="168" width="266" height="74"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Italic" family="Hoefler Text" pointSize="74"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYF-Bs-YYm">
+                                <rect key="frame" x="86" y="317" width="243" height="24"/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="bW2-zx-JeP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="17"/>
+                                <state key="normal" title="Search Shows">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="EOf-dX-fMI" kind="show" id="6as-oj-9tn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GYF-Bs-YYm" firstAttribute="top" secondItem="6u0-pc-sCd" secondAttribute="bottom" constant="75" id="8s9-EV-378"/>
+                            <constraint firstItem="YoN-3g-OaY" firstAttribute="trailing" secondItem="6u0-pc-sCd" secondAttribute="trailing" constant="74" id="Hrd-Ka-1Kf"/>
+                            <constraint firstItem="GYF-Bs-YYm" firstAttribute="leading" secondItem="YoN-3g-OaY" secondAttribute="leading" constant="86" id="Ywz-TK-wSV"/>
+                            <constraint firstItem="YoN-3g-OaY" firstAttribute="bottom" secondItem="GYF-Bs-YYm" secondAttribute="bottom" constant="395" id="b5y-Z8-vWL"/>
+                            <constraint firstItem="6u0-pc-sCd" firstAttribute="leading" secondItem="YoN-3g-OaY" secondAttribute="leading" constant="74" id="coZ-FT-ZUg"/>
+                            <constraint firstItem="GYF-Bs-YYm" firstAttribute="top" secondItem="6u0-pc-sCd" secondAttribute="bottom" constant="75" id="hA0-8h-L6a"/>
+                            <constraint firstItem="YoN-3g-OaY" firstAttribute="trailing" secondItem="GYF-Bs-YYm" secondAttribute="trailing" constant="85" id="jFN-jU-75R"/>
+                            <constraint firstItem="6u0-pc-sCd" firstAttribute="top" secondItem="YoN-3g-OaY" secondAttribute="top" constant="104" id="sT7-8Q-kRS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YoN-3g-OaY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4pu-MN-cj8">
+                        <barButtonItem key="backBarButtonItem" title="NotFlix Home" id="QNn-NO-mwe"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RRy-hU-Hbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-600" y="-148.36956521739131"/>
         </scene>
         <!--Episodes-->
         <scene sceneID="khj-bo-vRf">
