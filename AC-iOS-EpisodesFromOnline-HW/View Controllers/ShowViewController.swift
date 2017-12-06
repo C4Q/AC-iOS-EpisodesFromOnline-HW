@@ -10,6 +10,7 @@ import UIKit
 
 class ShowViewController: UIViewController,UISearchBarDelegate{
 
+
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
    
@@ -109,6 +110,7 @@ extension ShowViewController: UITableViewDelegate, UITableViewDataSource{
             cell.showImage.image = nil
             guard let imageUrlStr = showToSet.show.image?.medium else{
                 cell.showImage.image = #imageLiteral(resourceName: "photo_not_available_large")
+                cell.activityIndicator.stopAnimating()
                 return cell
             }
             
@@ -117,8 +119,13 @@ extension ShowViewController: UITableViewDelegate, UITableViewDataSource{
             let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
                 cell.showImage.image = onlineImage
                 cell.setNeedsLayout()
+                //Activity Indicator Stop Animation
+                cell.activityIndicator.stopAnimating()
                 
             }
+            
+            //Activity Indicator Start Animation
+            cell.activityIndicator.startAnimating()
             ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
             return cell
         }

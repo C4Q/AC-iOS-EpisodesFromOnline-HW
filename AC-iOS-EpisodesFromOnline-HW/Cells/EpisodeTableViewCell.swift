@@ -9,7 +9,8 @@
 import UIKit
 
 class EpisodeTableViewCell: UITableViewCell {
-
+    
+@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var episodeInfo: UILabel!
     @IBOutlet weak var episodeTitle: UILabel!
     @IBOutlet weak var episodeImage: UIImageView!

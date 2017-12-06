@@ -96,14 +96,21 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.episodeImage.image = nil
             guard let imageUrlStr = selectedEpisode.image?.medium else {
                 cell.episodeImage.image = #imageLiteral(resourceName: "photo_not_available_large")
+                cell.activityIndicator.stopAnimating()
                 return cell
             }
             
             let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
                 cell.episodeImage.image = onlineImage
                 cell.setNeedsLayout()
+                //Activity Indicator Stop Animation
+                
+                cell.activityIndicator.stopAnimating()
+                
             }
             
+            //Activity Indicator Start Animation
+            cell.activityIndicator.startAnimating()
             ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
         }
         

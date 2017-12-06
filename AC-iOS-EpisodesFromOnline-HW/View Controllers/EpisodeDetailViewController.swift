@@ -15,32 +15,19 @@ class EpisodeDetailViewController: UIViewController {
     
     @IBOutlet weak var textScroll: UITextView!
     @IBOutlet weak var picture: UIImageView!
-    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //Variables
     var episodes: Episode!
-    var episodeInfo: String = ""
-    var name: String = ""
-    var info: String = ""
     
     
     //View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-     
-        guard let imageUrlStr = episodes.image?.medium else {
-         return picture.image = #imageLiteral(resourceName: "photo_not_available_large")
-            
-        }
-        
-        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
-            self.picture.image = onlineImage
-        }
-        
-        ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
-        
+        var episodeInfo: String = ""
+        var name: String = ""
+        var info: String = ""
         
         if episodes.name != nil {
             name = episodes.name!
@@ -48,26 +35,56 @@ class EpisodeDetailViewController: UIViewController {
             name = "No Name"
         }
         
-        if episodes.summary != nil {
-            info = episodes.summary!.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-        } else {
+        //        if episodes.summary != nil {
+        //            info = episodes.summary!.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        //        } else {
+        //            info = "No Summary"
+        //        }
+        //
+        
+        
+        
+        if episodes.summary == nil || episodes.summary == "" {
             info = "No Summary"
+        } else {
+            info = episodes.summary!.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
         }
         
         
-      episodeInfo =
+        
+        episodeInfo =
         """
         Episode: \(name)
         
         S: \(episodes.season) E: \(episodes.number)
         
         Description: \(info)
-
+        
         """
         
         textScroll.text = episodeInfo
         
+        picture.image = nil
+     
+        if let imageUrlStr = episodes.image?.medium{
+            
         
+        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+            self.picture.image = onlineImage
+            //Activity Indicator Stop Animation
+            self.activityIndicator.stopAnimating()
+        }
+        
+        //Activity Indicator Start Animation
+        self.activityIndicator.startAnimating()
+        ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
+        
+        
+        }else {
+            self.activityIndicator.stopAnimating()
+            picture.image = #imageLiteral(resourceName: "photo_not_available_large")
+            
+        }
         
         
         

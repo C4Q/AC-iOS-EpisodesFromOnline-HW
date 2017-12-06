@@ -10,6 +10,8 @@ import UIKit
 
 class ShowTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var showImage: UIImageView!
     
     @IBOutlet weak var showTitle: UILabel!
