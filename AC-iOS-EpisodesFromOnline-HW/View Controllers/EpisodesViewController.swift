@@ -10,6 +10,10 @@ import UIKit
 
 class EpisodesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var showID: String!
+    
+    var episodeArr: [EpisodeInfo] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         episodesTableView.delegate = self
@@ -19,11 +23,13 @@ class EpisodesViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var episodesTableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+//        let colourful = self.crayonColors[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ShowSearchResults", for: indexPath)
+        return cell
     }
     
 }

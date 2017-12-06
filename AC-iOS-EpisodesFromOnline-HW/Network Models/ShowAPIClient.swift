@@ -23,15 +23,16 @@ class TVAPIClient {
             do{
                 let decoder = JSONDecoder()
                 let tvShowsFromTheInternet = try decoder.decode([TVShows].self, from: data)
-                var tvShows: [TVShows] = []
-                for showInfo in tvShowsFromTheInternet {
-                    if let name = showInfo.show.name { // To not load shows with no name.
-                        if !name.isEmpty {
-                            tvShows.append(showInfo)
-                        }
-                    }
-                }
-                completionHandler(tvShows)
+//                var tvShows: [TVShows] = []
+//                for showInfo in tvShowsFromTheInternet {
+//                    if let name = showInfo.show.name { // To not load shows with no name.
+//                        if !name.isEmpty {
+//                            tvShows.append(showInfo)
+//                        }
+//                    }
+//                }
+//                dump(tvShows)
+                completionHandler(tvShowsFromTheInternet)
                 
             } catch {
                 errorHandler(error)

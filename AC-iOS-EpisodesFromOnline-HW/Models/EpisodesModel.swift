@@ -8,3 +8,28 @@
 
 import Foundation
 
+struct EpisodeInfo: Codable {
+    let name: String
+    let episodeCollection: EmbeddedWrapper
+    enum CodingKeys: String, CodingKey {
+        case episodeCollection = "_embedded"
+        case name
+    }
+}
+
+struct EmbeddedWrapper: Codable {
+    let episodes: [EpisodeWrapper]
+}
+
+struct EpisodeWrapper: Codable {
+    let name: String
+    let season: Int
+    let number: Int
+    let image: PictureWrapper?
+    let summary: String?
+}
+
+struct PictureWrapper: Codable {
+    let medium: String
+    let original: String
+}

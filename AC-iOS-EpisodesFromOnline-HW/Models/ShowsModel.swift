@@ -14,10 +14,18 @@ struct TVShows: Codable {
 }
 
 struct ShowInfo: Codable {
+    var id: Int
     var name: String? //Show Name
     var rating: RatingWrapper?
     var image: ImageWrapper?
-    var _links: SelfWrapper
+    var links: SelfWrapper
+    enum CodingKeys: String, CodingKey {
+        case links = "_links"
+        case id
+        case name
+        case rating
+        case image
+    }
 }
 
 struct SelfWrapper: Codable {
@@ -41,45 +49,3 @@ struct ImageWrapper: Codable {
     var medium: String?
     var original: String?
 }
-
-//struct TelevisionShows: Codable {
-//    let show: ShowWrapper
-//}
-//
-//struct ShowWrapper: Codable {
-//    let name: String
-//    let rating: RatingWrapper
-//    let image: ImageWrapper
-//    let _links: URLWrapper
-//}
-//
-//struct RatingWrapper: Codable {
-//    let average: Double
-//}
-//
-//struct ImageWrapper: Codable {
-//    let image: PictureWrapper
-//}
-//
-//struct PictureWrapper: Codable {
-//    let medium: String
-//    let original: String
-//}
-//
-//struct URLWrapper: Codable {
-//    let selfKeyWord: APIEpisodeLinkWrapper
-////    let previousepisode: APIPreviousEpisodeLinkWrapper
-//    enum CodingKeys: String, CodingKey {
-//        case selfKeyword = "self"
-////        case previousEpisodeKeyWord = "previousepisode"
-//    }
-//}
-//
-//struct APIEpisodeLinkWrapper: Codable {
-//    let href: String
-//}
-//
-//struct APIPreviousEpisodeLinkWrapper: Codable {
-//    let href: String
-//}
-
