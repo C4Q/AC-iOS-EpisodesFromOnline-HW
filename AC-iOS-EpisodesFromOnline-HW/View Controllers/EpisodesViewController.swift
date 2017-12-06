@@ -11,8 +11,9 @@ import UIKit
 class EpisodesViewController: UIViewController {
     
     @IBOutlet weak var episodesTableView: UITableView!
+    @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     
-    //acting like a viewWillAppear function -> episodes need to be populated by the segue before sending over
+    //acting like a viewWillAppear -> Episodes need to be populated by the segue before sending over
     var episodes: String? {
         didSet{
             getEpisodeData()
@@ -34,15 +35,14 @@ class EpisodesViewController: UIViewController {
         episodesTableView.delegate = self
         episodesTableView.dataSource = self
         getEpisodeData()
+        activitySpinner.isHidden = true
         //make sure you have a tv show
         //guard let show = show else {return}
         print(allEpisodesFromTVShow)
-      
     }
     
     func getEpisodeData(){
-        //get urlStr
-        let urlStr = episodes! + "/episodes" //link segued over + episodes to complete the episodes api href
+        let urlStr = episodes! + "/episodes" //link segued over + episodes to complete the API
         //set completion
         let completion: ([Episode]) -> Void = {(onlineEpisode: [Episode]) in
             self.allEpisodesFromTVShow = onlineEpisode
@@ -50,6 +50,7 @@ class EpisodesViewController: UIViewController {
         //set errorHandler
         let errorHandler: (Error) -> Void = {(error: Error) in
             //alert pop up box
+            //App Handling: "bad url"
         }
         //call EpisodesAPIClient
         EpisodeAPIClient.manager.getEpisode(from: urlStr,
@@ -58,7 +59,6 @@ class EpisodesViewController: UIViewController {
     }
     
     // MARK: - Segue to DetailEpisodeViewController
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailEpisodeViewController {
             // set selected row
@@ -71,7 +71,7 @@ class EpisodesViewController: UIViewController {
 }
 
 
-// MARK: - TableView Set-up
+// MARK: - TableView DataSource Set-up
 extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,10 +83,8 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         guard let episodeCell = episodesTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as? EpisodesTableViewCell else {return UITableViewCell()}
         
         let episode = allEpisodesFromTVShow[indexPath.row]
-        episodeCell.layer.borderWidth = 5
-        episodeCell.layer.borderColor = UIColor.black.cgColor
-        
-        //set properties : image, name, season/episodeNumber
+
+        //set properties
         episodeCell.episodeName.text = episode.name
         
         if episode.number != nil && episode.season != nil {
@@ -94,19 +92,22 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         } else{
             episodeCell.seasonAndEpisodeNumber.text = "not available"
         }
-        
-        
-        //Set defaultImage
-        episodeCell.EpisodeImage.image = #imageLiteral(resourceName: "defaultImage")
+
+        //episodeCell.EpisodeImage.image = #imageLiteral(resourceName: "defaultImage")
         
         /// MARK: - Getting Image
         //make sure you can convert the url into an image
         
-        //if there's an imageCell -> do stuff, otherwise set default image cell
+        //if there's an image -> do stuff, otherwise set default image cell
         if let imageUrlStr = episode.image?.medium {
+            activitySpinner.isHidden = false
+            activitySpinner.startAnimating()
             //set completion
             let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
                 episodeCell.EpisodeImage.image = onlineImage
+                print("Just set image")
+                self.activitySpinner.isHidden = true
+                self.activitySpinner.stopAnimating()
                 episodeCell.setNeedsLayout()
             }
             //call ImageAPIClient
@@ -115,8 +116,10 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
                                        errorHandler: {print($0)})
         }else{
             episodeCell.EpisodeImage.image = #imageLiteral(resourceName: "defaultImage")
-            
         }
+        episodeCell.layer.borderWidth = 5
+        episodeCell.layer.borderColor = UIColor.black.cgColor
+        
         return episodeCell
     }
 }

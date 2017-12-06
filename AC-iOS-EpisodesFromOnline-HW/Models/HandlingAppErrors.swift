@@ -8,7 +8,10 @@
 
 import Foundation
 
-
+//MARK: - Not used yet in the project
 enum AppError: Error {
-
+    case badImage
+    case badUrl
+    case badData
+    case noInternet
 }

@@ -15,21 +15,24 @@ class TVShowAPICLient {
     func getTVShow(from urlStr: String,
                    completionHandler: @escaping ([TVShow]) -> Void,
                    errorHandler: @escaping (Error) -> Void){
-        //make sure you can get url from the string
+        //Make sure you can get url from the string
         guard let url = URL(string: urlStr) else {return}
         
         let completion: (Data) -> Void = {(data: Data) in
             do{
-                let tvShowsFromOnline = try JSONDecoder().decode([TVShow].self, from: data)//turning json into tvshow data
+                //JSON -> TVshow Data
+                let tvShowsFromOnline = try JSONDecoder().decode([TVShow].self, from: data)
                 var tvShowArray: [TVShow] = []
                 
-                for tvShow in tvShowsFromOnline { //turn the data into an array of [TVShow]
+                //Data -> [TVSHOW]
+                for tvShow in tvShowsFromOnline { 
                     tvShowArray.append(tvShow)
                     print("Building array of tvshows!")
                 }
                 completionHandler(tvShowsFromOnline)
                 
             } catch {
+                //App HAndling: "bad data"
                 errorHandler(error)
                 print("Unable to retrieve data")
             }

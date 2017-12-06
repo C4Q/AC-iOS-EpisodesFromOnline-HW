@@ -20,8 +20,10 @@ class EpisodeAPIClient {
         //set completion with do/catch & decoder
         let completion: (Data) -> Void = {(data: Data) in
             do{
+                //JSON -> Episode Data
                 let myDecoder = try JSONDecoder().decode([Episode].self, from: data)
-                //turn data into array
+                
+                //Data -> [Episode]
                 var episodesFromOnline: [Episode] = []
                 for episode in myDecoder{
                     episodesFromOnline.append(episode)
@@ -31,10 +33,10 @@ class EpisodeAPIClient {
                 completionHandler(episodesFromOnline)
                 
             }catch{
+                //App HAndling: "bad data"
                 errorHandler(error)
                 print("Unable to retrieve data")
             }
-            
         }
         //call NetworkHelper
         NetworkHelper.manager.performDataTask(with: url,
@@ -42,34 +44,3 @@ class EpisodeAPIClient {
                                               errorHandler: errorHandler)
     }
 }
-
-
-//func getEpisode(from urlStr: String,
-//                completetionHandler: @escaping ([Episode]) -> Void,
-//                errorHandler: @escaping (Error) -> Void){
-//
-//    //make sure you have a url from a string
-//    guard let url = URL(string: urlStr) else {return}
-//    //set completion
-//    let completion: (Data) -> Void = {(data: Data) in
-//        //decode
-//        do{
-//            let myDecoder = try JSONDecoder().decode([Episode].self, from: data)
-//            //turn data into an array
-//            var episodesFromOnline: [Episode] = []
-//            for episode in episodesFromOnline {
-//                episodesFromOnline.append(episode)
-//            }
-//            completetionHandler(myDecoder)
-//
-//        }catch {
-//            errorHandler(error)
-//        }
-//    }
-//
-//    //set NetWorkHelper
-//    NetworkHelper.manager.performDataTask(with: url,
-//                                          completionHandler: completion,
-//                                          errorHandler: errorHandler)
-//}
-

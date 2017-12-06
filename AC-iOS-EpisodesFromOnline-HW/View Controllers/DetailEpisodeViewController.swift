@@ -15,12 +15,14 @@ class DetailEpisodeViewController: UIViewController {
     @IBOutlet weak var seasonNumber: UILabel!
     @IBOutlet weak var episodeNumber: UILabel!
     @IBOutlet weak var episodeTitle: UILabel!
+    @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     
+//what's powering this VC
     var detailEpisodes: Episode? = nil
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activitySpinner.isHidden = true
         guard let detailEpisodes = detailEpisodes else {return}
         
         episodeSummary.text = "\(detailEpisodes.summary?.html2String ?? "No summary available")"
@@ -28,12 +30,15 @@ class DetailEpisodeViewController: UIViewController {
         episodeNumber.text = "Episode: \(String(describing: detailEpisodes.number!))"
         seasonNumber.text = "Season: \(String(describing: detailEpisodes.season!))"
         
-        //setting default image ifno image available
         if let imageUrlStr = detailEpisodes.image?.original {
+            activitySpinner.isHidden = false
+            activitySpinner.startAnimating()
             //set completion
             let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
                 self.EpisodeImage.image = onlineImage
-                //detailEpisodes.setNeedsLayout()
+                 print("Just set image")
+                self.activitySpinner.isHidden = true
+                self.activitySpinner.stopAnimating()
             }
             //call ImageAPIClient
             ImageAPI.manager.loadImage(from: imageUrlStr,
@@ -42,14 +47,13 @@ class DetailEpisodeViewController: UIViewController {
         }else{
             self.EpisodeImage.image = #imageLiteral(resourceName: "defaultImage")
         }
-        
         EpisodeImage.layer.borderWidth = 10
         EpisodeImage.layer.borderColor = UIColor.black.cgColor
     }
 }
 
+//MARK: - Getting rid of <p> tag in summaries
 //https://stackoverflow.com/questions/28124119/convert-html-to-plain-text-in-swift
-//getting rid of <p> tag in summary
 extension Data {
     var html2AttributedString: NSAttributedString? {
         do {

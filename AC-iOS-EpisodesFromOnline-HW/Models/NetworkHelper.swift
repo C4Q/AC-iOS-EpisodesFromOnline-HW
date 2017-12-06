@@ -22,11 +22,12 @@ class NetworkHelper {
         mySession.dataTask(with: url){(data: Data?,
                             response: URLResponse?,
                             error: Error?) in
-            //make sure you have data
+            //Make sure you have data
             guard let data = data else {return}
-            // have to make sure to put back on main thread because data will change UI Elements
+            // Make sure to put back on main thread because data will change UI Elements
             DispatchQueue.main.async {
                 if let error = error {
+                    //App HAndling: "bad data"
                     errorHandler(error)
                     return
                 }

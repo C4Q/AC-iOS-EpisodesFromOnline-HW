@@ -20,6 +20,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="Enter TV Show" translatesAutoresizingMaskIntoConstraints="NO" id="Brm-XL-Vol">
+                                <rect key="frame" x="0.0" y="64" width="320" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8TM-GJ-L43">
+                                <rect key="frame" x="141" y="265" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.09526815265417099" green="0.020408255979418755" blue="0.98555976152420044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S3K-Yy-w3S">
                                 <rect key="frame" x="0.0" y="120" width="320" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,7 +42,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mX-JI-yu6">
                                                     <rect key="frame" x="151" y="64.5" width="146" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -72,10 +81,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Enter TV Show" translatesAutoresizingMaskIntoConstraints="NO" id="Brm-XL-Vol">
-                                <rect key="frame" x="0.0" y="64" width="320" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -91,18 +96,19 @@
                     </view>
                     <navigationItem key="navigationItem" title="TV Shows" id="LKt-Bp-wZp"/>
                     <connections>
+                        <outlet property="activitySpinner1" destination="8TM-GJ-L43" id="b3p-mH-N8V"/>
                         <outlet property="searchBar" destination="Brm-XL-Vol" id="N7q-bu-4di"/>
                         <outlet property="tvShowTableView" destination="S3K-Yy-w3S" id="myu-5b-NyR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5H-IO-4Dj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="225" y="121.47887323943662"/>
+            <point key="canvasLocation" x="-431" y="119"/>
         </scene>
-        <!--Episodes View Controller-->
+        <!--Episodes-->
         <scene sceneID="y5n-G6-spa">
             <objects>
-                <viewController id="Zob-Na-cgb" customClass="EpisodesViewController" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Episodes" id="Zob-Na-cgb" customClass="EpisodesViewController" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J6R-ME-Zhe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,6 +116,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="OqK-Pi-xEI">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hav-yu-PqB">
+                                <rect key="frame" x="142" y="266" width="37" height="37"/>
+                                <color key="color" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yIk-nx-P2I">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -131,7 +141,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pJ-yA-BcV">
                                                     <rect key="frame" x="215" y="34.5" width="82" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -164,26 +174,28 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YA1-b0-TZB" firstAttribute="bottom" secondItem="OqK-Pi-xEI" secondAttribute="bottom" id="5eU-Mt-fXt"/>
                             <constraint firstItem="OqK-Pi-xEI" firstAttribute="trailing" secondItem="YA1-b0-TZB" secondAttribute="trailing" id="CdA-Ef-tGD"/>
                             <constraint firstItem="OqK-Pi-xEI" firstAttribute="top" secondItem="YA1-b0-TZB" secondAttribute="top" id="EK5-Ng-1Wf"/>
                             <constraint firstItem="YA1-b0-TZB" firstAttribute="trailing" secondItem="yIk-nx-P2I" secondAttribute="trailing" id="Mds-Ny-o4z"/>
+                            <constraint firstItem="hav-yu-PqB" firstAttribute="centerY" secondItem="J6R-ME-Zhe" secondAttribute="centerY" id="XEm-OD-4qt"/>
                             <constraint firstItem="YA1-b0-TZB" firstAttribute="bottom" secondItem="yIk-nx-P2I" secondAttribute="bottom" id="Yp6-U4-B64"/>
                             <constraint firstItem="OqK-Pi-xEI" firstAttribute="leading" secondItem="YA1-b0-TZB" secondAttribute="leading" id="dl2-BO-tQa"/>
+                            <constraint firstItem="hav-yu-PqB" firstAttribute="centerX" secondItem="J6R-ME-Zhe" secondAttribute="centerX" id="gdI-Al-DCt"/>
                             <constraint firstItem="yIk-nx-P2I" firstAttribute="leading" secondItem="YA1-b0-TZB" secondAttribute="leading" id="qXb-VU-Tq5"/>
                             <constraint firstItem="yIk-nx-P2I" firstAttribute="top" secondItem="YA1-b0-TZB" secondAttribute="top" id="uFB-r2-LEI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YA1-b0-TZB"/>
                     </view>
                     <connections>
+                        <outlet property="activitySpinner" destination="hav-yu-PqB" id="GUn-4J-MOB"/>
                         <outlet property="episodesTableView" destination="yIk-nx-P2I" id="5qo-gP-FaY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRR-4x-ISl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5" y="121.47887323943662"/>
+            <point key="canvasLocation" x="392" y="119"/>
         </scene>
         <!--Detail Episode View Controller-->
         <scene sceneID="vCf-Ro-Tkx">
@@ -193,8 +205,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="i1O-l3-yqt">
+                                <rect key="frame" x="142" y="137" width="37" height="37"/>
+                                <color key="color" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="72u-uW-hDQ">
-                                <rect key="frame" x="22.5" y="68" width="275" height="180"/>
+                                <rect key="frame" x="22" y="68" width="275" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="7EY-D1-S0x"/>
                                     <constraint firstAttribute="width" constant="275" id="7hL-kd-gwe"/>
@@ -220,13 +236,13 @@
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dV6-Or-fh6">
                                 <rect key="frame" x="11" y="410.5" width="298" height="127.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.27424436062451657" green="0.9025574357030457" blue="0.89410736358126541" alpha="0.76899614726027399" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3v1-nU-f7y" firstAttribute="trailing" secondItem="iv0-qM-D65" secondAttribute="trailing" constant="11" id="CJI-gB-w7n"/>
                             <constraint firstItem="plR-s3-VWH" firstAttribute="leading" secondItem="3v1-nU-f7y" secondAttribute="leading" constant="11" id="El6-1c-l9r"/>
@@ -238,16 +254,19 @@
                             <constraint firstItem="72u-uW-hDQ" firstAttribute="centerX" secondItem="3v1-nU-f7y" secondAttribute="centerX" id="WVw-OI-1oF"/>
                             <constraint firstItem="3v1-nU-f7y" firstAttribute="trailing" secondItem="dV6-Or-fh6" secondAttribute="trailing" constant="11" id="YCB-Zd-6r0"/>
                             <constraint firstItem="3v1-nU-f7y" firstAttribute="trailing" secondItem="plR-s3-VWH" secondAttribute="trailing" constant="11" id="ctK-l2-Gl7"/>
+                            <constraint firstItem="i1O-l3-yqt" firstAttribute="centerY" secondItem="YQv-m9-7Vf" secondAttribute="centerY" multiplier="0.55" id="gsW-zq-9Y8"/>
                             <constraint firstItem="dV6-Or-fh6" firstAttribute="top" secondItem="iv0-qM-D65" secondAttribute="bottom" constant="20" id="j1r-78-sr7"/>
                             <constraint firstItem="dV6-Or-fh6" firstAttribute="leading" secondItem="3v1-nU-f7y" secondAttribute="leading" constant="11" id="jSP-HC-OXd"/>
                             <constraint firstItem="72u-uW-hDQ" firstAttribute="centerY" secondItem="3v1-nU-f7y" secondAttribute="centerY" multiplier="0.5" id="kfC-dj-Ki1"/>
                             <constraint firstItem="iv0-qM-D65" firstAttribute="leading" secondItem="3v1-nU-f7y" secondAttribute="leading" constant="11" id="meQ-Id-qM0"/>
                             <constraint firstItem="plR-s3-VWH" firstAttribute="bottom" secondItem="eeh-fi-tnu" secondAttribute="bottom" multiplier="1.1" id="pVg-ti-i5E"/>
+                            <constraint firstItem="i1O-l3-yqt" firstAttribute="centerX" secondItem="YQv-m9-7Vf" secondAttribute="centerX" id="uxQ-Ba-GbS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3v1-nU-f7y"/>
                     </view>
                     <connections>
                         <outlet property="EpisodeImage" destination="72u-uW-hDQ" id="6Ew-x2-NUH"/>
+                        <outlet property="activitySpinner" destination="i1O-l3-yqt" id="xDJ-5F-oGp"/>
                         <outlet property="episodeNumber" destination="plR-s3-VWH" id="YZA-Et-Uto"/>
                         <outlet property="episodeSummary" destination="dV6-Or-fh6" id="Zcf-Xl-VfL"/>
                         <outlet property="episodeTitle" destination="eeh-fi-tnu" id="APL-7O-uWw"/>
@@ -256,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJz-s6-PT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2036.25" y="121.47887323943662"/>
+            <point key="canvasLocation" x="1249" y="120"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aX6-fN-Pss">
@@ -274,7 +293,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3D-Kf-gwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-713" y="122"/>
+            <point key="canvasLocation" x="-1254" y="119"/>
         </scene>
     </scenes>
     <resources>

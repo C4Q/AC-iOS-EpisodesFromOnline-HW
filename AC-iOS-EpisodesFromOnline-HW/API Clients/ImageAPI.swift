@@ -27,7 +27,7 @@ class ImageAPI{
             guard let onlineImage = UIImage(data: data) else {return}
             completionHandler(onlineImage)
         }
-        //Network call to perform task of getting necesary data from online or catch any errors
+        //Network call to perform task of getting necessary data from online or catch any errors
         NetworkHelper.manager.performDataTask(with: url, completionHandler: completion, errorHandler: errorHandler)
     }
 }
