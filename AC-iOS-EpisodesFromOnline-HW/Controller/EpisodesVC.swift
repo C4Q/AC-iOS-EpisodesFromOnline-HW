@@ -65,7 +65,11 @@ class EpisodesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 																errorHandler: {print($0)})
 		return cell
 	}
-	
+
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 150
+	}
+
 	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let destination = segue.destination as? EpisodesDVC {

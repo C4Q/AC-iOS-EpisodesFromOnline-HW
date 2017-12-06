@@ -26,30 +26,27 @@
                                 <rect key="frame" x="0.0" y="140" width="375" height="527"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showCell" rowHeight="125" id="1MA-1I-cqa" customClass="showCell" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="125"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showCell" rowHeight="150" id="1MA-1I-cqa" customClass="showCell" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1MA-1I-cqa" id="0rH-HZ-Bxs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRU-qT-CGJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="199.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="199.5" id="iHe-hF-uGf"/>
-                                                    </constraints>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="DRU-qT-CGJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="149.5"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DMx-T8-7sp">
-                                                    <rect key="frame" x="197" y="42" width="150" height="41"/>
+                                                    <rect key="frame" x="187.5" y="54.5" width="187.5" height="41"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swR-T5-5Nm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaL-J6-WjS">
-                                                            <rect key="frame" x="0.0" y="20.5" width="150" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="20.5" width="187.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -57,19 +54,20 @@
                                                     </subviews>
                                                 </stackView>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1tK-25-4bf">
-                                                    <rect key="frame" x="177" y="52.5" width="20" height="20"/>
+                                                    <rect key="frame" x="177" y="65" width="20" height="20"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="DMx-T8-7sp" firstAttribute="centerY" secondItem="0rH-HZ-Bxs" secondAttribute="centerY" id="2z3-fu-FyZ"/>
+                                                <constraint firstItem="DRU-qT-CGJ" firstAttribute="width" secondItem="0rH-HZ-Bxs" secondAttribute="width" multiplier="0.5" id="4MG-G0-UdQ"/>
+                                                <constraint firstItem="DRU-qT-CGJ" firstAttribute="leading" secondItem="0rH-HZ-Bxs" secondAttribute="leading" id="4O6-Gk-Ws7"/>
                                                 <constraint firstItem="1tK-25-4bf" firstAttribute="centerX" secondItem="0rH-HZ-Bxs" secondAttribute="centerX" id="4bm-34-509"/>
                                                 <constraint firstItem="1tK-25-4bf" firstAttribute="centerY" secondItem="0rH-HZ-Bxs" secondAttribute="centerY" id="58n-Pq-ZiB"/>
-                                                <constraint firstItem="DRU-qT-CGJ" firstAttribute="top" secondItem="0rH-HZ-Bxs" secondAttribute="top" id="6pl-S5-vOk"/>
-                                                <constraint firstItem="DRU-qT-CGJ" firstAttribute="width" secondItem="0rH-HZ-Bxs" secondAttribute="width" multiplier="0.5" id="Ce6-K0-xvn"/>
-                                                <constraint firstItem="DMx-T8-7sp" firstAttribute="width" secondItem="0rH-HZ-Bxs" secondAttribute="width" multiplier="0.4" id="J4h-rW-6GZ"/>
-                                                <constraint firstItem="DRU-qT-CGJ" firstAttribute="leading" secondItem="0rH-HZ-Bxs" secondAttribute="leading" id="kmd-mw-VzJ"/>
-                                                <constraint firstItem="DRU-qT-CGJ" firstAttribute="bottom" secondItem="0rH-HZ-Bxs" secondAttribute="bottom" id="qCh-j7-Gya"/>
-                                                <constraint firstItem="DMx-T8-7sp" firstAttribute="leading" secondItem="1tK-25-4bf" secondAttribute="trailing" id="scJ-y0-cNK"/>
+                                                <constraint firstItem="DRU-qT-CGJ" firstAttribute="top" secondItem="0rH-HZ-Bxs" secondAttribute="top" id="Mf3-TC-I95"/>
+                                                <constraint firstItem="DRU-qT-CGJ" firstAttribute="bottom" secondItem="0rH-HZ-Bxs" secondAttribute="bottom" id="Qc4-Hs-OA4"/>
+                                                <constraint firstItem="DMx-T8-7sp" firstAttribute="width" secondItem="DRU-qT-CGJ" secondAttribute="width" id="S3p-jr-3mn"/>
+                                                <constraint firstItem="DMx-T8-7sp" firstAttribute="leading" secondItem="DRU-qT-CGJ" secondAttribute="trailing" id="bqM-Nh-boL"/>
+                                                <constraint firstItem="DRU-qT-CGJ" firstAttribute="centerY" secondItem="0rH-HZ-Bxs" secondAttribute="centerY" id="wo9-Z0-hcO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -143,7 +141,7 @@
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hgo-Vh-BWt">
                                                     <rect key="frame" x="177.5" y="65" width="20" height="20"/>
                                                 </activityIndicatorView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9UW-JQ-CaC">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="9UW-JQ-CaC">
                                                     <rect key="frame" x="0.0" y="0.0" width="187.5" height="149.5"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="R75-bo-lmB">
@@ -213,7 +211,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FFf-qC-ZV6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="FFf-qC-ZV6">
                                 <rect key="frame" x="56" y="84" width="262.5" height="241"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ACO-Oe-ZXv">
@@ -276,4 +274,7 @@
             <point key="canvasLocation" x="1633" y="132"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NoPhoto" width="500" height="362"/>
+    </resources>
 </document>

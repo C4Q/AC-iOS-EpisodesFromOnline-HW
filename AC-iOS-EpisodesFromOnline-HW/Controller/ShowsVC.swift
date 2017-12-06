@@ -6,7 +6,7 @@
 import UIKit
 
 //displays a list of shows [Show] to the user, based on search criteria
-class ShowsVC: UIViewController, UITableViewDataSource, UISearchBarDelegate {
+class ShowsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
 
 	//MARK: - Outlets
 	@IBOutlet weak var tableView: UITableView!
@@ -16,6 +16,7 @@ class ShowsVC: UIViewController, UITableViewDataSource, UISearchBarDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		tableView.dataSource = self
+		tableView.delegate = self
 		searchBar.delegate = self
 	}
 
@@ -84,6 +85,10 @@ class ShowsVC: UIViewController, UITableViewDataSource, UISearchBarDelegate {
 		return cell
 	}
 
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 200
+	}
+	
 	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if let destination = segue.destination as? EpisodesVC {
