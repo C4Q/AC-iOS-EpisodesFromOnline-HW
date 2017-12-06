@@ -13,6 +13,7 @@ class EpisodesViewController: UIViewController {
     @IBOutlet weak var episodeTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
     var show: Show! {
         didSet {
             loadEpisodes()
@@ -42,7 +43,7 @@ class EpisodesViewController: UIViewController {
         super.viewDidLoad()
         self.episodeTableView.delegate = self
         self.episodeTableView.dataSource = self
-        
+        self.searchBar.delegate = self
     }
     
     func loadEpisodes() {

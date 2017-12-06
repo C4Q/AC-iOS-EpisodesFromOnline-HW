@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return episodesFiltered.count
     }
@@ -27,9 +27,13 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource, UI
             cell.nameEpisodeLabel.text = episode.name
             cell.seasonEpisodeLabel.text = "S:\(episode.season) || E:\(episode.number)"
             if let image = episode.image, let urlImage = image.medium {
+                cell.spiner.isHidden = false
+                cell.spiner.startAnimating()
                 let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
                     cell.episodeImageView.image = onlineImage
                     cell.setNeedsLayout() //Makes the image load as soon as it's ready
+                    cell.spiner.stopAnimating()
+                    cell.spiner.isHidden = true
                 }
                 let errorHandler: (Error) -> Void = {(error: Error) in
                     let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: UIAlertControllerStyle.alert)
@@ -57,5 +61,11 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource, UI
             episodeDVC.episodeDetail = episodeDet
         }
     }
-    
+}
+
+extension EpisodesViewController: UISearchBarDelegate {
+    //MARK: - Searchbar Delegate Methods
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchTerm = searchBar.text ?? ""
+    }
 }

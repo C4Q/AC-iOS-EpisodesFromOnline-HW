@@ -13,6 +13,7 @@ class ShowsViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var showsTableView: UITableView!
     
+    
     var shows = [Shows]() {
         didSet {
             showsTableView.reloadData()
@@ -36,7 +37,8 @@ class ShowsViewController: UIViewController {
     }
     
     func loadShows(from filter: String) {
-        let str = "http://api.tvmaze.com/search/shows?q=\(filter)"
+        let filterStr = filter.replacingOccurrences(of: " ", with: "+")
+        let str = "http://api.tvmaze.com/search/shows?q=\(filterStr)"
         let completion: ([Shows]) -> Void = {(onlineShows: [Shows]) in
             self.shows = onlineShows
         }

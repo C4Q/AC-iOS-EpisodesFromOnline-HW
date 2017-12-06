@@ -15,11 +15,13 @@ class EpisodeDetailViewController: UIViewController {
     @IBOutlet weak var seasonLabel: UILabel!
     @IBOutlet weak var episodeLabel: UILabel!
     @IBOutlet weak var episodeDescription: UITextView!
+    @IBOutlet weak var spiner: UIActivityIndicatorView!
     
     var episodeDetail: Episode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.spiner.isHidden = true
         loadLabel()
     }
     
@@ -33,9 +35,13 @@ class EpisodeDetailViewController: UIViewController {
             self.episodeDescription.text = "No summary found"
         }
         if let image = episodeDetail.image, let urlImage = image.original {
+            self.spiner.isHidden = false
+            self.spiner.startAnimating()
             let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
                 self.episodeImageView.image = onlineImage
                 self.episodeImageView.setNeedsLayout() //Makes the image load as soon as it's ready
+                self.spiner.stopAnimating()
+                self.spiner.isHidden = true
             }
             let errorHandler: (Error) -> Void = {(error: Error) in
                 let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: UIAlertControllerStyle.alert)

@@ -13,10 +13,11 @@ class ShowsTableViewCell: UITableViewCell {
     @IBOutlet weak var showImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var spiner: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.spiner.isHidden = true
     }
 
     

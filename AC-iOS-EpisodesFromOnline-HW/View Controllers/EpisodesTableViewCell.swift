@@ -13,6 +13,11 @@ class EpisodesTableViewCell: UITableViewCell {
     @IBOutlet weak var episodeImageView: UIImageView!
     @IBOutlet weak var nameEpisodeLabel: UILabel!
     @IBOutlet weak var seasonEpisodeLabel: UILabel!
+    @IBOutlet weak var spiner: UIActivityIndicatorView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.spiner.isHidden = true
+    }
 
 }

@@ -30,9 +30,13 @@ extension ShowsViewController: UITableViewDelegate, UITableViewDataSource, UISea
                 cell.ratingLabel.text = "Raiting: N/A"
             }
             if let image = show.show.image, let urlImage = image.medium {
+                cell.spiner.isHidden = false
+                cell.spiner.startAnimating()
                 let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
                     cell.showImageView.image = onlineImage
                     cell.setNeedsLayout() //Makes the image load as soon as it's ready
+                    cell.spiner.stopAnimating()
+                    cell.spiner.isHidden = true
                 }
                 let errorHandler: (Error) -> Void = {(error: Error) in
                     let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: UIAlertControllerStyle.alert)

@@ -53,6 +53,9 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ViI-XO-XDT">
+                                                    <rect key="frame" x="91" y="87" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="X94-Al-CBn" firstAttribute="centerY" secondItem="izb-We-fkE" secondAttribute="centerY" id="BOK-Bq-bNa"/>
@@ -61,6 +64,8 @@
                                                 <constraint firstItem="qnC-mo-UZw" firstAttribute="centerY" secondItem="X94-Al-CBn" secondAttribute="centerY" id="KCI-De-Haz"/>
                                                 <constraint firstItem="qnC-mo-UZw" firstAttribute="centerX" secondItem="izb-We-fkE" secondAttribute="centerX" multiplier="1.5" id="KEL-4m-OIA"/>
                                                 <constraint firstItem="X94-Al-CBn" firstAttribute="leading" secondItem="izb-We-fkE" secondAttribute="leading" constant="8" id="UoW-IK-hFJ"/>
+                                                <constraint firstItem="ViI-XO-XDT" firstAttribute="centerX" secondItem="X94-Al-CBn" secondAttribute="centerX" id="cIb-Od-V6k"/>
+                                                <constraint firstItem="ViI-XO-XDT" firstAttribute="centerY" secondItem="X94-Al-CBn" secondAttribute="centerY" id="wh7-mT-mUz"/>
                                                 <constraint firstItem="qnC-mo-UZw" firstAttribute="width" secondItem="X94-Al-CBn" secondAttribute="width" multiplier="0.8" id="xIQ-3h-a6c"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -68,6 +73,7 @@
                                             <outlet property="nameLabel" destination="8ys-eu-eMi" id="h4m-W1-wKi"/>
                                             <outlet property="ratingLabel" destination="MqF-K2-UiC" id="Ii4-0x-V4h"/>
                                             <outlet property="showImageView" destination="X94-Al-CBn" id="5vf-B3-tUY"/>
+                                            <outlet property="spiner" destination="ViI-XO-XDT" id="CfJ-8s-coA"/>
                                             <segue destination="yc8-7u-3dc" kind="show" id="N3M-Vj-zxP"/>
                                         </connections>
                                     </tableViewCell>
@@ -135,13 +141,18 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ppX-ln-aPk">
+                                                    <rect key="frame" x="91" y="50" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="ppX-ln-aPk" firstAttribute="centerY" secondItem="tmw-LR-kMJ" secondAttribute="centerY" id="2HF-4R-8hJ"/>
                                                 <constraint firstItem="tmw-LR-kMJ" firstAttribute="leading" secondItem="3KY-Ga-qgB" secondAttribute="leading" constant="8" id="5Ic-Dv-LcN"/>
                                                 <constraint firstItem="tmw-LR-kMJ" firstAttribute="height" secondItem="3KY-Ga-qgB" secondAttribute="height" id="DoK-tU-SbB"/>
                                                 <constraint firstItem="Znl-oE-NTD" firstAttribute="centerX" secondItem="3KY-Ga-qgB" secondAttribute="centerX" multiplier="1.5" id="Lei-3j-Vru"/>
                                                 <constraint firstItem="Znl-oE-NTD" firstAttribute="centerY" secondItem="tmw-LR-kMJ" secondAttribute="centerY" id="OgS-L8-oNv"/>
                                                 <constraint firstItem="Znl-oE-NTD" firstAttribute="width" secondItem="tmw-LR-kMJ" secondAttribute="width" id="VF6-c1-Q20"/>
+                                                <constraint firstItem="ppX-ln-aPk" firstAttribute="centerX" secondItem="tmw-LR-kMJ" secondAttribute="centerX" id="cyN-v2-451"/>
                                                 <constraint firstItem="tmw-LR-kMJ" firstAttribute="centerY" secondItem="3KY-Ga-qgB" secondAttribute="centerY" id="qCb-GL-9td"/>
                                                 <constraint firstItem="tmw-LR-kMJ" firstAttribute="width" secondItem="3KY-Ga-qgB" secondAttribute="width" multiplier="0.5" id="yad-ej-08I"/>
                                             </constraints>
@@ -150,6 +161,7 @@
                                             <outlet property="episodeImageView" destination="tmw-LR-kMJ" id="kUt-MZ-SQr"/>
                                             <outlet property="nameEpisodeLabel" destination="TJk-7i-MHr" id="VTc-F2-diy"/>
                                             <outlet property="seasonEpisodeLabel" destination="Mkr-FK-K9z" id="RBm-yb-QEU"/>
+                                            <outlet property="spiner" destination="ppX-ln-aPk" id="xQx-gd-Pc8"/>
                                             <segue destination="oOi-NS-mE3" kind="show" id="yJH-BT-ULp"/>
                                         </connections>
                                     </tableViewCell>
@@ -230,9 +242,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="AZs-jt-30z">
+                                <rect key="frame" x="178" y="185" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="AZs-jt-30z" firstAttribute="centerY" secondItem="Ot8-NS-96T" secondAttribute="centerY" id="4TM-ys-Zts"/>
                             <constraint firstItem="Ot8-NS-96T" firstAttribute="leading" secondItem="2zS-9K-PUD" secondAttribute="leading" constant="20" id="5b7-Kk-PMU"/>
                             <constraint firstItem="Ot8-NS-96T" firstAttribute="centerX" secondItem="2zS-9K-PUD" secondAttribute="centerX" id="81u-Ff-dsK"/>
                             <constraint firstItem="XTJ-yE-jjZ" firstAttribute="top" secondItem="Ot8-NS-96T" secondAttribute="bottom" id="92Y-Ad-Wkp"/>
@@ -244,6 +260,7 @@
                             <constraint firstItem="1xv-By-Ty8" firstAttribute="leading" secondItem="2zS-9K-PUD" secondAttribute="leading" constant="10" id="bQN-FA-o8A"/>
                             <constraint firstItem="1xv-By-Ty8" firstAttribute="height" secondItem="xg5-Rf-Kxt" secondAttribute="height" multiplier="1:3" id="e0H-4x-veq"/>
                             <constraint firstItem="Ot8-NS-96T" firstAttribute="top" secondItem="2zS-9K-PUD" secondAttribute="top" constant="20" id="eHz-NG-YdQ"/>
+                            <constraint firstItem="AZs-jt-30z" firstAttribute="centerX" secondItem="Ot8-NS-96T" secondAttribute="centerX" id="fHG-Ps-RPn"/>
                             <constraint firstItem="2zS-9K-PUD" firstAttribute="trailing" secondItem="Ot8-NS-96T" secondAttribute="trailing" constant="20" id="jlu-yg-GSt"/>
                             <constraint firstItem="XTJ-yE-jjZ" firstAttribute="height" secondItem="2zS-9K-PUD" secondAttribute="height" multiplier="1:7" id="zYt-SI-v5w"/>
                         </constraints>
@@ -255,6 +272,7 @@
                         <outlet property="episodeLabel" destination="0sw-eL-Tel" id="MI8-gg-QFb"/>
                         <outlet property="episodeNameLabel" destination="9yT-cJ-9ff" id="H9v-yj-eJU"/>
                         <outlet property="seasonLabel" destination="raK-eZ-Oow" id="gtH-wq-8S9"/>
+                        <outlet property="spiner" destination="AZs-jt-30z" id="CYb-Vq-yod"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="37d-ay-LO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
