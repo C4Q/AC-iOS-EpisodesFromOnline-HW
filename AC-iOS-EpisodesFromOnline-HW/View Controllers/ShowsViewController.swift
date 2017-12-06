@@ -12,9 +12,7 @@ class ShowsViewController: UIViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var showActivityIndicator: UIActivityIndicatorView!
 
-    
     var showsArr = [Shows]() {
         didSet {
             tableView.reloadData()
