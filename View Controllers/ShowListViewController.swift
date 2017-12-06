@@ -79,8 +79,10 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource, UI
         
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchTerm = self.searchBar.text ?? ""
-        //  self.searchTerm = searchText
+        let searchTermWithSpaces = searchBar.text?.replacingOccurrences(of: " ", with: "+")
+        //whitespace handling
+       // self.searchTerm = self.searchBar.text ?? ""
+        self.searchTerm = searchTermWithSpaces!
         //for live search
         searchBar.resignFirstResponder()
         //print(self.searchBar.text)
