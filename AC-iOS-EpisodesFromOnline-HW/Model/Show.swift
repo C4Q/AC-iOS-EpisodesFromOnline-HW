@@ -1,7 +1,7 @@
 //  Show.swift
 //  AC-iOS-EpisodesFromOnline-HW
-//  Created by C4Q on 12/4/17.
-//  Copyright © 2017 C4Q . All rights reserved.
+//  Created by Winston Maragh on 12/4/17.
+//  Copyright © 2017 Winston Maragh. All rights reserved.
 
 import Foundation
 

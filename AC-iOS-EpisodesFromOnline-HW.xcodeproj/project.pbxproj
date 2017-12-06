@@ -60,8 +60,8 @@
 		54056A5C1FCF030800CD81BE = {
 			isa = PBXGroup;
 			children = (
-				54056A671FCF030800CD81BE /* AC-iOS-EpisodesFromOnline-HW */,
 				54056A661FCF030800CD81BE /* Products */,
+				54056A671FCF030800CD81BE /* AC-iOS-EpisodesFromOnline-HW */,
 			);
 			sourceTree = "<group>";
 		};

@@ -1,7 +1,7 @@
 //  ShowsVC.swift
 //  AC-iOS-EpisodesFromOnline-HW
-//  Created by C4Q on 12/4/17.
-//  Copyright © 2017 C4Q . All rights reserved.
+//  Created by Winston Maragh on 12/4/17.
+//  Copyright © 2017 Winston Maragh. All rights reserved.
 
 import UIKit
 
@@ -84,7 +84,6 @@ class ShowsVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UIS
 																		errorHandler: {print($0)})
 		return cell
 	}
-
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 200
 	}
