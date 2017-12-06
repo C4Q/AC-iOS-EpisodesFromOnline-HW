@@ -57,22 +57,25 @@ extension ShowsViewController: UITableViewDelegate, UITableViewDataSource, UISea
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.showTableView.dequeueReusableCell(withIdentifier: "Show Cell", for: indexPath) as? ShowTableViewCell else {return UITableViewCell()}
+        let cell = self.showTableView.dequeueReusableCell(withIdentifier: "Show Cell", for: indexPath) as! ShowTableViewCell
         let thisShow = self.tvShows[indexPath.row]
         cell.showNameLabel.text = thisShow.show.name
         
         cell.ratingLabel.text = (thisShow.show.rating.average?.description) ?? "no rating"
         cell.showImageView.image = nil
         
-        guard let imageUrl = thisShow.show.image?.medium else {return UITableViewCell()}
+        if let imageUrl = thisShow.show.image?.medium {
         let getImage: (UIImage) -> Void = {(onlineImage: UIImage) in
             cell.showImageView.image = onlineImage
             cell.setNeedsLayout()
         }
         
         ImageAPIClient.manager.getImage(from: imageUrl, completionHandler: getImage, errorHandler: {print($0)})
-        return cell
-        
+       
+        } else {
+            cell.showImageView.image = #imageLiteral(resourceName: "noImage")
+        }
+          return cell
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? EpisodesViewController {
@@ -88,7 +91,9 @@ extension ShowsViewController: UITableViewDelegate, UITableViewDataSource, UISea
         searchBar.resignFirstResponder()
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchTerm = searchText
+        if searchText == "" {
+            searchTerm = ""
+        }
     }
     
     
