@@ -33,13 +33,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="285.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MaY-v3-03W">
-                                                    <rect key="frame" x="8" y="8" width="180" height="269.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="180" id="VD3-7c-8ra"/>
-                                                        <constraint firstAttribute="height" constant="270" id="lFS-JX-Kdc"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wm-ym-SRF">
                                                     <rect key="frame" x="198" y="132" width="169" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -52,12 +45,31 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Xie-H4-f9l">
+                                                    <rect key="frame" x="48.5" y="93.5" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="X4z-YA-t2Z"/>
+                                                        <constraint firstAttribute="width" constant="100" id="tnC-Pc-C5P"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="vsR-db-EXe"/>
+                                                        <constraint firstAttribute="height" constant="100" id="w7W-EE-08a"/>
+                                                    </constraints>
+                                                    <color key="color" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </activityIndicatorView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MaY-v3-03W">
+                                                    <rect key="frame" x="8" y="8" width="180" height="269.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="180" id="VD3-7c-8ra"/>
+                                                        <constraint firstAttribute="height" constant="270" id="lFS-JX-Kdc"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Xie-H4-f9l" firstAttribute="centerY" secondItem="MaY-v3-03W" secondAttribute="centerY" id="3Vp-XF-boW"/>
                                                 <constraint firstItem="7Wm-ym-SRF" firstAttribute="centerY" secondItem="NcK-9f-Bvp" secondAttribute="centerY" id="E3c-bd-CUu"/>
                                                 <constraint firstItem="7Wm-ym-SRF" firstAttribute="leading" secondItem="MaY-v3-03W" secondAttribute="trailing" constant="10" id="EK7-A3-un0"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ud9-cx-AXJ" secondAttribute="trailing" id="Q4e-uB-iO1"/>
                                                 <constraint firstItem="MaY-v3-03W" firstAttribute="top" secondItem="NcK-9f-Bvp" secondAttribute="topMargin" id="WWt-MQ-Zkc"/>
+                                                <constraint firstItem="Xie-H4-f9l" firstAttribute="centerX" secondItem="MaY-v3-03W" secondAttribute="centerX" id="XWu-Fe-I12"/>
                                                 <constraint firstItem="ud9-cx-AXJ" firstAttribute="leading" secondItem="MaY-v3-03W" secondAttribute="trailing" constant="10" id="glT-KU-Fym"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="MaY-v3-03W" secondAttribute="bottom" id="kLA-4b-rPd"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7Wm-ym-SRF" secondAttribute="trailing" id="xUm-ie-ZdY"/>
@@ -66,6 +78,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="showActivityIndicator" destination="Xie-H4-f9l" id="Zvl-Tf-DPC"/>
                                             <outlet property="showImageView" destination="MaY-v3-03W" id="WNt-qU-7GD"/>
                                             <outlet property="showNameLabel" destination="7Wm-ym-SRF" id="Bh5-IK-Y5i"/>
                                             <segue destination="cpd-yh-p0G" kind="show" id="I2X-Rl-hkb"/>
@@ -136,10 +149,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GeI-LH-SVH">
+                                                    <rect key="frame" x="80.5" y="42.5" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="NkV-p5-Q4V"/>
+                                                        <constraint firstAttribute="width" constant="50" id="sLi-uP-emg"/>
+                                                    </constraints>
+                                                    <color key="color" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="o6w-Tb-CRF" firstAttribute="centerY" secondItem="aDO-zE-1NV" secondAttribute="centerY" id="1VG-gM-ao0"/>
+                                                <constraint firstItem="GeI-LH-SVH" firstAttribute="centerX" secondItem="hW4-3T-6zS" secondAttribute="centerX" id="3tV-YY-tYt"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="d1o-nL-pdU" secondAttribute="trailing" id="QeV-bM-m3D"/>
+                                                <constraint firstItem="GeI-LH-SVH" firstAttribute="centerY" secondItem="hW4-3T-6zS" secondAttribute="centerY" id="Qyv-ln-iZd"/>
                                                 <constraint firstAttribute="bottom" secondItem="hW4-3T-6zS" secondAttribute="bottom" constant="10" id="Tfb-Ib-86o"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="o6w-Tb-CRF" secondAttribute="trailing" id="V5B-Rh-rYu"/>
                                                 <constraint firstItem="d1o-nL-pdU" firstAttribute="top" secondItem="o6w-Tb-CRF" secondAttribute="bottom" constant="8" id="Xr4-jt-WPY"/>
@@ -153,6 +176,7 @@
                                             <outlet property="episodeImageView" destination="hW4-3T-6zS" id="meQ-jb-WoA"/>
                                             <outlet property="episodeNamelabel" destination="o6w-Tb-CRF" id="foG-8u-qhZ"/>
                                             <outlet property="seasonAndEpisodeLabel" destination="d1o-nL-pdU" id="keL-Vw-Syv"/>
+                                            <outlet property="showActivityIndicator" destination="GeI-LH-SVH" id="nZv-RG-iim"/>
                                             <segue destination="uXu-bR-mCd" kind="show" id="g6f-dN-uQ5"/>
                                         </connections>
                                     </tableViewCell>

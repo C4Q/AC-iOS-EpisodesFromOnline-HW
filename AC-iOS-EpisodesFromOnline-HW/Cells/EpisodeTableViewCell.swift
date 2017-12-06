@@ -13,7 +13,7 @@ class EpisodeTableViewCell: UITableViewCell {
     @IBOutlet weak var episodeImageView: UIImageView!
     @IBOutlet weak var episodeNamelabel: UILabel!
     @IBOutlet weak var seasonAndEpisodeLabel: UILabel!
-
+    @IBOutlet weak var showActivityIndicator: UIActivityIndicatorView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

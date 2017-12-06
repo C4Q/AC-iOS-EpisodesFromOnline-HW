@@ -53,7 +53,6 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         //cell.episodeImageView.image = nil
         cell.episodeNamelabel.text = selectedEpisode.name
         cell.seasonAndEpisodeLabel.text = "E: \(selectedEpisode.number) S: \(selectedEpisode.season)"
-        dump(selectedEpisode)
         //Then call the completion handler to get image from url
 //        guard let imageUrlStr = selectedEpisode.image?.original else {
 //            return cell //only executes if you cant make the url
@@ -61,12 +60,14 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         //Below the closure is being defined but its not running yet
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
             cell.episodeImageView?.image = onlineImage
-            print("hello")
             cell.setNeedsLayout() //Makes the image load as soon as it's ready
+            cell.showActivityIndicator.stopAnimating()
+
         }
         //Now we are passing the closure down. The closure above can only run if it passes all of the errors. in the api client and the network helper.
         //Api client first the network helper
         if let image = selectedEpisode.image?.original {
+        cell.showActivityIndicator.startAnimating()
         ImageAPIClient.manager.getImage(from: image,
                                         completionHandler: completion,
                                         errorHandler: {print($0)})

@@ -31,9 +31,7 @@ class EpisodeDetailViewController: UIViewController {
         }
         setImage()
     }
-    
-    //if summary my path to summary .replacing....insrt symbols <[^>]+> with "" .regularexpression, range nil
-    
+
     func setImage() {
         let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
             self.largeEpisodeImage.image = onlineImage

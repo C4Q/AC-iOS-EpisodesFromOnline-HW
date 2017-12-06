@@ -20,9 +20,3 @@ struct ImageWrapper2: Codable {
     let original: String
 }
 
-
-
-//TO DO:
-//Create new cell file
-//create outlets for the labels and image
-//then connect
