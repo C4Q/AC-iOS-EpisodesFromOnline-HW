@@ -27,6 +27,7 @@ class EpisodeDetailViewController: UIViewController {
         episodeInfo.text = "Season: " + episode.season.description + " " + "Episode: " + episode.number.description
         if episode.image == nil{
             episodeImage.image = #imageLiteral(resourceName: "image_not_available")
+            activityIndicator.stopAnimating()
         }else{ setImage() }
         
         if episode.summary ==  nil{
