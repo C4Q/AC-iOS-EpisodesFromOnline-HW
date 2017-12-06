@@ -14,5 +14,6 @@ enum AppError: Error {
     case badImageURL
     case badURL
     case badStatusCode(num: Int)
+    case cannotParseJSON(rawError: Error)
     case other(rawError: Error)
 }
