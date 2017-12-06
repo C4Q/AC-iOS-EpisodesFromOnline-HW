@@ -78,6 +78,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Shows" id="8Qq-vZ-EyX"/>
                     <connections>
+                        <outlet property="showsSearchBar" destination="Hew-DL-D0P" id="pak-V6-7Pr"/>
+                        <outlet property="showsTableView" destination="ohS-bB-fdc" id="1ef-NK-AuN"/>
                         <segue destination="eKP-qF-dLN" kind="show" identifier="episodeSegue" id="Qzf-Zl-RUb"/>
                     </connections>
                 </viewController>
@@ -88,7 +90,7 @@
         <!--Episodes-->
         <scene sceneID="Xbp-Qt-St4">
             <objects>
-                <viewController id="eKP-qF-dLN" sceneMemberID="viewController">
+                <viewController id="eKP-qF-dLN" customClass="EpisodeListViewController" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zqd-fY-d09">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -162,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="1190" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Episode Detail View Controller-->
         <scene sceneID="iIQ-Sc-Kd8">
             <objects>
-                <viewController id="0X1-Ma-ncv" sceneMemberID="viewController">
+                <viewController id="0X1-Ma-ncv" customClass="EpisodeDetailViewController" customModule="AC_iOS_EpisodesFromOnline_HW" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N28-Up-QAu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
