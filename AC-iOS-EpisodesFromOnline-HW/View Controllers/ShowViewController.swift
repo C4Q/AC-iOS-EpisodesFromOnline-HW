@@ -101,7 +101,7 @@ extension ShowViewController: UITableViewDelegate, UITableViewDataSource{
         if let cell = cell as? ShowTableViewCell{
             
             
-            cell.showTitle.text = "Title: " + showToSet.show.name
+            cell.showTitle.text = showToSet.show.name
             
             if showToSet.show.rating?.average != nil{
                 cell.showRating.text = "Rating: " + (showToSet.show.rating?.average?.description)!} else{
