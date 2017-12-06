@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="goS-mS-3Rz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="goS-mS-3Rz">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -113,7 +113,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="OqK-Pi-xEI">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noData" translatesAutoresizingMaskIntoConstraints="NO" id="OqK-Pi-xEI">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hav-yu-PqB">
@@ -168,7 +168,7 @@
                                             <outlet property="EpisodeImage" destination="sLP-kc-eWL" id="1yw-Hx-DeR"/>
                                             <outlet property="episodeName" destination="3pJ-yA-BcV" id="3d9-RL-pKv"/>
                                             <outlet property="seasonAndEpisodeNumber" destination="jes-7s-ib9" id="f5I-kd-5gf"/>
-                                            <segue destination="Wyl-hk-Wij" kind="show" id="6L1-df-VmM"/>
+                                            <segue destination="Wyl-hk-Wij" kind="show" identifier="bob" id="7Mk-fZ-Fow"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -190,7 +190,8 @@
                     </view>
                     <connections>
                         <outlet property="activitySpinner" destination="hav-yu-PqB" id="GUn-4J-MOB"/>
-                        <outlet property="episodesTableView" destination="yIk-nx-P2I" id="5qo-gP-FaY"/>
+                        <outlet property="episodesTableView" destination="yIk-nx-P2I" id="nH8-MT-pIW"/>
+                        <outlet property="noDataImgae" destination="OqK-Pi-xEI" id="lQC-5V-m3F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jRR-4x-ISl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,7 +243,6 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.27424436062451657" green="0.9025574357030457" blue="0.89410736358126541" alpha="0.76899614726027399" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3v1-nU-f7y" firstAttribute="trailing" secondItem="iv0-qM-D65" secondAttribute="trailing" constant="11" id="CJI-gB-w7n"/>
                             <constraint firstItem="plR-s3-VWH" firstAttribute="leading" secondItem="3v1-nU-f7y" secondAttribute="leading" constant="11" id="El6-1c-l9r"/>

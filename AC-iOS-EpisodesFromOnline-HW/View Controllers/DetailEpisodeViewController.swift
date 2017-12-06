@@ -22,6 +22,11 @@ class DetailEpisodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Why wont they accept a cutomized color?????
+        self.view.backgroundColor = UIColor.green
+        //self.view.backgroundColor = UIColor.init(hexString: "#41ebf4")
+        
         activitySpinner.isHidden = true
         guard let detailEpisodes = detailEpisodes else {return}
         
@@ -74,6 +79,37 @@ extension String {
     }
     var html2String: String {
         return html2AttributedString?.string ?? ""
+    }
+}
+
+
+//MARK: - Converting hex -> UIColor  let gold = UIColor(hexString: "#ffe700ff")
+
+//https://stackoverflow.com/questions/28124119/convert-html-to-plain-text-in-swift
+extension UIColor {
+    public convenience init?(hexString: String) {
+        let r, g, b, a: CGFloat
+        
+        if hexString.hasPrefix("#") {
+            let start = hexString.index(hexString.startIndex, offsetBy: 1)
+            let hexColor = String(hexString[start...])
+            
+            if hexColor.count == 6 {
+                let scanner = Scanner(string: hexColor)
+                var hexNumber: UInt64 = 0
+                
+                if scanner.scanHexInt64(&hexNumber) {
+                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
+                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
+                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
+                    a = CGFloat(hexNumber & 0x000000ff) / 255
+                    
+                    self.init(red: r, green: g, blue: b, alpha: a)
+                    return
+                }
+            }
+        }
+        return nil
     }
 }
 

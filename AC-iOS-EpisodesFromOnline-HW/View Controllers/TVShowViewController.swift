@@ -138,17 +138,18 @@ extension TVShowViewController: UISearchBarDelegate {
         
         //BONUS: - If user searchTerm does not match tvShow title, bring up brick wall and alert box letting them know they need to enter the correct tv show title
         
-        //        if !(searchBar.text?.contains(newSearchTerm))! {
-        //            //set alert pop up
-        //            tvShowTableView.isHidden = true // works with Fragl roc but nothing else
-        //            let alertController = UIAlertController(title: "Error!", message: "Could not find TV show", preferredStyle: UIAlertControllerStyle.alert)
-        //            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-        //            alertController.addAction(okAction)
-        //            alertController.view.layoutIfNeeded() //avoid Snapshotting error
-        //            self.present(alertController, animated: true, completion: nil)
-        //            tvShowTableView.isHidden = false
-        //            tvShowTableView.reloadData()
-        //
-        //        }
+        //if number results == 0 , show alert
+                if !(searchBar.text?.contains(newSearchTerm))! {
+                    //set alert pop up
+                    tvShowTableView.isHidden = true // works with Fragl roc but nothing else
+                    let alertController = UIAlertController(title: "Error!", message: "Could not find TV show", preferredStyle: UIAlertControllerStyle.alert)
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+                    alertController.addAction(okAction)
+                    alertController.view.layoutIfNeeded() //avoid Snapshotting error
+                    self.present(alertController, animated: true, completion: nil)
+                    tvShowTableView.isHidden = false
+                    tvShowTableView.reloadData()
+        
+                }
     }
 }

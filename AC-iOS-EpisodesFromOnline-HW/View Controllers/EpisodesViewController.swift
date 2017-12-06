@@ -10,25 +10,34 @@ import UIKit
 
 class EpisodesViewController: UIViewController {
     
+
     @IBOutlet weak var episodesTableView: UITableView!
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     
+    @IBOutlet weak var noDataImgae: UIImageView!
     //acting like a viewWillAppear -> Episodes need to be populated by the segue before sending over
     var episodes: String? {
         didSet{
             getEpisodeData()
         }
     }
-
+    
     //what is powering the app
     var allEpisodesFromTVShow = [Episode]() {
         didSet {
             episodesTableView.reloadData()
             if allEpisodesFromTVShow.isEmpty {
                 episodesTableView.backgroundColor = nil
+                //show noData image
+                noDataImgae.isHidden = false
             }
         }
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        episodesTableView.isHidden = false
+//    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +70,7 @@ class EpisodesViewController: UIViewController {
     // MARK: - Segue to DetailEpisodeViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailEpisodeViewController {
+            //episodesTableView.isHidden = true
             // set selected row
             let selectedRow = self.episodesTableView.indexPathForSelectedRow!.row
             //set selected show
@@ -83,7 +93,7 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         guard let episodeCell = episodesTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as? EpisodesTableViewCell else {return UITableViewCell()}
         
         let episode = allEpisodesFromTVShow[indexPath.row]
-
+        
         //set properties
         episodeCell.episodeName.text = episode.name
         
@@ -92,7 +102,7 @@ extension EpisodesViewController: UITableViewDelegate, UITableViewDataSource {
         } else{
             episodeCell.seasonAndEpisodeNumber.text = "not available"
         }
-
+        
         //episodeCell.EpisodeImage.image = #imageLiteral(resourceName: "defaultImage")
         
         /// MARK: - Getting Image
