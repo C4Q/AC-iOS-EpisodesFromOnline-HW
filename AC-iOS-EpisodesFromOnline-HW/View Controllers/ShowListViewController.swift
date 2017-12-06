@@ -9,7 +9,7 @@
 import UIKit
 
 class ShowListViewController: UIViewController {
-
+    
     @IBOutlet weak var showsTableView: UITableView!
     @IBOutlet weak var showsSearchBar: UISearchBar!
     
@@ -35,7 +35,7 @@ class ShowListViewController: UIViewController {
                 self.showsTableView.reloadData()
         },
             errorHandler: { (appError) in
-                let alertController = UIAlertController(title: "ERROR:", message: "Search could not find any results: \(appError)", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "ERROR", message: "Search could not find any results:\n\(appError)", preferredStyle: .alert)
                 let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                 alertController.addAction(alertAction)
                 self.present(alertController, animated: true, completion: nil)
@@ -50,9 +50,10 @@ class ShowListViewController: UIViewController {
             
             let currentShow = shows[indexPath.row]
             destinationVC.show = currentShow
+        }
     }
+    
 }
-
 //Table View Methods
 extension ShowListViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -109,5 +110,4 @@ extension ShowListViewController: UISearchBarDelegate {
         
         searchTerm = searchText
     }
-    
 }
