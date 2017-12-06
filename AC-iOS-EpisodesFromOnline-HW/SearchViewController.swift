@@ -70,6 +70,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchTableView: UITableView! {
         didSet {
             searchTableView.dataSource = self
+            
         }
     }
     
@@ -87,6 +88,9 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationController?.navigationBar.backgroundColor = UIColor.black
+        self.searchTableView.backgroundColor = ProjectColor.backroundGray
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,7 +104,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResults?.count ?? 0
+        return searchResults?.count ?? -1
     }
     
     // MARK: - Cell Rendering
@@ -111,6 +115,7 @@ extension SearchViewController: UITableViewDataSource {
     
         cell.nameLabel.text = show.name
         cell.ratingLabel.text = {
+            cell.ratingLabel.textColor = ProjectColor.niceYellow
             if let rating = show.rating.average {
                 let stars = String(repeating: "★", count: Int(rating)) + String(repeating: "✩", count: Int(10 - rating))
                 return stars

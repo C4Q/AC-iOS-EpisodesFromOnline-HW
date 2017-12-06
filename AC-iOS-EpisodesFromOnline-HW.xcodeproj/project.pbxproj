@@ -19,6 +19,7 @@
 		C43AAF481FCF19A1003F18DB /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43AAF471FCF19A1003F18DB /* EpisodeViewController.swift */; };
 		C43AAF4A1FCF1CA9003F18DB /* Episodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43AAF491FCF1CA9003F18DB /* Episodes.swift */; };
 		C4CF552B1FD77E8100B3F1E7 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CF552A1FD77E8100B3F1E7 /* SearchTableViewCell.swift */; };
+		C4CF552F1FD7957E00B3F1E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CF552E1FD7957E00B3F1E7 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C43AAF471FCF19A1003F18DB /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		C43AAF491FCF1CA9003F18DB /* Episodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
 		C4CF552A1FD77E8100B3F1E7 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		C4CF552E1FD7957E00B3F1E7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +54,6 @@
 		54056A5C1FCF030800CD81BE = {
 			isa = PBXGroup;
 			children = (
-				C4CF552A1FD77E8100B3F1E7 /* SearchTableViewCell.swift */,
 				54056A671FCF030800CD81BE /* AC-iOS-EpisodesFromOnline-HW */,
 				54056A661FCF030800CD81BE /* Products */,
 			);
@@ -70,10 +71,12 @@
 			isa = PBXGroup;
 			children = (
 				54056A681FCF030800CD81BE /* AppDelegate.swift */,
+				C4CF552E1FD7957E00B3F1E7 /* Constants.swift */,
 				54056A6A1FCF030800CD81BE /* SearchViewController.swift */,
 				C43AAF471FCF19A1003F18DB /* EpisodeViewController.swift */,
 				C439C0FF1FD06F76009F0A5D /* DetailViewController.swift */,
 				C43AAF451FCF088C003F18DB /* NetworkHepler.swift */,
+				C4CF552A1FD77E8100B3F1E7 /* SearchTableViewCell.swift */,
 				C439C1411FD0CDDD009F0A5D /* EpisodeTableViewCell.swift */,
 				C43AAF491FCF1CA9003F18DB /* Episodes.swift */,
 				C43AAF431FCF07C6003F18DB /* SearchResult.swift */,
@@ -162,6 +165,7 @@
 				C439C1421FD0CDDD009F0A5D /* EpisodeTableViewCell.swift in Sources */,
 				54056A6B1FCF030800CD81BE /* SearchViewController.swift in Sources */,
 				C43AAF441FCF07C6003F18DB /* SearchResult.swift in Sources */,
+				C4CF552F1FD7957E00B3F1E7 /* Constants.swift in Sources */,
 				C43AAF4A1FCF1CA9003F18DB /* Episodes.swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
 				C43AAF481FCF19A1003F18DB /* EpisodeViewController.swift in Sources */,

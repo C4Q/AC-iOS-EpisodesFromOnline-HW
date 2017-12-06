@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel! {
         didSet {
+            nameLabel.textColor = ProjectColor.niceYellow
             nameLabel.text = episode?.name
             
         }
@@ -21,12 +22,14 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var episodeLabel: UILabel! {
         didSet {
-            episodeLabel.text = "Season: \(episode?.season.description ?? "") Number: \(episode?.number.description ?? "")"
+            episodeLabel.text = "Season: \(episode?.season.description ?? "")    Episode: \(episode?.number.description ?? "")"
         }
     }
     
     @IBOutlet weak var summaryText: UITextView! {
         didSet {
+            summaryText.backgroundColor = ProjectColor.backroundGray
+            summaryText.textColor = ProjectColor.niceYellow
             if let summary = episode?.summary {
                 //Removes html tags
                 summaryText.text = summary.replacingOccurrences(of: "<[^>]*>", with: "", options: .regularExpression)
@@ -58,6 +61,9 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.tintColor = ProjectColor.backroundGray
+        self.view.backgroundColor = ProjectColor.backroundGray
+        
         episodeLabel.numberOfLines = 0
         episodeLabel.lineBreakMode = .byWordWrapping
         

@@ -45,6 +45,8 @@ class EpisodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationController?.navigationBar.backgroundColor = ProjectColor.backroundGray
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,8 +85,9 @@ extension EpisodeViewController: UITableViewDataSource {
         
         guard let currentEpisode = episodes?[index] else { return customCell }
         
+        customCell.nameLabel.textColor = ProjectColor.niceYellow
         customCell.nameLabel.text = currentEpisode.name
-        customCell.episodeLabel.text = "Season: \(currentEpisode.season) Number: \(currentEpisode.number)"
+        customCell.episodeLabel.text = "Season: \(currentEpisode.season)     Episode: \(currentEpisode.number)"
         customCell.imageLoadingSpinner.startAnimating()
         ImageDownloader.manager.getImage(from: currentEpisode.image?.medium ?? "noImage",
                                          completionHandler: { customCell.episodeImageView?.image = UIImage(data: $0)

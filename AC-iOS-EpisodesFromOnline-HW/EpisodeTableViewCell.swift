@@ -19,6 +19,10 @@ class EpisodeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         imageLoadingSpinner.hidesWhenStopped = true
+        
+        self.selectionStyle = .none
+
+        self.backgroundColor = ProjectColor.backroundGray
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
