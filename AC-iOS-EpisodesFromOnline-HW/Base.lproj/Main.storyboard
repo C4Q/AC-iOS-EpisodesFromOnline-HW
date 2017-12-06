@@ -157,6 +157,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Episodes" id="8eS-ni-O7d"/>
                     <connections>
+                        <outlet property="episodesTableView" destination="0e8-t3-qc2" id="twx-YM-Yc6"/>
                         <segue destination="0X1-Ma-ncv" kind="show" identifier="detailedSegue" id="I4i-xr-AP2"/>
                     </connections>
                 </viewController>

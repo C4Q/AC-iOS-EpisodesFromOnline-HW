@@ -43,7 +43,13 @@ class ShowListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //to do - set up passing
+        if
+            let destinationVC = segue.destination as? EpisodeListViewController,
+            let selectedCell = sender as? ShowsTableViewCell,
+            let indexPath = showsTableView.indexPath(for: selectedCell) {
+            
+            let currentShow = shows[indexPath.row]
+            destinationVC.show = currentShow
     }
 }
 
@@ -52,7 +58,9 @@ extension ShowListViewController: UITableViewDelegate, UITableViewDataSource {
     
     //Delegate Methods
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //to do for segue
+        if let showCell = tableView.cellForRow(at: indexPath) as? ShowsTableViewCell {
+            performSegue(withIdentifier: "episodeSegue", sender: showCell)
+        }
     }
     
     //Data Source Methods
