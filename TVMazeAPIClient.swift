@@ -1,5 +1,5 @@
 //
-//  AmazeTVAPIClient.swift
+//  TVMazeAPIClient.swift
 //  AC-iOS-EpisodesFromOnline-HW
 //
 //  Created by C4Q on 12/2/17.
