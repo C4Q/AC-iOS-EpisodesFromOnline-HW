@@ -23,6 +23,7 @@ struct Episode: Codable {
     let url: String
 }
 
+
 extension Episode {
     enum CodingKeys: String, CodingKey {
         case airdate = "airdate"

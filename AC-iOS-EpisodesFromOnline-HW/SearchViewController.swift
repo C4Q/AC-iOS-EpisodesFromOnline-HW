@@ -10,7 +10,6 @@ import UIKit
 
 
 class SearchViewController: UIViewController {
-
     
     var searchTerm: String? {
         didSet {
@@ -24,7 +23,8 @@ class SearchViewController: UIViewController {
             SearchAPIClient.manager.getSearchResults(from: showSearchEndpoint!,
                                                      completionHandler: {self.searchResults = $0
                                                                         self.tableViewState = .complete},
-                                                     errorHandler: {print($0)})
+                                                     errorHandler: {print($0)
+                                                                    self.tableViewState = .incomplete})
         }
     }
     
@@ -34,7 +34,6 @@ class SearchViewController: UIViewController {
         }
     }
     
-    
     var tableViewState: NetworkHelper.State? {
         didSet {
             guard let state = tableViewState else { return }
@@ -43,12 +42,25 @@ class SearchViewController: UIViewController {
                 activityIndicator.startAnimating()
             case .complete:
                 activityIndicator.stopAnimating()
+                activityIndicator.color = .gray
+            case .incomplete:
+                activityIndicator.color = .red
             }
         }
     }
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            //Sets location of spinner to top right spot in nav bar
+            let barButton = UIBarButtonItem(customView: activityIndicator)
+            self.navigationItem.setRightBarButton(barButton, animated: true)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableViewState = .complete
+    }
+    
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
             searchBar.delegate = self
@@ -63,10 +75,12 @@ class SearchViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EpisodeSegue" {
+            activityIndicator.startAnimating()
             let destination = segue.destination as! EpisodeViewController
-            let selectedCell = sender as! UITableViewCell
+            let selectedCell = sender as! SearchTableViewCell
             let index = (searchTableView.indexPath(for: selectedCell)?.row)!
             destination.episodeEndpoint = "\((searchResults?[index].show.links.currentEpisode.href)!)/episodes"
+            destination.showName = (searchResults?[index].show.name)!
         }
     }
     
@@ -78,10 +92,6 @@ class SearchViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("Single")
     }
 
 }
@@ -95,43 +105,37 @@ extension SearchViewController: UITableViewDataSource {
     
     // MARK: - Cell Rendering
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = searchTableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath)
+        let cell = searchTableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchTableViewCell
         let index = indexPath.row
         guard let show = searchResults?[index].show else { return cell }
-        
-        
-        
-        cell.textLabel?.text = show.name
-        cell.detailTextLabel?.text = show.rating.average?.description ?? "No Rating"
-        
-        // MARK: - Downloads images async
-        if let albumURL = URL(string: show.image?.medium ?? "noImage") {
-            
-            // doing work on a background thread
-            DispatchQueue.global().sync {
-                if let data = try? Data.init(contentsOf: albumURL) {
-                    // go back to main thread to update UI
-                    DispatchQueue.main.async {
-                        cell.imageView?.image = UIImage(data: data)
-                        cell.setNeedsLayout()
-                    }
-                } else {
-                    cell.imageView?.image = UIImage(named: "noImage")
-                    cell.setNeedsLayout()
-                }
-                
+    
+        cell.nameLabel.text = show.name
+        cell.ratingLabel.text = {
+            if let rating = show.rating.average {
+                let stars = String(repeating: "★", count: Int(rating)) + String(repeating: "✩", count: Int(10 - rating))
+                return stars
+            } else {
+                return "No Rating"
             }
-        }
+        }()
+        
+        ImageDownloader.manager.getImage(from: show.image?.medium ?? "noImage",
+                                         completionHandler: {self.tableViewState = .complete
+                                                            cell.searchImageView.image = UIImage(data: $0)
+                                                            cell.setNeedsLayout()},
+                                        errorHandler: {self.tableViewState = .incomplete
+                                                        cell.searchImageView.image = UIImage(named: "noImage")
+                                                        cell.setNeedsLayout()})
+        
         return cell
     }
-    
+
 }
 
 extension SearchViewController: UISearchBarDelegate {
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        guard !(searchBar.text?.isEmpty)! else { return }
-//        searchTerm = searchBar.text
-//    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else { return }

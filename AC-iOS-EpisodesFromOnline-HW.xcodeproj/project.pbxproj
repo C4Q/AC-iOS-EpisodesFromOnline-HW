@@ -12,10 +12,13 @@
 		54056A6E1FCF030800CD81BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54056A6C1FCF030800CD81BE /* Main.storyboard */; };
 		54056A701FCF030800CD81BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54056A6F1FCF030800CD81BE /* Assets.xcassets */; };
 		54056A731FCF030800CD81BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54056A711FCF030800CD81BE /* LaunchScreen.storyboard */; };
+		C439C1001FD06F76009F0A5D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C439C0FF1FD06F76009F0A5D /* DetailViewController.swift */; };
+		C439C1421FD0CDDD009F0A5D /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C439C1411FD0CDDD009F0A5D /* EpisodeTableViewCell.swift */; };
 		C43AAF441FCF07C6003F18DB /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43AAF431FCF07C6003F18DB /* SearchResult.swift */; };
 		C43AAF461FCF088C003F18DB /* NetworkHepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43AAF451FCF088C003F18DB /* NetworkHepler.swift */; };
 		C43AAF481FCF19A1003F18DB /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43AAF471FCF19A1003F18DB /* EpisodeViewController.swift */; };
 		C43AAF4A1FCF1CA9003F18DB /* Episodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43AAF491FCF1CA9003F18DB /* Episodes.swift */; };
+		C4CF552B1FD77E8100B3F1E7 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CF552A1FD77E8100B3F1E7 /* SearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +29,13 @@
 		54056A6F1FCF030800CD81BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54056A721FCF030800CD81BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54056A741FCF030800CD81BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C439C0FF1FD06F76009F0A5D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C439C1411FD0CDDD009F0A5D /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		C43AAF431FCF07C6003F18DB /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		C43AAF451FCF088C003F18DB /* NetworkHepler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHepler.swift; sourceTree = "<group>"; };
 		C43AAF471FCF19A1003F18DB /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		C43AAF491FCF1CA9003F18DB /* Episodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episodes.swift; sourceTree = "<group>"; };
+		C4CF552A1FD77E8100B3F1E7 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,7 @@
 		54056A5C1FCF030800CD81BE = {
 			isa = PBXGroup;
 			children = (
+				C4CF552A1FD77E8100B3F1E7 /* SearchTableViewCell.swift */,
 				54056A671FCF030800CD81BE /* AC-iOS-EpisodesFromOnline-HW */,
 				54056A661FCF030800CD81BE /* Products */,
 			);
@@ -65,7 +72,9 @@
 				54056A681FCF030800CD81BE /* AppDelegate.swift */,
 				54056A6A1FCF030800CD81BE /* SearchViewController.swift */,
 				C43AAF471FCF19A1003F18DB /* EpisodeViewController.swift */,
+				C439C0FF1FD06F76009F0A5D /* DetailViewController.swift */,
 				C43AAF451FCF088C003F18DB /* NetworkHepler.swift */,
+				C439C1411FD0CDDD009F0A5D /* EpisodeTableViewCell.swift */,
 				C43AAF491FCF1CA9003F18DB /* Episodes.swift */,
 				C43AAF431FCF07C6003F18DB /* SearchResult.swift */,
 				54056A6C1FCF030800CD81BE /* Main.storyboard */,
@@ -148,12 +157,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CF552B1FD77E8100B3F1E7 /* SearchTableViewCell.swift in Sources */,
 				C43AAF461FCF088C003F18DB /* NetworkHepler.swift in Sources */,
+				C439C1421FD0CDDD009F0A5D /* EpisodeTableViewCell.swift in Sources */,
 				54056A6B1FCF030800CD81BE /* SearchViewController.swift in Sources */,
 				C43AAF441FCF07C6003F18DB /* SearchResult.swift in Sources */,
 				C43AAF4A1FCF1CA9003F18DB /* Episodes.swift in Sources */,
 				54056A691FCF030800CD81BE /* AppDelegate.swift in Sources */,
 				C43AAF481FCF19A1003F18DB /* EpisodeViewController.swift in Sources */,
+				C439C1001FD06F76009F0A5D /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
