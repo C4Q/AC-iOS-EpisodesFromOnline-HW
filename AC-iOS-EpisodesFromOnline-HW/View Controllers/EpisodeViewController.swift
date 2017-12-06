@@ -115,6 +115,13 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? EpisodeDetailViewController
+        let selectedEpisode = episodes![(tableView.indexPathForSelectedRow?.row)!]
+        destination?.episodes = selectedEpisode
+    }
+    
     //CREATE TABLEVIEW METHODS TO CONFORM
     
 }

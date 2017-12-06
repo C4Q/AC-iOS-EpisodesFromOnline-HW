@@ -10,26 +10,72 @@ import UIKit
 
 class EpisodeDetailViewController: UIViewController {
 
+    
+    //Outlets
+    
+    @IBOutlet weak var textScroll: UITextView!
+    @IBOutlet weak var picture: UIImageView!
+    
+    
+    //Variables
+    var episodes: Episode!
+    var episodeInfo: String = ""
+    var name: String = ""
+    var info: String = ""
+    
+    
+    //View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+     
+        guard let imageUrlStr = episodes.image?.medium else {
+         return picture.image = #imageLiteral(resourceName: "photo_not_available_large")
+            
+        }
+        
+        let completion: (UIImage) -> Void = {(onlineImage: UIImage) in
+            self.picture.image = onlineImage
+        }
+        
+        ImageAPIClient.manager.getImage(from: imageUrlStr, completionHandler: completion, errorHandler: {print($0)})
+        
+        
+        if episodes.name != nil {
+            name = episodes.name!
+        } else {
+            name = "No Name"
+        }
+        
+        if episodes.summary != nil {
+            info = episodes.summary!.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        } else {
+            info = "No Summary"
+        }
+        
+        
+      episodeInfo =
+        """
+        Episode: \(name)
+        
+        S: \(episodes.season) E: \(episodes.number)
+        
+        Description: \(info)
+
+        """
+        
+        textScroll.text = episodeInfo
+        
+        
+        
+        
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
 
 }
