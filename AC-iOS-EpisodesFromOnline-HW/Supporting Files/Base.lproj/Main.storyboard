@@ -64,7 +64,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUf-Ta-hc2">
-                                                    <rect key="frame" x="146" y="79.666666666666671" width="45.333333333333343" height="22"/>
+                                                    <rect key="frame" x="146" y="79.666666666666671" width="45.666666666666657" height="22"/>
                                                     <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -140,14 +140,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="NotFlix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u0-pc-sCd">
-                                <rect key="frame" x="74" y="168" width="266" height="74"/>
-                                <fontDescription key="fontDescription" name="HoeflerText-Italic" family="Hoefler Text" pointSize="74"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="NotFlix" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u0-pc-sCd">
+                                <rect key="frame" x="74" y="119.66666666666667" width="266" height="230.33333333333331"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Italic" family="Hoefler Text" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYF-Bs-YYm">
-                                <rect key="frame" x="86" y="317" width="243" height="24"/>
+                                <rect key="frame" x="85" y="410" width="243" height="24"/>
                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="bW2-zx-JeP"/>
@@ -163,15 +163,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="YoN-3g-OaY" firstAttribute="bottom" secondItem="GYF-Bs-YYm" secondAttribute="bottom" constant="395" id="5dO-aa-KaW"/>
-                            <constraint firstItem="GYF-Bs-YYm" firstAttribute="top" secondItem="6u0-pc-sCd" secondAttribute="bottom" constant="75" id="8s9-EV-378"/>
+                            <constraint firstItem="YoN-3g-OaY" firstAttribute="bottom" secondItem="GYF-Bs-YYm" secondAttribute="bottom" constant="302" id="5dO-aa-KaW"/>
+                            <constraint firstItem="GYF-Bs-YYm" firstAttribute="top" secondItem="6u0-pc-sCd" secondAttribute="bottom" constant="60" id="8s9-EV-378"/>
                             <constraint firstItem="YoN-3g-OaY" firstAttribute="trailing" secondItem="6u0-pc-sCd" secondAttribute="trailing" constant="74" id="Hrd-Ka-1Kf"/>
-                            <constraint firstItem="GYF-Bs-YYm" firstAttribute="leading" secondItem="YoN-3g-OaY" secondAttribute="leading" constant="86" id="Ywz-TK-wSV"/>
-                            <constraint firstItem="YoN-3g-OaY" firstAttribute="bottom" secondItem="GYF-Bs-YYm" secondAttribute="bottom" constant="395" id="b5y-Z8-vWL"/>
+                            <constraint firstItem="GYF-Bs-YYm" firstAttribute="leading" secondItem="YoN-3g-OaY" secondAttribute="leading" constant="85" id="Ywz-TK-wSV"/>
+                            <constraint firstItem="YoN-3g-OaY" firstAttribute="bottom" secondItem="GYF-Bs-YYm" secondAttribute="bottom" constant="302" id="b5y-Z8-vWL"/>
                             <constraint firstItem="6u0-pc-sCd" firstAttribute="leading" secondItem="YoN-3g-OaY" secondAttribute="leading" constant="74" id="coZ-FT-ZUg"/>
-                            <constraint firstItem="GYF-Bs-YYm" firstAttribute="top" secondItem="6u0-pc-sCd" secondAttribute="bottom" constant="75" id="hA0-8h-L6a"/>
-                            <constraint firstItem="YoN-3g-OaY" firstAttribute="trailing" secondItem="GYF-Bs-YYm" secondAttribute="trailing" constant="85" id="jFN-jU-75R"/>
-                            <constraint firstItem="6u0-pc-sCd" firstAttribute="top" secondItem="YoN-3g-OaY" secondAttribute="top" constant="104" id="sT7-8Q-kRS"/>
+                            <constraint firstItem="GYF-Bs-YYm" firstAttribute="top" secondItem="6u0-pc-sCd" secondAttribute="bottom" constant="60" id="hA0-8h-L6a"/>
+                            <constraint firstItem="YoN-3g-OaY" firstAttribute="trailing" secondItem="GYF-Bs-YYm" secondAttribute="trailing" constant="86" id="jFN-jU-75R"/>
+                            <constraint firstItem="6u0-pc-sCd" firstAttribute="top" secondItem="YoN-3g-OaY" secondAttribute="top" constant="55" id="sT7-8Q-kRS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YoN-3g-OaY"/>
                     </view>
@@ -181,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRy-hU-Hbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-600" y="-148.36956521739131"/>
+            <point key="canvasLocation" x="-601.875" y="-148.94366197183098"/>
         </scene>
         <!--Episodes-->
         <scene sceneID="khj-bo-vRf">
@@ -204,7 +204,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bTX-zy-nyB">
-                                                    <rect key="frame" x="11" y="22.000000000000007" width="165.66666666666666" height="103.66666666666669"/>
+                                                    <rect key="frame" x="11" y="22" width="165.66666666666666" height="104"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="bTX-zy-nyB" secondAttribute="height" multiplier="16:10" id="oiy-zg-HmQ"/>
                                                     </constraints>
@@ -216,7 +216,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="TFs-LW-2mA">
-                                                    <rect key="frame" x="75.666666666666671" y="55" width="37" height="37"/>
+                                                    <rect key="frame" x="75.666666666666671" y="54.666666666666657" width="37" height="37"/>
                                                     <color key="color" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QWS-pf-pae">
