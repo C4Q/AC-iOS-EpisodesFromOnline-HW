@@ -33,7 +33,7 @@ class EpisodesDetailedViewController: UIViewController {
     func loadEpisodeDetails() {
         episodeName.text = episode.name
         episodeSeason.text = "Season: \(episode.season.description)"
-        episodeNumber.text = "Number: \(episode.number.description)"
+        episodeNumber.text = "Episode Number: \(episode.number.description)"
         episodeDetails.text = removeHtmlFromString(inPutString: episode.summary)
         guard let imageURL = (episode.image?.original ?? episode.image?.medium) else {return}
         let setImage: (UIImage)->Void = { (onlineImage: UIImage) in
