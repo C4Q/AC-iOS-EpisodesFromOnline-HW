@@ -27,7 +27,7 @@ class ShowsViewController: UIViewController, UITableViewDataSource, UITableViewD
             tableView.reloadData() //reload the tableview rows when the shows change based on the search term
         }
     }
-    var searchTerm = "a" { //set to a to have a default set of shows on staartup, instead of a blank tableView
+    var searchTerm = "a" { //set to a to have a default set of shows on startup, instead of a blank tableView
         didSet{
             loadShows() //reload the shows whenever the search term changes
         }
@@ -93,7 +93,7 @@ class ShowsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
         let printErrors = {(error: Error) in print(error)}
         ImageAPIClient.manager.getImage(from: imageURL, completionHandler: setImage, errorHandler: printErrors)
-        
+        //return the cell
         return cell
     }
     

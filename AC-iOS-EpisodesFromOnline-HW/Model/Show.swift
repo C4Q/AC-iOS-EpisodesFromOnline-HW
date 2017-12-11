@@ -47,11 +47,6 @@ struct ShowAPIClient {
         do {
             //Decode the data - in this case its Show
             let showInfo = try JSONDecoder().decode([ShowInfo].self,from: data)
-//            var shows = [Show]() //creating an empty array called shows of type [Show] from our model
-//            //Using the data from showInfo, we will populate the shows variable
-//            for show in showInfo {
-//                shows.append(show.show)
-//            }
              let shows = showInfo.map(){$0.show}
 
             //After we get the data for the Shows, ow we call the CompletionHandler
