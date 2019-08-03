@@ -10,6 +10,27 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    class AppDelegate: UIResponder, UIApplicationDelegate {
+        
+        //remove if errors occurr
+        //... truncated
+        
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool {
+            
+            // set up your background color view
+            let colorView = UIView()
+            colorView.backgroundColor = UIColor.blue
+            
+            // use UITableViewCell.appearance() to configure
+            // the default appearance of all UITableViewCells in your app
+            UITableViewCell.appearance().selectedBackgroundView = colorView
+            
+            return true
+        }
+        
+        //... truncated
+    }
 
     var window: UIWindow?
 
