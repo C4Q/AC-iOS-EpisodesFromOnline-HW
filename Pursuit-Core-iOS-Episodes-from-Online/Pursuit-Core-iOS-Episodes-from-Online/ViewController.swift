@@ -9,12 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var viewShow = [Shows](){
+        didSet {
+    showTableVIew.reloadData()
+    }
+}
+    @IBOutlet weak var showTableVIew: UITableView!
+    @IBOutlet weak var showSearchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        showTableVIew.delegate = self
+        showTableVIew.dataSource = self
+        showSearchBar.delegate = self
     }
-
-
+}
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
+    
+    
+    
 }
 
