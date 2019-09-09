@@ -9,17 +9,23 @@
 import Foundation
 
 struct ShowsWrapper: Codable{
-    let show: [Shows]
-    static func getShow(completionHandler: @escaping (Result<[Shows],AppError>) -> () ) {
-        let url = "https://randomuser.me/api/?results=50"
+    let show: Shows
+    
+    static func getShow(userInput: String?,completionHandler: @escaping (Result<[ShowsWrapper],AppError>) -> () ) {
+        var url = "https://api.tvmaze.com/search/shows?)"
+        if let word = userInput{
+          let newString = word.replacingOccurrences(of: " ", with: "-")
+         url = "https://api.tvmaze.com/search/shows?q=\(newString)"
+            }
         NetWorkManager.shared.fetchData(urlString: url) { (result) in
+      print(url)
             switch result {
             case .failure(let error):
                 completionHandler(.failure(error))
             case .success(let data):
                 do {
-                    let decodedShow = try JSONDecoder().decode(ShowsWrapper.self, from: data)
-                    completionHandler(.success(decodedShow.show))
+                    let decodedShow = try JSONDecoder().decode([ShowsWrapper].self, from: data)
+                    completionHandler(.success(decodedShow))
                 } catch {
                     completionHandler(.failure(.badJSONError))
                     print(error)
@@ -30,13 +36,17 @@ struct ShowsWrapper: Codable{
 }
 struct Shows: Codable {
     let id: Int
-    let name: String
-    let type: String
-    let summary: String
-    let image: imageWrapper
-    let runtime: Int
+    let name: String?
+    let summary: String?
+    let runtime: Int?
+    let image: imageWrapper?
+    let rating: ratings?
 }
 struct imageWrapper: Codable{
-    let image: String
-    let original: String
+    let medium: String?
+    let original: String?
+}
+
+struct ratings: Codable{
+    let average: Double?
 }

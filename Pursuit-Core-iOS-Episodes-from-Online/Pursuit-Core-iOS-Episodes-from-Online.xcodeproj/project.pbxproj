@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5033104A2326EAFF00AEB22A /* episodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503310492326EAFF00AEB22A /* episodeTableViewCell.swift */; };
+		5033104D2326EB2700AEB22A /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5033104C2326EB2700AEB22A /* EpisodeViewController.swift */; };
+		5033104F2326ED2E00AEB22A /* episodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5033104E2326ED2E00AEB22A /* episodeModel.swift */; };
 		507FF83C23259D2100785C2E /* ShowListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507FF83B23259D2100785C2E /* ShowListTableViewCell.swift */; };
 		507FF83F2325A03F00785C2E /* ShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507FF83E2325A03F00785C2E /* ShowModel.swift */; };
 		507FF8422325A1B400785C2E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507FF8412325A1B400785C2E /* NetworkManager.swift */; };
@@ -30,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		503310492326EAFF00AEB22A /* episodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = episodeTableViewCell.swift; sourceTree = "<group>"; };
+		5033104C2326EB2700AEB22A /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		5033104E2326ED2E00AEB22A /* episodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = episodeModel.swift; sourceTree = "<group>"; };
 		507FF83B23259D2100785C2E /* ShowListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowListTableViewCell.swift; sourceTree = "<group>"; };
 		507FF83E2325A03F00785C2E /* ShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowModel.swift; sourceTree = "<group>"; };
 		507FF8412325A1B400785C2E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -64,10 +70,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5033104B2326EB0400AEB22A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD01CD5D232178AF002D0255 /* ViewController.swift */,
+				5033104C2326EB2700AEB22A /* EpisodeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		507FF83A23259D0300785C2E /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
 				507FF83B23259D2100785C2E /* ShowListTableViewCell.swift */,
+				503310492326EAFF00AEB22A /* episodeTableViewCell.swift */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -76,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				507FF83E2325A03F00785C2E /* ShowModel.swift */,
+				5033104E2326ED2E00AEB22A /* episodeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,7 +131,7 @@
 				507FF83D2325A03200785C2E /* Model */,
 				507FF83A23259D0300785C2E /* CustomCell */,
 				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
-				CD01CD5D232178AF002D0255 /* ViewController.swift */,
+				5033104B2326EB0400AEB22A /* ViewControllers */,
 				CD01CD5F232178AF002D0255 /* Main.storyboard */,
 				CD01CD62232178B2002D0255 /* Assets.xcassets */,
 				CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */,
@@ -233,11 +250,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5033104A2326EAFF00AEB22A /* episodeTableViewCell.swift in Sources */,
 				507FF83F2325A03F00785C2E /* ShowModel.swift in Sources */,
+				5033104F2326ED2E00AEB22A /* episodeModel.swift in Sources */,
 				CD01CD5E232178AF002D0255 /* ViewController.swift in Sources */,
 				507FF8422325A1B400785C2E /* NetworkManager.swift in Sources */,
 				507FF8442325A1BA00785C2E /* imageHelper.swift in Sources */,
 				507FF83C23259D2100785C2E /* ShowListTableViewCell.swift in Sources */,
+				5033104D2326EB2700AEB22A /* EpisodeViewController.swift in Sources */,
 				CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

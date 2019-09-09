@@ -12,6 +12,6 @@ class ShowListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var showName: UILabel!
-    @IBOutlet weak var showEpisode: UILabel!
-    @IBOutlet weak var showDescrip: UITextView!
+    @IBOutlet weak var runtime: UILabel!
+    @IBOutlet weak var rating: UILabel!
 }
