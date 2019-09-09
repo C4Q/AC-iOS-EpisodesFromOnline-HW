@@ -18,10 +18,26 @@ class ViewController: UIViewController {
         }
     }
     
+    var filteredShows: [Show] {
+        get {
+            guard let searchString = searchString else { return shows }
+            
+            guard searchString != "" else { return shows}
+            
+            return Show.getFilteredResults(arr: shows, searchText: searchString)
+        }
+    }
+    
+    var searchString: String? = nil {
+        didSet {
+            self.showTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        loadData(str: "jane")
+        loadData()
         showSearchBar.delegate = self
     }
     
@@ -32,9 +48,9 @@ class ViewController: UIViewController {
         showTableView.tableFooterView = UIView()
     }
     
-    private func loadData(str:String?) {
+    private func loadData() {
         
-        ShowAPIHelper.shared.getShows(str:str) { (result) in
+        ShowAPIHelper.shared.getShows() { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
@@ -50,18 +66,17 @@ class ViewController: UIViewController {
 }
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shows.count
+        return filteredShows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as! ShowsTableViewCell
         
-        let show = shows[indexPath.row]
+        let show = filteredShows[indexPath.row]
         cell.nameLabel.text = show.name
         cell.ratingLabel.text = show.rating.average?.description
         
-        if let showImage = show.image.original {
-            ImageHelper.shared.getImage(urlStr: showImage) { (result) in
+        ImageHelper.shared.getImage(urlStr: show.image.original) { (result) in
                 DispatchQueue.main.async {
                     switch result {
                     case .failure(let error):
@@ -71,9 +86,7 @@ extension ViewController: UITableViewDataSource{
                     }
                 }
             }
-        } else {
-            cell.showImage.image = UIImage(named: "noImage")
-        }
+        
         return cell
     }
     
@@ -83,7 +96,7 @@ extension ViewController: UITableViewDelegate{}
 
 extension ViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        loadData(str: searchText)
+        searchString = searchText
     }
 }
 

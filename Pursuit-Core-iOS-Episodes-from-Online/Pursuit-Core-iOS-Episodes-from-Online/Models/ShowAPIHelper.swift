@@ -13,22 +13,22 @@ struct  ShowAPIHelper {
     
     static var shared = ShowAPIHelper()
     
-    var defaultStr = "https://api.tvmaze.com/search/shows?q="
+//    var defaultStr = "https://api.tvmaze.com/search/shows?q="
     
-    var urlStr = "https://api.tvmaze.com/search/shows?q="
+    var urlStr = "http://api.tvmaze.com/shows"
     
-    func getUrl(str:String) -> String {
-        return "https://api.tvmaze.com/search/shows?q=\(str)"
-    }
+//    func getUrl(str:String) -> String {
+//        return "https://api.tvmaze.com/search/shows?q=\(str)"
+//    }
     
     
-    mutating func getShows(str: String?, completionHandler: @ escaping (Result<[Show], AppError>) -> ()) {
-        
-        if str != nil {
-            urlStr = getUrl(str: str!)
-        } else {
-            urlStr = defaultStr
-        }
+    mutating func getShows(completionHandler: @ escaping (Result<[Show], AppError>) -> ()) {
+//        
+//        if str != nil {
+//            urlStr = getUrl(str: str!)
+//        } else {
+//            urlStr = defaultStr
+//        }
         
         NetworkManager.shared.fetchData(urlString: urlStr) {
             (result) in
@@ -37,9 +37,8 @@ struct  ShowAPIHelper {
                 completionHandler(.failure(error))
             case .success(let data):
                 do {
-                    let showInfo = try JSONDecoder().decode([ShowWrapper].self, from: data)
-                    let shows = showInfo.map{$0.show}
-                    completionHandler(.success(shows))
+                    let showInfo = try JSONDecoder().decode([Show].self, from: data)
+                    completionHandler(.success(showInfo))
                     
                 } catch {
                     completionHandler(.failure(.noDataError))
