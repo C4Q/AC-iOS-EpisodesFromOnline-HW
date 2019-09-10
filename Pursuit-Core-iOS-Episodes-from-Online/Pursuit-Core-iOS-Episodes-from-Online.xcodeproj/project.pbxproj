@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58FF962323282BE40018C04E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF962223282BE40018C04E /* NetworkManager.swift */; };
+		58FF962623282C400018C04E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF962523282C400018C04E /* AppError.swift */; };
+		58FF962823282C770018C04E /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF962723282C770018C04E /* APIHelper.swift */; };
+		58FF962A23282E230018C04E /* ShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF962923282E230018C04E /* ShowModel.swift */; };
+		58FF9630232830A50018C04E /* ShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF962F232830A50018C04E /* ShowsViewController.swift */; };
 		CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5B232178AF002D0255 /* AppDelegate.swift */; };
-		CD01CD5E232178AF002D0255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5D232178AF002D0255 /* ViewController.swift */; };
 		CD01CD61232178AF002D0255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD5F232178AF002D0255 /* Main.storyboard */; };
 		CD01CD63232178B2002D0255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD62232178B2002D0255 /* Assets.xcassets */; };
 		CD01CD66232178B2002D0255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */; };
@@ -26,9 +30,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58FF962223282BE40018C04E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		58FF962523282C400018C04E /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		58FF962723282C770018C04E /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		58FF962923282E230018C04E /* ShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowModel.swift; sourceTree = "<group>"; };
+		58FF962F232830A50018C04E /* ShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsViewController.swift; sourceTree = "<group>"; };
 		CD01CD58232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pursuit-Core-iOS-Episodes-from-Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD01CD5B232178AF002D0255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD01CD5D232178AF002D0255 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CD01CD60232178AF002D0255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD01CD62232178B2002D0255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD01CD65232178B2002D0255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +64,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		58FF962423282BE80018C04E /* HelperFiles */ = {
+			isa = PBXGroup;
+			children = (
+				58FF962223282BE40018C04E /* NetworkManager.swift */,
+				58FF962523282C400018C04E /* AppError.swift */,
+				58FF962723282C770018C04E /* APIHelper.swift */,
+			);
+			path = HelperFiles;
+			sourceTree = "<group>";
+		};
+		58FF962B23282E2A0018C04E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				58FF962923282E230018C04E /* ShowModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		58FF962C23282E320018C04E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				58FF962F232830A50018C04E /* ShowsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		58FF962D23282E470018C04E /* SupportiveFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
+				CD01CD67232178B2002D0255 /* Info.plist */,
+				CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */,
+				CD01CD62232178B2002D0255 /* Assets.xcassets */,
+			);
+			path = SupportiveFiles;
+			sourceTree = "<group>";
+		};
+		58FF962E23282E680018C04E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD01CD5F232178AF002D0255 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CD01CD4F232178AF002D0255 = {
 			isa = PBXGroup;
 			children = (
@@ -77,12 +130,11 @@
 		CD01CD5A232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online */ = {
 			isa = PBXGroup;
 			children = (
-				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
-				CD01CD5D232178AF002D0255 /* ViewController.swift */,
-				CD01CD5F232178AF002D0255 /* Main.storyboard */,
-				CD01CD62232178B2002D0255 /* Assets.xcassets */,
-				CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */,
-				CD01CD67232178B2002D0255 /* Info.plist */,
+				58FF962B23282E2A0018C04E /* Models */,
+				58FF962C23282E320018C04E /* Controllers */,
+				58FF962E23282E680018C04E /* Views */,
+				58FF962423282BE80018C04E /* HelperFiles */,
+				58FF962D23282E470018C04E /* SupportiveFiles */,
 			);
 			path = "Pursuit-Core-iOS-Episodes-from-Online";
 			sourceTree = "<group>";
@@ -197,7 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD01CD5E232178AF002D0255 /* ViewController.swift in Sources */,
+				58FF962A23282E230018C04E /* ShowModel.swift in Sources */,
+				58FF962623282C400018C04E /* AppError.swift in Sources */,
+				58FF962323282BE40018C04E /* NetworkManager.swift in Sources */,
+				58FF9630232830A50018C04E /* ShowsViewController.swift in Sources */,
+				58FF962823282C770018C04E /* APIHelper.swift in Sources */,
 				CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
