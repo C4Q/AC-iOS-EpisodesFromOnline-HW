@@ -10,10 +10,14 @@ import UIKit
 
 class EpisodeViewController: UIViewController {
     var show: ShowsWrapper?
+    @IBOutlet weak var showImage: UIImageView!
+    @IBOutlet weak var showName: UILabel!
+    @IBOutlet weak var showDescrip: UITextView!
+    
     var episodes = [Episodes](){
         didSet {
             episodeTable.reloadData()
-          
+          setUpLabelsShow()
         }
     }
     @IBOutlet weak var episodeTable: UITableView!
@@ -43,6 +47,21 @@ class EpisodeViewController: UIViewController {
             else { fatalError("No row selected") }
         epVc.episode = episodes[selectedIndexPath.row]
     }
+    func setUpLabelsShow(){
+        showName.text = show?.show.name
+        showDescrip.text = show?.show.fixedSummary
+        if let image = show?.show.image?.original{
+        ImageHelper.shared.fetchImage(urlString: image) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let image):
+                    self.showImage.image = image
+                }
+            }
+        }
+        }}
 }
 
 extension EpisodeViewController: UITableViewDelegate, UITableViewDataSource{
@@ -65,6 +84,7 @@ extension EpisodeViewController: UITableViewDelegate, UITableViewDataSource{
             }
             }
         }
+        
         cell?.episodeName.text = epi.name
         cell?.episodeNum.text = epi.episodeFormat
         cell?.episodeDescrip.text = epi.summary

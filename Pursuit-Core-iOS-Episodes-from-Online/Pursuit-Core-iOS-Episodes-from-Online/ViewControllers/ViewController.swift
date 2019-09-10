@@ -50,7 +50,6 @@ class ViewController: UIViewController {
             else { fatalError("No row selected") }
         showVc.show = filteredShow[selectedIndexPath.row]
     }
-    
     func loadData(word: String?){
         ShowsWrapper.getShow(userInput: word){ (result) in
             switch result {
