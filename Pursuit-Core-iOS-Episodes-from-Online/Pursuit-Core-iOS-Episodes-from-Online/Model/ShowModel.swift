@@ -43,11 +43,7 @@ struct Shows: Codable {
     let rating: ratings?
     var fixedSummary: String{
         if let summary = summary{
-        let a = summary.replacingOccurrences(of: "<p>", with: "")
-       let b = a.replacingOccurrences(of: "<b>", with: "")
-       let c = b.replacingOccurrences(of: "</b>", with: "")
-       return c.replacingOccurrences(of: "</p>", with: "")
-        }
+            return summary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)}
         return ""
     }
 }

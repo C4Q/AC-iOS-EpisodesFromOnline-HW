@@ -16,8 +16,7 @@ struct Episodes: Codable{
     let image: imageGet?
     var fixedSummary: String{
         if let summary = summary{
-         let better = summary.replacingOccurrences(of: "<p>", with: "")
-        return better.replacingOccurrences(of: "</p>", with: "")
+         return summary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
         }
         return ""
     }

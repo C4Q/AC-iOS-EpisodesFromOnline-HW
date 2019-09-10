@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var showTableVIew: UITableView!
     @IBOutlet weak var showSearchBar: UISearchBar!
+    @IBOutlet weak var spinnerOne: UIActivityIndicatorView!
+    
     var viewShow = [ShowsWrapper](){
         didSet {
             showTableVIew.reloadData()
@@ -50,7 +52,7 @@ class ViewController: UIViewController {
             else { fatalError("No row selected") }
         showVc.show = filteredShow[selectedIndexPath.row]
     }
-    func loadData(word: String?){
+   private func loadData(word: String?){
         ShowsWrapper.getShow(userInput: word){ (result) in
             switch result {
             case .failure(let error):
@@ -79,6 +81,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                     case .failure(let error):
                         print(error)
                     case .success(let image):
+                         self.spinnerOne.stopAnimating()
                         cell?.showImage.image = image
                     }}}
         }
@@ -101,6 +104,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 }
 extension ViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.spinnerOne.startAnimating()
         self.userSearchTerm = searchText
         loadData(word: searchText)
     }
