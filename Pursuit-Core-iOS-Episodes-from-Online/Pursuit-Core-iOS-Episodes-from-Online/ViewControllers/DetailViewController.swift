@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    @IBOutlet weak var episodeImage: UIImageView!
+    @IBOutlet weak var episodeImageView: UIImageView!
     
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -24,9 +24,32 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLabel.text = episode.name
-
+        seasonAndEpisodeLabel.text = episode.seasonAndEpisode
+        descriptionLabel.text = episode.summary
+        descriptionLabel.isEditable = false
+        setImage()
+        
     }
     
+    
+    func setImage() {
+        
+        if let episodeImage = episode.image {
+            ImageHelper.shared.getImage(urlStr: episodeImage.original) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let imageFromOnline):
+                    self.episodeImageView.image = imageFromOnline
+                    }
+                }
+            }
+            
+        }
+        
+        episodeImageView.image = UIImage(named: "noImage")
+    }
 
 
 }

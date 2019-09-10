@@ -16,10 +16,7 @@ class EpisodesViewController: UIViewController {
     
     var episodes = [Episodes]() {
         didSet {
-           
                 self.episodeTableView.reloadData()
-          
-            
         }
     }
  
@@ -63,6 +60,24 @@ extension EpisodesViewController: UITableViewDataSource {
         
         cell.episodeImage.image = UIImage(named: "noImage")
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueIdentifier = segue.identifier else {fatalError("No identifier in segue")}
+        
+        switch segueIdentifier {
+        case "episodeSegue":
+            
+            guard let indexPath = episodeTableView.indexPathForSelectedRow,
+                let destination = segue.destination as? DetailViewController else { return }
+            let episode = episodes[indexPath.row]
+            destination.episode = episode
+            
+            
+        default:
+            fatalError("unexpected segue identifies")
+        }
+        
     }
     
     
