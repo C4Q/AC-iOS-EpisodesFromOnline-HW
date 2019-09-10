@@ -7,3 +7,31 @@
 //
 
 import Foundation
+class ShowsInSeasonAPIHelper {
+    static let shared = ShowsInSeasonAPIHelper()
+    private init () {}
+    
+    
+    
+    func getShowInsideOfSeasonb(ID:Int?,completionHandler: @escaping(Result<[Episode],AppError>) -> ()) {
+        var urlStr = "http://api.tvmaze.com/shows/\(String(describing: ID))/episodes"
+       
+        
+        
+        NetworkManager.shared.fetchData(urlString: urlStr) { (result) in
+            switch result {
+            case .failure(let error):
+                completionHandler(.failure(error))
+            case .success(let data):
+                do { let show = try JSONDecoder().decode(Episode.self, from: data)
+                    completionHandler(.success(show))
+                } catch {
+                    completionHandler(.failure(.networkError))
+                }
+            }
+        }
+    }
+}
+
+
+

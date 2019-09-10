@@ -11,7 +11,7 @@ import UIKit
 
     struct ShowWrapper:Codable{
         let show:Shows
-    
+}
     struct Shows:Codable{
         let id:Int
         let name:String
@@ -21,4 +21,4 @@ import UIKit
         let medium:String
         let original:String
     }
-}
+
