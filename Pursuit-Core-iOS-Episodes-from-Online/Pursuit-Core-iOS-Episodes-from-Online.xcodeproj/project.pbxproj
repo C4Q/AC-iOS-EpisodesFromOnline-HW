@@ -56,6 +56,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69FD1DFA2328413A0084F9B8 /* APIHelpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIHelpers;
+			sourceTree = "<group>";
+		};
+		69FD1DFB2328413D0084F9B8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		69FD1DFC2328413F0084F9B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CD01CD4F232178AF002D0255 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +98,9 @@
 		CD01CD5A232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online */ = {
 			isa = PBXGroup;
 			children = (
+				69FD1DFC2328413F0084F9B8 /* Models */,
+				69FD1DFB2328413D0084F9B8 /* ViewControllers */,
+				69FD1DFA2328413A0084F9B8 /* APIHelpers */,
 				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
 				CD01CD5D232178AF002D0255 /* ViewController.swift */,
 				CD01CD5F232178AF002D0255 /* Main.storyboard */,
