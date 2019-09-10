@@ -9,19 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var viewShow = [ShowsWrapper](){
-        didSet {
-    showTableVIew.reloadData()
-    }
-}
+    
     @IBOutlet weak var showTableVIew: UITableView!
     @IBOutlet weak var showSearchBar: UISearchBar!
+    var viewShow = [ShowsWrapper](){
+        didSet {
+            showTableVIew.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showTableVIew.delegate = self
         showTableVIew.dataSource = self
         showSearchBar.delegate = self
-
+        loadData(word: nil)
     }
     var userSearchTerm: String? {
         didSet {
@@ -35,9 +37,11 @@ class ViewController: UIViewController {
         guard userSearchTerm != "" else {
             return viewShow
         }
-        
         return viewShow
     }
+   
+
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let showVc = segue.destination as? EpisodeViewController else {
             fatalError("Unexpected segue")
@@ -46,42 +50,9 @@ class ViewController: UIViewController {
             else { fatalError("No row selected") }
         showVc.show = filteredShow[selectedIndexPath.row]
     }
-}
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredShow.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = showTableVIew.dequeueReusableCell(withIdentifier: "showListCell", for: indexPath) as? ShowListTableViewCell
-        let shows = filteredShow[indexPath.row].show
-        if let url = shows.image?.medium{
-        ImageHelper.shared.fetchImage(urlString: url) { (result) in
-            
-            DispatchQueue.main.async {
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let image):
-                    cell?.showImage.image = image
-                    
-                }
-            }
-        }
-        }
-        cell?.showName.text = shows.name
-        cell?.runtime.text = "\(shows.runtime?.description) mins"
-          return cell!
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
-    }
-    
-}
-extension ViewController: UISearchBarDelegate{
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.userSearchTerm = searchText
-        ShowsWrapper.getShow(userInput: userSearchTerm){ (result) in
+    func loadData(word: String?){
+        ShowsWrapper.getShow(userInput: word){ (result) in
             switch result {
             case .failure(let error):
                 print(error)
@@ -91,5 +62,47 @@ extension ViewController: UISearchBarDelegate{
                 }
             }
         }
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredShow.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = showTableVIew.dequeueReusableCell(withIdentifier: "showListCell", for: indexPath) as? ShowListTableViewCell
+        let shows = filteredShow[indexPath.row].show
+        if let url = shows.image?.medium{
+            ImageHelper.shared.fetchImage(urlString: url) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let image):
+                        cell?.showImage.image = image
+                    }}}
+        }
+        cell?.showName.text = shows.name
+        if let run = shows.runtime?.description{
+            cell?.runtime.text = "\(run) Mins"
+        }
+        else {
+            cell?.runtime.text = "No runtime"}
+        if let rate = shows.rating?.average?.description{
+            cell?.rating.text = rate}else {
+            cell?.rating.text = "No rating"
+        }
+        
+        return cell!
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
+    }
+}
+extension ViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.userSearchTerm = searchText
+        loadData(word: searchText)
     }
 }

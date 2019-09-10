@@ -24,7 +24,6 @@ class EpisodeViewController: UIViewController {
         getData()
     }
     func getData(){
-        print(show?.show.id)
         Episodes.getEpisode(id: (show?.show.id)!){ (result) in
     switch result {
     case .failure(let error):
@@ -35,7 +34,17 @@ class EpisodeViewController: UIViewController {
     }
     }
     }
-    }}
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let epVc = segue.destination as? DetailViewController else {
+            fatalError("Unexpected segue")
+        }
+        guard let selectedIndexPath = episodeTable.indexPathForSelectedRow
+            else { fatalError("No row selected") }
+        epVc.episode = episodes[selectedIndexPath.row]
+    }
+}
+
 extension EpisodeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count
@@ -54,9 +63,10 @@ extension EpisodeViewController: UITableViewDelegate, UITableViewDataSource{
                     cell?.episodeImage.image = image
                 }
             }
-            }}
+            }
+        }
         cell?.episodeName.text = epi.name
-        cell?.episodeNum.text = epi.number?.description
+        cell?.episodeNum.text = epi.episodeFormat
         cell?.episodeDescrip.text = epi.summary
         return cell!
     }

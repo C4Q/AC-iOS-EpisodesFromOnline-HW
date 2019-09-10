@@ -14,6 +14,22 @@ struct Episodes: Codable{
     let number: Int?
     let summary: String?
     let image: imageGet?
+    var fixedSummary: String{
+        if let summary = summary{
+         let better = summary.replacingOccurrences(of: "<p>", with: "")
+        return better.replacingOccurrences(of: "</p>", with: "")
+        }
+        return ""
+    }
+    var episodeFormat: String{
+        if let season = season{
+            if let episode = number{
+                return "S:\(season.description) E: \(episode)"
+            }
+        }
+        return "No season Info"
+    }
+
     
     static func getEpisode(id: Int,completionHandler: @escaping (Result<[Episodes],AppError>) -> () ) {
         
