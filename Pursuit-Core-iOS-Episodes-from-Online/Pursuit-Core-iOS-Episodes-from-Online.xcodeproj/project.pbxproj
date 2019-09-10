@@ -21,6 +21,7 @@
 		287E3FEE232827C900C2A26D /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E3FED232827C900C2A26D /* EpisodesViewController.swift */; };
 		287E3FF023282F1B00C2A26D /* EpisodeAPIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E3FEF23282F1B00C2A26D /* EpisodeAPIHelper.swift */; };
 		287E3FF223282FA900C2A26D /* EpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E3FF123282FA900C2A26D /* EpisodesTableViewCell.swift */; };
+		287E3FF423284C3F00C2A26D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E3FF323284C3F00C2A26D /* DetailViewController.swift */; };
 		CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5B232178AF002D0255 /* AppDelegate.swift */; };
 		CD01CD5E232178AF002D0255 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5D232178AF002D0255 /* ShowViewController.swift */; };
 		CD01CD61232178AF002D0255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD5F232178AF002D0255 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		287E3FED232827C900C2A26D /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		287E3FEF23282F1B00C2A26D /* EpisodeAPIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeAPIHelper.swift; sourceTree = "<group>"; };
 		287E3FF123282FA900C2A26D /* EpisodesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewCell.swift; sourceTree = "<group>"; };
+		287E3FF323284C3F00C2A26D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CD01CD58232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pursuit-Core-iOS-Episodes-from-Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD01CD5B232178AF002D0255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD01CD5D232178AF002D0255 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowViewController.swift; path = ../ShowViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				CD01CD5D232178AF002D0255 /* ShowViewController.swift */,
 				287E3FED232827C900C2A26D /* EpisodesViewController.swift */,
+				287E3FF323284C3F00C2A26D /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287E3FF423284C3F00C2A26D /* DetailViewController.swift in Sources */,
 				287E3FEE232827C900C2A26D /* EpisodesViewController.swift in Sources */,
 				287E3FF223282FA900C2A26D /* EpisodesTableViewCell.swift in Sources */,
 				287E3FF023282F1B00C2A26D /* EpisodeAPIHelper.swift in Sources */,
