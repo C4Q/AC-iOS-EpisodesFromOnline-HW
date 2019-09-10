@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     func configureTableView() {
         showTableView.dataSource = self
         showTableView.delegate = self
-        showTableView.rowHeight = 100
+        showTableView.rowHeight = 200
         showTableView.tableFooterView = UIView()
     }
     
