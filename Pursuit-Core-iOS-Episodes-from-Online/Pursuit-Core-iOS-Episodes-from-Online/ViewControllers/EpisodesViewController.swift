@@ -47,6 +47,21 @@ extension EpisodesViewController: UITableViewDataSource {
         cell.nameLabel.text = episode.name
         cell.seasonAndNumberLabel.text = episode.seasonAndEpisode
         
+        if let episodeImage = episode.image {
+            ImageHelper.shared.getImage(urlStr: episodeImage.medium) { (result) in
+               
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let imageFromOnline):
+                         DispatchQueue.main.async {
+                        cell.episodeImage.image = imageFromOnline
+                    }
+                }
+            }
+        }
+        
+        cell.episodeImage.image = UIImage(named: "noImage")
         return cell
     }
     

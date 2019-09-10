@@ -30,8 +30,8 @@ class ViewController: UIViewController {
     
     var searchString: String? = nil {
         didSet {
-            loadData()
             self.showTableView.reloadData()
+            loadData()
         }
     }
     
@@ -98,11 +98,11 @@ extension ViewController: UITableViewDataSource{
             
             guard let indexPath = showTableView.indexPathForSelectedRow,
                 let destination = segue.destination as? EpisodesViewController else { return }
-            let showToPassOver = shows[indexPath.row]
+            let showToPassOver = filteredShows[indexPath.row]
             destination.show = showToPassOver
 
             
-            EpisodesAPIHelper.shared.getEpisodes(id: showToPassOver.id) { (result) in
+            EpisodesAPIHelper.shared.getEpisodes(id:showToPassOver.id) { (result) in
                 DispatchQueue.main.async {
                     switch result {
                     case .failure(let error):

@@ -15,7 +15,7 @@ struct  EpisodesAPIHelper {
     
     
     func getUrl(id:Int) -> String {
-        return "http://api.tvmaze.com/shows/\(128)/episodes"
+        return "http://api.tvmaze.com/shows/\(id)/episodes"
     }
     
    
