@@ -16,9 +16,9 @@ class EpisodesViewController: UIViewController {
     
     var episodes = [Episodes]() {
         didSet {
-            DispatchQueue.main.async {
+           
                 self.episodeTableView.reloadData()
-            }
+          
             
         }
     }
@@ -45,6 +45,7 @@ extension EpisodesViewController: UITableViewDataSource {
         let episode = episodes[indexPath.row]
         
         cell.nameLabel.text = episode.name
+        cell.seasonAndNumberLabel.text = episode.seasonAndEpisode
         
         return cell
     }

@@ -10,13 +10,16 @@ import Foundation
 
 struct Episodes: Codable {
     let name: String
-//    let season: Int
-//    let number: Int
-//    let image: EpisodeImage?
-//    let summary: Image
+    let season: Int
+    let number: Int
+    let image: EpisodeImage?
+    let summary: String
+    var seasonAndEpisode: String {
+        return "Season: \(season)   Episode: \(number)"
+    }
 }
 
-//struct EpisodeImage: Codable {
-//    let medium: String
-//    let original: String
-//}
+struct EpisodeImage: Codable {
+    let medium: String
+    let original: String
+}
