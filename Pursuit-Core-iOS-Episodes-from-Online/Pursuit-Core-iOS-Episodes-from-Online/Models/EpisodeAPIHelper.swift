@@ -14,17 +14,17 @@ struct  EpisodesAPIHelper {
     static var shared = EpisodesAPIHelper()
     
     
-    func getUrl(str:String) -> String {
-        return "https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=\(str)&apikey=261deb4710e0b9d1cd52b236a620d02d"
+    func getUrl(id:Int) -> String {
+        return "http://api.tvmaze.com/shows/\(128)/episodes"
     }
     
    
     
     
-    mutating func getEpisodes(url: String, completionHandler: @ escaping (Result<[Episodes], AppError>) -> ()) {
+    mutating func getEpisodes(id: Int, completionHandler: @ escaping (Result<[Episodes], AppError>) -> ()) {
     
         
-        NetworkManager.shared.fetchData(urlString: getUrl(str: url)) {
+        NetworkManager.shared.fetchData(urlString: getUrl(id: id)) {
             (result) in
             switch result {
             case .failure(let error):

@@ -90,6 +90,35 @@ extension ViewController: UITableViewDataSource{
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueIdentifier = segue.identifier else {fatalError("No identifier in segue")}
+        
+        switch segueIdentifier {
+        case "showSegue":
+            
+            guard let indexPath = showTableView.indexPathForSelectedRow,
+                let destination = segue.destination as? EpisodesViewController else { return }
+            let showToPassOver = shows[indexPath.row]
+            destination.show = showToPassOver
+
+            
+            EpisodesAPIHelper.shared.getEpisodes(id: showToPassOver.id) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let episodesFromJSON):
+                        destination.episodes = episodesFromJSON
+                    }
+                }
+            }
+            
+        default:
+            fatalError("unexpected segue identifies")
+        }
+        
+    }
+    
     
 }
 extension ViewController: UITableViewDelegate{}

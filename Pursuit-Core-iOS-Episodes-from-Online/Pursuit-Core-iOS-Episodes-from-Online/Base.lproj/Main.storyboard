@@ -60,7 +60,7 @@
                                             <outlet property="nameLabel" destination="K9w-lL-oLJ" id="WMN-d5-1bk"/>
                                             <outlet property="ratingLabel" destination="hl4-Yi-zxY" id="76Q-hg-dVw"/>
                                             <outlet property="showImage" destination="mHm-s4-dU5" id="RLl-Fi-ibV"/>
-                                            <segue destination="zYB-Jx-JYQ" kind="show" id="wGU-Fd-vXI"/>
+                                            <segue destination="BFn-0u-NEM" kind="show" identifier="showSegue" id="g1D-yt-P2R"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -87,8 +87,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="DI5-Jf-Bxs"/>
                     <connections>
-                        <outlet property="showSearchBar" destination="DLK-Ay-nRF" id="IZp-PH-p3E"/>
-                        <outlet property="showTableView" destination="EzH-Yf-Yue" id="ni0-cD-O8S"/>
+                        <outlet property="showSearchBar" destination="DLK-Ay-nRF" id="ZMq-UO-RSj"/>
+                        <outlet property="showTableView" destination="EzH-Yf-Yue" id="phk-cz-tEU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -96,37 +96,37 @@
             <point key="canvasLocation" x="1047.8260869565217" y="112.5"/>
         </scene>
         <!--Episodes View Controller-->
-        <scene sceneID="y1d-Rp-vh6">
+        <scene sceneID="Qgm-8a-ReY">
             <objects>
-                <viewController id="zYB-Jx-JYQ" customClass="EpisodesViewController" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9bg-at-ZSa">
+                <viewController id="BFn-0u-NEM" customClass="EpisodesViewController" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NsE-Qr-e8h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ID0-ps-Slq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C9o-SQ-yW7">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="200" id="8wS-rU-oLZ" customClass="EpisodesTableViewCell" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="episodeCell" rowHeight="200" id="YY9-Ka-Xrn" customClass="EpisodesTableViewCell" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8wS-rU-oLZ" id="YMI-XU-ucO">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YY9-Ka-Xrn" id="hlq-pc-D8l">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpd-Pg-9S8">
-                                                    <rect key="frame" x="20" y="24" width="117" height="165"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FKr-pI-y2A">
+                                                    <rect key="frame" x="10" y="24" width="129" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJM-B1-nye">
-                                                    <rect key="frame" x="186" y="40" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHx-bZ-voC">
+                                                    <rect key="frame" x="166" y="31" width="104" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57r-5Z-eDS">
-                                                    <rect key="frame" x="186" y="96" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeK-LK-aSF">
+                                                    <rect key="frame" x="166" y="89" width="191" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -135,9 +135,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="episodeImage" destination="mpd-Pg-9S8" id="rLa-KD-Key"/>
-                                            <outlet property="nameLabel" destination="FJM-B1-nye" id="mKm-GZ-x5B"/>
-                                            <outlet property="seasonAndNumberLabel" destination="57r-5Z-eDS" id="CVu-jN-hcS"/>
+                                            <outlet property="episodeImage" destination="FKr-pI-y2A" id="CqP-zL-0wa"/>
+                                            <outlet property="nameLabel" destination="tHx-bZ-voC" id="uYA-Ba-0rY"/>
+                                            <outlet property="seasonAndNumberLabel" destination="xeK-LK-aSF" id="QfU-fZ-30f"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -145,17 +145,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fh9-Su-An4" firstAttribute="trailing" secondItem="ID0-ps-Slq" secondAttribute="trailing" id="2Jd-kw-ZS5"/>
-                            <constraint firstItem="ID0-ps-Slq" firstAttribute="top" secondItem="fh9-Su-An4" secondAttribute="top" id="3vL-Gh-FSc"/>
-                            <constraint firstItem="ID0-ps-Slq" firstAttribute="leading" secondItem="fh9-Su-An4" secondAttribute="leading" id="Icc-zt-hXq"/>
-                            <constraint firstItem="fh9-Su-An4" firstAttribute="bottom" secondItem="ID0-ps-Slq" secondAttribute="bottom" id="Imu-Jq-0xD"/>
+                            <constraint firstItem="C9o-SQ-yW7" firstAttribute="leading" secondItem="Aqj-dd-xwo" secondAttribute="leading" id="NKv-fQ-YY9"/>
+                            <constraint firstItem="Aqj-dd-xwo" firstAttribute="bottom" secondItem="C9o-SQ-yW7" secondAttribute="bottom" id="Yg0-Uu-BGw"/>
+                            <constraint firstItem="C9o-SQ-yW7" firstAttribute="top" secondItem="Aqj-dd-xwo" secondAttribute="top" id="bBE-yX-keF"/>
+                            <constraint firstItem="Aqj-dd-xwo" firstAttribute="trailing" secondItem="C9o-SQ-yW7" secondAttribute="trailing" id="oIC-UN-BWK"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fh9-Su-An4"/>
+                        <viewLayoutGuide key="safeArea" id="Aqj-dd-xwo"/>
                     </view>
+                    <connections>
+                        <outlet property="episodeTableView" destination="C9o-SQ-yW7" id="oC5-xV-bcO"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gTl-qu-d9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kwm-XX-WyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1869.5652173913045" y="112.5"/>
+            <point key="canvasLocation" x="1943.4782608695655" y="113.83928571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gNd-Yp-0ob">
