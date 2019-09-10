@@ -10,12 +10,15 @@ import Foundation
 
 struct Episodes: Codable {
     let name: String
-    let season: Int
-    let number: Int
+    private let season: Int
+    private let number: Int
     let image: EpisodeImage?
-    let summary: String
+    private let summary: String
     var seasonAndEpisode: String {
         return "Season: \(season)   Episode: \(number)"
+    }
+    var description: String {
+        return summary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
     }
 }
 
