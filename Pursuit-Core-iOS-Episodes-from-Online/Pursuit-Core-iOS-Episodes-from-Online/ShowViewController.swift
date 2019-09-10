@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         get {
             guard let searchString = searchString else { return shows }
             
-            guard searchString != "" else { return shows}
+            guard searchString != "" else { return [Show]()}
             
             return Show.getFilteredResults(arr: shows, searchText: searchString)
         }
@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     
     var searchString: String? = nil {
         didSet {
+            loadData()
             self.showTableView.reloadData()
         }
     }
@@ -37,7 +38,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        loadData()
         showSearchBar.delegate = self
     }
     
