@@ -13,9 +13,11 @@ class ShowsInSeasonAPIHelper {
     
     
     
-    func getShowInsideOfSeasonb(ID:Int?,completionHandler: @escaping(Result<[Episode],AppError>) -> ()) {
-        var urlStr = "http://api.tvmaze.com/shows/\(String(describing: ID))/episodes"
-       
+    func getShowInsideOfSeasonb(ID:Int?,completionHandler: @escaping(Result<Episode,AppError>) -> ()) {
+        var urlStr = "http://api.tvmaze.com/shows/1/episodes"
+        if let newID = ID {
+            urlStr = "http://api.tvmaze.com/shows/\(newID)/episodes"
+        }
         
         
         NetworkManager.shared.fetchData(urlString: urlStr) { (result) in

@@ -14,7 +14,7 @@ class AllShowsAPIHelper {
     
     
     
-    func getShow(name:String?,completionHandler: @escaping(Result<[Shows],AppError>) -> ()) {
+    func getShow(name:String?,completionHandler: @escaping(Result<[ShowWrapper],AppError>) -> ()) {
         var urlStr = "http://api.tvmaze.com/search/shows?q=girls"
         if let showName = name{
             let newShowName = showName.replacingOccurrences(of: " ", with: "-")
@@ -26,10 +26,11 @@ class AllShowsAPIHelper {
             case .failure(let error):
                 completionHandler(.failure(error))
             case .success(let data):
-                do { let show = try JSONDecoder().decode(ShowWrapper.self, from: data)
-                    completionHandler(.success(show.show))
+                do { let show = try JSONDecoder().decode([ShowWrapper].self, from: data)
+                    completionHandler(.success(show))
                 } catch {
                     completionHandler(.failure(.networkError))
+                    print(error)
                 }
             }
         }

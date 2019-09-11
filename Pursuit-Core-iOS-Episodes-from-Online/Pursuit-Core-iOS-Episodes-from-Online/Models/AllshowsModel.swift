@@ -20,5 +20,6 @@ import UIKit
     struct Images:Codable {
         let medium:String
         let original:String
+        
     }
 
