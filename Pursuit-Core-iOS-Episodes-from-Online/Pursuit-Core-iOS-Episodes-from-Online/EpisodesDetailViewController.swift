@@ -28,11 +28,11 @@ class EpisodesDetailViewController: UIViewController, UITableViewDelegate, UITab
         return episodes.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeCell
-        let currentEpisode = episodes[indexPath.row]
-        cell.nameLabel.text = currentEpisode.name
-        cell.seasonEpisodeLabel.text = currentEpisode.seasonAndEpisode
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeCell
+//        let currentEpisode = episodes[indexPath.row]
+//        cell.nameLabel.text = currentEpisode.name
+//        cell.seasonEpisodeLabel.text = currentEpisode.seasonAndEpisode
 //        ImageHelper.shared.fetchImage(urlString: currentEpisode.image?.medium ?? "") { (result) in
 //            DispatchQueue.main.async {
 //                switch result {
@@ -43,18 +43,41 @@ class EpisodesDetailViewController: UIViewController, UITableViewDelegate, UITab
 //                }
 //            }
 //        }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = episodeTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as? EpisodeCell
+        let episode = episodes[indexPath.row]
+        if let image = episode.image?.original{
+            ImageHelper.shared.fetchImage(urlString: image) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let image):
+                        cell?.cellImage.image = image
+                    }
+                }
+            }
+        }
         
-        return cell
-        
+        cell?.nameLabel.text = episode.name
+        cell?.seasonEpisodeLabel.text = episode.seasonAndEpisode
+        return cell!
     }
+        
+    
+        
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
     
     
-    private func loadEpisode(id: Int? ){
-        Episode.getEpisode(episodeID: id ?? 13 ) { (result) in
+    
+    private func loadEpisode(){
+        Episode.getEpisode(episodeID: (endPoint?.id)! ) { (result) in
             DispatchQueue.main.async {
                 switch result{
                 case .failure(let error):
@@ -69,7 +92,7 @@ class EpisodesDetailViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         episodeTableView.delegate = self
         episodeTableView.dataSource = self
-        loadEpisode(id: endPoint?.id)
+        loadEpisode()
         super.viewDidLoad()
     }
     
