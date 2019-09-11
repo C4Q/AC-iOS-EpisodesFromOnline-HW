@@ -14,7 +14,7 @@ struct Episode:Codable{
     let season:Int
     let number:Int
     let image:EpisodeImages?
-    let summary:String
+    let summary:String?
     var seasonNameAndNumber:String {
         return getSeasonNumberAndEpisodeNumber()
     }

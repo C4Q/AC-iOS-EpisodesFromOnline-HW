@@ -47,7 +47,12 @@ class ShowsInSeasonTableView: UIViewController,UITableViewDataSource,UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let episode = episodes[indexPath.row]
          let cell = showsInSeasonTableView.dequeueReusableCell(withIdentifier: "episodes") as! ShowTableViewCell
-            cell.showLabel.text = episode.name
+        cell.activityStatusON()
+        if episode.name == "" {
+            cell.showLabel.text = "Could not load data"
+        } else {
+        cell.showLabel.text = episode.name
+        }
             cell.seasonNumber.text = episode.seasonNameAndNumber
         if let image = episode.image {
             ImageHelper.shared.fetchImage(urlImage: image.original) {
@@ -57,7 +62,7 @@ class ShowsInSeasonTableView: UIViewController,UITableViewDataSource,UITableView
                     print(error)
                 case .success(let foundEpisodes):
                     DispatchQueue.main.async {
-                        
+                        cell.activityStatusOFF()
                     
                         cell.showImageView.image = foundEpisodes
                     }
@@ -72,6 +77,7 @@ class ShowsInSeasonTableView: UIViewController,UITableViewDataSource,UITableView
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
+    
     func setUP() {
         showsInSeasonTableView.delegate = self
         showsInSeasonTableView.dataSource = self

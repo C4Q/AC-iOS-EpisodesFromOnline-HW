@@ -26,10 +26,11 @@ class AllShowsAPIHelper {
             case .failure(let error):
                 completionHandler(.failure(error))
             case .success(let data):
-                do { let show = try JSONDecoder().decode([ShowWrapper].self, from: data)
+                do {
+                    let show = try JSONDecoder().decode([ShowWrapper].self, from: data)
                     completionHandler(.success(show))
                 } catch {
-                    completionHandler(.failure(.networkError))
+                    completionHandler(.failure(.badJSONError))
                     print(error)
                 }
             }

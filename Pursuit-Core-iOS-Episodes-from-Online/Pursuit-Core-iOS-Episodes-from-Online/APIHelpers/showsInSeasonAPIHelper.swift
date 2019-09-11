@@ -23,10 +23,15 @@ class ShowsInSeasonAPIHelper {
             case .failure(let error):
                 completionHandler(.failure(error))
             case .success(let data):
-                do { let show = try JSONDecoder().decode([Episode].self, from: data)
+                do {
+                    print("The data is")
+                    print(String(data: data, encoding: .utf8)!)
+                    let show = try JSONDecoder().decode([Episode].self, from: data)
                     completionHandler(.success(show))
                 } catch {
-                    completionHandler(.failure(.networkError))
+                    print(" the real problem is...:")
+                    print(error)
+                    completionHandler(.failure(.badJSONError))
                 }
             }
         }
