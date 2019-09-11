@@ -63,6 +63,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return UITableViewCell()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let episodeVC = segue.destination as? EpisodeViewController else { fatalError()}
+        
+        Episode.getEpisode(id: getEpisodeID() ) { (result) in
+            DispatchQueue.main.async {
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let episodes):
+                episodeVC.episodes = episodes
+            }
+        }
+    }
+}
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchString = searchBar.text
         loadData(query: searchText)
@@ -74,14 +89,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         loadData(query: searchString)
     }
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchOutlet.delegate = self
-        showTableOutlet.delegate = self
-        showTableOutlet.dataSource = self
-        loadData(query: nil)
-        showTableOutlet.rowHeight = 150
+        setupProtocols()
     }
 
     private func loadData(query: String?){
@@ -95,6 +106,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
+    }
+    
+    private func getEpisodeID() -> Int {
+        let episodeID = tvShows[showTableOutlet.indexPathForSelectedRow!.row].show.id
+        return episodeID
+    }
+    
+   private func setupProtocols() {
+        searchOutlet.delegate = self
+        showTableOutlet.delegate = self
+        showTableOutlet.dataSource = self
+        showTableOutlet.rowHeight = 150
     }
 }
 
