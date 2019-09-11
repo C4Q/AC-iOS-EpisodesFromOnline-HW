@@ -57,6 +57,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         }
                     }
                 }
+            } else {
+                cell.showImageOutlet.image = UIImage(named: "noImage")
             }
             return cell
         }

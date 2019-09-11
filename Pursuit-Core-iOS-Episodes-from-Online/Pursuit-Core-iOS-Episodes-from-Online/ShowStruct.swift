@@ -45,7 +45,7 @@ struct Shows : Codable {
 }
 
 struct RatingWrapper : Codable {
-    let average : Double?
+    let average: Double?
 }
 
 struct ImageWrapper: Codable{

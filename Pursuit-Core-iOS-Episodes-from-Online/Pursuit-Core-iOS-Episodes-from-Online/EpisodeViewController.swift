@@ -8,23 +8,56 @@
 
 import UIKit
 
-class EpisodeViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var episodes = [Episode]() {
+        didSet {
+            episodeTableOutlet.reloadData()
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var episodeTableOutlet: UITableView!
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return episodes.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = episodeTableOutlet.dequeueReusableCell(withIdentifier: "episodeCell") as? EpisodeTableViewCell {
+            let episode = episodes[indexPath.row]
+            cell.episodeNameLabel.text = episode.name
+            cell.episodeNumberLabel.text = "Season \(episode.season), Episode \(episode.number)"
+            
+            if let url = episode.image?.medium {
+                ImageHelper.shared.getImage(urlStr: url) { (result) in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .failure(let error):
+                            print(error)
+                        case .success(let image):
+                            cell.episodeImageOutlet.image = image
+                        }
+                    }
+                }
+            } else {
+                cell.episodeImageOutlet.image = UIImage(named: "noImage")
+            }
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUpProtocols()
+    }
+    
+    private func setUpProtocols() {
+        episodeTableOutlet.delegate = self
+        episodeTableOutlet.dataSource = self
+        episodeTableOutlet.rowHeight = 150
+    }
 
 }
