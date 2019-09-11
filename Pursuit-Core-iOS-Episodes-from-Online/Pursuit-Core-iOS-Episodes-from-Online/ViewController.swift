@@ -44,7 +44,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = showTableOutlet.dequeueReusableCell(withIdentifier: "showCell") as? TVShowTableViewCell {
-            cell.showNameLabel.text = showSearchResults[indexPath.row].show.name
+            let tvShow = showSearchResults[indexPath.row].show
+            cell.showNameLabel.text = tvShow.name
+            if let url = tvShow.image?.medium {
+                ImageHelper.shared.getImage(urlStr: url) { (result) in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .failure(let error):
+                            print(error)
+                        case .success(let image):
+                            cell.showImageOutlet.image = image
+                        }
+                    }
+                }
+            }
             return cell
         }
         return UITableViewCell()
