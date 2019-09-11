@@ -30,10 +30,7 @@ struct Episode: Codable {
             let newNewSummary = newSummary.replacingOccurrences(of: "</p>", with: "")
             return newNewSummary
         }
-        if summary == " "{
         return "Summary Unavailable"
-        }
-        return ""
     }
     
     static func getEpisode(episodeID: Int,completionHandler: @escaping (Result<[Episode],AppError>) -> () ) {
