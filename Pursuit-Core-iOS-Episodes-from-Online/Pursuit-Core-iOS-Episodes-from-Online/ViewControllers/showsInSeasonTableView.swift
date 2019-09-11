@@ -70,7 +70,7 @@ class ShowsInSeasonTableView: UIViewController,UITableViewDataSource,UITableView
         
 }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 120
     }
     func setUP() {
         showsInSeasonTableView.delegate = self
