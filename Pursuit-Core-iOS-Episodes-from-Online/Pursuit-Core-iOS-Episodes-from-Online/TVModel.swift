@@ -6,58 +6,6 @@
 //  Copyright © 2019 Benjamin Stone. All rights reserved.
 //
 
-//import Foundation
-//import UIKit
-//
-//struct Shows: Codable {
-//    let show: ShowInfo
-//
-//    static func loadShows(search: String?, completionHandler: @escaping (Result<[Shows],AppError>) -> () ) {
-//
-//        var url = ""
-//        if let searchWord = search?.lowercased() {
-//        url = "http://api.tvmaze.com/search/shows?q=\(searchWord)"
-//        }
-//        NetworkManager.shared.fetchData(urlString: url) { (result) in
-//            switch result {
-//            case .failure(let error):
-//                completionHandler(.failure(error))
-//            case .success(let data):
-//                do {
-//                    let shows = try JSONDecoder().decode([Shows].self, from: data)
-//                    completionHandler(.success(shows))
-//                } catch {
-//                    completionHandler(.failure(.badJSONError))                }
-//            }
-//        }
-//    }
-//
-//}
-
-//
-//
-//struct ShowInfo: Codable {
-//    let id: Int
-////    let runtime: Int
-//    let url: String
-//    let name: String
-//    let rating: Rating
-//    let image: Image
-//    let summary: String
-//}
-//
-//
-//struct Rating: Codable {
-//    let average: Double
-//}
-//
-//struct Image: Codable {
-//    let medium: String
-//    let original: String
-//}
-
-
-
 import Foundation
 
 struct SearchResult: Codable {

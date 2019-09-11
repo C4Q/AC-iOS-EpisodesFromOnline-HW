@@ -13,9 +13,20 @@ class SummaryDetailViewController: UIViewController {
     
     var selectedEpisode: Episode? {
         didSet {
-
+            ImageHelper.shared.fetchImage(urlString: selectedEpisode?.image?.original ?? "") { (result) in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .failure(let error):
+                            print(error)
+                            print("could not load image")
+                        case .success(let data):
+                            self.summaryImage.image = data
+                        }
+                    }
+                }
         }
-    }
+        }
+    
     
     @IBOutlet weak var summaryImage: UIImageView!
     
@@ -26,21 +37,32 @@ class SummaryDetailViewController: UIViewController {
     @IBOutlet weak var summaryTextField: UITextView!
     
     
+    func loadImage(){
+        ImageHelper.shared.fetchImage(urlString: selectedEpisode?.image?.original ?? "") { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                    print("could not load image")
+                case .success(let data):
+                    self.summaryImage.image = data
+                }
+            }
+        }
+    }
+    
+    func loadLabels(){
+        nameLabel.text = selectedEpisode!.name
+        seasonEpisodeLabel.text = selectedEpisode!.seasonAndEpisode
+        summaryTextField.text = selectedEpisode!.updatedSummary
+    }
+    
     override func viewDidLoad() {
+        loadLabels()
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

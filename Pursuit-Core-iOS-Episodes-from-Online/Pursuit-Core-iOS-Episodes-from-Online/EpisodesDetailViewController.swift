@@ -27,22 +27,7 @@ class EpisodesDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         return episodes.count
     }
-    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeCell
-//        let currentEpisode = episodes[indexPath.row]
-//        cell.nameLabel.text = currentEpisode.name
-//        cell.seasonEpisodeLabel.text = currentEpisode.seasonAndEpisode
-//        ImageHelper.shared.fetchImage(urlString: currentEpisode.image?.medium ?? "") { (result) in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .failure(let error):
-//                    print(error)
-//                case .success(let data):
-//                    cell.cellImage.image = data
-//                }
-//            }
-//        }
+
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -88,6 +73,25 @@ class EpisodesDetailViewController: UIViewController, UITableViewDelegate, UITab
                     self.episodes = data
     }
             }
+        }
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueIdentifier = segue.identifier else {
+            fatalError("No identifier in segue")
+        }
+        switch segueIdentifier {
+        case "summarySegue":
+            guard let detailVC = segue.destination as? SummaryDetailViewController
+                else {
+                    fatalError("Unexpected segue")}
+            guard let selectedIndexPath = episodeTableView.indexPathForSelectedRow else {
+                fatalError("No row selected")
+            }
+            detailVC.selectedEpisode = episodes[selectedIndexPath.row]
+        default:
+            fatalError("Unexpected segue identifier")
         }
     }
     
