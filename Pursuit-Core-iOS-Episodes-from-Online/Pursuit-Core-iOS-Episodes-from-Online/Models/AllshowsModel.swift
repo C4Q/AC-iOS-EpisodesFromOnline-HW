@@ -15,7 +15,7 @@ import UIKit
     struct Shows:Codable{
         let id:Int
         let name:String
-        let image:Images
+        let image:Images?
     }
     struct Images:Codable {
         let medium:String

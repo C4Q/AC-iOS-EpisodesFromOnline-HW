@@ -19,8 +19,18 @@ class AllShowsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-  
-   
+    func activityStatusOFF() {
+        allshowsImageView.isHidden = false
+        activity1.stopAnimating()
+        activity1.isHidden = true
+    }
+    func activityStatusON() {
+        allshowsImageView.isHidden = true
+        activity1.startAnimating()
+        activity1.isHidden = false
+    }
+    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -7,13 +7,20 @@
 //
 
 import Foundation
+
 struct Episode:Codable{
     let id:Int
     let name:String
     let season:Int
     let number:Int
-    let image:EpisodeImages
+    let image:EpisodeImages?
     let summary:String
+    var seasonNameAndNumber:String {
+        return getSeasonNumberAndEpisodeNumber()
+    }
+    func getSeasonNumberAndEpisodeNumber() -> String {
+        return "Season \(season): Episode \(number)"
+    }
 }
 struct EpisodeImages:Codable{
     let medium:String

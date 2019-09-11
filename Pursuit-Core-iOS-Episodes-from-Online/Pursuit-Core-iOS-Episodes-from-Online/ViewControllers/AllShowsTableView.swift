@@ -28,7 +28,7 @@ class ShowViewController:UIViewController,UITableViewDataSource,UITableViewDeleg
             self.allShowsTableView.reloadData()
         }
     }
-    var filteredTrack: [ShowWrapper]  {
+    var filteredShow: [ShowWrapper]  {
         guard let userSearchTerm = userSearchTerm else {
             return ShowList
         }
@@ -44,7 +44,7 @@ class ShowViewController:UIViewController,UITableViewDataSource,UITableViewDeleg
         getShows(name: searchText)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 175
+        return 180
     }
     
     func getShows(name:String?) {
@@ -75,16 +75,18 @@ class ShowViewController:UIViewController,UITableViewDataSource,UITableViewDeleg
    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredTrack.count
+        return filteredShow.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let show = filteredTrack[indexPath.row]
+        let show = filteredShow[indexPath.row]
         if let cell = allShowsTableView.dequeueReusableCell(withIdentifier: "allShows") as? AllShowsTableViewCell {
-            
-           // activityStatusON()
+           
+            cell.activityStatusON()
          cell.allShowsLabel.text = show.show.name
-          ImageHelper.shared.fetchImage(urlImage: show.show.image.original) {
+            
+            if let unWrappedImage = show.show.image {
+          ImageHelper.shared.fetchImage(urlImage: unWrappedImage.original) {
                     (results) in
                     switch results {
                     case .failure(let error):
@@ -95,12 +97,15 @@ class ShowViewController:UIViewController,UITableViewDataSource,UITableViewDeleg
                     case .success(let filteredShow):
                         DispatchQueue.main.async {
                           usleep(5000)
-                         //   activityStatusOFF()
+                            cell.activityStatusOFF()
                             cell.allshowsImageView.image = filteredShow
                         }
                     }
                 }
-            
+            } else {
+                cell.activityStatusOFF()
+                cell.allshowsImageView.image = UIImage(named: "imageLoadError")
+            }
             return cell
         } else {
             return UITableViewCell()
@@ -112,15 +117,14 @@ class ShowViewController:UIViewController,UITableViewDataSource,UITableViewDeleg
         searchBarOutlet.delegate = self
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyBoard = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-//
-//        if usingFiltered == true {
-//            storyBoard.passingInfo = filteredTrack[indexPath.row]
-//        } else {
-//            storyBoard.passingInfo = songList[indexPath.row]
-//        }
-//        navigationController?.pushViewController(storyBoard, animated: true)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard = storyboard?.instantiateViewController(withIdentifier: "ShowsInSeasonTableView") as! ShowsInSeasonTableView
+
+        
+            storyBoard.passingInfo = filteredShow[indexPath.row].show
+        
+    
+        navigationController?.pushViewController(storyBoard, animated: true)
+    }
     
 }

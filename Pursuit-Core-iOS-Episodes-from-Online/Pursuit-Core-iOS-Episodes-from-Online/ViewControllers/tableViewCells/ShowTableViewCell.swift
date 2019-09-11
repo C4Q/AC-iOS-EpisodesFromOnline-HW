@@ -10,6 +10,12 @@ import UIKit
 
 class ShowTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var showImageView: UIImageView!
+    
+    @IBOutlet weak var showLabel: UILabel!
+  
+    @IBOutlet weak var seasonNumber: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
