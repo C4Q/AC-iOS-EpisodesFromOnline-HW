@@ -25,6 +25,7 @@ class DetailViewController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUp()
     }
     func setUp() {
         nameLabel.text = passingInfo.name
@@ -43,7 +44,9 @@ class DetailViewController:UIViewController {
                     }
                 }
             }
-    }
+        } else {
+            detailViewImageView.image = UIImage(named: "imageLoadError")
+        }
         if let summary = passingInfo.summary {
 textViewOutlet.text = summary
         } else {

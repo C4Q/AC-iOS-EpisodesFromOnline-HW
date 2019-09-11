@@ -77,7 +77,12 @@ class ShowsInSeasonTableView: UIViewController,UITableViewDataSource,UITableView
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        storyBoard.passingInfo = episodes[indexPath.row]
+        
+        navigationController?.pushViewController(storyBoard, animated: true)
+    }
     func setUP() {
         showsInSeasonTableView.delegate = self
         showsInSeasonTableView.dataSource = self
