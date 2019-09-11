@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Pursuit_Core_iOS_Episodes_from_Online
+//@testable import Pursuit_Core_iOS_Episodes_from_Online
 
 class Pursuit_Core_iOS_Episodes_from_OnlineTests: XCTestCase {
 
