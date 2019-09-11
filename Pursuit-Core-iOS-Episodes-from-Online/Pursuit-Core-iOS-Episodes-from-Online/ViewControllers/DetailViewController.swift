@@ -12,7 +12,6 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var episodeImageView: UIImageView!
     
-    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var seasonAndEpisodeLabel: UILabel!
@@ -23,14 +22,17 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLabels()
+    }
+    
+    func setLabels() {
+        
         nameLabel.text = episode.name
         seasonAndEpisodeLabel.text = episode.seasonAndEpisode
         descriptionLabel.text = episode.description
         descriptionLabel.isEditable = false
         setImage()
-        
     }
-    
     
     func setImage() {
         

@@ -74,8 +74,12 @@ extension ViewController: UITableViewDataSource{
         
         let show = filteredShows[indexPath.row]
         cell.nameLabel.text = show.name
-        cell.ratingLabel.text = show.rating.average?.description
         
+        if let rating = show.rating.average {
+            cell.ratingLabel.text = "Rating: \(rating)"
+        } else {
+            cell.ratingLabel.text = "Rating:"
+        }
         ImageHelper.shared.getImage(urlStr: show.image.original) { (result) in
                 DispatchQueue.main.async {
                     switch result {

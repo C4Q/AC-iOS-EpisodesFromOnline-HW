@@ -13,12 +13,12 @@ struct Episodes: Codable {
     private let season: Int
     private let number: Int
     let image: EpisodeImage?
-    private let summary: String
+    private let summary: String?
     var seasonAndEpisode: String {
         return "Season: \(season)   Episode: \(number)"
     }
     var description: String {
-        return summary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+        return (summary?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? "no")
     }
 }
 
