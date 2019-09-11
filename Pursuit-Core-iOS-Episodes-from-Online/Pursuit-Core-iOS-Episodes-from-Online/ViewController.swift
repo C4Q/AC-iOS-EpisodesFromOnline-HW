@@ -8,13 +8,80 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var searchOutlet: UISearchBar!
+    @IBOutlet weak var showTableOutlet: UITableView!
+    
+    var tvShows = [ShowWrapper]() {
+        didSet {
+            showTableOutlet.reloadData()
+        }
+    }
+    
+    var searchString: String? = nil {
+        didSet {
+            showTableOutlet.reloadData()
+        }
+    }
+    
+    var showSearchResults: [ShowWrapper] {
+        get {
+            guard let _ = searchString else {
+                return tvShows
+            }
+            guard searchString != "" else {
+                return tvShows
+            }
+            return tvShows
+        }
     }
 
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return showSearchResults.count
+    }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = showTableOutlet.dequeueReusableCell(withIdentifier: "showCell") as? TVShowTableViewCell {
+            cell.showNameLabel.text = showSearchResults[indexPath.row].show.name
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchString = searchBar.text
+        loadData(query: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchOutlet.resignFirstResponder()
+        searchString = searchOutlet.text
+        loadData(query: searchString)
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchOutlet.delegate = self
+        showTableOutlet.delegate = self
+        showTableOutlet.dataSource = self
+        loadData(query: nil)
+        showTableOutlet.rowHeight = 150
+    }
+
+    private func loadData(query: String?){
+        ShowWrapper.getShow(userInput: query){ (result) in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let shows):
+                DispatchQueue.main.async{
+                    return self.tvShows = shows
+                }
+            }
+        }
+    }
 }
 
