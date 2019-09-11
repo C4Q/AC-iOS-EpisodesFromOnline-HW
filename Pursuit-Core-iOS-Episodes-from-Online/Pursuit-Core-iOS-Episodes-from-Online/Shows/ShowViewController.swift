@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class ShowViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var searchOutlet: UISearchBar!
     @IBOutlet weak var showTableOutlet: UITableView!
@@ -43,9 +43,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = showTableOutlet.dequeueReusableCell(withIdentifier: "showCell") as? TVShowTableViewCell {
+        if let cell = showTableOutlet.dequeueReusableCell(withIdentifier: "showCell") as? ShowTableViewCell {
+            
             let tvShow = showSearchResults[indexPath.row].show
+            
             cell.showNameLabel.text = tvShow.name
+            
+            if let rating = tvShow.rating?.average {
+            cell.ratingLabel.text = "\(rating) / 10"
+            } else {
+                cell.ratingLabel.text = "Rating Pending"
+            }
+           
             if let url = tvShow.image?.medium {
                 ImageHelper.shared.getImage(urlStr: url) { (result) in
                     DispatchQueue.main.async {
