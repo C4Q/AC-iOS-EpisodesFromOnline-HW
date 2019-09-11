@@ -24,6 +24,18 @@ struct Episode: Codable {
         return ""
     }
     
+    var updatedSummary: String {
+        if let summary = summary {
+            let newSummary = summary.replacingOccurrences(of: "<p>", with: "")
+            let newNewSummary = newSummary.replacingOccurrences(of: "</p>", with: "")
+            return newNewSummary
+        }
+        if summary == " "{
+        return "Summary Unavailable"
+        }
+        return ""
+    }
+    
     static func getEpisode(episodeID: Int,completionHandler: @escaping (Result<[Episode],AppError>) -> () ) {
         
         let url = "https://api.tvmaze.com/shows/\(episodeID)/episodes"

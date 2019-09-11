@@ -63,6 +63,7 @@ class EpisodesDetailViewController: UIViewController, UITableViewDelegate, UITab
         
         cell?.nameLabel.text = episode.name
         cell?.seasonEpisodeLabel.text = episode.seasonAndEpisode
+        cell?.summaryTextField.text = episode.updatedSummary
         return cell!
     }
         

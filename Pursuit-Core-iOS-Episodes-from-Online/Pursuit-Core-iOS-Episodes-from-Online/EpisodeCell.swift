@@ -8,8 +8,10 @@
 
 import UIKit
 
-class EpisodeCell: UITableViewCell {
+class EpisodeCell: UITableViewCell, UITextFieldDelegate {
 
+    @IBOutlet weak var summaryTextField: UITextView!
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     @IBOutlet weak var seasonEpisodeLabel: UILabel!
