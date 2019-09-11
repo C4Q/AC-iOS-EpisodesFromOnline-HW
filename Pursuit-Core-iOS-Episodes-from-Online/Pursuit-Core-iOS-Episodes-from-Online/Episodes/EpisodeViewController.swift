@@ -47,7 +47,10 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         return UITableViewCell()
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailEpisodeVC = segue.destination as? EpisodeDetailViewController else { fatalError() }
+        detailEpisodeVC.episode = episodes[episodeTableOutlet.indexPathForSelectedRow!.row]
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
