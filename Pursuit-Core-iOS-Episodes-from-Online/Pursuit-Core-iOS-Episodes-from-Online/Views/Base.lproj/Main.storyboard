@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="115.84821428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Single Show View Controller-->
         <scene sceneID="Ynp-QD-gaL">
             <objects>
-                <viewController id="8Fn-qw-xvg" sceneMemberID="viewController">
+                <viewController id="8Fn-qw-xvg" customClass="SingleShowViewController" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wjh-8J-ELY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,15 +124,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UrD-t6-94V"/>
                     </view>
+                    <connections>
+                        <outlet property="SingleShowTableView" destination="zdP-hM-oqK" id="lZ7-QJ-3yV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ESL-Qa-KzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1685.5072463768117" y="113.83928571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Episode Detailed View Controller-->
         <scene sceneID="WIg-TV-VXL">
             <objects>
-                <viewController id="hpR-eZ-RrM" sceneMemberID="viewController">
+                <viewController id="hpR-eZ-RrM" customClass="EpisodeDetailedViewController" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pWp-sh-8DZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
