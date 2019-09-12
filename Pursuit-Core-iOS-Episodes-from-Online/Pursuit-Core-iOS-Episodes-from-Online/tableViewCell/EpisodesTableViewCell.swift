@@ -10,13 +10,12 @@ import UIKit
 
 class EpisodesTableViewCell: UITableViewCell {
     
-  
-    @IBOutlet weak var episodesImage: UIImageView!
+
+    @IBOutlet weak var EpisodesImage: UIImageView!
     
-    @IBOutlet weak var episodeLabel: UILabel!
+    @IBOutlet weak var episodesName: UILabel!
     
-    
-    
+    @IBOutlet weak var seasonName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -2,4 +2,70 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pursuit-Core-iOS-Episodes-from-Online/Models/imageHelper.swift"
+            timestampString = "590025060.3697931"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "fetchImage(urlString:completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pursuit-Core-iOS-Episodes-from-Online/Controllers/episodeStruct.swift"
+            timestampString = "590019771.406103"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "getEpisodeData(showID:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Pursuit_Core_iOS_Episodes_from_Online.Episode.getEpisodeData(showID: Swift.Int, completionHandler: (Swift.Result&lt;Swift.Array&lt;Pursuit_Core_iOS_Episodes_from_Online.Episode&gt;, Pursuit_Core_iOS_Episodes_from_Online.AppError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Pursuit-Core-iOS-Episodes-from-Online"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karymartinez/Desktop/Pursuit-Core-iOS-EpisodesFromOnline-HW/Pursuit-Core-iOS-Episodes-from-Online/Pursuit-Core-iOS-Episodes-from-Online/Controllers/episodeStruct.swift"
+                  timestampString = "590019210.6216"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "342">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Pursuit_Core_iOS_Episodes_from_Online.AppError&gt;) -&gt; () in static Pursuit_Core_iOS_Episodes_from_Online.Episode.getEpisodeData(showID: Swift.Int, completionHandler: (Swift.Result&lt;Swift.Array&lt;Pursuit_Core_iOS_Episodes_from_Online.Episode&gt;, Pursuit_Core_iOS_Episodes_from_Online.AppError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Pursuit-Core-iOS-Episodes-from-Online"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/karymartinez/Desktop/Pursuit-Core-iOS-EpisodesFromOnline-HW/Pursuit-Core-iOS-Episodes-from-Online/Pursuit-Core-iOS-Episodes-from-Online/Controllers/episodeStruct.swift"
+                  timestampString = "590019210.623992"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "249">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

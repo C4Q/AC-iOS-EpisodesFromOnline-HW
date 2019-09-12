@@ -13,6 +13,9 @@ struct Show: Codable {
     let name: String
         let rating: ratingWrapper?
         let image: ImageWrapper
+        let id: Int 
+    
+    
     //    let summary: String
     
     static func getShowData(completionHandler: @escaping (Result<[Show],AppError>) -> () ) {
@@ -31,6 +34,13 @@ struct Show: Codable {
             }
         }
     }
+    
+    
+   static func getFilteredShowsByName(arr: [Show], searchString: String ) -> [Show]{ //I want this to take in an array of Show, filter it by the string that I give it, and then return all the shows that match that string.
+        return arr.filter{$0.name.lowercased().contains(searchString.lowercased())}
+        
+        
+    }
 }
 
 
@@ -42,5 +52,4 @@ struct ImageWrapper: Codable {
 struct ratingWrapper: Codable {
     let average: Double?
 }
-
 
