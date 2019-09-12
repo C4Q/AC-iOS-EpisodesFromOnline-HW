@@ -10,12 +10,16 @@ import Foundation
 
 struct Shows: Codable {
     let show: Show
-//    let _embedded: [Episodes]
-//    let image: ShowImage
 }
 
 struct Show: Codable {
     let name: String
+    let image: Image
+    
+    struct Image: Codable {
+        let medium: String
+        let original: String
+    }
 }
 //
 //struct Episodes: Codable {
