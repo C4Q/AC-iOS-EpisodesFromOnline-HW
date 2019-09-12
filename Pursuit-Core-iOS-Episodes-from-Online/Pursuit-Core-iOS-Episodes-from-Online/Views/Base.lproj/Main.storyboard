@@ -65,6 +65,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="e2S-Y0-YJD"/>
                     <connections>
+                        <outlet property="ShowListImage" destination="RVQ-sq-gOH" id="6UZ-m8-bXo"/>
                         <outlet property="ShowsTableView" destination="hBt-JD-AZG" id="gVT-vd-0l6"/>
                         <outlet property="searchBar" destination="0yf-Wj-B6N" id="YDF-NY-ehN"/>
                     </connections>

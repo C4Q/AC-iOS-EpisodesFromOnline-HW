@@ -12,11 +12,11 @@ class ShowsViewController: UIViewController {
     
     @IBOutlet weak var ShowsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var ShowListImage: UIImageView!
     
     var showsList = [Shows]() {
         didSet {
             ShowsTableView.reloadData()
-            print(self.showsList.count)
         }
     }
 
@@ -49,7 +49,6 @@ class ShowsViewController: UIViewController {
         didSet {
             loadData()
             ShowsTableView.reloadData()
-            print(searchString)
         }
     }
     
@@ -65,19 +64,22 @@ class ShowsViewController: UIViewController {
 extension ShowsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return showsList.count
-        //showsList?.name.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ShowsTableView.dequeueReusableCell(withIdentifier: "ShowCell")
         let singleShow = showsList[indexPath.row]
         cell?.textLabel?.text = singleShow.show.name
+        ImageHelper.getImage(stringUrl: singleShow.show.image.original) { (error, image) in
+            if let image = image {
+                DispatchQueue.main.async {
+                     cell?.imageView?.image = image
+                }
+               
+            }
+        }
         return cell!
-        
     }
-    
-    
 }
 
 extension ShowsViewController: UITableViewDelegate {
@@ -93,3 +95,5 @@ extension ShowsViewController: UISearchBarDelegate {
         searchString = searchBar.text!
     }
 }
+
+
