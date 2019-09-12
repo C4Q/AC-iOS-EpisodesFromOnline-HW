@@ -15,7 +15,7 @@ class ShowAPIHelper {
     
     static let shared = ShowAPIHelper()
     
-    func getShow(url: String, completionHandler: @escaping (Result<Show, AppError>) -> ()) {
+    func getShow(url: String, completionHandler: @escaping (Result<[Shows], AppError>) -> ()) {
         
         NetworkManager.shared.fetchData(urlString: url) { (result) in
             switch result {
@@ -23,7 +23,7 @@ class ShowAPIHelper {
                 completionHandler(.failure(.badUrl))
             case .success(let data):
                 do {
-                    let showInfo = try JSONDecoder().decode(Show.self, from: data)
+                    let showInfo = try JSONDecoder().decode([Shows].self, from: data)
                     completionHandler(.success(showInfo))
                 } catch {
                     completionHandler(.failure(.noDataError))

@@ -8,10 +8,34 @@
 
 import Foundation
 
+struct Shows: Codable {
+    let show: Show
+//    let _embedded: [Episodes]
+//    let image: ShowImage
+}
+
 struct Show: Codable {
     let name: String
-//    let _embedded: [Episodes]
 }
+//
+//struct Episodes: Codable {
+//    let name: String
+//    let season: Int
+//    let number: Int
+//    let image: EpisodeImage
+//    let summary: String
+//}
+//
+//struct ShowImage: Codable {
+//    let medium: String
+//    let original: String
+//}
+//
+//struct EpisodeImage: Codable {
+//    let medium: String
+//    let original: String
+//}
+//
 
 ////{
 //"id": 139,

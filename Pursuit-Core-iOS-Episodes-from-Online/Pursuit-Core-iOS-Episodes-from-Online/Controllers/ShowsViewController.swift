@@ -13,9 +13,10 @@ class ShowsViewController: UIViewController {
     @IBOutlet weak var ShowsTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var showsList: Show! {
+    var showsList = [Shows]() {
         didSet {
             ShowsTableView.reloadData()
+            print(self.showsList.count)
         }
     }
 
@@ -28,8 +29,9 @@ class ShowsViewController: UIViewController {
     }
     
     private func loadData() {
-        let url = "http://api.tvmaze.com/singlesearch/shows?q=\(searchString)&embed=episodes"
-    
+        let encodedSearchString = searchString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url = "https://api.tvmaze.com/search/shows?q=\(encodedSearchString!)"
+        print(url)
         ShowAPIHelper.shared.getShow(url: url) {(result) in
             DispatchQueue.main.async {
                 switch result {
@@ -42,10 +44,12 @@ class ShowsViewController: UIViewController {
         }
     }
     
+    //make that when search back goes back to being "" it clears the view.
     var searchString: String = "" {
         didSet {
             loadData()
             ShowsTableView.reloadData()
+            print(searchString)
         }
     }
     
@@ -60,16 +64,17 @@ class ShowsViewController: UIViewController {
 
 extension ShowsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return showsList.count
         //showsList?.name.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = ShowsTableView.dequeueReusableCell(withIdentifier: "ShowCell")
-//        cell?.textLabel?.text = showsList?.name
-//        return cell!
-//        
+        let cell = ShowsTableView.dequeueReusableCell(withIdentifier: "ShowCell")
+        let singleShow = showsList[indexPath.row]
+        cell?.textLabel?.text = singleShow.show.name
+        return cell!
+        
     }
     
     
