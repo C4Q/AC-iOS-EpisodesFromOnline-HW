@@ -32,15 +32,16 @@ struct TVShow: Codable {
             }
         }
     }
-    
+    //MARK: Array to sort the titles
     static func getSortedArray(arr: [TVShow]) -> [TVShow] {
-        let sortedArr = arr.sorted{$0.name < $1.name}
-        return sortedArr
+        let TVShowArrSorted = arr.sorted{$0.name < $1.name}
+        return TVShowArrSorted
     }
     
     static func getFilteredTVShows(arr: [TVShow], searchString: String) -> [TVShow] {
         return arr.filter{$0.name.lowercased().contains(searchString.lowercased())}
     }
+
 }
 
 struct Image: Codable {

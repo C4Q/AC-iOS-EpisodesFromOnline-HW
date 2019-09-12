@@ -9,11 +9,13 @@
 import UIKit
 
 class TVShowViewController: UIViewController {
-    //MARK: -- Outlets
+    
+    
+    //MARK: -- Outlets and properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    //MARK: -- Properties
+    
     var tvshow = [TVShow]() {
         didSet{
             tableView.reloadData()
@@ -31,7 +33,7 @@ class TVShowViewController: UIViewController {
     
     var searchString: String? = nil { didSet { self.tableView.reloadData()} }
     
-    //MARK: -- Functions
+    //MARK: -- Segue functions
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        guard let segueIdentifer = segue.identifier else {fatalError("No identifier in segue")}
@@ -74,7 +76,7 @@ class TVShowViewController: UIViewController {
         tableView.delegate = self
         searchBar.delegate = self
     }
-    
+    //Mark - Views Notifying Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -123,7 +125,7 @@ extension TVShowViewController: UITableViewDataSource {
 
 extension TVShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 240
+        return 200
     }
 }
 
