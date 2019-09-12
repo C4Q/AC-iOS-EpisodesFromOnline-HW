@@ -17,6 +17,7 @@
 		58FF9633232833870018C04E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF962223282BE40018C04E /* NetworkManager.swift */; };
 		58FF96342328338B0018C04E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF962523282C400018C04E /* AppError.swift */; };
 		58FF96352328338E0018C04E /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF962723282C770018C04E /* APIHelper.swift */; };
+		58FF9644232AE4370018C04E /* SingleShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF9643232AE4370018C04E /* SingleShowViewController.swift */; };
 		CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5B232178AF002D0255 /* AppDelegate.swift */; };
 		CD01CD61232178AF002D0255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD5F232178AF002D0255 /* Main.storyboard */; };
 		CD01CD63232178B2002D0255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD62232178B2002D0255 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		58FF962723282C770018C04E /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		58FF962923282E230018C04E /* ShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowModel.swift; sourceTree = "<group>"; };
 		58FF962F232830A50018C04E /* ShowsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsViewController.swift; sourceTree = "<group>"; };
+		58FF9643232AE4370018C04E /* SingleShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleShowViewController.swift; sourceTree = "<group>"; };
 		CD01CD58232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pursuit-Core-iOS-Episodes-from-Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD01CD5B232178AF002D0255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD01CD60232178AF002D0255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		58FF962C23282E320018C04E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				58FF9643232AE4370018C04E /* SingleShowViewController.swift */,
 				58FF962F232830A50018C04E /* ShowsViewController.swift */,
 			);
 			path = Controllers;
@@ -258,6 +261,7 @@
 				58FF962A23282E230018C04E /* ShowModel.swift in Sources */,
 				58FF962623282C400018C04E /* AppError.swift in Sources */,
 				58FF962323282BE40018C04E /* NetworkManager.swift in Sources */,
+				58FF9644232AE4370018C04E /* SingleShowViewController.swift in Sources */,
 				58FF9630232830A50018C04E /* ShowsViewController.swift in Sources */,
 				58FF962823282C770018C04E /* APIHelper.swift in Sources */,
 				CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */,
