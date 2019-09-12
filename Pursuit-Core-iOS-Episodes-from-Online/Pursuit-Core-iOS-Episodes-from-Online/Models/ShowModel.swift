@@ -14,7 +14,7 @@ struct Shows: Codable {
 
 struct Show: Codable {
     let name: String
-    let image: Image
+    let image: Image?
     
     struct Image: Codable {
         let medium: String

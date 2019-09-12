@@ -25,7 +25,7 @@ class ShowsViewController: UIViewController {
         ShowsTableView.dataSource = self
         ShowsTableView.delegate = self
         searchBar.delegate = self
-        loadData()
+
     }
     
     private func loadData() {
@@ -70,14 +70,18 @@ extension ShowsViewController: UITableViewDataSource {
         let cell = ShowsTableView.dequeueReusableCell(withIdentifier: "ShowCell")
         let singleShow = showsList[indexPath.row]
         cell?.textLabel?.text = singleShow.show.name
-        ImageHelper.getImage(stringUrl: singleShow.show.image.original) { (error, image) in
-            if let image = image {
-                DispatchQueue.main.async {
-                     cell?.imageView?.image = image
+        
+        if singleShow.show.image != nil {
+            ImageHelper.getImage(stringUrl: singleShow.show.image!.medium) { (error, image) in
+                if let image = image {
+                    DispatchQueue.main.async {
+                         cell?.imageView?.image = image
+                    }
+                   
                 }
-               
             }
         }
+
         return cell!
     }
 }

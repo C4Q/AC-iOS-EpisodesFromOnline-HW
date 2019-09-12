@@ -26,8 +26,8 @@ class ShowAPIHelper {
                     let showInfo = try JSONDecoder().decode([Shows].self, from: data)
                     completionHandler(.success(showInfo))
                 } catch {
+                    print(error)
                     completionHandler(.failure(.noDataError))
-                    
                 }
             }
         }
