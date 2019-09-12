@@ -9,12 +9,12 @@
 import UIKit
 
 class ShowTableViewCell: UITableViewCell {
-
+    
     
     @IBOutlet weak var showImageView: UIImageView!
     
     @IBOutlet weak var showLabel: UILabel!
-  
+    
     @IBOutlet weak var activity2: UIActivityIndicatorView!
     @IBOutlet weak var seasonNumber: UILabel!
     override func awakeFromNib() {
@@ -22,7 +22,7 @@ class ShowTableViewCell: UITableViewCell {
         // Initialization code
     }
     func activityStatusOFF() {
-       showImageView.isHidden = false
+        showImageView.isHidden = false
         activity2.stopAnimating()
         activity2.isHidden = true
     }
@@ -31,11 +31,11 @@ class ShowTableViewCell: UITableViewCell {
         activity2.startAnimating()
         activity2.isHidden = false
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

@@ -20,12 +20,12 @@ struct Episode:Codable{
     var seasonNameAndNumber:String {
         return getSeasonNumberAndEpisodeNumber()
     }
-
-        func checkSummary() -> String {
-            if summary == "" {
-                return "A summary for this episode is not available. Please contact tvmaze at this address [\(url)] to complain."
-            } else {
-                return summary ?? "A summary for this episode is not available. Please contact tvmaze at this address [\(url)] to complain."
+    
+    func checkSummary() -> String {
+        if summary == "" {
+            return "A summary for this episode is not available. Please contact tvmaze at this address [\(url)] to complain."
+        } else {
+            return summary ?? "A summary for this episode is not available. Please contact tvmaze at this address [\(url)] to complain."
         }
     }
     

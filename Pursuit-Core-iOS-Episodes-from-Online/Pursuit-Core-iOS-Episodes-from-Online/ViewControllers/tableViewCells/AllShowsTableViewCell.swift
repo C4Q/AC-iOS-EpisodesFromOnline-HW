@@ -9,7 +9,7 @@
 import UIKit
 
 class AllShowsTableViewCell: UITableViewCell {
-
+    
     @IBOutlet var allshowsImageView: UIImageView!
     @IBOutlet var allShowsLabel: UILabel!
     
@@ -30,11 +30,11 @@ class AllShowsTableViewCell: UITableViewCell {
         activity1.isHidden = false
     }
     
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

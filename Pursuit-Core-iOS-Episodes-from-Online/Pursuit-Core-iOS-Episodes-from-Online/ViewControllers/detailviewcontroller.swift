@@ -11,7 +11,8 @@ import UIKit
 
 
 class DetailViewController:UIViewController {
-  
+    //MARK: Outlets
+
     @IBOutlet weak var detailViewImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -21,14 +22,17 @@ class DetailViewController:UIViewController {
     @IBOutlet weak var seasonLabel: UILabel!
     
     @IBOutlet weak var textViewOutlet: UITextView!
-    
+    //MARK: Variables
     var passingInfo:Episode!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityStatusON()
         setUp()
         navigationItem.title = "Episode"
     }
+    //MARK: Functions
+
     func setUp() {
         nameLabel.text = passingInfo.name
         seasonLabel.text = passingInfo.seasonNameAndNumber
@@ -40,9 +44,9 @@ class DetailViewController:UIViewController {
                     print(error)
                 case .success(let gotImage):
                     DispatchQueue.main.async {
-
-                   
-                    self.detailViewImageView.image = gotImage
+                        
+                        
+                        self.detailViewImageView.image = gotImage
                         self.activityStatusOFF()
                     }
                 }
@@ -52,8 +56,8 @@ class DetailViewController:UIViewController {
             activityStatusOFF()
         }
         textViewOutlet.text = passingInfo.checkSummary()
-
-}
+        
+    }
     func activityStatusON() {
         detailViewImageView.isHidden = true
         activity3.startAnimating()
