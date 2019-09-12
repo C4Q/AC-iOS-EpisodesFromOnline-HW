@@ -20,6 +20,7 @@
 		58FF9644232AE4370018C04E /* SingleShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF9643232AE4370018C04E /* SingleShowViewController.swift */; };
 		58FF9646232AE4BE0018C04E /* EpisodeDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF9645232AE4BE0018C04E /* EpisodeDetailedViewController.swift */; };
 		58FF9648232AEC7A0018C04E /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF9647232AEC7A0018C04E /* ImageHelper.swift */; };
+		58FF9649232AF1250018C04E /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FF9647232AEC7A0018C04E /* ImageHelper.swift */; };
 		CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5B232178AF002D0255 /* AppDelegate.swift */; };
 		CD01CD61232178AF002D0255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD5F232178AF002D0255 /* Main.storyboard */; };
 		CD01CD63232178B2002D0255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD62232178B2002D0255 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		58FF962423282BE80018C04E /* HelperFiles */ = {
 			isa = PBXGroup;
 			children = (
+				58FF9647232AEC7A0018C04E /* ImageHelper.swift */,
 				58FF962223282BE40018C04E /* NetworkManager.swift */,
 				58FF962523282C400018C04E /* AppError.swift */,
 				58FF962723282C770018C04E /* APIHelper.swift */,
@@ -89,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				58FF962923282E230018C04E /* ShowModel.swift */,
-				58FF9647232AEC7A0018C04E /* ImageHelper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,6 +286,7 @@
 				CD01CD71232178B2002D0255 /* Pursuit_Core_iOS_Episodes_from_OnlineTests.swift in Sources */,
 				58FF96352328338E0018C04E /* APIHelper.swift in Sources */,
 				58FF96312328337C0018C04E /* ShowsViewController.swift in Sources */,
+				58FF9649232AF1250018C04E /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
