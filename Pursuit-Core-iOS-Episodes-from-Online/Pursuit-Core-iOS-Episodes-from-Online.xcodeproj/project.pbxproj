@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB36F379232AE7BB00D2BE9A /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36F378232AE7BB00D2BE9A /* NetworkHelper.swift */; };
+		CB36F37B232AE7EE00D2BE9A /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB36F37A232AE7EE00D2BE9A /* AppError.swift */; };
 		CB90178B2329335200146564 /* ShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB90178A2329335200146564 /* ShowModel.swift */; };
 		CB90178D2329337700146564 /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB90178C2329337700146564 /* EpisodeModel.swift */; };
 		CB9017932329570200146564 /* ShowAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9017922329570200146564 /* ShowAPIClient.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB36F378232AE7BB00D2BE9A /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		CB36F37A232AE7EE00D2BE9A /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		CB90178A2329335200146564 /* ShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowModel.swift; sourceTree = "<group>"; };
 		CB90178C2329337700146564 /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
 		CB9017922329570200146564 /* ShowAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAPIClient.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 			children = (
 				CB9017922329570200146564 /* ShowAPIClient.swift */,
 				CB9017942329570F00146564 /* EpisodeAPIClient.swift */,
+				CB36F378232AE7BB00D2BE9A /* NetworkHelper.swift */,
 			);
 			path = "API Client";
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 				CD01CD62232178B2002D0255 /* Assets.xcassets */,
 				CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */,
 				CD01CD67232178B2002D0255 /* Info.plist */,
+				CB36F37A232AE7EE00D2BE9A /* AppError.swift */,
 			);
 			path = "Pursuit-Core-iOS-Episodes-from-Online";
 			sourceTree = "<group>";
@@ -265,9 +271,11 @@
 				CB90178B2329335200146564 /* ShowModel.swift in Sources */,
 				CB90179E232984E400146564 /* EpisodesCell.swift in Sources */,
 				CB9017A023298B3100146564 /* EpisodeDVC.swift in Sources */,
+				CB36F379232AE7BB00D2BE9A /* NetworkHelper.swift in Sources */,
 				CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */,
 				CB90178D2329337700146564 /* EpisodeModel.swift in Sources */,
 				CB90179C2329815B00146564 /* ShowCell.swift in Sources */,
+				CB36F37B232AE7EE00D2BE9A /* AppError.swift in Sources */,
 				CB9017932329570200146564 /* ShowAPIClient.swift in Sources */,
 				CB9017952329570F00146564 /* EpisodeAPIClient.swift in Sources */,
 				CB90179923297D5F00146564 /* ShowViewController.swift in Sources */,

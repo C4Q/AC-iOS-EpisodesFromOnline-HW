@@ -9,25 +9,40 @@
 import UIKit
 
 struct ShowAPIClient {
-    static var shared = ShowAPIClient()
-    let showURL = "http://api.tvmaze.com/shows?page=1"
-
-    func getShows(completion:@escaping (Result<ShowWrapper, Error>) -> ()){
-        guard let url = URL(string: showURL) else { return }
-        URLSession.shared.dataTask(with: url) {(data, response, err) in
-            //Error handler
-            if let err = err {
-                completion(.failure(err))
+    
+    // MARK: - Static Properties
+    
+    static let manager = ShowAPIClient()
+    
+    // MARK: - Internal Methods
+    
+    func getProjects(completionHandler: @escaping (Result<[Shows], AppError>) -> Void) {
+        NetworkHelper.manager.getData(from: ShowAPIClient.airtableURL) { result in
+            switch result {
+            case let .failure(error):
+                completionHandler(.failure(error))
+                return
+            case let .success(data):
+                do {
+                    let projects = try Shows.getShows(from: data)
+                    completionHandler(.success(projects))
+                }
+                catch {
+                    completionHandler(.failure(.couldNotParseJSON(rawError: error)))
+                }
             }
-            //success
-            do {
-                let shows = try JSONDecoder().decode(ShowWrapper.self, from: data!)
-                completion(.success(shows))
-            }
-            catch let jsonError {
-                completion(.failure(jsonError))
-            }
-            }.resume()
+        }
     }
+    
+    // MARK: - Private Properties and Initializers
+    static var showName = String()
+    static var airtableURL: URL {
+        guard let url = URL(string: "http://api.tvmaze.com/search/shows?q=\(ShowAPIClient.showName)") else {
+            fatalError("Error: Invalid URL")
+        }
+        print(url)
+        return url
+    }
+    
+    private init() {}
 }
-

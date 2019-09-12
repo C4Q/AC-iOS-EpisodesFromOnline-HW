@@ -8,12 +8,23 @@
 
 import UIKit
 
+enum JSONError: Error {
+    case decodingError(Error)
+}
+
+struct AirtableResponse: Codable {
+    let showWrapper: [ShowWrapper]
+}
 
 struct ShowWrapper:Codable{
     let show:Shows
 }
 
 struct Shows:Codable{
+    static func getShows(from jsonData: Data) throws -> [Shows] {
+        let response = try JSONDecoder().decode(AirtableResponse.self, from: jsonData)
+        return response.showWrapper.map { $0.show}
+    }
     let id:Int
     let name:String
     let premiered: String
