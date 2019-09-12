@@ -16,7 +16,6 @@ class EpisodeCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var seasonEpisodeLabel: UILabel!
     
-    
     @IBOutlet weak var cellImage: UIImageView!
     
 
