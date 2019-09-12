@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
-                    print(error)
+                    print("")
                 case .success(let results):
                 self.searchResults = results
                 }
@@ -57,12 +57,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if let rating = result.rating.average {
                 cell.ratingLabel.text = "Rating: \(rating)"
             }
+            cell.activityIndicator.isHidden = false
+            cell.activityIndicator.startAnimating()
             ImageHelper.shared.fetchImage(urlString: result.image?.medium ?? "") { (result) in
                 DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
                 print(error)
+                cell.activityIndicator.stopAnimating()
+                cell.cellImage.image = UIImage(named: "placeHolder")
                 case .success(let data):
+                cell.activityIndicator.stopAnimating()
                 cell.cellImage.image = data
                     }
                 }
@@ -87,12 +92,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         TVTableview.delegate = self
         TVTableview.dataSource = self
         searchBarOut.delegate = self
+//        self.activityOutlet.isHidden = true
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
+
+
+
 
 
 

@@ -74,6 +74,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A95F54E232ADDB600D0EDE1 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				3A95F4722326DE9E00D0EDE1 /* SearchTableViewCell.swift */,
+				3A95F4822327454D00D0EDE1 /* EpisodeCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		3A95F54F232ADDD300D0EDE1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD01CD5D232178AF002D0255 /* ViewController.swift */,
+				3A95F47E2327435200D0EDE1 /* EpisodesDetailViewController.swift */,
+				3A95F54823294B4F00D0EDE1 /* SummaryDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3A95F550232ADDF300D0EDE1 /* Newtwork Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3A95F4782326E1FD00D0EDE1 /* NetworkManager.swift */,
+				3A95F47A2326E20400D0EDE1 /* ImageManager.swift */,
+				3A95F4762326E1F600D0EDE1 /* AppError.swift */,
+			);
+			path = "Newtwork Managers";
+			sourceTree = "<group>";
+		};
+		3A95F551232ADE0800D0EDE1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A95F4742326DF3B00D0EDE1 /* TVModel.swift */,
+				3A95F47C2327429E00D0EDE1 /* EpisodesModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CD01CD4F232178AF002D0255 = {
 			isa = PBXGroup;
 			children = (
@@ -96,16 +134,10 @@
 			isa = PBXGroup;
 			children = (
 				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
-				3A95F4782326E1FD00D0EDE1 /* NetworkManager.swift */,
-				3A95F47A2326E20400D0EDE1 /* ImageManager.swift */,
-				3A95F4762326E1F600D0EDE1 /* AppError.swift */,
-				3A95F4742326DF3B00D0EDE1 /* TVModel.swift */,
-				3A95F47C2327429E00D0EDE1 /* EpisodesModel.swift */,
-				3A95F4722326DE9E00D0EDE1 /* SearchTableViewCell.swift */,
-				3A95F4822327454D00D0EDE1 /* EpisodeCell.swift */,
-				CD01CD5D232178AF002D0255 /* ViewController.swift */,
-				3A95F47E2327435200D0EDE1 /* EpisodesDetailViewController.swift */,
-				3A95F54823294B4F00D0EDE1 /* SummaryDetailViewController.swift */,
+				3A95F550232ADDF300D0EDE1 /* Newtwork Managers */,
+				3A95F551232ADE0800D0EDE1 /* Models */,
+				3A95F54E232ADDB600D0EDE1 /* CustomCells */,
+				3A95F54F232ADDD300D0EDE1 /* ViewControllers */,
 				CD01CD5F232178AF002D0255 /* Main.storyboard */,
 				CD01CD62232178B2002D0255 /* Assets.xcassets */,
 				CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */,

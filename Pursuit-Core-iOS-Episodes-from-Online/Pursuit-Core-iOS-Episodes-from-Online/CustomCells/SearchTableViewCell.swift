@@ -16,5 +16,6 @@ class SearchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var ratingLabel: UILabel!
     
-
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
 }

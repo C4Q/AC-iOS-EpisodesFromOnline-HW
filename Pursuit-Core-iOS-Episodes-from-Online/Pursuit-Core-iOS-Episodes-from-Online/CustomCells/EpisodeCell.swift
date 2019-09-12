@@ -18,5 +18,6 @@ class EpisodeCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var cellImage: UIImageView!
     
-
+    @IBOutlet weak var episodeActivity: UIActivityIndicatorView!
+    
 }

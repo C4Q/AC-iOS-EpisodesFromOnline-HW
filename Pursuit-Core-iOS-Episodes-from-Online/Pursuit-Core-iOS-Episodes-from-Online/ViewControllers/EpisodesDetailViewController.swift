@@ -34,14 +34,20 @@ class EpisodesDetailViewController: UIViewController, UITableViewDelegate, UITab
         let cell = episodeTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as? EpisodeCell
         let episode = episodes[indexPath.row]
         if let image = episode.image?.original{
+            cell?.episodeActivity.isHidden = false
+            cell?.episodeActivity.startAnimating()
             ImageHelper.shared.fetchImage(urlString: image) { (result) in
                 DispatchQueue.main.async {
                     switch result {
                     case .failure(let error):
                         print(error)
                         cell?.cellImage.image = UIImage(named: "placeHolder")
+                        cell?.episodeActivity.stopAnimating()
+                        cell?.cellImage.image = UIImage(named: "placeHolder")
                     case .success(let image):
-                        cell?.cellImage.image = image
+                       cell?.episodeActivity.isHidden = true
+                       cell?.episodeActivity.stopAnimating()
+                       cell?.cellImage.image = image
                     }
                 }
             }
