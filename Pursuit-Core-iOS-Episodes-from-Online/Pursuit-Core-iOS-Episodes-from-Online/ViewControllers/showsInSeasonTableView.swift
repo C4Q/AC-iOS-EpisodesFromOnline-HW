@@ -19,9 +19,9 @@ class ShowsInSeasonTableView: UIViewController,UITableViewDataSource,UITableView
     @IBOutlet weak var showsInSeasonTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Episode List"
         setUP()
         getShows(number: passingInfo.id)
-        
     }
     func getShows(number:Int) {
         ShowsInSeasonAPIHelper.shared.getShowInsideOfSeasonb(ID: passingInfo.id) {
@@ -48,11 +48,9 @@ class ShowsInSeasonTableView: UIViewController,UITableViewDataSource,UITableView
         let episode = episodes[indexPath.row]
          let cell = showsInSeasonTableView.dequeueReusableCell(withIdentifier: "episodes") as! ShowTableViewCell
         cell.activityStatusON()
-        if episode.name == "" {
-            cell.showLabel.text = "Could not load data"
-        } else {
+        
         cell.showLabel.text = episode.name
-        }
+        
             cell.seasonNumber.text = episode.seasonNameAndNumber
         if let image = episode.image {
             ImageHelper.shared.fetchImage(urlImage: image.original) {
@@ -62,14 +60,17 @@ class ShowsInSeasonTableView: UIViewController,UITableViewDataSource,UITableView
                     print(error)
                 case .success(let foundEpisodes):
                     DispatchQueue.main.async {
-                        cell.activityStatusOFF()
+                        
                     
                         cell.showImageView.image = foundEpisodes
+                        cell.activityStatusOFF()
                     }
                 }
     }
         } else {
             cell.showImageView.image = UIImage(named:"imageLoadError")
+            cell.activityStatusOFF()
+
 }
        return cell
         
@@ -80,7 +81,6 @@ class ShowsInSeasonTableView: UIViewController,UITableViewDataSource,UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         storyBoard.passingInfo = episodes[indexPath.row]
-        
         navigationController?.pushViewController(storyBoard, animated: true)
     }
     func setUP() {

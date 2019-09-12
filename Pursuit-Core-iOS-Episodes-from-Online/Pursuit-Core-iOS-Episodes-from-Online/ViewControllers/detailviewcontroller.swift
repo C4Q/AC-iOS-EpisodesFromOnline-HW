@@ -16,16 +16,18 @@ class DetailViewController:UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var activity3: UIActivityIndicatorView!
     
     @IBOutlet weak var seasonLabel: UILabel!
     
     @IBOutlet weak var textViewOutlet: UITextView!
     
     var passingInfo:Episode!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityStatusON()
         setUp()
+        navigationItem.title = "Episode"
     }
     func setUp() {
         nameLabel.text = passingInfo.name
@@ -38,19 +40,28 @@ class DetailViewController:UIViewController {
                     print(error)
                 case .success(let gotImage):
                     DispatchQueue.main.async {
-                        
-                    
+
+                   
                     self.detailViewImageView.image = gotImage
+                        self.activityStatusOFF()
                     }
                 }
             }
         } else {
             detailViewImageView.image = UIImage(named: "imageLoadError")
+            activityStatusOFF()
         }
-        if let summary = passingInfo.summary {
-textViewOutlet.text = summary
-        } else {
-            textViewOutlet.text = "Could not load summary"
-        }
+        textViewOutlet.text = passingInfo.checkSummary()
+
 }
+    func activityStatusON() {
+        detailViewImageView.isHidden = true
+        activity3.startAnimating()
+        activity3.isHidden = false
+    }
+    func activityStatusOFF() {
+        detailViewImageView.isHidden = false
+        activity3.stopAnimating()
+        activity3.isHidden = true
+    }
 }

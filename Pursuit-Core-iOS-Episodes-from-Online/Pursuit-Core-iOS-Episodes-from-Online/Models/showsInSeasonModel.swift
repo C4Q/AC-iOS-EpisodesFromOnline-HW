@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct Episode:Codable{
     let id:Int
+    let url:String
     let name:String
     let season:Int
     let number:Int
@@ -18,6 +20,15 @@ struct Episode:Codable{
     var seasonNameAndNumber:String {
         return getSeasonNumberAndEpisodeNumber()
     }
+
+        func checkSummary() -> String {
+            if summary == "" {
+                return "A summary for this episode is not available. Please contact tvmaze at this address [\(url)] to complain."
+            } else {
+                return summary ?? "A summary for this episode is not available. Please contact tvmaze at this address [\(url)] to complain."
+        }
+    }
+    
     func getSeasonNumberAndEpisodeNumber() -> String {
         return "Season \(season): Episode \(number)"
     }

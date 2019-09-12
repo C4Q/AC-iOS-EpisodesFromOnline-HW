@@ -37,12 +37,17 @@ class ShowViewController:UIViewController,UITableViewDataSource,UITableViewDeleg
         }
         return ShowList
     }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        self.userSearchTerm = searchText
-        getShows(name: searchText)
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.userSearchTerm = searchBar.text
+        getShows(name: searchBar.text)
+
     }
+//   func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//
+//        self.userSearchTerm = searchText
+//        getShows(name: searchText)
+//
+//    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 180
     }
@@ -69,7 +74,7 @@ class ShowViewController:UIViewController,UITableViewDataSource,UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "Show List"
         setUP()
     }
    
@@ -86,7 +91,8 @@ class ShowViewController:UIViewController,UITableViewDataSource,UITableViewDeleg
          cell.allShowsLabel.text = show.show.name
             
             if let unWrappedImage = show.show.image {
-          ImageHelper.shared.fetchImage(urlImage: unWrappedImage.original) {
+         DispatchQueue.main.async {
+                ImageHelper.shared.fetchImage(urlImage: unWrappedImage.original) {
                     (results) in
                     switch results {
                     case .failure(let error):
@@ -95,21 +101,26 @@ class ShowViewController:UIViewController,UITableViewDataSource,UITableViewDeleg
                         
                         
                     case .success(let filteredShow):
+                        
                         DispatchQueue.main.async {
-                          usleep(5000)
-                            cell.activityStatusOFF()
+                            
+                        
                             cell.allshowsImageView.image = filteredShow
+                             cell.activityStatusOFF()
                         }
+                    }
                     }
                 }
             } else {
-                cell.activityStatusOFF()
                 cell.allshowsImageView.image = UIImage(named: "imageLoadError")
+                cell.activityStatusOFF()
+
             }
             return cell
         } else {
             return UITableViewCell()
         }
+            
     }
     func setUP() {
         allShowsTableView.dataSource = self
@@ -120,7 +131,6 @@ class ShowViewController:UIViewController,UITableViewDataSource,UITableViewDeleg
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = storyboard?.instantiateViewController(withIdentifier: "ShowsInSeasonTableView") as! ShowsInSeasonTableView
 
-        
             storyBoard.passingInfo = filteredShow[indexPath.row].show
         
     
