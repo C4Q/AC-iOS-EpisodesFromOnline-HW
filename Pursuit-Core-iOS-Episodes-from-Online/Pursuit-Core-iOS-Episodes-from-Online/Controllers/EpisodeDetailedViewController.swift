@@ -10,8 +10,34 @@ import UIKit
 
 class EpisodeDetailedViewController: UIViewController {
 
+    var episode: Episodes!
+    
+    @IBOutlet weak var episodeImage: UIImageView!
+    @IBOutlet weak var episodeTitle: UILabel!
+    @IBOutlet weak var seasonNumber: UILabel!
+    @IBOutlet weak var episodeNumber: UILabel!
+    @IBOutlet weak var episodeSummary: UITextView!
+    
+//    private func displayImage() -> Void {
+//        if episode.image != nil {
+//            ImageHelper.getImage(stringUrl: episode.image!.medium) { (error, image) in
+//                if let image = image {
+//                    DispatchQueue.main.async {
+//                        episodeImage.image = episode.image?.medium
+//                    }
+//
+//                }
+//            }
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        episodeTitle.text = episode.name
+        seasonNumber.text = String("Season: \(episode.season)")
+        episodeNumber.text = String("Episdode: \(episode.number)")
+        episodeSummary.text = episode.summary?.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
+//        displayImage()
     }
 
 }
