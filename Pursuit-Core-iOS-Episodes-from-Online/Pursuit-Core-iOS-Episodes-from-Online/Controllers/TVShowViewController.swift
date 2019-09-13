@@ -11,21 +11,22 @@ import UIKit
 class TVShowViewController: UIViewController {
     
     
-    //MARK: IBOutlets and properties
+//MARK: IBOutlets and properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     
     var tvshow = [TVShow]() {
         didSet{
-            tableView.reloadData()
-        }
+            tableView.reloadData()}
     }
     
     var filteredShows: [TVShow] {
         get {
-            guard let searchString = searchString else { return tvshow }
-            guard searchString != ""  else { return tvshow }
+            guard let searchString = searchString else {
+                return tvshow }
+            guard searchString != ""  else {
+                return tvshow }
             return TVShow.getFilteredTVShows(arr: tvshow, searchString: searchString)
         }
     }
@@ -33,18 +34,17 @@ class TVShowViewController: UIViewController {
     
     var searchString: String? = nil { didSet { self.tableView.reloadData()} }
     
-    //MARK: Segue Method
-    
+//MARK: Segue Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let showVC = segue.destination as? EpisodeViewController else {fatalError("Unexpected segue VC")}
-        guard let selectedIndexPath = tableView.indexPathForSelectedRow else {fatalError("No row was selected")}
+        guard let showVC = segue.destination as? EpisodeViewController else { fatalError("Unexpected segue VC")}
+        guard let selectedIndexPath = tableView.indexPathForSelectedRow else { fatalError("No row was selected")}
+        
         let selectedTVShow = filteredShows[selectedIndexPath.row]
-        let selectedTVShowUrl = "http://api.tvmaze.com/shows/\(selectedTVShow.id)/episodes"
+        let selectedTVShowUrl = "http://api.tvmaze.com/shows/\(selectedTVShow.name)/episodes"
+        
         showVC.currentTVShowURL = selectedTVShowUrl
         showVC.navigationItem.title = selectedTVShow.name
         
-        
-        //showVC.currentTVShowURL = selectedTVShow.name
     }
 
     private func loadData(){
@@ -61,12 +61,7 @@ class TVShowViewController: UIViewController {
         }
     }
     
-    private func configureDelegateDataSources(){
-        tableView.dataSource = self
-        tableView.delegate = self
-        searchBar.delegate = self
-    }
-    //Mark: Views Notifying Functions
+//Mark: Views Notifying Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -79,7 +74,9 @@ class TVShowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureDelegateDataSources()
+        tableView.dataSource = self
+        tableView.delegate = self
+        searchBar.delegate = self
         loadData()
     }
 }
@@ -110,8 +107,8 @@ extension TVShowViewController: UITableViewDataSource {
     }
 }
 
-//MARK: Delegate Methods
 
+//MARK: Delegate Methods
 extension TVShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200

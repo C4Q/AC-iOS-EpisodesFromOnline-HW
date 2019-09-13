@@ -10,7 +10,7 @@ import UIKit
 
 class EpisodeViewController: UIViewController {
     
-    //MARK: IBOutlet and Properties
+//MARK: IBOutlet and Properties
     @IBOutlet weak var episodeTableView: UITableView!
     
     var episodes = [TVEpisodes]() {
@@ -48,8 +48,7 @@ extension EpisodeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentEpisode = episodes[indexPath.row]
-        let episodeCell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeTableViewCell
-        
+        let episodeCell = episodeTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeTableViewCell
         if let episodeImage = currentEpisode.image?.original{
             ImageHelper.shared.fetchImage(urlString: episodeImage) { (result) in DispatchQueue.main.async {
                 switch result {

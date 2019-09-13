@@ -78,7 +78,7 @@
                                             <outlet property="showImage" destination="udE-HN-7XM" id="Hhu-2C-PWG"/>
                                             <outlet property="showNameLabel" destination="cvG-aF-Tkh" id="lfQ-Su-cZf"/>
                                             <outlet property="showRatingLabel" destination="Zcr-kK-2uf" id="l97-Hd-wno"/>
-                                            <segue destination="RH4-Eh-lSG" kind="show" id="27b-8Q-gIK"/>
+                                            <segue destination="RH4-Eh-lSG" kind="show" identifier="segueToEpisodes" id="27b-8Q-gIK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
