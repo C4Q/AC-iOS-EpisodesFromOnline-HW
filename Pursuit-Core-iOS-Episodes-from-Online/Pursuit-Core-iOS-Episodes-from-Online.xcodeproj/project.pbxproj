@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6435E6B22329776600920334 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6B12329776600920334 /* AppError.swift */; };
+		6435E6B4232977FA00920334 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6B3232977FA00920334 /* NetworkHelper.swift */; };
+		6435E6B62329781F00920334 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6B52329781F00920334 /* ImageHelper.swift */; };
+		6435E6BC232984C400920334 /* episodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6BB232984C400920334 /* episodeModel.swift */; };
+		6435E6BE232995B500920334 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6BD232995B500920334 /* ShowViewController.swift */; };
+		6435E6C023299BBF00920334 /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6BF23299BBF00920334 /* EpisodesViewController.swift */; };
+		6435E6C22329ADDE00920334 /* showModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6C12329ADDE00920334 /* showModel.swift */; };
+		6435E6C42329AEED00920334 /* showAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6C32329AEED00920334 /* showAPIClient.swift */; };
+		6435E6C62329DDB200920334 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6C52329DDB200920334 /* EpisodeDetailViewController.swift */; };
+		6435E6CA232B2AE300920334 /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6C9232B2AE300920334 /* ShowTableViewCell.swift */; };
+		6435E6CC232B2CD200920334 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6435E6CB232B2CD200920334 /* EpisodeTableViewCell.swift */; };
 		CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5B232178AF002D0255 /* AppDelegate.swift */; };
 		CD01CD5E232178AF002D0255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5D232178AF002D0255 /* ViewController.swift */; };
 		CD01CD61232178AF002D0255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD5F232178AF002D0255 /* Main.storyboard */; };
@@ -26,6 +37,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6435E6B12329776600920334 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		6435E6B3232977FA00920334 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		6435E6B52329781F00920334 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		6435E6BB232984C400920334 /* episodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = episodeModel.swift; sourceTree = "<group>"; };
+		6435E6BD232995B500920334 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		6435E6BF23299BBF00920334 /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
+		6435E6C12329ADDE00920334 /* showModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showModel.swift; sourceTree = "<group>"; };
+		6435E6C32329AEED00920334 /* showAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showAPIClient.swift; sourceTree = "<group>"; };
+		6435E6C52329DDB200920334 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		6435E6C9232B2AE300920334 /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
+		6435E6CB232B2CD200920334 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		CD01CD58232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pursuit-Core-iOS-Episodes-from-Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD01CD5B232178AF002D0255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD01CD5D232178AF002D0255 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +81,10 @@
 		CD01CD4F232178AF002D0255 = {
 			isa = PBXGroup;
 			children = (
+				6435E6BB232984C400920334 /* episodeModel.swift */,
+				6435E6C12329ADDE00920334 /* showModel.swift */,
+				6435E6C9232B2AE300920334 /* ShowTableViewCell.swift */,
+				6435E6CB232B2CD200920334 /* EpisodeTableViewCell.swift */,
 				CD01CD5A232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online */,
 				CD01CD6F232178B2002D0255 /* Pursuit-Core-iOS-Episodes-from-OnlineTests */,
 				CD01CD59232178AF002D0255 /* Products */,
@@ -77,12 +103,19 @@
 		CD01CD5A232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online */ = {
 			isa = PBXGroup;
 			children = (
+				6435E6BD232995B500920334 /* ShowViewController.swift */,
+				6435E6BF23299BBF00920334 /* EpisodesViewController.swift */,
+				6435E6C52329DDB200920334 /* EpisodeDetailViewController.swift */,
+				6435E6C32329AEED00920334 /* showAPIClient.swift */,
 				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
 				CD01CD5D232178AF002D0255 /* ViewController.swift */,
 				CD01CD5F232178AF002D0255 /* Main.storyboard */,
 				CD01CD62232178B2002D0255 /* Assets.xcassets */,
 				CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */,
 				CD01CD67232178B2002D0255 /* Info.plist */,
+				6435E6B12329776600920334 /* AppError.swift */,
+				6435E6B3232977FA00920334 /* NetworkHelper.swift */,
+				6435E6B52329781F00920334 /* ImageHelper.swift */,
 			);
 			path = "Pursuit-Core-iOS-Episodes-from-Online";
 			sourceTree = "<group>";
@@ -197,8 +230,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6435E6CC232B2CD200920334 /* EpisodeTableViewCell.swift in Sources */,
+				6435E6B4232977FA00920334 /* NetworkHelper.swift in Sources */,
+				6435E6BE232995B500920334 /* ShowViewController.swift in Sources */,
+				6435E6C22329ADDE00920334 /* showModel.swift in Sources */,
+				6435E6C42329AEED00920334 /* showAPIClient.swift in Sources */,
+				6435E6C62329DDB200920334 /* EpisodeDetailViewController.swift in Sources */,
+				6435E6C023299BBF00920334 /* EpisodesViewController.swift in Sources */,
+				6435E6CA232B2AE300920334 /* ShowTableViewCell.swift in Sources */,
+				6435E6B62329781F00920334 /* ImageHelper.swift in Sources */,
 				CD01CD5E232178AF002D0255 /* ViewController.swift in Sources */,
 				CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */,
+				6435E6BC232984C400920334 /* episodeModel.swift in Sources */,
+				6435E6B22329776600920334 /* AppError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
