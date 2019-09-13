@@ -32,4 +32,23 @@ class ShowAPIHelper {
             }
         }
     }
+    
+    func getEpisodes(url: String, completionHandler: @escaping (Result<[Episodes], AppError>) -> ()) {
+        print(url)
+        NetworkManager.shared.fetchData(urlString: url) { (result) in
+            switch result {
+            case .failure(let error):
+                completionHandler(.failure(.badUrl))
+            case .success(let data):
+                do {
+                    let showInfo = try JSONDecoder().decode([Episodes].self, from: data)
+                    completionHandler(.success(showInfo))
+                } catch {
+                    print(error)
+                    completionHandler(.failure(.noDataError))
+                }
+            }
+        }
+    }
+    
 }
