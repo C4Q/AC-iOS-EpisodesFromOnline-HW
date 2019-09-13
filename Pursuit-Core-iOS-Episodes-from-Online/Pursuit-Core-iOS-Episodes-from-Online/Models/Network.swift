@@ -55,3 +55,4 @@ class NetworkManager {
             }.resume()
     }
 }
+

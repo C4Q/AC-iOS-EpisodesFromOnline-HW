@@ -13,7 +13,8 @@ struct Show: Codable {
     let name: String
         let rating: ratingWrapper?
         let image: ImageWrapper
-        let id: Int 
+        let id: Int
+    
     
     
     //    let summary: String

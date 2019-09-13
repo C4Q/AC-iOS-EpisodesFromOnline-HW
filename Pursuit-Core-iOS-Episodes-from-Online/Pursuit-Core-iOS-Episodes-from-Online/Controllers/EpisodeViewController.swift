@@ -37,6 +37,29 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let segueIdentifer = segue.identifier else {fatalError("No indentifier in segue")}
+        
+        switch segueIdentifer {
+            
+        case "segToDV":
+            guard let destVC = segue.destination as? showsDetailViewController else {
+                fatalError("Unexpected segue VC")
+            }
+            guard let selectedIndexPath = episodeTableView.indexPathForSelectedRow else {fatalError("No row selected")
+                
+            }
+            
+            let currentEpisode = episodes[selectedIndexPath.row]
+            destVC.currentEpisode = currentEpisode
+            
+        default:
+            fatalError("unexpected segue identifier")
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count
     }

@@ -13,6 +13,8 @@ struct Episode: Codable {
     let name : String
     let season: Int
     let image: Image?
+    let summary: String
+    let number: Int
     
     static func getEpisodeData(showID: Int, completionHandler: @escaping (Result<[Episode],AppError>) -> () ) {
         let url = "http://api.tvmaze.com/shows/\(showID)/episodes"
