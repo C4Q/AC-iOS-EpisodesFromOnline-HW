@@ -19,6 +19,11 @@ class ShowsViewController: UIViewController {
             ShowsTableView.reloadData()
         }
     }
+    
+//    var episodesList = [Episodes]() {
+//        didSet  {
+//        }
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +33,10 @@ class ShowsViewController: UIViewController {
 
     }
     
-    private func loadData() {
+    private func loadShowData() {
         let encodedSearchString = searchString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = "https://api.tvmaze.com/search/shows?q=\(encodedSearchString!)"
-        print(url)
+
         ShowAPIHelper.shared.getShow(url: url) {(result) in
             DispatchQueue.main.async {
                 switch result {
@@ -44,10 +49,10 @@ class ShowsViewController: UIViewController {
         }
     }
     
-    //make that when search back goes back to being "" it clears the view.
+    
     var searchString: String = "" {
         didSet {
-            loadData()
+            loadShowData()
             ShowsTableView.reloadData()
         }
     }
@@ -58,6 +63,14 @@ class ShowsViewController: UIViewController {
         alert.addAction(alertAction)
         self.present(alert, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let ShowListCell = segue.destination as? SingleShowViewController else
+        {fatalError("No episode found")}
+        print(ShowListCell)
+        guard let selectedIndexPath = ShowsTableView.indexPathForSelectedRow else {fatalError()}
+        ShowListCell.showId = showsList[selectedIndexPath.row].show.id
+    }
 
 }
 
@@ -67,7 +80,7 @@ extension ShowsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ShowsTableView.dequeueReusableCell(withIdentifier: "ShowCell")
+        let cell = ShowsTableView.dequeueReusableCell(withIdentifier: "ShowListCell")
         let singleShow = showsList[indexPath.row]
         cell?.textLabel?.text = singleShow.show.name
         
