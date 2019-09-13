@@ -11,14 +11,15 @@ import Foundation
 struct ShowsWrapper: Codable{
     let show: Shows
     
+    
     static func getShow(userInput: String?,completionHandler: @escaping (Result<[ShowsWrapper],AppError>) -> () ) {
         var url = "https://api.tvmaze.com/search/shows?q=g)"
         if let word = userInput{
-          let newString = word.replacingOccurrences(of: " ", with: "-")
-         url = "https://api.tvmaze.com/search/shows?q=\(newString)"
-            }
+            let newString = word.replacingOccurrences(of: " ", with: "-")
+            url = "https://api.tvmaze.com/search/shows?q=\(newString)"
+        }
         NetWorkManager.shared.fetchData(urlString: url) { (result) in
-      print(url)
+            print(url)
             switch result {
             case .failure(let error):
                 completionHandler(.failure(error))

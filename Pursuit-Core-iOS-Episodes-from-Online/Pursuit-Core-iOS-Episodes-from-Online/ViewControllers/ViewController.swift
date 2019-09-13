@@ -15,22 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var spinnerOne: UIActivityIndicatorView!
     
     var viewShow = [ShowsWrapper](){
-        didSet {
-            showTableVIew.reloadData()
-        }
+        didSet {showTableVIew.reloadData()}
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        showTableVIew.delegate = self
-        showTableVIew.dataSource = self
-        showSearchBar.delegate = self
-        loadData(word: nil)
-    }
     var userSearchTerm: String? {
-        didSet {
-            self.showTableVIew.reloadData()
-        }
+        didSet {self.showTableVIew.reloadData()}
     }
     var filteredShow: [ShowsWrapper]  {
         guard let userSearchTerm = userSearchTerm else {
@@ -41,9 +30,17 @@ class ViewController: UIViewController {
         }
         return viewShow
     }
-   
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        showTableVIew.delegate = self
+        showTableVIew.dataSource = self
+        showSearchBar.delegate = self
+        loadData(word: nil)
+    }
 
-  
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let showVc = segue.destination as? EpisodeViewController else {
             fatalError("Unexpected segue")
@@ -52,7 +49,7 @@ class ViewController: UIViewController {
             else { fatalError("No row selected") }
         showVc.show = filteredShow[selectedIndexPath.row]
     }
-   private func loadData(word: String?){
+    private func loadData(word: String?){
         ShowsWrapper.getShow(userInput: word){ (result) in
             switch result {
             case .failure(let error):
@@ -81,21 +78,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                     case .failure(let error):
                         print(error)
                     case .success(let image):
-                         self.spinnerOne.stopAnimating()
+                        self.spinnerOne.stopAnimating()
                         cell?.showImage.image = image
                     }}}
         }
         cell?.showName.text = shows.name
         if let run = shows.runtime?.description{
-            cell?.runtime.text = "\(run) Mins"
+        cell?.runtime.text = "\(run) Mins"
         }
         else {
-            cell?.runtime.text = "No runtime"}
+        cell?.runtime.text = "No runtime"}
         if let rate = shows.rating?.average?.description{
-            cell?.rating.text = rate}else {
-            cell?.rating.text = "No rating"
+        cell?.rating.text = rate}else {
+        cell?.rating.text = "No rating"
         }
-        
         return cell!
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

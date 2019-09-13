@@ -13,31 +13,33 @@ class EpisodeViewController: UIViewController {
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var showName: UILabel!
     @IBOutlet weak var showDescrip: UITextView!
-    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var episodeTable: UITableView!
     var episodes = [Episodes](){
         didSet {
             episodeTable.reloadData()
-          setUpLabelsShow()
+            setUpLabelsShow()
         }
     }
-    @IBOutlet weak var episodeTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         episodeTable.delegate = self
         episodeTable.dataSource = self
+        self.spinner.startAnimating()
         getData()
     }
     func getData(){
         Episodes.getEpisode(id: (show?.show.id)!){ (result) in
-    switch result {
-    case .failure(let error):
-    print(error)
-    case .success(let episode):
-    DispatchQueue.main.async{
-    return self.episodes = episode
-    }
-    }
-    }
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let episode):
+                DispatchQueue.main.async{
+                    self.spinner.stopAnimating()
+                    return self.episodes = episode
+                }
+            }
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let epVc = segue.destination as? DetailViewController else {
@@ -51,16 +53,16 @@ class EpisodeViewController: UIViewController {
         showName.text = show?.show.name
         showDescrip.text = show?.show.fixedSummary
         if let image = show?.show.image?.original{
-        ImageHelper.shared.fetchImage(urlString: image) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let image):
-                    self.showImage.image = image
+            ImageHelper.shared.fetchImage(urlString: image) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let image):
+                        self.showImage.image = image
+                    }
                 }
             }
-        }
         }}
 }
 
@@ -73,15 +75,15 @@ extension EpisodeViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = episodeTable.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as? episodeTableViewCell
         let epi = episodes[indexPath.row]
         if let image = epi.image?.original{
-        ImageHelper.shared.fetchImage(urlString: image) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let image):
-                    cell?.episodeImage.image = image
+            ImageHelper.shared.fetchImage(urlString: image) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let image):
+                        cell?.episodeImage.image = image
+                    }
                 }
-            }
             }
         }
         
