@@ -21,6 +21,7 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    var testThisType = "0.004423244324232"
     var show : Show!
     
     private func loadData() {

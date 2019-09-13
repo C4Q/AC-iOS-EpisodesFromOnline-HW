@@ -15,21 +15,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var showsTableView: UITableView!
     
     var shows = [Show]() {
-        didSet {
+        didSet { // I've observed your 'shows' variable and when I notice that it has been set/updated, I will do the code below.
             DispatchQueue.main.async {
                 self.showsTableView.reloadData()
             }
         }
     }
     
-    var searchString: String? //Our filter is going to filter based on this variable, searchString
+    //Our filter is going to filter based on this variable, searchString
+    var searchString: String?  {
+        didSet {
+            self.showsTableView.reloadData()
+        }
+    }
+   
     
     var filteredShow: [Show] {
         get {
             guard let searchString = searchString else {return shows} //When search bar is empty, just keep showing me the array of all the shows.
             guard searchString != "" else {return shows}
             
-            return Show.getFilteredShowsByName(arr: shows, searchString: searchString)
+            return Show.getFilteredShowsByName(arr: shows, searchString: searchString) //When not empty, that means searchbar has text inside of it. So start filtering based on w.e. is inside of it.
         }
     }
     
@@ -47,7 +53,7 @@ class ViewController: UIViewController {
                 
             }
             
-            let currentShow = shows[selectedIndexPath.row]
+            let currentShow = filteredShow[selectedIndexPath.row]
             destVC.show = currentShow
             
         default:
@@ -74,6 +80,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         showsTableView.dataSource = self
         showsTableView.delegate = self
+        searchBar.delegate = self
         loadData()
         
     }
@@ -83,12 +90,12 @@ extension ViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shows.count
+        return filteredShow.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = showsTableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath)  as! showsTableViewCell
-        let currentShow = shows[indexPath.row]
+        let currentShow = filteredShow[indexPath.row]
         
         cell.TitleLabel.text = currentShow.name
         cell.rating.text = "\(currentShow.rating?.average ?? 0.0)"
