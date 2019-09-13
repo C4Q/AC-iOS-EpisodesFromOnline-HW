@@ -77,7 +77,6 @@ extension SingleShowViewController: UITableViewDataSource {
                 }
             }
         }
-        
         return cell!
     }
 }
