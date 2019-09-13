@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
         
         nameLabel.text = episode.name
         seasonAndEpisodeLabel.text = episode.seasonAndEpisode
-        descriptionLabel.text = episode.description
+        descriptionLabel.text = episode.description 
         descriptionLabel.isEditable = false
         setImage()
     }

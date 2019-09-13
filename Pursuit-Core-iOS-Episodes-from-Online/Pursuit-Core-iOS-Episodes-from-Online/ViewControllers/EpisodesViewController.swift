@@ -24,7 +24,6 @@ class EpisodesViewController: UIViewController {
         super.viewDidLoad()
         episodeTableView.dataSource = self
         episodeTableView.rowHeight = 200
-        
     }
     
 }
