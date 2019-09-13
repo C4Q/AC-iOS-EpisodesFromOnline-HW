@@ -46,6 +46,13 @@ class SingleShowViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let showEpisodeinfo = segue.destination as? EpisodeDetailedViewController else
+        {fatalError("No episode info found")}
+        guard let selectedIndexPath = SingleShowTableView.indexPathForSelectedRow else {fatalError()}
+        showEpisodeinfo.episode = showEpisodes[selectedIndexPath.row]
+    }
 
 }
 
@@ -73,8 +80,6 @@ extension SingleShowViewController: UITableViewDataSource {
         
         return cell!
     }
-    
-    
 }
 
 extension SingleShowViewController: UITableViewDelegate {
