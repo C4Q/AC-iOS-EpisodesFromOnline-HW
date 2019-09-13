@@ -13,6 +13,8 @@
 		CD01CD63232178B2002D0255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD62232178B2002D0255 /* Assets.xcassets */; };
 		CD01CD66232178B2002D0255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */; };
 		CD01CD71232178B2002D0255 /* Pursuit_Core_iOS_Episodes_from_OnlineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD70232178B2002D0255 /* Pursuit_Core_iOS_Episodes_from_OnlineTests.swift */; };
+		DF01275F232B2ABF00F4E9B8 /* TVShows.json in Resources */ = {isa = PBXBuildFile; fileRef = DF01275E232B2ABF00F4E9B8 /* TVShows.json */; };
+		DF012762232B3BB900F4E9B8 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF012761232B3BB900F4E9B8 /* EpisodeTableViewCell.swift */; };
 		DF2C1B6A232995E10086B882 /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2C1B69232995E10086B882 /* ShowTableViewCell.swift */; };
 		DF89D6E8232848CF008FE06F /* TVShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF89D6E7232848CE008FE06F /* TVShows.swift */; };
 		DF89D6EB23284ADA008FE06F /* TVEpisodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF89D6EA23284ADA008FE06F /* TVEpisodes.swift */; };
@@ -43,6 +45,8 @@
 		CD01CD6C232178B2002D0255 /* Pursuit-Core-iOS-Episodes-from-OnlineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pursuit-Core-iOS-Episodes-from-OnlineTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD01CD70232178B2002D0255 /* Pursuit_Core_iOS_Episodes_from_OnlineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pursuit_Core_iOS_Episodes_from_OnlineTests.swift; sourceTree = "<group>"; };
 		CD01CD72232178B2002D0255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF01275E232B2ABF00F4E9B8 /* TVShows.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TVShows.json; sourceTree = "<group>"; };
+		DF012761232B3BB900F4E9B8 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		DF2C1B69232995E10086B882 /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
 		DF89D6E7232848CE008FE06F /* TVShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShows.swift; sourceTree = "<group>"; };
 		DF89D6EA23284ADA008FE06F /* TVEpisodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVEpisodes.swift; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 			children = (
 				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
 				CD01CD5F232178AF002D0255 /* Main.storyboard */,
-				DF2C1B69232995E10086B882 /* ShowTableViewCell.swift */,
+				DF012760232B2C3000F4E9B8 /* TableViewCell */,
 				DF89D6E9232848D6008FE06F /* Models */,
 				DF89D6E623284824008FE06F /* Controllers */,
 				DF89D6F023284CA2008FE06F /* Network&ImageHelper */,
@@ -113,6 +117,15 @@
 			path = "Pursuit-Core-iOS-Episodes-from-OnlineTests";
 			sourceTree = "<group>";
 		};
+		DF012760232B2C3000F4E9B8 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DF2C1B69232995E10086B882 /* ShowTableViewCell.swift */,
+				DF012761232B3BB900F4E9B8 /* EpisodeTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		DF89D6E623284824008FE06F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +138,7 @@
 		DF89D6E9232848D6008FE06F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DF01275E232B2ABF00F4E9B8 /* TVShows.json */,
 				DF89D6E7232848CE008FE06F /* TVShows.swift */,
 				DF89D6EA23284ADA008FE06F /* TVEpisodes.swift */,
 			);
@@ -224,6 +238,7 @@
 			files = (
 				CD01CD66232178B2002D0255 /* LaunchScreen.storyboard in Resources */,
 				CD01CD63232178B2002D0255 /* Assets.xcassets in Resources */,
+				DF01275F232B2ABF00F4E9B8 /* TVShows.json in Resources */,
 				CD01CD61232178AF002D0255 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +260,7 @@
 				CD01CD5E232178AF002D0255 /* EpisodeViewController.swift in Sources */,
 				DF89D6EB23284ADA008FE06F /* TVEpisodes.swift in Sources */,
 				DF89D6ED23284B60008FE06F /* AppError.swift in Sources */,
+				DF012762232B3BB900F4E9B8 /* EpisodeTableViewCell.swift in Sources */,
 				DF89D6F423284D8B008FE06F /* NetworkManager.swift in Sources */,
 				DF89D6E8232848CF008FE06F /* TVShows.swift in Sources */,
 				CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */,

@@ -9,13 +9,13 @@
 import Foundation
 
 struct TVEpisodes: Codable {
-    let name: String
-    let image: EpisodeImage?
-    let season: Int
     let number: Int
+    let name: String
+    let season: Int
+    let image: TVEpisodeImage?
     let summary: String?
     
-    static func getEpisodeData(showURL: String, completionHandler: @escaping (Result<[TVEpisodes],AppError>) -> () ) {
+    static func getTVEpisode(showURL: String, completionHandler: @escaping (Result<[TVEpisodes],AppError>) -> () ) {
         
         NetworkManager.shared.fetchData(urlString: showURL) { (result) in
             switch result {
@@ -32,6 +32,6 @@ struct TVEpisodes: Codable {
     }
 }
 
-struct EpisodeImage: Codable {
+struct TVEpisodeImage: Codable {
     let original: String
 }

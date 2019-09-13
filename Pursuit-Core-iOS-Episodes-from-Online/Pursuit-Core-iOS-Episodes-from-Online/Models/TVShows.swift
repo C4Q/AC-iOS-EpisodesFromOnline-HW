@@ -9,11 +9,10 @@
 import Foundation
 
 struct TVShow: Codable {
+    let id: Int
     let name: String
     let image: Image
     let rating: Rating?
-    let id: Int
-    let externals: Externals
     let genres: [String]
     
     static func getTVShowData(completionHandler: @escaping (Result<[TVShow],AppError>) -> () ) {
@@ -50,9 +49,5 @@ struct Image: Codable {
 
 struct Rating: Codable {
     let average: Double?
-}
-
-struct Externals: Codable {
-    let tvrage: Int
 }
 

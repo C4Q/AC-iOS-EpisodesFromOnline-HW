@@ -11,7 +11,7 @@ import UIKit
 class TVShowViewController: UIViewController {
     
     
-    //MARK: -- Outlets and properties
+    //MARK: IBOutlets and properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -33,7 +33,19 @@ class TVShowViewController: UIViewController {
     
     var searchString: String? = nil { didSet { self.tableView.reloadData()} }
     
-   
+    //MARK: Segue Method
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let showVC = segue.destination as? EpisodeViewController else {fatalError("Unexpected segue VC")}
+        guard let selectedIndexPath = tableView.indexPathForSelectedRow else {fatalError("No row was selected")}
+        let selectedTVShow = filteredShows[selectedIndexPath.row]
+        let selectedTVShowUrl = "http://api.tvmaze.com/shows/\(selectedTVShow.id)/episodes"
+        showVC.currentTVShowURL = selectedTVShowUrl
+        showVC.navigationItem.title = selectedTVShow.name
+        
+        
+        //showVC.currentTVShowURL = selectedTVShow.name
+    }
 
     private func loadData(){
         TVShow.getTVShowData { (result) in
@@ -54,7 +66,7 @@ class TVShowViewController: UIViewController {
         tableView.delegate = self
         searchBar.delegate = self
     }
-    //Mark - Views Notifying Functions
+    //Mark: Views Notifying Functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -72,12 +84,11 @@ class TVShowViewController: UIViewController {
     }
 }
 
-//MARK: -- Datasource Methods
+//MARK: Datasource
 extension TVShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredShows.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentShow = filteredShows[indexPath.row]
@@ -90,8 +101,8 @@ extension TVShowViewController: UITableViewDataSource {
                 switch result {
                 case .failure(let error):
                     print(error)
-                case .success(let imageFromOnline):
-                    tvShowCell.showImage.image = imageFromOnline
+                case .success(let urlImage):
+                    tvShowCell.showImage.image = urlImage
                 }
             }
         }
@@ -99,14 +110,13 @@ extension TVShowViewController: UITableViewDataSource {
     }
 }
 
-//MARK: -- Delegate Methods
+//MARK: Delegate Methods
 
 extension TVShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
 }
-
 
 extension TVShowViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
