@@ -16,7 +16,6 @@ class ShowAPIHelper {
     static let shared = ShowAPIHelper()
     
     func getShow(url: String, completionHandler: @escaping (Result<[Shows], AppError>) -> ()) {
-        
         NetworkManager.shared.fetchData(urlString: url) { (result) in
             switch result {
             case .failure(let error):
@@ -34,7 +33,6 @@ class ShowAPIHelper {
     }
     
     func getEpisodes(url: String, completionHandler: @escaping (Result<[Episodes], AppError>) -> ()) {
-        print(url)
         NetworkManager.shared.fetchData(urlString: url) { (result) in
             switch result {
             case .failure(let error):
