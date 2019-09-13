@@ -18,18 +18,17 @@ class EpisodeDetailedViewController: UIViewController {
     @IBOutlet weak var episodeNumber: UILabel!
     @IBOutlet weak var episodeSummary: UITextView!
     
-//    private func displayImage() -> Void {
-//        if episode.image != nil {
-//            ImageHelper.getImage(stringUrl: episode.image!.medium) { (error, image) in
-//                if let image = image {
-//                    DispatchQueue.main.async {
-//                        episodeImage.image = episode.image?.medium
-//                    }
-//
-//                }
-//            }
-//        }
-//    }
+    private func displayImage() -> Void {
+        if episode.image != nil {
+            ImageHelper.getImage(stringUrl: episode.image!.medium) { (error, image) in
+                if let image = image {
+                    DispatchQueue.main.async {
+                        self.episodeImage.image = image
+                    }
+                }
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +36,7 @@ class EpisodeDetailedViewController: UIViewController {
         seasonNumber.text = String("Season: \(episode.season)")
         episodeNumber.text = String("Episdode: \(episode.number)")
         episodeSummary.text = episode.summary?.replacingOccurrences(of: "<[^>]+>", with: "", options: String.CompareOptions.regularExpression, range: nil)
-//        displayImage()
+        displayImage()
     }
 
 }
