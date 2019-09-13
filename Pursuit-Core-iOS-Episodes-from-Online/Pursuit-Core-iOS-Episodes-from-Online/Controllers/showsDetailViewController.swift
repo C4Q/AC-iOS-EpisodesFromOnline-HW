@@ -39,16 +39,29 @@ class showsDetailViewController: UIViewController {
         }
     }
     
+    
     private func setLabelText() {
         nameLabel.text = currentEpisode.name
         summaryText.text = currentEpisode.summary
         numberLabel.text = "E:\(currentEpisode.number)"
         seasonLabel.text = "S:\(currentEpisode.season)"
+        
+        
+        nameLabel.textColor = UIColor.white
+        numberLabel.textColor = UIColor.white
+        seasonLabel.textColor = UIColor.white
+        summaryText.textColor = UIColor.white
+        
     }
+    
+    private func setBackgroundColor() {
+        self.view.backgroundColor = UIColor.black
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabelText()
-
+        setBackgroundColor()
         loadEpisodeImage()
     }
    

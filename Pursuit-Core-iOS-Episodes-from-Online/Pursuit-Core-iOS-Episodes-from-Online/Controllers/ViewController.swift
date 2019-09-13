@@ -99,7 +99,13 @@ extension ViewController: UITableViewDataSource {
         
         cell.TitleLabel.text = currentShow.name
         cell.rating.text = "\(currentShow.rating?.average ?? 0.0)"
-        
+        cell.backgroundColor = UIColor.black
+        cell.TitleLabel.textColor = UIColor.white
+        cell.rating.textColor = UIColor.white
+    
+    
+    
+       
         ImageHelper.shared.fetchImage(urlString: currentShow.image.original) { (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -125,6 +131,8 @@ extension ViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchString = searchText //I am setting the global variable equal to whatever was typed in the search bar. This is so I can use that global variable for other stuff like filtering shows.
+        
+        
     }
 }
 

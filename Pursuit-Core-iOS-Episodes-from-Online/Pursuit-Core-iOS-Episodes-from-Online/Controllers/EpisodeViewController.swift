@@ -68,7 +68,10 @@ class EpisodeViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = episodeTableView.dequeueReusableCell(withIdentifier: "episodesCell", for: indexPath) as! EpisodesTableViewCell
         let currentEpisode = episodes[indexPath.row]
         cell.episodesName.text = currentEpisode.name
-        cell.seasonName.text = "\(currentEpisode.season)"
+        cell.seasonName.text = "S:\(currentEpisode.season)"
+        cell.backgroundColor = UIColor.black
+        cell.episodesName.textColor = UIColor.white
+        cell.seasonName.textColor = UIColor.white
 
         if let episodeImage = currentEpisode.image?.original {
             ImageHelper.shared.fetchImage(urlString: episodeImage) { (result) in
