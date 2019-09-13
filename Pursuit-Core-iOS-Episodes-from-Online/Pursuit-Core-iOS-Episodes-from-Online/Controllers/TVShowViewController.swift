@@ -33,29 +33,7 @@ class TVShowViewController: UIViewController {
     
     var searchString: String? = nil { didSet { self.tableView.reloadData()} }
     
-    //MARK: -- Segue functions
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let segueIdentifer = segue.identifier else {fatalError("No identifier in segue")}
-//
-//        switch segueIdentifer {
-//        case "segueToEpisodes":
-//            guard let destVC = segue.destination as? SpecificShowViewController else { fatalError("Unexpected segue VC") }
-//            guard let selectedIndexPath = tableView.indexPathForSelectedRow else { fatalError("No row selected") }
-//            let selectedShow = filteredShows[selectedIndexPath.row]
-//            let selectedShowIDURl = "http://api.tvmaze.com/shows/\(selectedShow.id)/episodes"
-//            destVC.currentShowURL = selectedShowIDURl
-//            destVC.currentShowName = selectedShow.name
-//
-//            let backItem = UIBarButtonItem()
-//            backItem.title = "Shows"
-//            navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
-//    
-//
-//        default:
-//            fatalError("unexpected segue identifier")
-//        }
-//    }
+   
 
     private func loadData(){
         TVShow.getTVShowData { (result) in
