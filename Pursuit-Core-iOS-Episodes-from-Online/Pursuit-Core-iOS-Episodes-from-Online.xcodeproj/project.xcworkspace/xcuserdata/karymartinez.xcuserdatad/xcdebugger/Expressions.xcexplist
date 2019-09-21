@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "ImageHelper.fetchImage(urlString:completionHandler:):imageHelper.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "urlString">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static Episode.getEpisodeData(showID:completionHandler:):episodeStruct.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "episodeData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EpisodeViewController.loadData():EpisodeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.episodes">
+            </PersistentString>
+            <PersistentString
+               value = "episodesFromOnline">
+            </PersistentString>
+            <PersistentString
+               value = "show.id">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
