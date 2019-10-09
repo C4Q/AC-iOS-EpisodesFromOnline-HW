@@ -13,7 +13,7 @@ class EpisodeViewController: UIViewController {
 //MARK: IBOutlet and Properties
     @IBOutlet weak var episodeTableView: UITableView!
     
-    var episodes = [TVEpisodes]() {
+    var episodes = [showEpisode]() {
         didSet {
             episodeTableView.reloadData()
         }
@@ -21,8 +21,23 @@ class EpisodeViewController: UIViewController {
     
     var currentTVShowURL = String()
     
-    private func getSelectedTVShowData(newTVShowURL: String){
-        TVEpisodes.getTVEpisode(showURL: newTVShowURL) {(result) in DispatchQueue.main.async {
+    //MARK: -- Functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let segueIdentifer = segue.identifier else {fatalError("No identifier in segue")}
+        
+        switch segueIdentifer {
+        case "segueToDetail":
+                guard let destVC = segue.destination as? detailEpisodeViewController else { fatalError("Unexpected segue VC") }
+                guard let selectedIndexPath = episodeTableView.indexPathForSelectedRow else { fatalError("No row selected") }
+                let selectedEpisode = episodes[selectedIndexPath.row]
+                destVC.currentEpisode = selectedEpisode
+            default:
+                fatalError("unexpected segue identifier")
+            }
+        }
+    
+    private func getSelectedShowData(newTVShowURL: String){
+        showEpisode.getEpisodeData(showURL: newTVShowURL) {(result) in DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
                     print(error)
@@ -32,11 +47,41 @@ class EpisodeViewController: UIViewController {
             }
         }
     }
+    private func setCellImage(ep: showEpisode, cell: EpisodeTableViewCell) {
+        if let currentImage = ep.image?.original {
+            cell.activityIndicator.isHidden = false
+            cell.activityIndicator.startAnimating()
+            
+            ImageHelper.shared.fetchImage(urlString: currentImage) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let imageFromOnline):
+                        cell.tvEpisodeImage.image = imageFromOnline
+                        cell.activityIndicator.isHidden = true
+                        cell.activityIndicator.stopAnimating()
+                    }
+                }
+            }
+        } else {
+            //cell.tvEpisodeImage.image =
+            cell.activityIndicator.isHidden = true
+            cell.activityIndicator.stopAnimating()
+        }
+        
+    }
+    
+    private func setCellText(ep: showEpisode, cell: EpisodeTableViewCell) {
+        cell.episodeNameLabel.text = ep.name
+        cell.episodeSeasonLabel.text = "S\(ep.season) E\(ep.number)"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         episodeTableView.dataSource = self
         episodeTableView.delegate = self
+        getSelectedShowData(newTVShowURL: currentTVShowURL)
     }
 }
 
@@ -49,27 +94,18 @@ extension EpisodeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let currentEpisode = episodes[indexPath.row]
         let episodeCell = episodeTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeTableViewCell
-        if let episodeImage = currentEpisode.image?.original{
-            ImageHelper.shared.fetchImage(urlString: episodeImage) { (result) in DispatchQueue.main.async {
-                switch result {
-                case .failure(let error):
-                    print(error)
-                case .success(let episodeImage):
-                    episodeCell.tvEpisodeImage.image = episodeImage
-                    }
-                }
-            }
-        }
-        episodeCell.episodeNameLabel.text = currentEpisode.name
-        episodeCell.episodeSeasonLabel.text = "S\(currentEpisode.season) E\(currentEpisode.number)"
+        
+        setCellText(ep: currentEpisode, cell: episodeCell)
+        setCellImage(ep: currentEpisode, cell: episodeCell)
         return episodeCell
     }
 }
 
+//MARK: - Delegate Method
 
 extension EpisodeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        return 180
     }
 }
 

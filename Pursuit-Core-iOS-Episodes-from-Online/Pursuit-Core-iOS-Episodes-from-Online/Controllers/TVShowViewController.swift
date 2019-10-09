@@ -40,10 +40,11 @@ class TVShowViewController: UIViewController {
         guard let selectedIndexPath = tableView.indexPathForSelectedRow else { fatalError("No row was selected")}
         
         let selectedTVShow = filteredShows[selectedIndexPath.row]
-        let selectedTVShowUrl = "http://api.tvmaze.com/shows/\(selectedTVShow.name)/episodes"
+        let selectedTVShowIDUrl = "http://api.tvmaze.com/shows/\(selectedTVShow.id)/episodes"
         
-        showVC.currentTVShowURL = selectedTVShowUrl
+        showVC.currentTVShowURL = selectedTVShowIDUrl
         showVC.navigationItem.title = selectedTVShow.name
+        
         
     }
 
@@ -59,17 +60,6 @@ class TVShowViewController: UIViewController {
                 }
             }
         }
-    }
-    
-//Mark: Views Notifying Functions
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func viewDidLoad() {
@@ -91,7 +81,7 @@ extension TVShowViewController: UITableViewDataSource {
         let currentShow = filteredShows[indexPath.row]
         let tvShowCell = tableView.dequeueReusableCell(withIdentifier: "tvShowCell", for: indexPath) as! ShowTableViewCell
         
-        tvShowCell.showNameLabel.text =  currentShow.name
+        tvShowCell.showNameLabel.text = currentShow.name
         tvShowCell.showRatingLabel.text = "Rating: \(currentShow.rating?.average ?? 0.0)"
         ImageHelper.shared.fetchImage(urlString: currentShow.image.original) { (result) in
             DispatchQueue.main.async {

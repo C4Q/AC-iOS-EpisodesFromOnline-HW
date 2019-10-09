@@ -1,5 +1,5 @@
 //
-//  TVEpisodes.swift
+//  showEpisode.swift
 //  Pursuit-Core-iOS-Episodes-from-Online
 //
 //  Created by Eric Widjaja on 9/10/19.
@@ -8,14 +8,15 @@
 
 import Foundation
 
-struct TVEpisodes: Codable {
+struct showEpisode: Codable {
+    
     let number: Int
     let name: String
     let season: Int
-    let image: TVEpisodeImage?
+    let image: EpisodeImage?
     let summary: String?
     
-    static func getTVEpisode(showURL: String, completionHandler: @escaping (Result<[TVEpisodes],AppError>) -> () ) {
+    static func getEpisodeData(showURL: String, completionHandler: @escaping (Result<[showEpisode],AppError>) -> () ) {
         
         NetworkManager.shared.fetchData(urlString: showURL) { (result) in
             switch result {
@@ -23,8 +24,8 @@ struct TVEpisodes: Codable {
                 completionHandler(.failure(error))
             case .success(let data):
                 do {
-                    let TVEpisodesData = try JSONDecoder().decode([TVEpisodes].self, from: data)
-                    completionHandler(.success(TVEpisodesData))
+                    let showEpisodeData = try JSONDecoder().decode([showEpisode].self, from: data)
+                    completionHandler(.success(showEpisodeData))
                 } catch {
                     completionHandler(.failure(.badJSONError))                }
             }
@@ -32,6 +33,6 @@ struct TVEpisodes: Codable {
     }
 }
 
-struct TVEpisodeImage: Codable {
+struct EpisodeImage: Codable {
     let original: String
 }

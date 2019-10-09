@@ -16,6 +16,8 @@ class EpisodeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var episodeSeasonLabel: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
