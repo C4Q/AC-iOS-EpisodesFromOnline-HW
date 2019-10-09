@@ -23,17 +23,10 @@ class EpisodeViewController: UIViewController {
     
     //MARK: -- Functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let segueIdentifer = segue.identifier else {fatalError("No identifier in segue")}
-        
-        switch segueIdentifer {
-        case "segueToDetail":
                 guard let destVC = segue.destination as? detailEpisodeViewController else { fatalError("Unexpected segue VC") }
                 guard let selectedIndexPath = episodeTableView.indexPathForSelectedRow else { fatalError("No row selected") }
                 let selectedEpisode = episodes[selectedIndexPath.row]
                 destVC.currentEpisode = selectedEpisode
-            default:
-                fatalError("unexpected segue identifier")
-            }
         }
     
     private func getSelectedShowData(newTVShowURL: String){
