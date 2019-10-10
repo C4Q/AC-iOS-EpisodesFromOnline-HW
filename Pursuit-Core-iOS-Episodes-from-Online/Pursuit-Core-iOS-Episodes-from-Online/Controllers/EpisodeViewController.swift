@@ -11,6 +11,7 @@ import UIKit
 class EpisodeViewController: UIViewController {
     
 //MARK: IBOutlet and Properties
+    
     @IBOutlet weak var episodeTableView: UITableView!
     
     var episodes = [showEpisode]() {
@@ -21,7 +22,7 @@ class EpisodeViewController: UIViewController {
     
     var currentTVShowURL = String()
     
-    //MARK: -- Methods
+    //MARK: - Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                 guard let destinationVC = segue.destination as? detailEpisodeViewController else { fatalError("Unexpected segue VC") }
                 guard let selectedIndexPath = episodeTableView.indexPathForSelectedRow else { fatalError("No row selected") }
@@ -40,6 +41,7 @@ class EpisodeViewController: UIViewController {
             }
         }
     }
+    
     private func loadCellImage(ep: showEpisode, cell: EpisodeTableViewCell) {
         if let currentImage = ep.image?.original {
             cell.activityIndicator.isHidden = false
@@ -77,7 +79,7 @@ class EpisodeViewController: UIViewController {
     }
 }
 
-//MARK: Datasource Methods
+//MARK: - Datasource Methods
 extension EpisodeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return episodes.count

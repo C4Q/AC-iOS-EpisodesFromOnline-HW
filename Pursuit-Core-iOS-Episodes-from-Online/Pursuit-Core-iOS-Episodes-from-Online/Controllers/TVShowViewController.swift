@@ -11,7 +11,7 @@ import UIKit
 class TVShowViewController: UIViewController {
     
     
-//MARK: IBOutlets and properties
+//MARK: - IBOutlets and properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -31,10 +31,9 @@ class TVShowViewController: UIViewController {
         }
     }
     
-    
     var searchString: String? = nil { didSet { self.tableView.reloadData()} }
     
-//MARK: Segue Method
+//MARK: - Segue Method
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let showVC = segue.destination as? EpisodeViewController else { fatalError("Unexpected segue VC")}
         guard let selectedIndexPath = tableView.indexPathForSelectedRow else { fatalError("No row was selected")}
@@ -44,8 +43,6 @@ class TVShowViewController: UIViewController {
         
         showVC.currentTVShowURL = selectedTVShowIDUrl
         showVC.navigationItem.title = selectedTVShow.name
-        
-        
     }
 
     private func loadData(){
@@ -71,7 +68,7 @@ class TVShowViewController: UIViewController {
     }
 }
 
-//MARK: Datasource
+//MARK: - Datasource
 extension TVShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredShows.count
@@ -98,7 +95,7 @@ extension TVShowViewController: UITableViewDataSource {
 }
 
 
-//MARK: Delegate Methods
+//MARK: - Delegate Methods
 extension TVShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
