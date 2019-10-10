@@ -21,12 +21,12 @@ class EpisodeViewController: UIViewController {
     
     var currentTVShowURL = String()
     
-    //MARK: -- Functions
+    //MARK: -- Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                guard let destVC = segue.destination as? detailEpisodeViewController else { fatalError("Unexpected segue VC") }
+                guard let destinationVC = segue.destination as? detailEpisodeViewController else { fatalError("Unexpected segue VC") }
                 guard let selectedIndexPath = episodeTableView.indexPathForSelectedRow else { fatalError("No row selected") }
                 let selectedEpisode = episodes[selectedIndexPath.row]
-                destVC.currentEpisode = selectedEpisode
+                destinationVC.selectedEpisode = selectedEpisode
         }
     
     private func getSelectedShowData(newTVShowURL: String){
@@ -40,7 +40,7 @@ class EpisodeViewController: UIViewController {
             }
         }
     }
-    private func setCellImage(ep: showEpisode, cell: EpisodeTableViewCell) {
+    private func loadCellImage(ep: showEpisode, cell: EpisodeTableViewCell) {
         if let currentImage = ep.image?.original {
             cell.activityIndicator.isHidden = false
             cell.activityIndicator.startAnimating()
@@ -58,14 +58,13 @@ class EpisodeViewController: UIViewController {
                 }
             }
         } else {
-            //cell.tvEpisodeImage.image =
             cell.activityIndicator.isHidden = true
-            cell.activityIndicator.stopAnimating()
+            cell.activityIndicator.startAnimating()
         }
         
     }
     
-    private func setCellText(ep: showEpisode, cell: EpisodeTableViewCell) {
+    private func loadCellText(ep: showEpisode, cell: EpisodeTableViewCell) {
         cell.episodeNameLabel.text = ep.name
         cell.episodeSeasonLabel.text = "S\(ep.season) E\(ep.number)"
     }
@@ -85,11 +84,11 @@ extension EpisodeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentEpisode = episodes[indexPath.row]
+        let selectedEpisode = episodes[indexPath.row]
         let episodeCell = episodeTableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath) as! EpisodeTableViewCell
         
-        setCellText(ep: currentEpisode, cell: episodeCell)
-        setCellImage(ep: currentEpisode, cell: episodeCell)
+        loadCellText(ep: selectedEpisode, cell: episodeCell)
+        loadCellImage(ep: selectedEpisode, cell: episodeCell)
         return episodeCell
     }
 }
@@ -98,7 +97,7 @@ extension EpisodeViewController: UITableViewDataSource {
 
 extension EpisodeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 155
+        return 170
     }
 }
 

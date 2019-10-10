@@ -16,7 +16,7 @@ class detailEpisodeViewController: UIViewController {
     
     @IBOutlet weak var detailEpisodeTitleLabel: UILabel!
     
-    @IBOutlet weak var detailEpisodeSeasonLAbel: UILabel!
+    @IBOutlet weak var detailEpisodeSeasonLabel: UILabel!
     
     @IBOutlet weak var detailEpisodeDescriptionText: UITextView!
     
@@ -24,15 +24,15 @@ class detailEpisodeViewController: UIViewController {
     
     
     //MARK: - Properties
-    var currentEpisode: showEpisode!
+    var selectedEpisode: showEpisode!
     
     //MARK: - Methods
-    private func loadCurrentEpisodeImage() {
+    private func loadSelectedEpisodeImage() {
         detailSpinner.sizeToFit()
         detailSpinner.isHidden = false
         detailSpinner.startAnimating()
         
-        if let currentImage = currentEpisode.image?.original {
+        if let currentImage = selectedEpisode.image?.original {
             ImageHelper.shared.fetchImage(urlString: currentImage) { (result) in
                 DispatchQueue.main.async {
                     switch result {
@@ -45,29 +45,30 @@ class detailEpisodeViewController: UIViewController {
                     }
                 }
             }
-        } else { detailEpisodeImage.image = #imageLiteral(resourceName: "noImage")
-            self.detailSpinner.isHidden = true
-            self.detailSpinner.stopAnimating()
+        } else {
+            self.detailSpinner.isHidden = false
+            self.detailSpinner.startAnimating()
         }
     }
     
-    private func setLabelText() {
-        if let string = currentEpisode.summary {
-            let summaryWithNoHTMLStuff = string.replacingOccurrences(of: "(?i)<p[^>]*>", with: "", options: .regularExpression, range: nil)
-            let cleanedUpSummary = summaryWithNoHTMLStuff.replacingOccurrences(of: "</p>", with: " ")
-            detailEpisodeDescriptionText = cleanedUpSummary
+    private func loadLabelText() {
+        detailEpisodeTitleLabel.text = selectedEpisode.name
+        detailEpisodeSeasonLabel.text = "Season: \(selectedEpisode.season) Episode: \(selectedEpisode.number)"
+        
+        if let summaryString = selectedEpisode.summary {
+            let summaryWithoutGibberish = summaryString.replacingOccurrences(of: "(?i)<p[^>]*>", with: "", options: .regularExpression, range: nil)
+            let cleanedSummary = summaryWithoutGibberish.replacingOccurrences(of: "</p>", with: " ")
+            detailEpisodeDescriptionText.text = cleanedSummary
         } else {
-            detailEpisodeDescriptionText = "No summary available"
+            detailEpisodeDescriptionText.text = "No summary available"
         }
         
-        detailEpisodeTitleLabel.text = currentEpisode.name
-        detailEpisodeSeasonLAbel.text = "Season: \(currentEpisode.season) Episode: \(currentEpisode.number)"
-        detailEpisodeDescriptionText.text = currentEpisode.summary
+
     }
-    
+    //MARK: - Call Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLabelText()
-        loadCurrentEpisodeImage()
+        loadLabelText()
+        loadSelectedEpisodeImage()
     }
 }
