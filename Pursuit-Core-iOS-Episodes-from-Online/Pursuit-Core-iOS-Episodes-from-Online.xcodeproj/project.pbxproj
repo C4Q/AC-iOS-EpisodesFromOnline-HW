@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C449C56F239C890700555537 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449C56E239C890700555537 /* NetworkHelper.swift */; };
+		C449C571239C89AE00555537 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449C570239C89AE00555537 /* NetworkError.swift */; };
+		C449C573239C991D00555537 /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C449C572239C991D00555537 /* SecondStoryboard.storyboard */; };
+		C449C575239C9A0200555537 /* EpisodeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449C574239C9A0200555537 /* EpisodeListViewController.swift */; };
+		C449C577239C9A1500555537 /* DetailedEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449C576239C9A1500555537 /* DetailedEpisodeViewController.swift */; };
 		CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5B232178AF002D0255 /* AppDelegate.swift */; };
 		CD01CD5E232178AF002D0255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5D232178AF002D0255 /* ViewController.swift */; };
 		CD01CD61232178AF002D0255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD5F232178AF002D0255 /* Main.storyboard */; };
@@ -26,6 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C449C56E239C890700555537 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		C449C570239C89AE00555537 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C449C572239C991D00555537 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondStoryboard.storyboard; sourceTree = "<group>"; };
+		C449C574239C9A0200555537 /* EpisodeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListViewController.swift; sourceTree = "<group>"; };
+		C449C576239C9A1500555537 /* DetailedEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEpisodeViewController.swift; sourceTree = "<group>"; };
 		CD01CD58232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pursuit-Core-iOS-Episodes-from-Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD01CD5B232178AF002D0255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD01CD5D232178AF002D0255 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +89,12 @@
 			children = (
 				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
 				CD01CD5D232178AF002D0255 /* ViewController.swift */,
+				C449C56E239C890700555537 /* NetworkHelper.swift */,
+				C449C570239C89AE00555537 /* NetworkError.swift */,
+				C449C574239C9A0200555537 /* EpisodeListViewController.swift */,
+				C449C576239C9A1500555537 /* DetailedEpisodeViewController.swift */,
 				CD01CD5F232178AF002D0255 /* Main.storyboard */,
+				C449C572239C991D00555537 /* SecondStoryboard.storyboard */,
 				CD01CD62232178B2002D0255 /* Assets.xcassets */,
 				CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */,
 				CD01CD67232178B2002D0255 /* Info.plist */,
@@ -180,6 +195,7 @@
 				CD01CD66232178B2002D0255 /* LaunchScreen.storyboard in Resources */,
 				CD01CD63232178B2002D0255 /* Assets.xcassets in Resources */,
 				CD01CD61232178AF002D0255 /* Main.storyboard in Resources */,
+				C449C573239C991D00555537 /* SecondStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,7 +213,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C449C577239C9A1500555537 /* DetailedEpisodeViewController.swift in Sources */,
 				CD01CD5E232178AF002D0255 /* ViewController.swift in Sources */,
+				C449C571239C89AE00555537 /* NetworkError.swift in Sources */,
+				C449C575239C9A0200555537 /* EpisodeListViewController.swift in Sources */,
+				C449C56F239C890700555537 /* NetworkHelper.swift in Sources */,
 				CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
