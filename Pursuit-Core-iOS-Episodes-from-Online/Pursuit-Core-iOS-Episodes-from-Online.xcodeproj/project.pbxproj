@@ -21,6 +21,7 @@
 		E1E3966E23A2CFFD00F0613D /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3966D23A2CFFD00F0613D /* AppError.swift */; };
 		E1E3967023A2D04600F0613D /* GenericCodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3966F23A2D04600F0613D /* GenericCodingService.swift */; };
 		E1E3967323A2D50300F0613D /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3967223A2D50300F0613D /* Show.swift */; };
+		E1E3967523A2E6D400F0613D /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3967423A2E6D400F0613D /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		E1E3966D23A2CFFD00F0613D /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		E1E3966F23A2D04600F0613D /* GenericCodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCodingService.swift; sourceTree = "<group>"; };
 		E1E3967223A2D50300F0613D /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		E1E3967423A2E6D400F0613D /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
 				E1E3966D23A2CFFD00F0613D /* AppError.swift */,
 				E1E3966B23A2CFDE00F0613D /* NetworkHelper.swift */,
+				E1E3967423A2E6D400F0613D /* UIImageView+Extensions.swift */,
 				E1E3966F23A2D04600F0613D /* GenericCodingService.swift */,
 				E1E3967223A2D50300F0613D /* Show.swift */,
 				E1E3966723A2CFB700F0613D /* ShowTableViewCell.swift */,
@@ -223,6 +226,7 @@
 			files = (
 				E1E3966C23A2CFDE00F0613D /* NetworkHelper.swift in Sources */,
 				CD01CD5E232178AF002D0255 /* ShowTableViewController.swift in Sources */,
+				E1E3967523A2E6D400F0613D /* UIImageView+Extensions.swift in Sources */,
 				E1E3966623A2CF8000F0613D /* EpisodeDetailViewController.swift in Sources */,
 				E1E3967023A2D04600F0613D /* GenericCodingService.swift in Sources */,
 				E1E3966423A2CF7500F0613D /* EpisodeTableViewController.swift in Sources */,

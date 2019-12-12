@@ -14,12 +14,16 @@ struct ShowWrapper: Codable {
 
 struct Show: Codable {
     let id: Int
+    let name: String
     let image: Image?
     let rating: Rating
 }
 
 struct Image: Codable {
     let medium: String
+    var secureMedium: String {
+        "https" + medium.dropFirst(4)
+    }
 }
 
 struct Rating: Codable {

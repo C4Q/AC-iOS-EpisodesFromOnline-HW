@@ -24,15 +24,49 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Show Cell" id="Sq3-uZ-3Lc">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Show Cell" rowHeight="300" id="Sq3-uZ-3Lc" customClass="ShowTableViewCell" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sq3-uZ-3Lc" id="Cwy-ng-a9s">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="foB-FJ-hEQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="207" height="300"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkT-4N-1aC">
+                                                    <rect key="frame" x="215" y="61" width="187" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yME-K9-jTn">
+                                                    <rect key="frame" x="215" y="229" width="187" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YkT-4N-1aC" firstAttribute="top" secondItem="Cwy-ng-a9s" secondAttribute="topMargin" constant="50" id="9Nk-ih-wXo"/>
+                                                <constraint firstAttribute="bottom" secondItem="foB-FJ-hEQ" secondAttribute="bottom" id="9iM-wP-5ni"/>
+                                                <constraint firstItem="yME-K9-jTn" firstAttribute="leading" secondItem="YkT-4N-1aC" secondAttribute="leading" id="EfS-wa-c4M"/>
+                                                <constraint firstItem="yME-K9-jTn" firstAttribute="bottom" secondItem="Cwy-ng-a9s" secondAttribute="bottom" constant="-50" id="FMj-Yh-BiC"/>
+                                                <constraint firstItem="foB-FJ-hEQ" firstAttribute="centerY" secondItem="Cwy-ng-a9s" secondAttribute="centerY" id="MbH-eV-TjQ"/>
+                                                <constraint firstItem="YkT-4N-1aC" firstAttribute="trailing" secondItem="Cwy-ng-a9s" secondAttribute="trailingMargin" constant="8" id="Q7C-2B-oya"/>
+                                                <constraint firstAttribute="centerX" secondItem="foB-FJ-hEQ" secondAttribute="trailing" id="d51-pu-utL"/>
+                                                <constraint firstItem="YkT-4N-1aC" firstAttribute="leading" secondItem="foB-FJ-hEQ" secondAttribute="trailing" constant="8" id="kgV-7t-WWV"/>
+                                                <constraint firstItem="foB-FJ-hEQ" firstAttribute="top" secondItem="Cwy-ng-a9s" secondAttribute="top" id="liB-1l-FIp"/>
+                                                <constraint firstItem="yME-K9-jTn" firstAttribute="leading" secondItem="foB-FJ-hEQ" secondAttribute="trailing" constant="8" id="q0H-Qs-tt9"/>
+                                                <constraint firstItem="yME-K9-jTn" firstAttribute="trailing" secondItem="YkT-4N-1aC" secondAttribute="trailing" id="qca-0L-Tal"/>
+                                                <constraint firstItem="foB-FJ-hEQ" firstAttribute="leading" secondItem="Cwy-ng-a9s" secondAttribute="leading" id="wjV-Mj-zI2"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Lsa-vG-9oh" kind="show" trigger="accessoryAction" id="BNJ-iQ-eJ2"/>
+                                            <outlet property="nameLabel" destination="YkT-4N-1aC" id="Hu9-3x-5B5"/>
+                                            <outlet property="ratingLabel" destination="yME-K9-jTn" id="KLa-cW-SfU"/>
+                                            <outlet property="showImageView" destination="foB-FJ-hEQ" id="ZZo-MO-h50"/>
+                                            <segue destination="Lsa-vG-9oh" kind="show" id="lwy-52-FNJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -51,6 +85,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="duw-Lm-4Ga"/>
+                    <connections>
+                        <outlet property="searchBar" destination="DqB-He-axe" id="NDg-8G-ALS"/>
+                        <outlet property="tableView" destination="Nce-ja-Doc" id="uoc-xm-AIV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Episode Table View Controller-->
         <scene sceneID="jxO-e2-kg4">
             <objects>
-                <viewController id="Lsa-vG-9oh" sceneMemberID="viewController">
+                <viewController id="Lsa-vG-9oh" customClass="EpisodeTableViewController" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MHJ-Eb-PTg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +124,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Episode Cell" id="fLN-bF-qBX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Episode Cell" id="fLN-bF-qBX" customClass="EpisodeTableViewCell" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fLN-bF-qBX" id="HqY-MR-xI3">
@@ -110,15 +148,18 @@
                         <viewLayoutGuide key="safeArea" id="PuA-3a-WX8"/>
                     </view>
                     <navigationItem key="navigationItem" id="5uK-L1-bIL"/>
+                    <connections>
+                        <outlet property="tableView" destination="aoa-a0-Jbg" id="gKb-05-7Ct"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDS-vD-4s3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2039" y="139"/>
         </scene>
-        <!--View Controller-->
+        <!--Episode Detail View Controller-->
         <scene sceneID="ZP4-5r-PPo">
             <objects>
-                <viewController id="5HO-gF-FD0" sceneMemberID="viewController">
+                <viewController id="5HO-gF-FD0" customClass="EpisodeDetailViewController" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bvQ-Qm-QML">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -177,6 +218,12 @@
                         <viewLayoutGuide key="safeArea" id="ieI-f3-BS2"/>
                     </view>
                     <navigationItem key="navigationItem" id="5n3-gk-oQn"/>
+                    <connections>
+                        <outlet property="imageView" destination="TfC-YA-G8d" id="izT-dj-xn2"/>
+                        <outlet property="seasonLabel" destination="dwh-om-ufS" id="e8e-fe-YGO"/>
+                        <outlet property="textView" destination="rzB-8M-DGF" id="H96-qG-V5K"/>
+                        <outlet property="titleLabel" destination="hwi-HO-um7" id="h2c-DQ-RYU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epX-8N-ppt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
