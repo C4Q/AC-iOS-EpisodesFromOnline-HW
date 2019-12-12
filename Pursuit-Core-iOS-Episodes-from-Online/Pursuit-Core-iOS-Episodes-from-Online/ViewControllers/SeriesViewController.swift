@@ -25,12 +25,12 @@ class SeriesViewController: UIViewController {
         didSet{
             let searchURL = "http://api.tvmaze.com/search/shows?q=\(userQuery.lowercased().addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "Scrubs")"
             
-            SeriesAPI.getSeries(using: searchURL) { result in
+            SeriesAPI.getSeries(using: searchURL) {[weak self] result in
                 switch result{
                 case .failure(let netError):
                     print("Encountered Error while searching for series: \(netError)")
                 case .success(let series):
-                    self.shows = series
+                    self?.shows = series
                 }
             }
             

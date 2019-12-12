@@ -15,6 +15,8 @@ class EpisodeTableViewCell: UITableViewCell {
     @IBOutlet weak var episodeNameLabel: UILabel!
     @IBOutlet weak var episodeNumberLabel: UILabel!
     
+    var urlString = ""
+    
     override func prepareForReuse(){
         super.prepareForReuse()
         episodeImage.image = nil
@@ -27,6 +29,8 @@ class EpisodeTableViewCell: UITableViewCell {
             return
         }
         
+        urlString = episode.image?.medium ?? ""
+        
         if let picture = episode.image?.medium {
         NetworkHelper.shared.getImage(using: picture) { [weak self] result in
             switch result{
@@ -34,7 +38,9 @@ class EpisodeTableViewCell: UITableViewCell {
                 print("Encountered Error in setting up Episode Cell: \(netError)")
             case .success(let image):
                 DispatchQueue.main.async{
-                    self?.episodeImage.image = image
+                    if self?.urlString == picture{
+                        self?.episodeImage.image = image
+                    }
                     self?.episodeNameLabel.text = name
                     self?.episodeNumberLabel.text = "S\(season) : E\(number)"
                 }
@@ -42,6 +48,7 @@ class EpisodeTableViewCell: UITableViewCell {
         }
     }
         DispatchQueue.main.async{
+            self.episodeImage.image = UIImage(systemName: "film")
             self.episodeNameLabel.text = name
             self.episodeNumberLabel.text = "S\(season) : E\(number)"
         }

@@ -24,10 +24,15 @@ class DetailedEpisodeViewController: UIViewController {
     }
     
     private func setUp(){
-        guard let name = currentEpisode?.name, let season = currentEpisode?.season, let number = currentEpisode?.number, let description = currentEpisode?.summary else {
+        guard let name = currentEpisode?.name, let season = currentEpisode?.season, let number = currentEpisode?.number, var description = currentEpisode?.summary else {
             return
         }
         
+        for _ in 0...2{
+            description.remove(at: description.index(description.endIndex, offsetBy: -1))
+            description.remove(at: description.startIndex)
+        }
+        description.remove(at: description.index(description.endIndex, offsetBy: -1))
         if let image = currentEpisode?.image?.original{
             NetworkHelper.shared.getImage(using: image) { [weak self] result in
                 switch result{
@@ -46,6 +51,7 @@ class DetailedEpisodeViewController: UIViewController {
         }
         
         DispatchQueue.main.async{
+            self.episodeImage.image = UIImage(systemName: "film")
             self.episodeNameLabel.text = name
             self.episodeNumberLabel.text = "Episode: \(number)"
             self.episodeSeasonLabel.text = "Season: \(season)"

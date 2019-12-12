@@ -14,6 +14,8 @@ class SeriesTableViewCell: UITableViewCell {
     @IBOutlet weak var seriesImage: UIImageView!
     @IBOutlet weak var seriesNameLabel: UILabel!
     
+    var urlString = ""
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         seriesImage.image = nil
@@ -21,14 +23,19 @@ class SeriesTableViewCell: UITableViewCell {
 
     // MARK: Helper Methods
     func setUp(using series: Series) {
-        NetworkHelper.shared.getImage(using: series.show?.image?.original ?? "") { result in
+        seriesNameLabel.text = series.show?.name ?? "Unknown Show"
+        
+        urlString = series.show?.image?.original ?? ""
+        
+        NetworkHelper.shared.getImage(using: series.show?.image?.original ?? "") { [weak self] result in
             switch result{
             case .failure(let netError):
                 print("Encountered Error in getting Series Image: \(netError)")
             case .success(let image):
                 DispatchQueue.main.async{
-                    self.seriesImage.image = image
-                    self.seriesNameLabel.text = series.show?.name ?? "Unknown Show"
+                    if self?.urlString == series.show?.image?.original ?? ""{
+                        self?.seriesImage.image = image
+                    }
                 }
             }
         }
