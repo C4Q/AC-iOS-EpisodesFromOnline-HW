@@ -21,8 +21,12 @@ struct Show: Codable {
 
 struct Image: Codable {
     let medium: String
+    let original: String
     var secureMedium: String {
         "https" + medium.dropFirst(4)
+    }
+    var secureOriginal: String {
+        "https" + original.dropFirst(4)
     }
 }
 

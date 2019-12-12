@@ -22,6 +22,7 @@
 		E1E3967023A2D04600F0613D /* GenericCodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3966F23A2D04600F0613D /* GenericCodingService.swift */; };
 		E1E3967323A2D50300F0613D /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3967223A2D50300F0613D /* Show.swift */; };
 		E1E3967523A2E6D400F0613D /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3967423A2E6D400F0613D /* UIImageView+Extensions.swift */; };
+		E1E3967723A2F74300F0613D /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E3967623A2F74300F0613D /* Episode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		E1E3966F23A2D04600F0613D /* GenericCodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCodingService.swift; sourceTree = "<group>"; };
 		E1E3967223A2D50300F0613D /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		E1E3967423A2E6D400F0613D /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		E1E3967623A2F74300F0613D /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				E1E3967223A2D50300F0613D /* Show.swift */,
 				E1E3966723A2CFB700F0613D /* ShowTableViewCell.swift */,
 				CD01CD5D232178AF002D0255 /* ShowTableViewController.swift */,
+				E1E3967623A2F74300F0613D /* Episode.swift */,
 				E1E3966923A2CFC100F0613D /* EpisodeTableViewCell.swift */,
 				E1E3966323A2CF7500F0613D /* EpisodeTableViewController.swift */,
 				E1E3966523A2CF8000F0613D /* EpisodeDetailViewController.swift */,
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1E3966C23A2CFDE00F0613D /* NetworkHelper.swift in Sources */,
+				E1E3967723A2F74300F0613D /* Episode.swift in Sources */,
 				CD01CD5E232178AF002D0255 /* ShowTableViewController.swift in Sources */,
 				E1E3967523A2E6D400F0613D /* UIImageView+Extensions.swift in Sources */,
 				E1E3966623A2CF8000F0613D /* EpisodeDetailViewController.swift in Sources */,

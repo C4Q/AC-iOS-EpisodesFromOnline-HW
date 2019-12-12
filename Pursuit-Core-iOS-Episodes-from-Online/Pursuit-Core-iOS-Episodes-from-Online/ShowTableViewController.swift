@@ -34,6 +34,12 @@ class ShowTableViewController: UIViewController {
         configureViews()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destVC = segue.destination as? EpisodeTableViewController {
+            destVC.showID = shows[tableView.indexPathForSelectedRow!.row].show.id
+        }
+    }
+    
     private func loadData() {
         GenericCodingService.manager.decodeJSON([ShowWrapper].self, with: endpointURL) { result in
             switch result {

@@ -13,5 +13,9 @@ class ShowTableViewCell: UITableViewCell {
     @IBOutlet weak var showImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    
+    override func prepareForReuse() {
+        showImageView.image = nil
+    }
 
 }

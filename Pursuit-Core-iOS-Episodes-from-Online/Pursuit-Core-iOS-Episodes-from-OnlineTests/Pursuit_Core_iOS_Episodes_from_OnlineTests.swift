@@ -32,5 +32,26 @@ class Pursuit_Core_iOS_Episodes_from_OnlineTests: XCTestCase {
         
         wait(for: [exp], timeout: 20.0)
     }
+    
+    func testEpisodeModel() {
+        var episodes = [Episode]()
+        let urlString = "https://api.tvmaze.com/shows/139/episodes"
+        let id = 10820
+        
+        let exp = XCTestExpectation(description: "JSON decoded successfully.")
+        
+        GenericCodingService.manager.decodeJSON([Episode].self, with: urlString) { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error occured decoding: \(error)")
+            case .success(let episodesFromAPI):
+                episodes = episodesFromAPI
+                XCTAssertEqual(id, episodes[0].id)
+                exp.fulfill()
+            }
+        }
+        
+        wait(for: [exp], timeout: 20.0)
+    }
 
 }
