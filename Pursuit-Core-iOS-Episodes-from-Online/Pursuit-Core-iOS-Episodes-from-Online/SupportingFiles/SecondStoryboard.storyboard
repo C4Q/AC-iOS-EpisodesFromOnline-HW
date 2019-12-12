@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,29 +17,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uFn-ha-G3N">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="episodeCell" rowHeight="234" id="1Tc-I7-XJv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="episodeCell" rowHeight="234" id="1Tc-I7-XJv" customClass="EpisodeTableViewCell" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="234"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Tc-I7-XJv" id="2y9-fY-rPz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="234"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KxC-sU-yXK" userLabel="episodeImage">
-                                                    <rect key="frame" x="20" y="11" width="212" height="212"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="film" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KxC-sU-yXK" userLabel="episodeImage">
+                                                    <rect key="frame" x="20" y="12" width="212" height="209.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="KxC-sU-yXK" secondAttribute="height" multiplier="1:1" id="Fan-kN-fam"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWJ-L9-nif" userLabel="episodeName">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWJ-L9-nif" userLabel="episodeName">
                                                     <rect key="frame" x="240" y="43" width="146" height="148"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-Tp-Nvn" userLabel="seasonAndNumber">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-Tp-Nvn" userLabel="seasonAndNumber">
                                                     <rect key="frame" x="240" y="199" width="166" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -60,6 +60,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="VXM-Tp-Nvn" secondAttribute="trailing" constant="8" id="zxo-Kq-AqX"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="episodeImage" destination="KxC-sU-yXK" id="LBP-xs-BVd"/>
+                                            <outlet property="episodeNameLabel" destination="LWJ-L9-nif" id="YlB-PH-VX8"/>
+                                            <outlet property="episodeNumberLabel" destination="VXM-Tp-Nvn" id="OjO-cs-GFH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -73,10 +78,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6ji-pk-kM9"/>
                     </view>
+                    <navigationItem key="navigationItem" id="SDR-lw-Eg7"/>
+                    <connections>
+                        <outlet property="tableView" destination="uFn-ha-G3N" id="OQf-Sh-qW6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wG7-ib-N0L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236.23188405797103" y="89.732142857142847"/>
+            <point key="canvasLocation" x="673.91304347826087" y="89.732142857142847"/>
         </scene>
         <!--Detailed Episode View Controller-->
         <scene sceneID="jJ6-AJ-E32">
@@ -86,8 +95,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j7g-eX-bVq">
-                                <rect key="frame" x="-129" y="44" width="672" height="358.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="film" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="j7g-eX-bVq">
+                                <rect key="frame" x="-129" y="45" width="672" height="356"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="j7g-eX-bVq" secondAttribute="height" multiplier="15:8" id="yZc-mj-2jv"/>
                                 </constraints>
@@ -140,10 +149,38 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yal-UO-GgB"/>
                     </view>
+                    <connections>
+                        <outlet property="episodeDescription" destination="E3C-Ek-ltA" id="bOP-Lk-FgA"/>
+                        <outlet property="episodeImage" destination="j7g-eX-bVq" id="ecQ-ha-7yc"/>
+                        <outlet property="episodeNameLabel" destination="2kU-UU-rUG" id="iYU-Dy-TSm"/>
+                        <outlet property="episodeNumberLabel" destination="gT0-aJ-hxP" id="CQc-A7-6lX"/>
+                        <outlet property="episodeSeasonLabel" destination="udU-a4-LF0" id="UeI-JF-UIH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3f0-js-Qfe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547.82608695652175" y="89.732142857142847"/>
+            <point key="canvasLocation" x="1457.9710144927537" y="89.732142857142847"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b3p-QD-HeN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dMd-cy-S3L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pDv-tc-FdF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GBa-jH-O57" kind="relationship" relationship="rootViewController" id="hi0-F2-zTf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K5V-bZ-Qf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-236.23188405797103" y="89.732142857142847"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="film" catalog="system" width="64" height="46"/>
+    </resources>
 </document>

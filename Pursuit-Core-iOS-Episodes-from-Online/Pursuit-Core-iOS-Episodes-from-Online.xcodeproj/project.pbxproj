@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4449617239D71E00063702B /* SeriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4449616239D71E00063702B /* SeriesTableViewCell.swift */; };
+		C4449619239D73060063702B /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4449618239D73060063702B /* EpisodeTableViewCell.swift */; };
+		C444961B239DDC350063702B /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = C444961A239DDC350063702B /* Series.swift */; };
+		C444961D239DF2100063702B /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C444961C239DF2100063702B /* Episode.swift */; };
 		C449C56F239C890700555537 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449C56E239C890700555537 /* NetworkHelper.swift */; };
 		C449C571239C89AE00555537 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449C570239C89AE00555537 /* NetworkError.swift */; };
 		C449C573239C991D00555537 /* SecondStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C449C572239C991D00555537 /* SecondStoryboard.storyboard */; };
 		C449C575239C9A0200555537 /* EpisodeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449C574239C9A0200555537 /* EpisodeListViewController.swift */; };
 		C449C577239C9A1500555537 /* DetailedEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449C576239C9A1500555537 /* DetailedEpisodeViewController.swift */; };
+		C4514EB523A1911C00125ACB /* SeriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4514EB423A1911C00125ACB /* SeriesAPI.swift */; };
+		C4514EB723A1958D00125ACB /* EpisodeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4514EB623A1958D00125ACB /* EpisodeAPI.swift */; };
 		CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5B232178AF002D0255 /* AppDelegate.swift */; };
-		CD01CD5E232178AF002D0255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5D232178AF002D0255 /* ViewController.swift */; };
+		CD01CD5E232178AF002D0255 /* SeriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD01CD5D232178AF002D0255 /* SeriesViewController.swift */; };
 		CD01CD61232178AF002D0255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD5F232178AF002D0255 /* Main.storyboard */; };
 		CD01CD63232178B2002D0255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD62232178B2002D0255 /* Assets.xcassets */; };
 		CD01CD66232178B2002D0255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */; };
@@ -31,14 +37,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4449616239D71E00063702B /* SeriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesTableViewCell.swift; sourceTree = "<group>"; };
+		C4449618239D73060063702B /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
+		C444961A239DDC350063702B /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
+		C444961C239DF2100063702B /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		C449C56E239C890700555537 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		C449C570239C89AE00555537 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C449C572239C991D00555537 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondStoryboard.storyboard; sourceTree = "<group>"; };
 		C449C574239C9A0200555537 /* EpisodeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListViewController.swift; sourceTree = "<group>"; };
 		C449C576239C9A1500555537 /* DetailedEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEpisodeViewController.swift; sourceTree = "<group>"; };
+		C4514EB423A1911C00125ACB /* SeriesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesAPI.swift; sourceTree = "<group>"; };
+		C4514EB623A1958D00125ACB /* EpisodeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeAPI.swift; sourceTree = "<group>"; };
 		CD01CD58232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pursuit-Core-iOS-Episodes-from-Online.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD01CD5B232178AF002D0255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD01CD5D232178AF002D0255 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD01CD5D232178AF002D0255 /* SeriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesViewController.swift; sourceTree = "<group>"; };
 		CD01CD60232178AF002D0255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD01CD62232178B2002D0255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD01CD65232178B2002D0255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,6 +78,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4514EAE23A18C7300125ACB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C444961C239DF2100063702B /* Episode.swift */,
+				C444961A239DDC350063702B /* Series.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4514EAF23A18C7F00125ACB /* NetworkHelper */ = {
+			isa = PBXGroup;
+			children = (
+				C449C570239C89AE00555537 /* NetworkError.swift */,
+				C449C56E239C890700555537 /* NetworkHelper.swift */,
+			);
+			path = NetworkHelper;
+			sourceTree = "<group>";
+		};
+		C4514EB023A18C9300125ACB /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				C4449618239D73060063702B /* EpisodeTableViewCell.swift */,
+				C4449616239D71E00063702B /* SeriesTableViewCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		C4514EB123A18CB500125ACB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD01CD5D232178AF002D0255 /* SeriesViewController.swift */,
+				C449C574239C9A0200555537 /* EpisodeListViewController.swift */,
+				C449C576239C9A1500555537 /* DetailedEpisodeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C4514EB223A18D0100125ACB /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CD01CD5F232178AF002D0255 /* Main.storyboard */,
+				CD01CD62232178B2002D0255 /* Assets.xcassets */,
+				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
+				CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */,
+				C449C572239C991D00555537 /* SecondStoryboard.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		C4514EB323A190FC00125ACB /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				C4514EB423A1911C00125ACB /* SeriesAPI.swift */,
+				C4514EB623A1958D00125ACB /* EpisodeAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
 		CD01CD4F232178AF002D0255 = {
 			isa = PBXGroup;
 			children = (
@@ -87,16 +157,12 @@
 		CD01CD5A232178AF002D0255 /* Pursuit-Core-iOS-Episodes-from-Online */ = {
 			isa = PBXGroup;
 			children = (
-				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
-				CD01CD5D232178AF002D0255 /* ViewController.swift */,
-				C449C56E239C890700555537 /* NetworkHelper.swift */,
-				C449C570239C89AE00555537 /* NetworkError.swift */,
-				C449C574239C9A0200555537 /* EpisodeListViewController.swift */,
-				C449C576239C9A1500555537 /* DetailedEpisodeViewController.swift */,
-				CD01CD5F232178AF002D0255 /* Main.storyboard */,
-				C449C572239C991D00555537 /* SecondStoryboard.storyboard */,
-				CD01CD62232178B2002D0255 /* Assets.xcassets */,
-				CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */,
+				C4514EB323A190FC00125ACB /* APIs */,
+				C4514EB223A18D0100125ACB /* SupportingFiles */,
+				C4514EB123A18CB500125ACB /* ViewControllers */,
+				C4514EB023A18C9300125ACB /* CustomCells */,
+				C4514EAF23A18C7F00125ACB /* NetworkHelper */,
+				C4514EAE23A18C7300125ACB /* Models */,
 				CD01CD67232178B2002D0255 /* Info.plist */,
 			);
 			path = "Pursuit-Core-iOS-Episodes-from-Online";
@@ -214,10 +280,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C449C577239C9A1500555537 /* DetailedEpisodeViewController.swift in Sources */,
-				CD01CD5E232178AF002D0255 /* ViewController.swift in Sources */,
+				C4449619239D73060063702B /* EpisodeTableViewCell.swift in Sources */,
+				CD01CD5E232178AF002D0255 /* SeriesViewController.swift in Sources */,
+				C444961D239DF2100063702B /* Episode.swift in Sources */,
 				C449C571239C89AE00555537 /* NetworkError.swift in Sources */,
 				C449C575239C9A0200555537 /* EpisodeListViewController.swift in Sources */,
+				C4514EB723A1958D00125ACB /* EpisodeAPI.swift in Sources */,
+				C4449617239D71E00063702B /* SeriesTableViewCell.swift in Sources */,
+				C444961B239DDC350063702B /* Series.swift in Sources */,
 				C449C56F239C890700555537 /* NetworkHelper.swift in Sources */,
+				C4514EB523A1911C00125ACB /* SeriesAPI.swift in Sources */,
 				CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

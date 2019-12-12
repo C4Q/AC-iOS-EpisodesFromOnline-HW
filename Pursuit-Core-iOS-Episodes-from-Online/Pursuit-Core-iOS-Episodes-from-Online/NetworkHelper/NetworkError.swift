@@ -14,4 +14,5 @@ enum NetworkError: Error{
     case noResponse
     case networkClientError(Error)
     case badStatusCode(Int)
+    case decodingError(Error)
 }
