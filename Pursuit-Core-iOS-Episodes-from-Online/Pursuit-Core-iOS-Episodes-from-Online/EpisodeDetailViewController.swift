@@ -14,6 +14,7 @@ class EpisodeDetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var seasonLabel: UILabel!
+    @IBOutlet weak var episodeLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     
     var episode: Episode!
@@ -26,7 +27,8 @@ class EpisodeDetailViewController: UIViewController {
     private func configureView() {
         titleLabel.text = episode.name
         titleLabel.numberOfLines = 0
-        seasonLabel.text = "Season: \(episode.season), Episode: \(episode.number)"
+        seasonLabel.text = "Season: \(episode.season)"
+        episodeLabel.text = "Episode: \(episode.number)"
         if let summary = episode.summary {
             textView.text = summary
         } else {

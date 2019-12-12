@@ -62,11 +62,9 @@ class ShowTableViewController: UIViewController {
 
 extension ShowTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("searchBarButtonClicked")
         querySearch = searchBar.text?.lowercased().addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         loadData()
-        print(endpointURL)
-        
+        searchBar.endEditing(true)
     }
 }
 extension ShowTableViewController: UITableViewDelegate {}

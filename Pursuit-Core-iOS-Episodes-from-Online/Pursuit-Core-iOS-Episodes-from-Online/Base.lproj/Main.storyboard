@@ -251,6 +251,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="5n3-gk-oQn"/>
                     <connections>
+                        <outlet property="episodeLabel" destination="Shs-Uv-ov5" id="fum-xT-Z2p"/>
                         <outlet property="imageView" destination="TfC-YA-G8d" id="izT-dj-xn2"/>
                         <outlet property="seasonLabel" destination="dwh-om-ufS" id="e8e-fe-YGO"/>
                         <outlet property="textView" destination="rzB-8M-DGF" id="H96-qG-V5K"/>
