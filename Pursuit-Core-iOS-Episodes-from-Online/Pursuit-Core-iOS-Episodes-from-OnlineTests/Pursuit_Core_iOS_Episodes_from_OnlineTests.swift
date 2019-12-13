@@ -10,25 +10,48 @@ import XCTest
 @testable import Pursuit_Core_iOS_Episodes_from_Online
 
 class Pursuit_Core_iOS_Episodes_from_OnlineTests: XCTestCase {
+    
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testShowModel() {
+        var shows = [ShowWrapper]()
+        let urlString = "https://api.tvmaze.com/search/shows?q=girls"
+        let id = 139
+        
+        let exp = XCTestExpectation(description: "JSON decoded successfully.")
+        
+        GenericCodingService.manager.decodeJSON([ShowWrapper].self, with: urlString) { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error occured decoding: \(error)")
+            case .success(let showsFromAPI):
+                shows = showsFromAPI
+                XCTAssertEqual(id, shows[0].show.id)
+                exp.fulfill()
+            }
         }
+        
+        wait(for: [exp], timeout: 20.0)
+    }
+    
+    func testEpisodeModel() {
+        var episodes = [Episode]()
+        let urlString = "https://api.tvmaze.com/shows/139/episodes"
+        let id = 10820
+        
+        let exp = XCTestExpectation(description: "JSON decoded successfully.")
+        
+        GenericCodingService.manager.decodeJSON([Episode].self, with: urlString) { (result) in
+            switch result {
+            case .failure(let error):
+                print("Error occured decoding: \(error)")
+            case .success(let episodesFromAPI):
+                episodes = episodesFromAPI
+                XCTAssertEqual(id, episodes[0].id)
+                exp.fulfill()
+            }
+        }
+        
+        wait(for: [exp], timeout: 20.0)
     }
 
 }
