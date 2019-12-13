@@ -23,12 +23,12 @@ class ShowsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        loadData()
+        loadData(searchQuery: "")
         delegateMethods()
     }
     
-    func loadData(){
-        TVMazeAPIClient.fetchTVShows(searchQuery: "") { [weak self] (result) in
+    func loadData(searchQuery: String){
+        TVMazeAPIClient.fetchTVShows(searchQuery: searchQuery) { [weak self] (result) in
             switch result{
             case.failure(let appError):
                 DispatchQueue.main.async {
