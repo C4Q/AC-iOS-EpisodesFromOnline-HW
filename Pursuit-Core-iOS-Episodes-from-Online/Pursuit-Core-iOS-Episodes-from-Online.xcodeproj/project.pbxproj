@@ -17,6 +17,8 @@
 		F191557123A30D7000DDCFFA /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191557023A30D7000DDCFFA /* AppError.swift */; };
 		F191557323A30E3600DDCFFA /* ShowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191557223A30E3600DDCFFA /* ShowModel.swift */; };
 		F191557523A3125F00DDCFFA /* TVMaze APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191557423A3125F00DDCFFA /* TVMaze APIClient.swift */; };
+		F191557723A3183600DDCFFA /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191557623A3183600DDCFFA /* ViewController+Extensions.swift */; };
+		F191557B23A4282B00DDCFFA /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191557A23A4282B00DDCFFA /* ShowCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		F191557023A30D7000DDCFFA /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		F191557223A30E3600DDCFFA /* ShowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowModel.swift; sourceTree = "<group>"; };
 		F191557423A3125F00DDCFFA /* TVMaze APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TVMaze APIClient.swift"; sourceTree = "<group>"; };
+		F191557623A3183600DDCFFA /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		F191557A23A4282B00DDCFFA /* ShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 				CD01CD62232178B2002D0255 /* Assets.xcassets */,
 				CD01CD64232178B2002D0255 /* LaunchScreen.storyboard */,
 				CD01CD67232178B2002D0255 /* Info.plist */,
+				F191557623A3183600DDCFFA /* ViewController+Extensions.swift */,
+				F191557A23A4282B00DDCFFA /* ShowCell.swift */,
 			);
 			path = "Pursuit-Core-iOS-Episodes-from-Online";
 			sourceTree = "<group>";
@@ -211,10 +217,12 @@
 			files = (
 				F191557323A30E3600DDCFFA /* ShowModel.swift in Sources */,
 				F191557523A3125F00DDCFFA /* TVMaze APIClient.swift in Sources */,
+				F191557B23A4282B00DDCFFA /* ShowCell.swift in Sources */,
 				F191557123A30D7000DDCFFA /* AppError.swift in Sources */,
 				CD01CD5E232178AF002D0255 /* ShowsViewController.swift in Sources */,
 				F191556F23A30B6000DDCFFA /* NetworkHelper.swift in Sources */,
 				CD01CD5C232178AF002D0255 /* AppDelegate.swift in Sources */,
+				F191557723A3183600DDCFFA /* ViewController+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

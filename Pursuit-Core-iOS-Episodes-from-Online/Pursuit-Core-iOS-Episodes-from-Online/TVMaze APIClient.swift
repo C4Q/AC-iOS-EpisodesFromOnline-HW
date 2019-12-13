@@ -9,7 +9,12 @@
 import Foundation
 
 class TVMazeAPIClient{
-    static func fetchTVShows(endPointURLString: String, completion: @escaping (Result<[Show], AppError>)->()){
+    static func fetchTVShows(searchQuery: String, completion: @escaping (Result<[Show], AppError>)->()){
+        
+        let searchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "A"
+        let endPointURLString = "http://api.tvmaze.com/search/shows?q=\(searchQuery)"
+        
+        
         guard let url = URL(string: endPointURLString) else {
             completion(.failure(.badUrl(endPointURLString)))
             return
