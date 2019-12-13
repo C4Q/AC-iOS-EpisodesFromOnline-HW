@@ -11,6 +11,7 @@ import UIKit
 class ShowsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var shows = [Show](){
         didSet{
@@ -24,7 +25,7 @@ class ShowsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         loadData(searchQuery: "")
-        delegateMethods()
+        delegateOrDataSourceMethods()
     }
     
     func loadData(searchQuery: String){
@@ -40,8 +41,9 @@ class ShowsViewController: UIViewController {
         }
     }
     
-    func delegateMethods(){
+    func delegateOrDataSourceMethods(){
         tableView.dataSource = self
+        searchBar.delegate = self
     }
 }
 
@@ -54,7 +56,23 @@ extension ShowsViewController: UITableViewDataSource{
         //cell creation
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as? ShowCell else { fatalError("failed to dequeCell")
         }
+        
+        let show = shows[indexPath.row]
+        cell.configureCell(for: show)
+        
         return cell
+    }
+}
+
+extension ShowsViewController: UISearchBarDelegate{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
+        guard let query = searchBar.text else {
+            print("missing text")
+            return
+        }
+        loadData(searchQuery: query)
     }
 }
 
