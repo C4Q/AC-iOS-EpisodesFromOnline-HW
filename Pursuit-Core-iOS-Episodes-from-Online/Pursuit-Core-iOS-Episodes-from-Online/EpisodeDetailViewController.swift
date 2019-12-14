@@ -9,6 +9,9 @@
 import UIKit
 
 class EpisodeDetailViewController: UIViewController {
+    @IBOutlet weak var detailEpisodeView:UIImageView!
+    @IBOutlet weak var detailEpisodeNameLabel:UILabel!
+    @IBOutlet weak var detailEpisodedescriptionLabel:UILabel!
     
     var passedObj: Episode?
 
@@ -16,17 +19,36 @@ class EpisodeDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configureUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureUI(){
+        guard let episodeInfo = passedObj else {
+            fatalError("Check prepare for segue")
+        }
+        
+        guard let validImage = episodeInfo.image?.original else {
+            DispatchQueue.main.async {
+                self.detailEpisodeView.image = UIImage(systemName: "exclamationmark.triangle.fill")
+            }
+            return
+        }
+        
+        detailEpisodeView.getImage(withEndPointURLString: validImage) { (result) in
+            switch result{
+            case .failure:
+                DispatchQueue.main.async {
+                    self.detailEpisodeView.image = UIImage(systemName: "exclamationmark.triangle.fill")
+                }
+                return
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self.detailEpisodeView.image = image
+                }
+            }
+        }
+        detailEpisodeNameLabel.text = "\(episodeInfo.name)\nSeason \(episodeInfo.season)\nEpisode \(episodeInfo.episode)"
+        detailEpisodedescriptionLabel.text = "\(episodeInfo.summary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil))"
     }
-    */
 
 }

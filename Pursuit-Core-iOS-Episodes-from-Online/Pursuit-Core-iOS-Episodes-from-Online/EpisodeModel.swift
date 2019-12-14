@@ -13,11 +13,13 @@ struct Episode: Decodable {
     var season: Int
     var episode: Int
     var image: EpisodeImageURL?
+    var summary: String
     private enum CodingKeys: String, CodingKey{
         case name
         case season
         case episode = "number"
         case image
+        case summary
     }
 }
 
