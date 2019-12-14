@@ -13,8 +13,25 @@ class ShowCell: UITableViewCell {
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var showLabel:UILabel!
     
+    private var urlString:String? = ""
+    
+    override func prepareForReuse(){
+        super.prepareForReuse()
+        
+        //emptyOut the image View
+        showImage.image = nil
+    }
+    
     func configureCell(for show: Show){
-        showImage.getImage(withEndPointURLString: show.image.medium) { (result) in
+        self.urlString = show.image?.medium
+        guard let validImage = self.urlString else {
+            DispatchQueue.main.async {
+                self.showImage.image = UIImage(systemName: "exclamationmark.triangle.fill")
+            }
+            return
+        }
+        
+        showImage.getImage(withEndPointURLString: validImage) { (result) in
             switch result{
             case .failure:
                 DispatchQueue.main.async {
@@ -22,11 +39,16 @@ class ShowCell: UITableViewCell {
                 }
             case .success(let image):
                 DispatchQueue.main.async {
-                    self.showImage.image = image
+                    if self.urlString == validImage{
+                        self.showImage.image = image
+                    }
                 }
             }
         }
-        let averageRating = String(show.rating.average ?? 0.0)
+        var averageRating = String(show.rating.average ?? 0.0)
+        if averageRating == "0.0"{
+            averageRating = "N/A"
+        }
         showLabel.text = "\(show.name)\nRating: \(averageRating)"
     }
 }

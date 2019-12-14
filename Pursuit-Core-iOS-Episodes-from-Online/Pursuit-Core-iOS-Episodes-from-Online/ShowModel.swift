@@ -16,7 +16,7 @@ struct Show: Decodable {
     var id: Int
     var name: String
     var rating: Rating
-    var image: ImageURL
+    var image: ImageURL?
 }
 
 struct Rating:Decodable {
