@@ -23,8 +23,14 @@ class ShowCell: UITableViewCell {
         super.prepareForReuse()
         
         //emptyOut the image View
-        showImage.image = nil
-        episodeImage.image = nil
+        guard ((showImage?.image) != nil) else {
+            return episodeImage.image = nil
+        }
+        
+        guard ((episodeImage?.image) != nil) else {
+            return showImage.image = nil
+        }
+        
     }
     
     
