@@ -13,18 +13,24 @@ class ShowCell: UITableViewCell {
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var showLabel:UILabel!
     
-    private var urlString:String? = ""
+    @IBOutlet weak var episodeImage:UIImageView!
+    @IBOutlet weak var episodeLabel:UILabel!
+    
+    private var showURLString:String? = ""
+    private var episodeURLString:String? = ""
     
     override func prepareForReuse(){
         super.prepareForReuse()
         
         //emptyOut the image View
         showImage.image = nil
+        episodeImage.image = nil
     }
     
-    func configureCell(for show: Show){
-        self.urlString = show.image?.medium
-        guard let validImage = self.urlString else {
+    
+    func configureShowCell(for show: Show){
+        self.showURLString = show.image?.medium
+        guard let validImage = self.showURLString else {
             DispatchQueue.main.async {
                 self.showImage.image = UIImage(systemName: "exclamationmark.triangle.fill")
             }
@@ -39,7 +45,7 @@ class ShowCell: UITableViewCell {
                 }
             case .success(let image):
                 DispatchQueue.main.async {
-                    if self.urlString == validImage{
+                    if self.showURLString == validImage{
                         self.showImage.image = image
                     }
                 }
@@ -50,5 +56,29 @@ class ShowCell: UITableViewCell {
             averageRating = "N/A"
         }
         showLabel.text = "\(show.name)\nRating: \(averageRating)"
+    }
+    
+    func configureEpisodeCell(for episode: Episode){
+        self.episodeURLString = episode.image?.medium
+        guard let validEpisodeImageStr = self.episodeURLString else { DispatchQueue.main.async {
+            self.episodeImage.image = UIImage(systemName: "exclamationmark.triangle.fill")
+            }
+            return
+        }
+        episodeImage.getImage(withEndPointURLString: validEpisodeImageStr) { (result) in
+            switch result{
+            case .failure:
+                DispatchQueue.main.async {
+                    self.episodeImage.image = UIImage(systemName: "exclamationmark.triangle.fill")
+                }
+            case .success(let image):
+                DispatchQueue.main.async {
+                    if self.episodeURLString == validEpisodeImageStr{
+                        self.episodeImage.image = image
+                    }
+                }
+            }
+        }
+        episodeLabel.text = "\(episode.name)\n\nS:\(episode.season) E:\(episode.episode)"
     }
 }

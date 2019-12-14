@@ -20,6 +20,9 @@
 		F191557723A3183600DDCFFA /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191557623A3183600DDCFFA /* ViewController+Extensions.swift */; };
 		F191557B23A4282B00DDCFFA /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191557A23A4282B00DDCFFA /* ShowCell.swift */; };
 		F191557D23A4368600DDCFFA /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191557C23A4368600DDCFFA /* UIImageView+Extensions.swift */; };
+		F191557F23A4643000DDCFFA /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191557E23A4643000DDCFFA /* EpisodeViewController.swift */; };
+		F191558123A46DB800DDCFFA /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191558023A46DB800DDCFFA /* EpisodeModel.swift */; };
+		F191558323A47BAE00DDCFFA /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F191558223A47BAE00DDCFFA /* EpisodeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		F191557623A3183600DDCFFA /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F191557A23A4282B00DDCFFA /* ShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
 		F191557C23A4368600DDCFFA /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		F191557E23A4643000DDCFFA /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		F191558023A46DB800DDCFFA /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
+		F191558223A47BAE00DDCFFA /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +99,12 @@
 			children = (
 				CD01CD5B232178AF002D0255 /* AppDelegate.swift */,
 				CD01CD5D232178AF002D0255 /* ShowsViewController.swift */,
+				F191557E23A4643000DDCFFA /* EpisodeViewController.swift */,
+				F191558223A47BAE00DDCFFA /* EpisodeDetailViewController.swift */,
 				F191556E23A30B6000DDCFFA /* NetworkHelper.swift */,
 				F191557423A3125F00DDCFFA /* TVMaze APIClient.swift */,
 				F191557223A30E3600DDCFFA /* ShowModel.swift */,
+				F191558023A46DB800DDCFFA /* EpisodeModel.swift */,
 				F191557023A30D7000DDCFFA /* AppError.swift */,
 				CD01CD5F232178AF002D0255 /* Main.storyboard */,
 				CD01CD62232178B2002D0255 /* Assets.xcassets */,
@@ -219,9 +228,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F191557323A30E3600DDCFFA /* ShowModel.swift in Sources */,
+				F191558323A47BAE00DDCFFA /* EpisodeDetailViewController.swift in Sources */,
 				F191557523A3125F00DDCFFA /* TVMaze APIClient.swift in Sources */,
 				F191557B23A4282B00DDCFFA /* ShowCell.swift in Sources */,
 				F191557D23A4368600DDCFFA /* UIImageView+Extensions.swift in Sources */,
+				F191557F23A4643000DDCFFA /* EpisodeViewController.swift in Sources */,
+				F191558123A46DB800DDCFFA /* EpisodeModel.swift in Sources */,
 				F191557123A30D7000DDCFFA /* AppError.swift in Sources */,
 				CD01CD5E232178AF002D0255 /* ShowsViewController.swift in Sources */,
 				F191556F23A30B6000DDCFFA /* NetworkHelper.swift in Sources */,

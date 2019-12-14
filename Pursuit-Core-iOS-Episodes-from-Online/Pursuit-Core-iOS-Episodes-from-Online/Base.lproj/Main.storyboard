@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Shows View Controller-->
+        <!--Shows-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ShowsViewController" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,6 +57,7 @@
                                         <connections>
                                             <outlet property="showImage" destination="6rz-HO-wwb" id="Sr9-3X-Oit"/>
                                             <outlet property="showLabel" destination="9mc-Bs-314" id="S7P-Au-MIK"/>
+                                            <segue destination="kTL-gS-csf" kind="show" id="mVf-9E-EAe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -74,15 +75,83 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jvY-Fn-gzr"/>
+                    <navigationItem key="navigationItem" title="Shows" id="jvY-Fn-gzr"/>
                     <connections>
                         <outlet property="searchBar" destination="WSu-kP-M8B" id="WvJ-8P-FcQ"/>
-                        <outlet property="tableView" destination="DMd-Vm-ulx" id="R1y-Gx-5eO"/>
+                        <outlet property="showTableView" destination="DMd-Vm-ulx" id="R1y-Gx-5eO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="117.85714285714285"/>
+        </scene>
+        <!--Episode View Controller-->
+        <scene sceneID="Dd0-0h-IKg">
+            <objects>
+                <viewController id="kTL-gS-csf" customClass="EpisodeViewController" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lHR-dy-B0k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gO6-ZS-Fcz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="episodeCell" rowHeight="295" id="Uvn-Wv-bPo" customClass="ShowCell" customModule="Pursuit_Core_iOS_Episodes_from_Online" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="295"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uvn-Wv-bPo" id="JFd-Ou-yRu">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="295"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hEb-s0-HKc">
+                                                    <rect key="frame" x="20" y="11" width="248.5" height="273"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="hEb-s0-HKc" secondAttribute="height" multiplier="250:140" id="8xL-bC-s1K"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUk-Ef-r6Z">
+                                                    <rect key="frame" x="288.5" y="137.5" width="125.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mUk-Ef-r6Z" firstAttribute="trailing" secondItem="JFd-Ou-yRu" secondAttribute="trailingMargin" constant="20" id="8zJ-gk-gYa"/>
+                                                <constraint firstItem="hEb-s0-HKc" firstAttribute="top" secondItem="JFd-Ou-yRu" secondAttribute="topMargin" id="EEA-Vn-EXl"/>
+                                                <constraint firstItem="mUk-Ef-r6Z" firstAttribute="leading" secondItem="hEb-s0-HKc" secondAttribute="trailing" constant="20" id="ENN-hh-GxS"/>
+                                                <constraint firstItem="mUk-Ef-r6Z" firstAttribute="centerY" secondItem="hEb-s0-HKc" secondAttribute="centerY" id="Ug4-gz-o2Q"/>
+                                                <constraint firstItem="hEb-s0-HKc" firstAttribute="width" secondItem="JFd-Ou-yRu" secondAttribute="width" multiplier="0.6" id="kG7-Cx-O3e"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hEb-s0-HKc" secondAttribute="bottom" id="odb-jQ-Eb3"/>
+                                                <constraint firstItem="hEb-s0-HKc" firstAttribute="leading" secondItem="JFd-Ou-yRu" secondAttribute="leadingMargin" id="sRD-7G-R0I"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="episodeImage" destination="hEb-s0-HKc" id="K2X-2Y-2XA"/>
+                                            <outlet property="episodeLabel" destination="mUk-Ef-r6Z" id="qAT-za-dsF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="54I-FZ-ImZ" firstAttribute="bottom" secondItem="gO6-ZS-Fcz" secondAttribute="bottom" id="dET-Lr-jGb"/>
+                            <constraint firstItem="54I-FZ-ImZ" firstAttribute="trailing" secondItem="gO6-ZS-Fcz" secondAttribute="trailing" id="gtT-cL-MQp"/>
+                            <constraint firstItem="gO6-ZS-Fcz" firstAttribute="leading" secondItem="54I-FZ-ImZ" secondAttribute="leading" id="gzP-Bd-rfl"/>
+                            <constraint firstItem="gO6-ZS-Fcz" firstAttribute="top" secondItem="54I-FZ-ImZ" secondAttribute="top" id="rkm-ri-TRT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="54I-FZ-ImZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GgI-PO-tnJ"/>
+                    <connections>
+                        <outlet property="episodeTableView" destination="gO6-ZS-Fcz" id="LzR-78-Rd3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lwZ-Aa-byS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2037.68115942029" y="117.85714285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oLu-VF-Ypx">

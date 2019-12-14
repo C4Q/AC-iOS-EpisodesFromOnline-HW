@@ -36,4 +36,29 @@ class TVMazeAPIClient{
             }
         }
     }
+    static func fetchEpisodes(episodeNumber: Int, completion: @escaping (Result<[Episode], AppError>)->()){
+        let endPointURLString = "http://api.tvmaze.com/shows/\(episodeNumber)/episodes"
+        
+        
+        guard let url = URL(string: endPointURLString) else {
+            completion(.failure(.badUrl(endPointURLString)))
+            return
+        }
+        
+        let urlRequest = URLRequest(url: url)
+        NetworkHelper.shared.performDataTask(with: urlRequest) { (result) in
+            switch result{
+            case .failure(let appError):
+                completion(.failure(.networkClientError(appError)))
+            case .success(let data):
+                do{
+                    let episodes = try JSONDecoder().decode([Episode].self, from: data)
+                    completion(.success(episodes))
+                }catch{
+                    completion(.failure(.decodingError(error)))
+                }
+            }
+        }
+    }
+    
 }

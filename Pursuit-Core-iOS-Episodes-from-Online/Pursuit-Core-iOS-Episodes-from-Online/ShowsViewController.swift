@@ -10,13 +10,13 @@ import UIKit
 
 class ShowsViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var showTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     var shows = [Show](){
         didSet{
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.showTableView.reloadData()
             }
         }
     }
@@ -28,6 +28,11 @@ class ShowsViewController: UIViewController {
         delegateOrDataSourceMethods()
     }
     
+    func delegateOrDataSourceMethods(){
+        showTableView.dataSource = self
+        searchBar.delegate = self
+    }
+
     func loadData(searchQuery: String){
         TVMazeAPIClient.fetchTVShows(searchQuery: searchQuery) { [weak self] (result) in
             switch result{
@@ -41,9 +46,13 @@ class ShowsViewController: UIViewController {
         }
     }
     
-    func delegateOrDataSourceMethods(){
-        tableView.dataSource = self
-        searchBar.delegate = self
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let episodeVC = segue.destination as? EpisodeViewController, let indexPath = showTableView.indexPathForSelectedRow else {
+            fatalError("failed to segue ")
+        }
+        
+        let show = shows[indexPath.row]
+        episodeVC.passedObj = show
     }
 }
 
@@ -58,7 +67,7 @@ extension ShowsViewController: UITableViewDataSource{
         }
         
         let show = shows[indexPath.row]
-        cell.configureCell(for: show)
+        cell.configureShowCell(for: show)
         
         return cell
     }
