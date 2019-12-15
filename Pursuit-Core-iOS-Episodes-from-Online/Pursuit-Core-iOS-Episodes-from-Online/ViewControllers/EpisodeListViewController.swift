@@ -10,19 +10,28 @@ import UIKit
 
 class EpisodeListViewController: UIViewController {
 
+    // MARK: Outlets
     @IBOutlet weak var tableView : UITableView!
     
+    // MARK: Properties
     var seriesEpisodes: [Episode]?
     
+    // MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(true)
+        navigationItem.title = "Episode List"
+    }
 
 }
 
+// MARK: Table View Data Source Methods
 extension EpisodeListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return seriesEpisodes?.count ?? 0
@@ -38,6 +47,7 @@ extension EpisodeListViewController: UITableViewDataSource{
     }
 }
 
+// MARK: Table View Delegate Methods
 extension EpisodeListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200

@@ -9,30 +9,34 @@
 import UIKit
 
 class DetailedEpisodeViewController: UIViewController {
-
+    
+    // MARK: Outlets
     @IBOutlet weak var episodeImage: UIImageView!
     @IBOutlet weak var episodeNameLabel: UILabel!
     @IBOutlet weak var episodeNumberLabel: UILabel!
     @IBOutlet weak var episodeSeasonLabel: UILabel!
     @IBOutlet weak var episodeDescription: UITextView!
     
+    // MARK: Properties
     var currentEpisode: Episode?
     
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
     }
     
+    // MARK: Helper Methods
     private func setUp(){
-        guard let name = currentEpisode?.name, let season = currentEpisode?.season, let number = currentEpisode?.number, var description = currentEpisode?.summary else {
+        guard let name = currentEpisode?.name, let season = currentEpisode?.season, let number = currentEpisode?.number else {
+            episodeImage.image = UIImage(systemName: "film")
+            episodeNameLabel.text = "Unknown"
+            episodeNumberLabel.text = "Episode: Unknown"
+            episodeSeasonLabel.text = "Season: Unknown"
+            episodeDescription.text = ""
             return
         }
         
-        for _ in 0...2{
-            description.remove(at: description.index(description.endIndex, offsetBy: -1))
-            description.remove(at: description.startIndex)
-        }
-        description.remove(at: description.index(description.endIndex, offsetBy: -1))
         if let image = currentEpisode?.image?.original{
             NetworkHelper.shared.getImage(using: image) { [weak self] result in
                 switch result{
@@ -44,7 +48,20 @@ class DetailedEpisodeViewController: UIViewController {
                         self?.episodeNameLabel.text = name
                         self?.episodeNumberLabel.text = "Episode: \(number)"
                         self?.episodeSeasonLabel.text = "Season: \(season)"
-                        self?.episodeDescription.text = description
+                        self?.episodeDescription.text = ""
+                        if var description = self?.currentEpisode?.summary {
+                            
+                            if !description.isEmpty {
+                                for _ in 0...2{
+                                    description.remove(at: description.index(description.endIndex, offsetBy: -1))
+                                    description.remove(at: description.startIndex)
+                                }
+                                description.remove(at: description.index(description.endIndex, offsetBy: -1))
+                            }
+                            
+                            self?.episodeDescription.text = description
+                        }
+                        
                     }
                 }
             }
@@ -55,7 +72,19 @@ class DetailedEpisodeViewController: UIViewController {
             self.episodeNameLabel.text = name
             self.episodeNumberLabel.text = "Episode: \(number)"
             self.episodeSeasonLabel.text = "Season: \(season)"
-            self.episodeDescription.text = description
+            self.episodeDescription.text = ""
+            if var description = self.currentEpisode?.summary {
+                
+                if !description.isEmpty {
+                    for _ in 0...2{
+                        description.remove(at: description.index(description.endIndex, offsetBy: -1))
+                        description.remove(at: description.startIndex)
+                    }
+                    description.remove(at: description.index(description.endIndex, offsetBy: -1))
+                }
+                
+                self.episodeDescription.text = description
+            }
         }
         
     }

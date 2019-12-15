@@ -14,6 +14,7 @@ class SeriesTableViewCell: UITableViewCell {
     @IBOutlet weak var seriesImage: UIImageView!
     @IBOutlet weak var seriesNameLabel: UILabel!
     
+    // MARK: Properties
     var urlString = ""
     
     override func prepareForReuse() {

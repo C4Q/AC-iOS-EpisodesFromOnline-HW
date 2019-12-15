@@ -10,9 +10,11 @@ import UIKit
 
 class SeriesViewController: UIViewController {
 
+    // MARK: Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: Properties
     var shows = [Series](){
         didSet{
             DispatchQueue.main.async{
@@ -37,14 +39,22 @@ class SeriesViewController: UIViewController {
         }
     }
     
+    // MARK: Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationItem.title = "Series List"
+        searchBar.placeholder = "Enter series title here"
+    }
 }
 
+// MARK: Table View Data Source Methods
 extension SeriesViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let xCell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as? SeriesTableViewCell else {
@@ -59,6 +69,7 @@ extension SeriesViewController: UITableViewDataSource{
     }
 }
 
+// MARK: Table View Delegate Methods
 extension SeriesViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let newStoryboard = UIStoryboard(name: "SecondStoryboard", bundle: nil)
@@ -83,6 +94,7 @@ extension SeriesViewController: UITableViewDelegate{
     }
 }
 
+// MARK: Searchbar Delegate
 extension SeriesViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         userQuery = searchText

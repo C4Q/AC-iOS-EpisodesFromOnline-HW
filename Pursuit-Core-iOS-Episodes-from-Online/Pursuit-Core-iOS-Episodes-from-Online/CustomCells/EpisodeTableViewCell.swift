@@ -15,7 +15,11 @@ class EpisodeTableViewCell: UITableViewCell {
     @IBOutlet weak var episodeNameLabel: UILabel!
     @IBOutlet weak var episodeNumberLabel: UILabel!
     
+    // MARK: Properties
     var urlString = ""
+    var epName = ""
+    var epNumber = -1
+    var epSeason = -1
     
     override func prepareForReuse(){
         super.prepareForReuse()
@@ -30,6 +34,9 @@ class EpisodeTableViewCell: UITableViewCell {
         }
         
         urlString = episode.image?.medium ?? ""
+        epName = name
+        epNumber = number
+        epSeason = season
         
         if let picture = episode.image?.medium {
         NetworkHelper.shared.getImage(using: picture) { [weak self] result in
@@ -41,8 +48,12 @@ class EpisodeTableViewCell: UITableViewCell {
                     if self?.urlString == picture{
                         self?.episodeImage.image = image
                     }
-                    self?.episodeNameLabel.text = name
-                    self?.episodeNumberLabel.text = "S\(season) : E\(number)"
+                    if self?.epName == name{
+                        self?.episodeNameLabel.text = name
+                    }
+                    if self?.epNumber == number && self?.epSeason == season{
+                        self?.episodeNumberLabel.text = "S\(season) : E\(number)"
+                    }
                 }
             }
         }
