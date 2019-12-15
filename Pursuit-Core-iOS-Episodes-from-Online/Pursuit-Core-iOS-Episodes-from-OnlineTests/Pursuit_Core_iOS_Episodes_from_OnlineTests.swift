@@ -11,24 +11,27 @@ import XCTest
 
 class Pursuit_Core_iOS_Episodes_from_OnlineTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testGetData(){
+        //Arrange
+        let exampleURLString = "http://api.tvmaze.com/search/shows?q=girls"
+        let exp = XCTestExpectation(description: "Valid data is returned.")
+        var data = Data()
+        
+        
+        //Act
+        
+        NetworkHelper.shared.getData(using: exampleURLString) { result in
+            switch result{
+            case .failure(_):
+                break
+            case .success(let returnedData):
+                data = returnedData
+                // Assert
+                exp.fulfill()
+                XCTAssertNotNil(data, "Data returned with a value of nil.")
+            }
         }
+        wait(for: [exp], timeout: 10.0)
     }
-
+    
 }
