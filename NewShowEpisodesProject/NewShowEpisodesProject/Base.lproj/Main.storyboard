@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Show View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ShowViewController" customModule="NewShowEpisodesProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="8A7-Z2-fss">
+                                <rect key="frame" x="0.0" y="32" width="414" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="M3w-Hv-bjd"/>
+                                    <constraint firstAttribute="width" constant="414" id="Woe-d6-ib1"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4uT-pC-q0n" customClass="showTableView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="747"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="6oU-WG-gGA"/>
+                                    <constraint firstAttribute="height" constant="747" id="HEj-Ox-zfS"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showCell" rowHeight="190" id="ema-MJ-UNv" customClass="ShowTableViewCell" customModule="NewShowEpisodesProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="190"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ema-MJ-UNv" id="GgX-qK-fWL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Izo-O8-X70">
+                                                    <rect key="frame" x="8" y="14" width="242" height="160"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eU8-sE-wm6">
+                                                    <rect key="frame" x="258" y="25" width="146" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.44911248270749249" green="0.61634944995890628" blue="0.62811973222016082" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5S-GB-UEJ">
+                                                    <rect key="frame" x="258" y="108" width="146" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.4560634886292399" green="0.62965680530228596" blue="0.61379009411726992" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ratingLabel" destination="h5S-GB-UEJ" id="MHa-7u-Aep"/>
+                                            <outlet property="showImageView" destination="Izo-O8-X70" id="rG5-73-KZd"/>
+                                            <outlet property="showTitleLabel" destination="eU8-sE-wm6" id="FPW-DF-YeQ"/>
+                                            <segue destination="wEa-sq-v3S" kind="show" id="Zm3-JT-BAG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4uT-pC-q0n" secondAttribute="trailing" id="78h-Xl-2O3"/>
+                            <constraint firstItem="4uT-pC-q0n" firstAttribute="top" secondItem="8A7-Z2-fss" secondAttribute="bottom" id="ItR-2F-vsv"/>
+                            <constraint firstItem="4uT-pC-q0n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RFS-Jd-sbg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4uT-pC-q0n" secondAttribute="bottom" constant="27" id="ttD-1T-M52"/>
+                            <constraint firstItem="8A7-Z2-fss" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uYt-3Q-K7M"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8A7-Z2-fss" secondAttribute="trailing" id="xHO-Cy-4f6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="showSearchbar" destination="8A7-Z2-fss" id="v0u-JB-Id8"/>
+                        <outlet property="showTableView" destination="4uT-pC-q0n" id="7bn-AW-RSB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-199" y="102"/>
+        </scene>
+        <!--Episode View Controller-->
+        <scene sceneID="6pC-Nh-u4G">
+            <objects>
+                <viewController id="wEa-sq-v3S" customClass="EpisodeViewController" customModule="NewShowEpisodesProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Few-YT-607">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hsA-77-NOB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="781"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="episodeCell" rowHeight="238" id="bgN-mr-1qw" customClass="EpisodeTableViewCell" customModule="NewShowEpisodesProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="238"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bgN-mr-1qw" id="vuz-AV-R6W">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="238"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrD-1Z-Ryo">
+                                                    <rect key="frame" x="250" y="53" width="144" height="50"/>
+                                                    <color key="backgroundColor" red="0.47266346607513315" green="0.62762178131926638" blue="0.63644777790544005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="144" id="IMG-qp-dU8"/>
+                                                        <constraint firstAttribute="height" constant="50" id="QvO-x0-Bn1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S: E:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WP-Vo-hsp">
+                                                    <rect key="frame" x="250" y="128" width="144" height="50"/>
+                                                    <color key="backgroundColor" red="0.47601155827694197" green="0.63545352113068709" blue="0.63720126775315578" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="144" id="P0j-b6-PS4"/>
+                                                        <constraint firstAttribute="height" constant="50" id="kpa-9N-Q4G"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Fu-Y0-f2g">
+                                                    <rect key="frame" x="0.0" y="39" width="242" height="160"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="242" id="Jqb-Br-YWU"/>
+                                                        <constraint firstAttribute="height" constant="160" id="jAv-35-XoZ"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="4Fu-Y0-f2g" secondAttribute="bottom" constant="39" id="1Lf-qf-JhK"/>
+                                                <constraint firstAttribute="trailing" secondItem="MrD-1Z-Ryo" secondAttribute="trailing" constant="20" id="321-nI-EZs"/>
+                                                <constraint firstItem="MrD-1Z-Ryo" firstAttribute="top" secondItem="vuz-AV-R6W" secondAttribute="top" constant="53" id="9kd-hn-wL5"/>
+                                                <constraint firstItem="4Fu-Y0-f2g" firstAttribute="leading" secondItem="vuz-AV-R6W" secondAttribute="leadingMargin" constant="-20" id="I57-ft-x0j"/>
+                                                <constraint firstAttribute="bottom" secondItem="1WP-Vo-hsp" secondAttribute="bottom" constant="60" id="TQv-cH-oEw"/>
+                                                <constraint firstItem="1WP-Vo-hsp" firstAttribute="leading" secondItem="4Fu-Y0-f2g" secondAttribute="trailing" constant="8" id="cXA-SR-CDc"/>
+                                                <constraint firstItem="4Fu-Y0-f2g" firstAttribute="top" secondItem="vuz-AV-R6W" secondAttribute="top" constant="39" id="f6j-fD-c4A"/>
+                                                <constraint firstItem="MrD-1Z-Ryo" firstAttribute="leading" secondItem="4Fu-Y0-f2g" secondAttribute="trailing" constant="8" id="jcn-Ho-dkd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="episodeImage" destination="4Fu-Y0-f2g" id="0Wi-ww-T8f"/>
+                                            <outlet property="episodeName" destination="1WP-Vo-hsp" id="YQI-l9-1ZM"/>
+                                            <outlet property="episodeSeason" destination="1WP-Vo-hsp" id="EwU-ci-X55"/>
+                                            <segue destination="Of2-yl-HyH" kind="show" id="RX3-7w-GN8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="AH0-6M-zzx" firstAttribute="bottom" secondItem="hsA-77-NOB" secondAttribute="bottom" constant="27" id="1rI-ee-ekB"/>
+                            <constraint firstItem="AH0-6M-zzx" firstAttribute="trailing" secondItem="hsA-77-NOB" secondAttribute="trailing" id="Ojp-65-xR7"/>
+                            <constraint firstItem="hsA-77-NOB" firstAttribute="top" secondItem="AH0-6M-zzx" secondAttribute="top" id="QaV-SO-TVS"/>
+                            <constraint firstItem="hsA-77-NOB" firstAttribute="leading" secondItem="AH0-6M-zzx" secondAttribute="leading" id="X5x-za-kXX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AH0-6M-zzx"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Svv-qh-o5P"/>
+                    <connections>
+                        <outlet property="episodeTableView" destination="hsA-77-NOB" id="4rC-mq-rED"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4EL-ZW-uAP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="813.04347826086962" y="101.78571428571428"/>
+        </scene>
+        <!--Episode Detail View Controller-->
+        <scene sceneID="nWk-0E-sDH">
+            <objects>
+                <viewController id="Of2-yl-HyH" customClass="EpisodeDetailViewController" customModule="NewShowEpisodesProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nUk-dL-cEy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WL-sK-q6t">
+                                <rect key="frame" x="20" y="284" width="374" height="41"/>
+                                <color key="backgroundColor" red="0.47756322309999999" green="0.65647028149999997" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="5AW-7K-SLQ"/>
+                                    <constraint firstAttribute="height" constant="41" id="fNn-8X-2rT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Season" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfY-5Q-rDr">
+                                <rect key="frame" x="20" y="333" width="374" height="41"/>
+                                <color key="backgroundColor" red="0.47756322309999999" green="0.65647028149999997" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="1bk-mL-did"/>
+                                    <constraint firstAttribute="width" constant="374" id="fny-kO-Dhb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kP0-0A-vkf">
+                                <rect key="frame" x="20" y="384" width="374" height="41"/>
+                                <color key="backgroundColor" red="0.47756322309999999" green="0.65647028149999997" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="60t-Gm-jv6"/>
+                                    <constraint firstAttribute="height" constant="41" id="em9-vk-ynz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q3m-zn-SBf">
+                                <rect key="frame" x="20" y="433" width="374" height="359"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="gAk-F5-swv"/>
+                                    <constraint firstAttribute="height" constant="359" id="oDf-N8-ARU"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c8l-ac-754">
+                                <rect key="frame" x="20" y="36" width="374" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="Us8-sY-KvG"/>
+                                    <constraint firstAttribute="height" constant="240" id="enr-2E-HOm"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="top" secondItem="aZN-CE-Ocq" secondAttribute="top" constant="36" id="1bV-En-I1H"/>
+                            <constraint firstItem="kP0-0A-vkf" firstAttribute="top" secondItem="RfY-5Q-rDr" secondAttribute="bottom" constant="10" id="2hZ-D2-iwF"/>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="top" secondItem="aZN-CE-Ocq" secondAttribute="top" constant="36" id="2pH-Z7-0Zn"/>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="trailing" secondItem="q3m-zn-SBf" secondAttribute="trailing" id="2x7-bT-0y6"/>
+                            <constraint firstItem="q3m-zn-SBf" firstAttribute="leading" secondItem="aZN-CE-Ocq" secondAttribute="leading" constant="20" id="46P-iB-t32"/>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="leading" secondItem="5WL-sK-q6t" secondAttribute="leading" id="K4y-QX-dla"/>
+                            <constraint firstItem="5WL-sK-q6t" firstAttribute="top" secondItem="c8l-ac-754" secondAttribute="bottom" constant="8" id="P9F-jx-K1O"/>
+                            <constraint firstItem="RfY-5Q-rDr" firstAttribute="top" secondItem="5WL-sK-q6t" secondAttribute="bottom" constant="8" id="Ug8-j3-KR5"/>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="leading" secondItem="nUk-dL-cEy" secondAttribute="leadingMargin" id="Xni-Oj-2LC"/>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="leading" secondItem="RfY-5Q-rDr" secondAttribute="leading" id="ZVq-K3-ZFG"/>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="leading" secondItem="q3m-zn-SBf" secondAttribute="leading" id="bL0-pr-vpc"/>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="trailing" secondItem="5WL-sK-q6t" secondAttribute="trailing" id="dBa-oX-xVP"/>
+                            <constraint firstItem="aZN-CE-Ocq" firstAttribute="trailing" secondItem="5WL-sK-q6t" secondAttribute="trailing" constant="20" id="f6J-Z0-6fb"/>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="trailing" secondItem="kP0-0A-vkf" secondAttribute="trailing" id="hdo-Lt-0Ms"/>
+                            <constraint firstItem="RfY-5Q-rDr" firstAttribute="leading" secondItem="aZN-CE-Ocq" secondAttribute="leading" constant="20" id="k4L-XI-i8g"/>
+                            <constraint firstItem="aZN-CE-Ocq" firstAttribute="trailing" secondItem="c8l-ac-754" secondAttribute="trailing" constant="20" id="kGv-bp-c51"/>
+                            <constraint firstItem="q3m-zn-SBf" firstAttribute="top" secondItem="kP0-0A-vkf" secondAttribute="bottom" constant="8" id="n7z-3L-S1P"/>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="trailing" secondItem="RfY-5Q-rDr" secondAttribute="trailing" id="pTM-uV-nKJ"/>
+                            <constraint firstItem="kP0-0A-vkf" firstAttribute="leading" secondItem="aZN-CE-Ocq" secondAttribute="leading" constant="20" id="sZy-aO-3RB"/>
+                            <constraint firstItem="5WL-sK-q6t" firstAttribute="top" secondItem="c8l-ac-754" secondAttribute="bottom" constant="8" id="wfs-kj-cQg"/>
+                            <constraint firstItem="c8l-ac-754" firstAttribute="leading" secondItem="kP0-0A-vkf" secondAttribute="leading" id="xu3-12-9de"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aZN-CE-Ocq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TdV-qi-bgg"/>
+                    <connections>
+                        <outlet property="detailImageView" destination="c8l-ac-754" id="HMG-Vs-emz"/>
+                        <outlet property="detailNameLabel" destination="5WL-sK-q6t" id="BdJ-TE-Hwf"/>
+                        <outlet property="detailSeasonLabel" destination="RfY-5Q-rDr" id="g42-L7-a1S"/>
+                        <outlet property="detailSummary" destination="q3m-zn-SBf" id="X6b-EJ-Li5"/>
+                        <outlet property="episodeNumberLabel" destination="kP0-0A-vkf" id="tNo-BK-tkK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mqx-1h-JBz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1871" y="102"/>
+        </scene>
+    </scenes>
+</document>
